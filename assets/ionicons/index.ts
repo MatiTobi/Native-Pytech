@@ -3,35 +3,30 @@ import { Ionicons as IoniconsExpo } from '@expo/vector-icons'
 import { SvgProps } from 'react-native-svg'
 import Ionicons, { IoniconsProps } from './Ionicons'
 
+import WaterSvg from './svgs/water.svg'
+import HappySvg from './svgs/happy.svg'
+import SadSvg from './svgs/sad.svg'
+import CubeSvg from './svgs/cube.svg'
+import EllipseSvg from './svgs/ellipse.svg'
+import InformationCircleOutlineSvg from './svgs/information-circle-outline.svg'
 
 type IoniconsName = IoniconsProps['name']
 
-const svgContext = require.context('./svgs/', false, /\.svg$/)
-
-const _icons: Partial<Record<IoniconsName, ReactElement[]>> = {}
-
-
 const getRawPaths = (Icon: React.FC<SvgProps>): ReactElement[] => {
-
     const svgElement = (Icon as Function)({}) as ReactElement<SvgProps>
     const paths = React.Children.toArray(svgElement.props.children)
         .filter((el): el is ReactElement => React.isValidElement(el))
-
     return paths
 }
 
-svgContext.keys().forEach((key: string) => {
-    const name = key.replace('./', '').replace('.svg', '').replace('svgs/', '') as IoniconsName
+export const _icons: Partial<Record<IoniconsName, ReactElement[]>> = {
+    water: getRawPaths(WaterSvg as React.FC<SvgProps>),
+    happy: getRawPaths(HappySvg as React.FC<SvgProps>),
+    sad: getRawPaths(SadSvg as React.FC<SvgProps>),
+    cube: getRawPaths(CubeSvg as React.FC<SvgProps>),
+    ellipse: getRawPaths(EllipseSvg as React.FC<SvgProps>),
+    'information-circle-outline': getRawPaths(InformationCircleOutlineSvg as React.FC<SvgProps>),
+}
 
-    if (!(name in IoniconsExpo.glyphMap)) {
-        throw new Error(`El icono "${name}" no es un nombre válido de Ionicons`)
-    }
-
-    const mod = svgContext(key)
-    const Icon = mod.default || mod
-    const paths = getRawPaths(Icon)
-    _icons[name] = paths
-})
-
-export { IoniconsProps, _icons }
+export { IoniconsProps }
 export default Ionicons

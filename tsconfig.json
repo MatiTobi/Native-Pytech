@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "jsx": "react-native",
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "declaration": true,
+        "module": "commonjs",
+        "target": "esnext",
+        "skipLibCheck": true,
+        "paths": {
+            "react-native-pytech": ["./index.ts"],
+            "react-native-pytech/*": ["./*"]
+        }
+    },
+    "include": [
+        "declarations.d.ts",
+        "index.ts",
+        "constants/**/*",
+        "components/**/*",
+        "table/**/*",
+        "providers/**/*",
+        "assets/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

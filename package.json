@@ -2,8 +2,8 @@
     "name": "react-native-pytech",
     "version": "1.0.0",
     "description": "Libreria de React Native Pytech",
-    "main": "index.ts",
-    "types": "index.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
