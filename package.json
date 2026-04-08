@@ -1,6 +1,6 @@
 {
     "name": "react-native-pytech",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Componentes reutilizables de React Native",
     "main": "src/index.ts",
     "types": "src/typescript/index.d.ts",
@@ -11,8 +11,11 @@
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
-        "react": "19.1.0",
-        "react-native": "0.81.5",
+        "@expo/vector-icons": "^15.0.3",
+        "@legendapp/list": "^2.0.19",
+        "@legendapp/state": "^3.0.0-beta.45",
+        "@react-native-masked-view/masked-view": "0.3.2",
+        "color2k": "^2.0.3",
         "expo-blur": "~15.0.8",
         "expo-constants": "~18.0.9",
         "expo-device": "~8.0.10",
@@ -20,22 +23,20 @@
         "expo-linear-gradient": "~15.0.8",
         "expo-mesh-gradient": "~0.4.8",
         "expo-router": "~6.0.23",
-        "@expo/vector-icons": "^15.0.3",
-        "@legendapp/list": "^2.0.19",
-        "@legendapp/state": "^3.0.0-beta.45",
-        "@react-native-masked-view/masked-view": "0.3.2",
-        "color2k": "^2.0.3",
+        "react": "^19.1.0",
+        "react-native": "0.81.5",
         "react-native-reanimated": "~4.1.1",
         "react-native-reorderable-list": "^0.17.0",
         "react-native-svg": "^15.12.1",
         "react-native-worklets": "0.5.1"
     },
     "devDependencies": {
-        "typescript": "~5.9.2",
         "@types/react": "~19.1.10",
-        "react": "19.1.0",
+        "babel-plugin-module-resolver": "^5.0.3",
+        "expo": "~54.0.33",
+        "react": "19.2.4",
         "react-native": "0.81.5",
-        "expo": "~54.0.33"
+        "typescript": "~5.9.2"
     },
     "exports": {
         ".": "./src",
