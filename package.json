@@ -37,15 +37,5 @@
         "react": "19.2.5",
         "react-native": "0.81.5",
         "typescript": "~5.9.2"
-    },
-    "typesVersions": {
-        "*": {
-            "*": [
-                "./src/*"
-            ]
-        }
-    },
-    "dependencies": {
-        "react-native-pytech": "github:MatiTobi/React-Native"
     }
 }
