@@ -1,6 +1,6 @@
 {
-    "name": "reactNative",
-    "version": "1.0.1",
+    "name": "react-native-pytech",
+    "version": "1.0.2",
     "description": "Componentes reutilizables de React Native",
     "main": "src/index.js",
     "types": "src/typescript/index.d.ts",

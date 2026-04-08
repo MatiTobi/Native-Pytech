@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { BlurEvent, FocusEvent, Platform, StyleSheet, TextInput, TextInputProps } from 'react-native'
 
-import Colors, { ThemeType } from 'reactNative/colors'
-import { useApp } from 'reactNative/Providers/App'
+import Colors, { ThemeType } from 'react-native-pytech/colors'
+import { useApp } from 'react-native-pytech/Providers/App'
 
 
 

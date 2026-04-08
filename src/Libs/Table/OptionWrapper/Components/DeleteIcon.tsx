@@ -1,9 +1,9 @@
-import { useDelete } from 'reactNative/Libs/Table'
 import React, { memo } from 'react'
 import { Pressable } from 'react-native'
 
-import RemoveCircle from 'reactNative/Assets/components/remove-circle'
-import Colors from 'reactNative/colors'
+import { useDelete } from 'react-native-pytech/Libs/Table'
+import RemoveCircle from 'react-native-pytech/Assets/components/remove-circle'
+import Colors from 'react-native-pytech/colors'
 
 
 

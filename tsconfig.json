@@ -3,7 +3,7 @@
         "jsx": "react-native",
         "esModuleInterop": true,
         "paths": {
-            "reactNative/*": ["./src/*"]
+            "react-native-pytech/*": ["./src/*"]
         }
     }
 }

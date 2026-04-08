@@ -2,9 +2,9 @@ import { Ionicons } from '@expo/vector-icons'
 import React, { memo } from 'react'
 import { Pressable, PressableProps } from 'react-native'
 
-//import { useDrag } from 'reactNative/Libs/ReorderableList'
-import Colors, { ThemeType } from 'reactNative/colors'
-import { useApp } from 'reactNative/Providers/App';
+//import { useDrag } from 'react-native-pytech/Libs/ReorderableList'
+import Colors, { ThemeType } from 'react-native-pytech/colors'
+import { useApp } from 'react-native-pytech/Providers/App';
 
 
 /**

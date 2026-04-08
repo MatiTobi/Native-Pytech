@@ -4,9 +4,9 @@ import React, { memo, useEffect, useRef } from 'react'
 import { Platform, StyleSheet } from 'react-native'
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 
-import { addProps } from 'reactNative/defs'
-import Colors, { ThemeType } from 'reactNative/colors'
-import { useApp } from 'reactNative/Providers/App'
+import { addProps } from 'react-native-pytech/defs'
+import Colors, { ThemeType } from 'react-native-pytech/colors'
+import { useApp } from 'react-native-pytech/Providers/App'
 
 import { BordersContext, StoreContext, TableContext, TableStore } from './context'
 import OptionWrapper from './OptionWrapper'

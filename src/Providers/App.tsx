@@ -4,7 +4,7 @@ import { useColorScheme, useWindowDimensions } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 
-import { ColorSchemeType } from "reactNative/colors"
+import { ColorSchemeType } from "react-native-pytech/colors"
 
 
 

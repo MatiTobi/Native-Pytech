@@ -4,8 +4,8 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { Animated, Easing, LayoutChangeEvent, Platform, Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated'
 
-import { useLayoutEffectWithoutFirstRender } from 'reactNative/defs'
-import Colors from 'reactNative/colors'
+import { useLayoutEffectWithoutFirstRender } from 'react-native-pytech/defs'
+import Colors from 'react-native-pytech/colors'
 
 import { useStore, useTable } from '../../../../context'
 import { DeleteContext } from './context'

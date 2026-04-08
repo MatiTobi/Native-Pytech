@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { OptionComponent, OptionWrapperProps } from './types'
 
-import ThemeComponent from 'reactNative/Components/Theme'
-import { ColorSchemeType } from 'reactNative/colors'
+import ThemeComponent from 'react-native-pytech/Components/Theme'
+import { ColorSchemeType } from 'react-native-pytech/colors'
 
 import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView } from './Components'
 import Wrapper from './Wrapper'
