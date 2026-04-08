@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useApp } from 'react-native-pytech/Providers/App'
-import { ColorSchemeType } from 'react-native-pytech/colors'
+import { useApp } from '@react-native-pytech/providers/App'
+import { ColorSchemeType } from '@react-native-pytech/constants'
 
 
 

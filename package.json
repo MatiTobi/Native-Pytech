@@ -1,9 +1,9 @@
 {
-    "name": "react-native-pytech",
-    "version": "1.0.4",
-    "description": "Componentes reutilizables de React Native",
-    "main": "src/index.ts",
-    "types": "src/index.ts",
+    "name": "@react-native-pytech",
+    "version": "1.0.0",
+    "description": "Libreria de React Native Pytech",
+    "main": "index.ts",
+    "types": "index.ts",
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
@@ -40,7 +40,12 @@
     },
     "typesVersions": {
         "*": {
-            "*": ["./src/*"]
+            "*": [
+                "./src/*"
+            ]
         }
+    },
+    "dependencies": {
+        "react-native-pytech": "github:MatiTobi/React-Native"
     }
 }

@@ -2,7 +2,7 @@ import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-nativ
 import { Platform, View, ViewProps } from 'react-native'
 import React, { memo } from 'react'
 
-import Colors, { ColorSchemeType } from 'react-native-pytech/colors'
+import { Colors, ColorSchemeType } from '@react-native-pytech/constants'
 
 import { deviceTier } from '../..'
 import { useTable } from '../../context'
