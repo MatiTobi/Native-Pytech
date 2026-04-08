@@ -37,5 +37,14 @@
         "react": "19.2.5",
         "react-native": "0.81.5",
         "typescript": "~5.9.2"
+    },
+    "typesVersions": {
+        "*": {
+            "constants": ["dist/constants/index.d.ts"],
+            "components": ["dist/components/index.d.ts"],
+            "table": ["dist/table/index.d.ts"],
+            "providers": ["dist/providers/index.d.ts"],
+            "assets/ionicons": ["dist/assets/ionicons/index.d.ts"]
+        }
     }
 }

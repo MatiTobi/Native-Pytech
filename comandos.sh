@@ -7,4 +7,4 @@ git add .
 git commit -m "."
 git push
 
-npm install git+https://github.com/MatiTobi/React-Native.git --legacy-peer-deps
+npm install github:MatiTobi/React-Native --legacy-peer-deps
