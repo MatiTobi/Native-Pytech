@@ -40,6 +40,7 @@
     },
     "exports": {
         ".": "./src",
+        "./defs": "./src/defs.ts",
         "./Components": "./src/Components",
         "./Providers/*": "./src/Providers/*",
         "./Assets/*": "./src/Assets/*",
