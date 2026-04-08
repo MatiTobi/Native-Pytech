@@ -1,6 +1,6 @@
 {
     "name": "reactNative",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Componentes reutilizables de React Native",
     "main": "src/index.js",
     "types": "src/typescript/index.d.ts",
@@ -42,6 +42,7 @@
         "./Components": "./src/Components",
         "./Providers/*": "./src/Providers/*",
         "./Assets/*": "./src/Assets/*",
-        "./Libs/*": "./src/Libs/*"
+        "./Libs/*": "./src/Libs/*",
+        "./Libs/Table": "./src/Libs/Table/index"
     }
 }
