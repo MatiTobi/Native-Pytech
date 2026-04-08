@@ -38,13 +38,36 @@
         "react-native": "0.81.5",
         "typescript": "~5.9.2"
     },
-    "typesVersions": {
-        "*": {
-            "constants": ["dist/constants/index.d.ts"],
-            "components": ["dist/components/index.d.ts"],
-            "table": ["dist/table/index.d.ts"],
-            "providers": ["dist/providers/index.d.ts"],
-            "assets/ionicons": ["dist/assets/ionicons/index.d.ts"]
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./constants": {
+            "types": "./dist/constants/index.d.ts",
+            "default": "./constants/index.ts"
+        },
+        "./table": {
+            "types": "./dist/table/index.d.ts",
+            "default": "./table/index.tsx"
+        },
+        "./components": {
+            "types": "./dist/components/index.d.ts",
+            "default": "./components/index.ts"
+        },
+        "./providers": {
+            "types": "./dist/providers/index.d.ts",
+            "default": "./providers/index.ts"
+        },
+        "./assets/ionicons": {
+            "types": "./dist/assets/ionicons/index.d.ts",
+            "default": "./assets/ionicons/index.ts"
+        },
+        "./assets/images/*": {
+            "default": "./assets/images/*"
+        },
+        "./assets/components/*": {
+            "default": "./assets/components/*"
         }
     }
 }
