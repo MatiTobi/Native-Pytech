@@ -39,8 +39,8 @@
         "typescript": "~5.9.2"
     },
     "exports": {
-        ".": "./src",
-        "./defs": "./src/defs.ts",
+        ".": "./src/index.ts",
+        "./*": "./src/*",
         "./Components": "./src/Components",
         "./Providers/*": "./src/Providers/*",
         "./Assets/*": "./src/Assets/*",
