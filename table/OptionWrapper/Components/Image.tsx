@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { Image, ImageSourcePropType } from 'react-native'
 
-import { Colors, ThemeType } from 'react-native-pytech/constants'
-import { useApp } from 'react-native-pytech/providers/App'
+import { Colors, ThemeType } from '../../../constants'
+import { useApp } from '../../../providers/App'
 
 
 /**

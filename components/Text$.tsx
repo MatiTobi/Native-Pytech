@@ -1,7 +1,7 @@
 import { Text, TextProps } from "react-native"
 import { memo } from "react"
 
-import { useApp } from "react-native-pytech/providers/App"
+import { useApp } from "../providers/App"
 
 
 

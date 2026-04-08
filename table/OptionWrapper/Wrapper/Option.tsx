@@ -2,7 +2,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React, { memo, useMemo } from 'react'
 import { Pressable, StyleSheet, View, StyleProp, ViewStyle } from 'react-native'
 
-import { Colors, ColorSchemeType } from 'react-native-pytech/constants'
+import { Colors, ColorSchemeType } from '../../../constants'
 
 import Table from '../..'
 import { useTable } from '../../context'
