@@ -51,13 +51,13 @@
             "types": "./dist/table/index.d.ts",
             "default": "./table/index.tsx"
         },
-        "./components": {
-            "types": "./dist/components/index.d.ts",
-            "default": "./components/index.ts"
+        "./components/*": {
+            "types": "./dist/components/*.d.ts",
+            "default": "./components/*.tsx"
         },
-        "./providers": {
-            "types": "./dist/providers/index.d.ts",
-            "default": "./providers/index.ts"
+        "./providers/*": {
+            "types": "./dist/providers/*.d.ts",
+            "default": "./providers/*.tsx"
         },
         "./assets/ionicons": {
             "types": "./dist/assets/ionicons/index.d.ts",
