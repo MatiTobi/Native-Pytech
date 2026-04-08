@@ -42,5 +42,20 @@
         "*": {
             "*": ["./src/*"]
         }
+    },
+    "exports": {
+        ".": {
+            "types": "./src/index.ts",
+            "default": "./src/index.ts"
+        },
+        "./*": {
+            "types": "./src/*",
+            "default": "./src/*"
+        },
+        "./Components": "./src/Components",
+        "./Providers/*": "./src/Providers/*",
+        "./Assets/*": "./src/Assets/*",
+        "./Libs/*": "./src/Libs/*",
+        "./Libs/Table": "./src/Libs/Table/index.tsx"
     }
 }
