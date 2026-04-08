@@ -2,8 +2,8 @@
     "name": "reactNative",
     "version": "1.0.0",
     "description": "Componentes reutilizables de React Native",
-    "main": "lib/index.js",
-    "types": "lib/typescript/index.d.ts",
+    "main": "src/index.js",
+    "types": "src/typescript/index.d.ts",
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
