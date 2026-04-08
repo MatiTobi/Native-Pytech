@@ -2,8 +2,8 @@ import { useValue } from '@legendapp/state/react'
 import React, { memo, useEffect, useMemo, useState } from 'react'
 import { PixelRatio, View, StyleSheet } from 'react-native'
 
-import { Colors, useEffectWithoutFirstRender } from '@react-native-pytech/constants'
-import { useApp } from '@react-native-pytech/providers/App'
+import { Colors, useEffectWithoutFirstRender } from 'react-native-pytech/constants'
+import { useApp } from 'react-native-pytech/providers/App'
 
 import { useStore, useTable } from '../../context'
 import { useBorder } from './Contexts/Borders'

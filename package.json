@@ -1,5 +1,5 @@
 {
-    "name": "@react-native-pytech",
+    "name": "react-native-pytech",
     "version": "1.0.0",
     "description": "Libreria de React Native Pytech",
     "main": "index.ts",

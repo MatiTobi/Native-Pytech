@@ -3,7 +3,7 @@ import React from "react";
 import { GestureResponderEvent, StyleProp, ViewProps, ViewStyle } from "react-native";
 import { LinearTransition } from "react-native-reanimated";
 
-import { ColorSchemeType } from "@react-native-pytech/constants"
+import { ColorSchemeType } from "react-native-pytech/constants"
 
 import {DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView} from './Components'
 

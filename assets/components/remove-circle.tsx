@@ -1,4 +1,4 @@
-import { Colors } from '@react-native-pytech';
+import { Colors } from 'react-native-pytech';
 import { memo } from 'react';
 import { PixelRatio, View } from 'react-native';
 
