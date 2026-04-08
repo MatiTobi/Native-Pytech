@@ -3,7 +3,7 @@
     "version": "1.0.4",
     "description": "Componentes reutilizables de React Native",
     "main": "src/index.ts",
-    "types": "src/typescript/index.d.ts",
+    "types": "src/index.ts",
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
@@ -37,6 +37,11 @@
         "react": "19.2.4",
         "react-native": "0.81.5",
         "typescript": "~5.9.2"
+    },
+    "typesVersions": {
+        "*": {
+            "*": ["./src/*"]
+        }
     },
     "exports": {
         ".": "./src/index.ts",
