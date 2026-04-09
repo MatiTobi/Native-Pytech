@@ -1,5 +1,5 @@
 import { Ionicons as IoniconsExpo } from '@expo/vector-icons'
-import { _icons } from 'assets/ionicons'
+import { _icons } from '.'
 import React, { ComponentProps } from 'react'
 import { OpaqueColorValue, PixelRatio } from 'react-native'
 import { G } from 'react-native-svg'

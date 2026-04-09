@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.sizes = exports.colors = void 0;
-exports.colors = {
+export const colors = {
     default: { dark: '#7580ba', light: '#b1c6e4' },
     rojo: { dark: '#b12309', light: '#ff856a' },
     amarillo: { dark: '#c97c00', light: '#ffe535' },
@@ -24,7 +21,7 @@ const diameterCircle = {
     medium: 45,
     large: 50
 };
-exports.sizes = Object.fromEntries(Object.entries(diameterCircle).map(([key, value]) => [key, {
+export const sizes = Object.fromEntries(Object.entries(diameterCircle).map(([key, value]) => [key, {
         diameter: value,
         fontSize: {
             1: value * 0.53,

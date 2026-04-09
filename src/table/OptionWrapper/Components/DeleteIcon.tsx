@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Pressable } from 'react-native'
 
-import { useDelete } from '../../../table'
+import { useDelete } from '../..'
 import RemoveCircle from '../../../assets/components/remove-circle'
 import { Colors } from '../../../constants'
 

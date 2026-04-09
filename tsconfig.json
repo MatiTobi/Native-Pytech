@@ -5,18 +5,19 @@
         "esModuleInterop": true,
         "outDir": "./dist",
         "declaration": true,
-        "module": "commonjs",
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "target": "esnext",
         "skipLibCheck": true,
     },
     "include": [
         "declarations.d.ts",
-        "index.ts",
-        "constants/**/*",
-        "components/**/*",
-        "table/**/*",
-        "providers/**/*",
-        "assets/**/*"
+        "src/index.ts",
+        "src/constants/**/*",
+        "src/components/**/*",
+        "src/table/**/*",
+        "src/providers/**/*",
+        "src/assets/**/*"
     ],
     "exclude": [
         "node_modules",
