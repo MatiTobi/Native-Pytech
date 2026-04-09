@@ -4,15 +4,15 @@ export const colors = {
     theme: {
         light: {
             text: colorsLib.light.text,
-            text2Libretas: colorsLib.light.text2Libretas,
+            text2: colorsLib.light.text2Libretas,
+            icon: 'hsl(0, 0%, 76%)',
             borderColorContCliente: 'hsl(240, 2.40%, 92.00%)',
-            flecha: 'hsl(0, 0%, 76%)',
         },
         dark: {
             text: colorsLib.dark.text,
-            text2Libretas: colorsLib.dark.text2Libretas,
+            text2: colorsLib.dark.text2Libretas,
+            icon: 'hsl(252, 3%, 35%)',
             borderColorContCliente: 'hsl(252, 3%, 30%)', //'hsl(240, 2%, 22%)',
-            flecha: 'hsl(252, 3%, 35%)',
         }
     },
     especiales: {

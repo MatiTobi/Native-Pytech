@@ -24,7 +24,7 @@ type Props = {
         Si es null, no se muestra.
         Tiene que ser un Animated.Text.
     */
-    renderDetail?: () => React.ReactNode;
+    renderDetail?: () => React.ReactElement<typeof Detail>;
 
     /**
         Tipo de tema de la tabla.

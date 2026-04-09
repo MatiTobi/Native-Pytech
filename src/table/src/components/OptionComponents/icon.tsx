@@ -15,7 +15,7 @@ export default memo(({name, size = 30} : {name: keyof typeof Ionicons.glyphMap, 
     const Theme = colors.theme[colorScheme]
 
 	return (
-        <Ionicons name={name} size={size} color={Theme.flecha}/>
+        <Ionicons name={name} size={size} color={Theme.icon}/>
 	)
 })
 

@@ -12,7 +12,7 @@ export default memo(({ text }: { text?: string }) => {
     const Theme = colors.theme[colorScheme]
 
     return (
-        <Text style={{color: Theme.text2Libretas, fontSize: 13, lineHeight: 16}}>
+        <Text style={{color: Theme.text2, fontSize: 13, lineHeight: 16}}>
             {text}
         </Text>
     )

@@ -6,7 +6,6 @@ import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-nativ
 
 import colors from '../../constants'
 import { useEffectWithoutFirstRender } from '../../../../constants/utils'
-
 import { useApp } from '../../../../providers/app'
 
 import { BordersProvider, StoreProvider, TableProvider } from '../../context/table'
@@ -73,7 +72,7 @@ const Table = memo(({
             {title &&
                 <Animated.Text
                     key={title}
-                    style={[styles.title, {color: Theme.text2Libretas}]}
+                    style={[styles.title, {color: Theme.text2}]}
                     exiting={FadeOut.duration(100)}
                     entering={FadeIn.duration(100)}
                 >
