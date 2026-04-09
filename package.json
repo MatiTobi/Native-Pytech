@@ -49,11 +49,11 @@
         },
         "./table": {
             "types": "./dist/table/index.d.ts",
-            "default": "./src/table/index.tsx"
+            "default": "./src/table/index.ts"
         },
         "./page": {
             "types": "./dist/page/index.d.ts",
-            "default": "./src/page/index.tsx"
+            "default": "./src/page/index.ts"
         },
         "./components": {
             "types": "./dist/components/index.d.ts",

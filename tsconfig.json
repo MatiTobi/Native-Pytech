@@ -12,12 +12,7 @@
     },
     "include": [
         "declarations.d.ts",
-        "src/index.ts",
-        "src/constants/**/*",
-        "src/components/**/*",
-        "src/table/**/*",
-        "src/providers/**/*",
-        "src/assets/**/*"
+        "src/**/*"
     ],
     "exclude": [
         "node_modules",
