@@ -6,6 +6,9 @@ import Props, { Component } from './types';
 
 
 
+/**
+    Crea una Página con ScrollView.
+*/
 const PageComponent = memo(({ children, style }: Props) => {
     return (
         <Page style={style}>

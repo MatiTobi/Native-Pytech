@@ -3,7 +3,13 @@ import WithIcon from "../WithIcon"
 
 
 type Props = {
+    /**
+        Children
+    */
     children: React.ReactNode,
+    /**
+        contentContainerStyle de la ScrollView.
+    */
     style?: StyleProp<ViewStyle>
 }
 
