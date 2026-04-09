@@ -37,6 +37,8 @@ const Component = memo(({
 
     const Theme = colors.theme[colorScheme]
     const textStyle = useMemo(() => [styles.text, { color: enabled ? Theme.text : Theme.text2}, style], [enabled, Theme, style])
+
+    console.log('\ntext', text)
 	
     return (
 		<Text$ fontScale={fontScale} style={textStyle} {...props}>
