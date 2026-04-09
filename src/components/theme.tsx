@@ -5,9 +5,7 @@ import { type ColorSchemeType } from '../constants/colors'
 
 
 
-type WithColorScheme = {
-    colorScheme: ColorSchemeType
-}
+type WithColorScheme = { colorScheme: ColorSchemeType }
 
 export default <P extends object>({ component, ...props }: { component: React.ComponentType<P & WithColorScheme> } & Partial<WithColorScheme> & P) => {
     const Component = component

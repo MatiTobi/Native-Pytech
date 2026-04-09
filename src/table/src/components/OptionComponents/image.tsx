@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
 import { Image, ImageSourcePropType } from 'react-native'
 
-import Colors, { type ThemeType } from '../../../constants/colors'
-import { useApp } from '../../../providers/app'
+import colors from '../../constants'
+import { useApp } from '../../../../providers/app'
+
 
 
 /**
@@ -11,7 +12,7 @@ import { useApp } from '../../../providers/app'
 export default memo(({source} : {source: ImageSourcePropType}) => {
 
     const { colorScheme } = useApp()
-    const Theme : ThemeType = Colors[colorScheme]
+    const Theme = colors.theme[colorScheme]
 
 	return (
         <Image source={source} style={{ width: 12.1, height: 12.1 }} tintColor={Theme.flecha}/>

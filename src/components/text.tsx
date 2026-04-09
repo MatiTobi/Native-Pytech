@@ -5,7 +5,6 @@ import { useApp } from "../providers/app"
 
 
 
-
 export default memo(({ children, fontScale, ...props } : { children: React.ReactNode, fontScale?: string } & TextProps) => {
 
 

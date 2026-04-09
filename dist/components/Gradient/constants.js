@@ -29,3 +29,4 @@ export const sizes = Object.fromEntries(Object.entries(diameterCircle).map(([key
             3: value * 0.43
         }
     }]));
+export default colors;

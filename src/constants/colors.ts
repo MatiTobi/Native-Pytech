@@ -139,9 +139,6 @@ const Colors = {
         SearchBar: '#f4f4f4',
         SearchBarText: '#86868a',
 
-        borderColorContCliente:'hsl(240, 2.40%, 92.00%)',
-
-        flecha: 'hsl(0, 0%, 76%)',
         text2Libretas: 'hsl(240, 1%, 55%)',
         contLibretas: 'white',
         contTable: 'white',
@@ -213,9 +210,6 @@ const Colors = {
         SearchBar: '#f4f4f4',
         SearchBarText: '#86868a',
 
-        borderColorContCliente: 'hsl(252, 3%, 30%)',//'hsl(240, 2%, 22%)',
-
-        flecha: 'hsl(252, 3%, 35%)',
         text2Libretas: 'hsl(252, 3%, 62%)',
         contLibretas: 'hsl(240, 3%, 11%)',
         contTable: 'hsl(240, 3%, 11%)',

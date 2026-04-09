@@ -4,11 +4,12 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { Animated, Easing, LayoutChangeEvent, Platform, Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated'
 
-import { useLayoutEffectWithoutFirstRender } from '../../../../../constants/utils'
-import Colors from '../../../../../constants/colors'
+import { useLayoutEffectWithoutFirstRender } from '../../../../constants/utils'
 
-import { useStore, useTable } from '../../../../context'
-import { DeleteContext } from './context'
+import colors from '../../constants'
+
+import { useStore, useTable } from '../../context/table'
+import { DeleteProvider } from '../../context/delete'
 import { DeleteProps } from './types'
 
 
@@ -145,9 +146,9 @@ const Component = memo(({
         <Animated.View style={[{position: 'relative'}, animatedStyle]}>
             <Reanimated.View exiting={exitingAnimation}>
                 <View {...viewProps}>
-                    <DeleteContext.Provider value={contextValue}>
+                    <DeleteProvider value={contextValue}>
                         {children}
-                    </DeleteContext.Provider>
+                    </DeleteProvider>
                 </View>
             </Reanimated.View>
         </Animated.View>
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
     },
     containerRemove: {
         paddingHorizontal: 12,
-        backgroundColor: Colors.especiales.rojo,
+        backgroundColor: colors.especiales.rojo,
         margin: 6,
         marginHorizontal: 10,
         flex: 1,

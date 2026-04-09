@@ -125,8 +125,6 @@ declare const Colors: {
         FiltroColorMensaje: string;
         SearchBar: string;
         SearchBarText: string;
-        borderColorContCliente: string;
-        flecha: string;
         text2Libretas: string;
         contLibretas: string;
         contTable: string;
@@ -183,8 +181,6 @@ declare const Colors: {
         FiltroColorMensaje: string;
         SearchBar: string;
         SearchBarText: string;
-        borderColorContCliente: string;
-        flecha: string;
         text2Libretas: string;
         contLibretas: string;
         contTable: string;

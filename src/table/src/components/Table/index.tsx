@@ -1,22 +1,18 @@
 import { useObservable } from '@legendapp/state/react'
 import * as Device from 'expo-device'
-import React, { memo, useEffect, useRef } from 'react'
+import React, { memo } from 'react'
 import { Platform, StyleSheet } from 'react-native'
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 
-import Colors, { type ThemeType } from '../constants/colors'
-import { addProps, useEffectWithoutFirstRender } from '../constants/utils'
+import colors from '../../constants'
+import { useEffectWithoutFirstRender } from '../../../../constants/utils'
 
-import { useApp } from '../providers/app'
+import { useApp } from '../../../../providers/app'
 
-import { BordersContext, StoreContext, TableContext, TableStore } from './context'
-import OptionWrapper from './optionWrapper'
-import TableProps, { TableComponent } from './types'
-import Detail from './detail'
-
-
-export { useBorders, useStore, useTable } from './context'
-export { useDelete, useBorder } from './optionWrapper'
+import { BordersProvider, StoreProvider, TableProvider } from '../../context/table'
+import OptionWrapper from '../OptionWrapper'
+import Props, { Component, Store } from './types'
+import Detail from '../Detail'
 
 
 
@@ -32,13 +28,13 @@ const Table = memo(({
     allBorders = false,
     keys,
 
-} : TableProps) => {
+} : Props) => {
 
     // ------------- Variables -------------
     const { colorScheme } = useApp()
-    const Theme : ThemeType = Colors[colorScheme]
+    const Theme = colors.theme[colorScheme]
 
-    const store = useObservable<TableStore>({
+    const store = useObservable<Store>({
         pressed_id: null,
         deleted: {
             setted: false,
@@ -66,7 +62,7 @@ const Table = memo(({
 
     return (
         <Animated.View 
-            key={title}
+            key={title || 'title'}
             layout={Platform.OS === 'web' ? undefined : LinearTransition.duration(100).easing(Easing.bezier(0.1, 0.1, 0, 1))}
             style={[
                 styles.container,
@@ -92,18 +88,18 @@ const Table = memo(({
                 layout={layoutAnimation}
                 style={[
                     styles.contentContainer,
-                    { backgroundColor: Colors.table[colorThemeType][colorScheme].background },
+                    { backgroundColor: colors.table[colorThemeType][colorScheme].background },
                     contentContainerStyle,
                     type === 'default' ? {borderRadius: 26} : {},
                 ]}
             >
-                <TableContext.Provider value={{colorThemeType, type, keys, deviceTier, allBorders}}>
-                    <StoreContext.Provider value={store}>
-                        <BordersContext.Provider value={store.borders}>
+                <TableProvider value={{colorThemeType, type, keys, deviceTier, allBorders}}>
+                    <StoreProvider value={store}>
+                        <BordersProvider value={store.borders}>
                             {children}
-                        </BordersContext.Provider>
-                    </StoreContext.Provider>
-                </TableContext.Provider>
+                        </BordersProvider>
+                    </StoreProvider>
+                </TableProvider>
             </Animated.View>
 
 
@@ -114,7 +110,7 @@ const Table = memo(({
             }
         </Animated.View>
     )
-}) as TableComponent
+}) as Component
 
 
 

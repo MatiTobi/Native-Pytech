@@ -1,10 +1,9 @@
 import React, { memo, useMemo } from 'react'
 import { StyleProp, TextProps, TextStyle, StyleSheet } from 'react-native'
 
-import Colors, { type ColorSchemeType, type ThemeType } from '../../../constants/colors'
-import Text$ from '../../../components/text'
-import ThemeComponent from '../../../components/theme'
-
+import colors, { type ColorSchemeType } from '../../constants'
+import Text$ from '../../../../components/text'
+import ThemeComponent from '../../../../components/theme'
 
 
 
@@ -36,7 +35,7 @@ const Component = memo(({
 
 } : Props & {colorScheme: ColorSchemeType} & TextProps) => {
 
-    const Theme : ThemeType = Colors[colorScheme] // Con el ! estamos diciendo que colorScheme es obligatorio (que será)
+    const Theme = colors.theme[colorScheme]
     const textStyle = useMemo(() => [styles.text, { color: enabled ? Theme.text : Theme.text2Libretas}, style], [enabled, Theme, style])
 	
     return (

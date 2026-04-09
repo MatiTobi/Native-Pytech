@@ -3,8 +3,8 @@ import React, { memo } from 'react'
 import { Pressable, PressableProps } from 'react-native'
 
 //import { useDrag } from 'native-pytech/Libs/ReorderableList'
-import Colors, { type ThemeType } from '../../../constants/colors'
-import { useApp } from '../../../providers/app';
+import colors from '../../constants'
+import { useApp } from '../../../../providers/app';
 
 
 /**
@@ -13,7 +13,7 @@ import { useApp } from '../../../providers/app';
 export default memo(() => {
 
 	const { colorScheme } = useApp()
-    const Theme : ThemeType = Colors[colorScheme]
+    const Theme = colors.theme[colorScheme]
 
     //const pressableProps = useDrag() as unknown as PressableProps
 	const pressableProps = {} as PressableProps

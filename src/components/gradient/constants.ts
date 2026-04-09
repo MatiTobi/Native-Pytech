@@ -39,3 +39,5 @@ export const sizes = Object.fromEntries(
         }
     }])
 ) as Record<sizesType, { diameter: number, fontSize: { [key in letterCountType]: number } }>
+
+export default colors

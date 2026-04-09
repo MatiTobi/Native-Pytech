@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { Pressable } from 'react-native'
 
-import { useDelete } from '../..'
-import RemoveCircle from '../../../assets/components/remove-circle'
-import Colors from '../../../constants/colors'
+import { useDelete } from '../../context/delete'
+import RemoveCircle from '../../../../assets/components/remove-circle'
+import colors from '../../constants'
 
 
 
@@ -16,7 +16,7 @@ export default memo(() => {
 
 	return (
         <Pressable onPress={() => startDelete()}>
-			<RemoveCircle size={30} color={Colors.especiales.rojo as string} insideColor='white' />
+			<RemoveCircle size={30} color={colors.especiales.rojo} insideColor='white' />
 		</Pressable>
 	)
 })

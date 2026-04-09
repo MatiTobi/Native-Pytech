@@ -2,14 +2,14 @@ import { useValue } from '@legendapp/state/react'
 import React, { memo, useEffect, useState } from 'react'
 import { PixelRatio, View, StyleSheet } from 'react-native'
 
-import Colors from '../../../constants/colors'
+import colors from '../constants'
 import { useEffectWithoutFirstRender } from '../../../constants/utils'
 
 import { useApp } from '../../../providers/app'
 
-import { useStore, useTable } from '../../context'
-import { useBorder } from './contexts/borders'
-import { left, right } from './option'
+import { useStore, useTable } from '../context/table'
+import { useBorder } from '../context/borders'
+import { left, right } from './Option'
 
 
 
@@ -22,7 +22,7 @@ export default memo(({ id, borders }: { id: string, borders: any }) => {
     const { colorScheme } = useApp()
     const { colorThemeType } = useTable()
 
-    borders.color = Colors.table[colorThemeType][colorScheme].border
+    borders.color = colors.table[colorThemeType][colorScheme].border
     return <Component id={id} borders={borders} />
 
 })

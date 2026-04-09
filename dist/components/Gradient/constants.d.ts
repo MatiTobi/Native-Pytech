@@ -75,4 +75,4 @@ export declare const sizes: Record<sizesType, {
     diameter: number;
     fontSize: { [key in letterCountType]: number; };
 }>;
-export {};
+export default colors;

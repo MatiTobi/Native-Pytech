@@ -1,5 +1,5 @@
 import { Platform, StyleProp } from 'react-native'
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { createContext as reactCreateContext, useContext, useEffect, useLayoutEffect, useRef } from 'react'
 import * as Device from 'expo-device'
 
 
@@ -64,4 +64,18 @@ export const getDeviceTier = () : 'low' | 'medium' | 'high' => {
 	if (ramGB > 0 && ramGB <= 4) return 'low'
 	if (ramGB <= 6) return 'medium'
 	return 'high'
+}
+
+
+export const createCtx = <T>() => {
+    const context = reactCreateContext<T | null>(null)
+    const useCtx = () => createUseContext(context)
+    return [context.Provider, useCtx] as const
+}
+
+
+export const createUseContext = <T>(context: React.Context<T | null>) => {
+    const ctx = useContext(context)
+    if (!ctx) throw new Error('useContext debe usarse dentro de un context.Provider')
+    return ctx as T
 }

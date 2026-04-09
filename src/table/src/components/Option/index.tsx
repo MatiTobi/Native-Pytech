@@ -2,11 +2,11 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React, { memo, useMemo } from 'react'
 import { Pressable, StyleSheet, View, StyleProp, ViewStyle } from 'react-native'
 
-import Colors, { type ColorSchemeType } from '../../../constants/colors'
+import colors, { type ColorSchemeType } from '../../constants'
 
-import Table from '../..'
-import { useTable } from '../../context'
-import OptionProps from '../types'
+import Table from '../Table'
+import { useTable } from '../../context/table'
+import Props from './types'
 
 
 
@@ -51,7 +51,7 @@ export default memo(({
     colorScheme,
     hasTextView,
 
-} : OptionProps) => {
+} : Props) => {
 
     // Component
 
@@ -85,12 +85,14 @@ export default memo(({
     )
 });
 
-const PressableView = memo(({ children, onPress, colorScheme, styleView }: { children: React.ReactNode, onPress: OptionProps['onPress'], colorScheme: ColorSchemeType, styleView: StyleProp<ViewStyle> }) => {
+const PressableView = memo(({ children, onPress, colorScheme, styleView }: { children: React.ReactNode, onPress: Props['onPress'], colorScheme: ColorSchemeType, styleView: StyleProp<ViewStyle> }) => {
     
     const { colorThemeType } = useTable()
 
+    const backgroundColorPressed = colors.table[colorThemeType][colorScheme].background_pressed
+
     return (
-        <Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: Colors.table[colorThemeType][colorScheme].background_pressed }]}>
+        <Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
             {children}
         </Pressable>
     )

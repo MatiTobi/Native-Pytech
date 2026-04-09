@@ -2,7 +2,7 @@ import React, { memo, useMemo } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-import { colors, sizes, letterCountType, sizesType } from './constants'
+import colors, { sizes, letterCountType, sizesType } from './constants'
 
 
 

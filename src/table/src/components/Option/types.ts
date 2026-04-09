@@ -1,15 +1,13 @@
 import { LinearGradientProps } from 'expo-linear-gradient';
 import React from "react";
-import { GestureResponderEvent, StyleProp, ViewProps, ViewStyle } from "react-native";
+import { GestureResponderEvent, StyleProp, ViewStyle } from "react-native";
 import { LinearTransition } from "react-native-reanimated";
 
-import { type ColorSchemeType } from "../../constants/colors"
-
-import {DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView} from './components'
+import { type ColorSchemeType } from "../../constants"
 
 
 
-type OptionProps = {
+type Props = {
 
     /**
         Lo que se va a renderizar dentro de la opción.
@@ -80,32 +78,4 @@ type OptionProps = {
 }
 
 
-export type OptionWrapperProps = OptionProps & {
-
-    id: string,
-    isAnimated: boolean,
-
-    /**
-        Borde de la opción.
-        Es un dict con { left: 17, right: 16 } por defecto.
-    */
-    borders: { color: string | null, shownTop: boolean | null, shownBottom: boolean | null, left: number, right: number } | undefined,
-
-} & ViewProps
-
-
-export type OptionComponent = React.MemoExoticComponent<React.FC<OptionWrapperProps & {colorScheme?: ColorSchemeType}>> & {
-    Components: {
-        DeleteIcon: typeof DeleteIcon
-        DragIcon: typeof DragIcon
-        Icon: typeof Icon
-        Image: typeof Image
-        Text: typeof Text,
-        TextInput: typeof TextInput
-        TextInputCurrency: typeof TextInputCurrency
-        TextView: typeof TextView
-    }
-}
-
-
-export default OptionProps
+export default Props

@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { BlurEvent, FocusEvent, Platform, StyleSheet, TextInput, TextInputProps } from 'react-native'
 
-import Colors, { type ThemeType } from '../../../constants/colors'
-import { useApp } from '../../../providers/app'
+import colors from '../../constants'
+import { useApp } from '../../../../providers/app'
 
 
 
@@ -53,7 +53,7 @@ export default memo(({
 } & TextInputProps) => {
 
     const { colorScheme } = useApp()
-    const Theme : ThemeType = Colors[colorScheme]
+    const Theme = colors.theme[colorScheme]
 
     const inputRef = useRef(null);
 

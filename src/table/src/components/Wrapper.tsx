@@ -2,22 +2,22 @@ import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-nativ
 import { Platform, View, ViewProps } from 'react-native'
 import React, { memo } from 'react'
 
-import Colors, { type ColorSchemeType } from '../../../constants/colors'
+import colors, { type ColorSchemeType } from '../constants'
 
-import { deviceTier } from '../..'
-import { useTable } from '../../context'
-import { OptionWrapperProps } from '../types'
-import DeleteContext from './contexts/delete'
-import BordersContextWrapper from './contexts/borders'
-import Borders from './borders'
-import Option, { left, right } from './option'
+import { deviceTier } from './Table'
+import { useTable } from '../context/table'
+import Props from './OptionWrapper/types'
+import Delete from './Delete'
+import BordersContextWrapper from '../context/borders'
+import Borders from './Borders'
+import Option, { left, right } from './Option'
 
 
 
 const ViewDelete = memo(({ children, colorScheme, ...props }: { children: React.ReactNode, colorScheme: ColorSchemeType } & ViewProps) => {
     const { colorThemeType } = useTable()
     return (
-        <View style={{ backgroundColor: Colors.table[colorThemeType][colorScheme].background }} {...props}>
+        <View style={{ backgroundColor: colors.table[colorThemeType][colorScheme].background }} {...props}>
             {children}
         </View>
     )
@@ -50,7 +50,7 @@ export default memo(({
     hasTextView,
     ...props
 
-}: OptionWrapperProps) => {
+}: Props) => {
 
     //console.log('OptionWrapper', id)
 
@@ -66,11 +66,11 @@ export default memo(({
 
     // onDelete
     content = onDelete ? (
-        <DeleteContext id={id} removeWidth={removeWidth} onDelete={onDelete} onDeleteShown={onDeleteShown}>
+        <Delete id={id} removeWidth={removeWidth} onDelete={onDelete} onDeleteShown={onDeleteShown}>
             <ViewDelete colorScheme={colorScheme} {...props}>
                 {content}
             </ViewDelete>
-        </DeleteContext>
+        </Delete>
     ) : (
         props ? <View {...props}>{content}</View> : content
     )
