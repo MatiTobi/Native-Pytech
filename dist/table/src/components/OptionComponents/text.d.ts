@@ -5,7 +5,7 @@ import { type ColorSchemeType } from '../../constants';
     Pone el color del texto según el tema.
 */
 type Props = {
-    texto: string;
+    text: string;
     enabled: boolean;
     fontScale?: string;
     style: StyleProp<TextStyle>;

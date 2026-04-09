@@ -51,6 +51,10 @@
             "types": "./dist/table/index.d.ts",
             "default": "./src/table/index.tsx"
         },
+        "./page": {
+            "types": "./dist/page/index.d.ts",
+            "default": "./src/page/index.tsx"
+        },
         "./components": {
             "types": "./dist/components/index.d.ts",
             "default": "./src/components/index.ts"
