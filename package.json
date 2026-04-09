@@ -45,29 +45,29 @@
         },
         "./constants/*": {
             "types": "./dist/constants/*.d.ts",
-            "default": "./dist/constants/*.js"
+            "default": "./src/constants/*.ts"
         },
         "./table": {
             "types": "./dist/table/index.d.ts",
-            "default": "./dist/table/index.js"
+            "default": "./src/table/index.tsx"
         },
         "./components": {
             "types": "./dist/components/index.d.ts",
-            "default": "./dist/components/index.js"
+            "default": "./src/components/index.ts"
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
-            "default": "./dist/providers/*.js"
+            "default": "./src/providers/*.tsx"
         },
         "./assets/*": { "default": "./src/assets/*" },
         "./assets/components/*": {
             "types": "./dist/assets/components/*.d.ts",
-            "default": "./dist/assets/components/*.js"
+            "default": "./src/assets/components/*.tsx"
         },
         "./assets/images/*": { "default": "./src/assets/images/*" },
         "./assets/ionicons": {
             "types": "./dist/assets/ionicons/index.d.ts",
-            "default": "./dist/assets/ionicons/index.js"
+            "default": "./src/assets/ionicons/index.ts"
         }
     }
 }
