@@ -4,7 +4,7 @@ import { PixelRatio, View } from 'react-native'
 
 
 
-export default memo(({ size = 30, color = Colors.table.default.dark.border }) => {
+export default memo(({ size = 30, color = Colors.table.default.dark.border } : { size: number, color: string }) => {
 
     const widthChild = PixelRatio.roundToNearestPixel((21 / 30) * size)
     const heightChild = PixelRatio.roundToNearestPixel((1.7 / 30) * size)

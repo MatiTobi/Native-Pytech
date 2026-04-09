@@ -45,32 +45,29 @@
         },
         "./constants/*": {
             "types": "./dist/constants/*.d.ts",
-            "default": "./constants/*.ts"
+            "default": "./dist/constants/*.js"
         },
         "./table": {
             "types": "./dist/table/index.d.ts",
-            "default": "./table/index.tsx"
+            "default": "./dist/table/index.js"
         },
         "./components": {
             "types": "./dist/components/index.d.ts",
-            "default": "./components/index.tsx"
+            "default": "./dist/components/index.js"
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
-            "default": "./providers/*.tsx"
+            "default": "./dist/providers/*.js"
         },
-        "./assets/*": {
-            "default": "./assets/*"
+        "./assets/*": { "default": "./src/assets/*" },
+        "./assets/components/*": {
+            "types": "./dist/assets/components/*.d.ts",
+            "default": "./dist/assets/components/*.js"
         },
+        "./assets/images/*": { "default": "./src/assets/images/*" },
         "./assets/ionicons": {
             "types": "./dist/assets/ionicons/index.d.ts",
-            "default": "./assets/ionicons/index.ts"
-        },
-        "./assets/images/*": {
-            "default": "./assets/images/*"
-        },
-        "./assets/components/*": {
-            "default": "./assets/components/*"
+            "default": "./dist/assets/ionicons/index.js"
         }
     }
 }
