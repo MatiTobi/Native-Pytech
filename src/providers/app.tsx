@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import React, { useMemo } from "react"
 import { useColorScheme, useWindowDimensions } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
@@ -14,7 +14,7 @@ export { useApp }
 
 export default ({ children }: { children: React.ReactNode }) => {
 
-    const colorScheme : ColorSchemeType = useColorScheme()
+    const colorScheme = useColorScheme() as ColorSchemeType
 	const { fontScale } = useWindowDimensions()
 
 	const value = useMemo(() => ({ colorScheme: colorScheme, fontScale: fontScale }), [colorScheme, fontScale])

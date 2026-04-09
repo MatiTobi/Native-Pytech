@@ -4,8 +4,9 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated';
 import { useLayoutEffectWithoutFirstRender } from '../../../../constants/utils';
+import { isLowTier } from '../../../../constants/constants';
 import colors from '../../constants';
-import { useStore, useTable } from '../../context/table';
+import { useStore } from '../../context/table';
 import { DeleteProvider } from '../../context/delete';
 const anim = {
     duration: 600,
@@ -19,7 +20,6 @@ export default memo(({ children, ...props }) => {
     return <Component {...props} setDeleted={setDeleted}>{children}</Component>;
 });
 const Component = memo(({ children, id, removeWidth, onDelete, onDeleteShown, setDeleted, }) => {
-    const { deviceTier } = useTable();
     const store = useStore();
     const is_deleted = useSelector(() => store.deleted.id.get() === id);
     useLayoutEffectWithoutFirstRender(() => {
@@ -70,8 +70,7 @@ const Component = memo(({ children, id, removeWidth, onDelete, onDeleteShown, se
         Animated.timing(removeStateValue, { toValue: 1, ...anim }).start();
         onDeleteShown?.(id, true);
     }, []);
-    const exitingAnimation = Platform.OS === 'android' && deviceTier === 'low' ?
-        SlideOutLeft.duration(200) : SlideOutLeft.easing(Reasing.bezier(0.2, 0.2, 0, 1)).duration(300);
+    const exitingAnimation = isLowTier ? SlideOutLeft.duration(200) : SlideOutLeft.easing(Reasing.bezier(0.2, 0.2, 0, 1)).duration(300);
     // Valor del contexto
     const contextValue = useMemo(() => startDelete, [startDelete]);
     const start = useCallback(() => {

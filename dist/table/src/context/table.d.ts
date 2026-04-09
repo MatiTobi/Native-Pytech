@@ -9,15 +9,13 @@ export declare const BordersProvider: import("react").Provider<Observable<Map<st
     bottom: (show: boolean) => void;
 }>>;
 export declare const TableProvider: import("react").Provider<{
-    colorThemeType: Props["colorThemeType"];
+    colorThemeType: Exclude<Props["colorThemeType"], undefined>;
     allBorders: Props["allBorders"];
     type: Props["type"];
     keys: Props["keys"];
-    deviceTier: "high" | "medium" | "low";
 }>, useTable: () => {
-    colorThemeType: Props["colorThemeType"];
+    colorThemeType: Exclude<Props["colorThemeType"], undefined>;
     allBorders: Props["allBorders"];
     type: Props["type"];
     keys: Props["keys"];
-    deviceTier: "high" | "medium" | "low";
 };

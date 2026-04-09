@@ -1,6 +1,5 @@
 import { useObservable } from '@legendapp/state/react';
-import * as Device from 'expo-device';
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
 import colors from '../../constants';
@@ -9,6 +8,7 @@ import { useApp } from '../../../../providers/app';
 import { BordersProvider, StoreProvider, TableProvider } from '../../context/table';
 import OptionWrapper from '../OptionWrapper';
 import Detail from '../Detail';
+import { isLowTier } from '../../../../constants/constants';
 const Table = memo(({ children, title, renderDetail, colorThemeType = 'default', type = 'default', style, contentContainerStyle, allBorders = false, keys, }) => {
     // ------------- Variables -------------
     const { colorScheme } = useApp();
@@ -30,10 +30,10 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
         },
         borders: new Map()
     });
-    const layoutAnimation = Platform.OS === 'android' && deviceTier === 'low' ?
-        LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600);
+    const layoutAnimation = isLowTier ? LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600);
     // ------------- useEffect -------------
     useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys]);
+    const value = useMemo(() => ({ colorThemeType, type, keys, allBorders }), [colorThemeType, type, keys, allBorders]);
     return (<Animated.View key={title || 'title'} layout={Platform.OS === 'web' ? undefined : LinearTransition.duration(100).easing(Easing.bezier(0.1, 0.1, 0, 1))} style={[
             styles.container,
             type === 'default' ? { marginRight: 16, marginLeft: 16, marginBottom: renderDetail ? 20 : 30 } : {},
@@ -43,7 +43,6 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
             <Animated.Text key={title} style={[styles.title, { color: Theme.text2 }]} exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}>
                     {title}
                 </Animated.Text>}
-    
 
             <Animated.View exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)} layout={layoutAnimation} style={[
             styles.contentContainer,
@@ -51,7 +50,7 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
             contentContainerStyle,
             type === 'default' ? { borderRadius: 26 } : {},
         ]}>
-                <TableProvider value={{ colorThemeType, type, keys, deviceTier, allBorders }}>
+                <TableProvider value={value}>
                     <StoreProvider value={store}>
                         <BordersProvider value={store.borders}>
                             {children}
@@ -86,19 +85,6 @@ const styles = StyleSheet.create({
         marginRight: 16
     }
 });
-const getDeviceTier = () => {
-    if (Platform.OS !== 'android')
-        return 'high';
-    const ramGB = Device.totalMemory
-        ? Device.totalMemory / 1024 / 1024 / 1024
-        : 0;
-    if (ramGB > 0 && ramGB <= 4)
-        return 'low';
-    if (ramGB <= 6)
-        return 'medium';
-    return 'high';
-};
-export const deviceTier = getDeviceTier();
 Table.Detail = Detail;
 Table.Option = OptionWrapper;
 export default Table;

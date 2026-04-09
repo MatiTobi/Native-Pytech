@@ -5,6 +5,7 @@ import { Animated, Easing, LayoutChangeEvent, Platform, Pressable, StyleSheet, T
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated'
 
 import { useLayoutEffectWithoutFirstRender } from '../../../../constants/utils'
+import { isLowTier } from '../../../../constants/constants'
 
 import colors from '../../constants'
 
@@ -39,7 +40,6 @@ const Component = memo(({
 
 }: DeleteProps) => {
 
-    const { deviceTier } = useTable()
     const store = useStore()
 
     const is_deleted = useSelector(() => store.deleted.id.get() === id)
@@ -99,8 +99,7 @@ const Component = memo(({
         onDeleteShown?.(id, true)
     }, [])
 
-    const exitingAnimation = Platform.OS === 'android' && deviceTier === 'low' ?
-        SlideOutLeft.duration(200) : SlideOutLeft.easing(Reasing.bezier(0.2, 0.2, 0, 1)).duration(300)
+    const exitingAnimation = isLowTier ? SlideOutLeft.duration(200) : SlideOutLeft.easing(Reasing.bezier(0.2, 0.2, 0, 1)).duration(300)
 
     // Valor del contexto
     const contextValue = useMemo(() => startDelete, [startDelete])

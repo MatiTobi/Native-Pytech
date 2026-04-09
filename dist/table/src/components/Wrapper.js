@@ -1,8 +1,8 @@
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
-import { Platform, View } from 'react-native';
+import { View } from 'react-native';
 import React, { memo } from 'react';
 import colors from '../constants';
-import { deviceTier } from './Table';
+import { isLowTier } from '../../../constants/constants';
 import { useTable } from '../context/table';
 import Delete from './Delete';
 import BordersContextWrapper from '../context/borders';
@@ -20,7 +20,7 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, onDelete,
     shownTop: null,
     shownBottom: null,
     color: null
-}, backgroundColorPressed, LinearGradientProps, layoutAnimation = Platform.OS === 'android' && deviceTier === 'low' ?
+}, backgroundColorPressed, LinearGradientProps, layoutAnimation = isLowTier ?
     LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600), colorScheme, hasTextView, ...props }) => {
     //console.log('OptionWrapper', id)
     // Restricciones

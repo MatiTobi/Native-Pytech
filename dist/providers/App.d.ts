@@ -1,3 +1,4 @@
+import React from "react";
 import { ColorSchemeType } from "../constants/colors";
 declare const useApp: () => {
     colorScheme: ColorSchemeType;
@@ -6,5 +7,5 @@ declare const useApp: () => {
 export { useApp };
 declare const _default: ({ children }: {
     children: React.ReactNode;
-}) => import("react").JSX.Element;
+}) => React.JSX.Element;
 export default _default;

@@ -3,8 +3,8 @@ import { Platform, View, ViewProps } from 'react-native'
 import React, { memo } from 'react'
 
 import colors, { type ColorSchemeType } from '../constants'
+import { isLowTier } from '../../../constants/constants'
 
-import { deviceTier } from './Table'
 import { useTable } from '../context/table'
 import Props from './OptionWrapper/types'
 import Delete from './Delete'
@@ -44,7 +44,7 @@ export default memo(({
     },
     backgroundColorPressed,
     LinearGradientProps,
-    layoutAnimation = Platform.OS === 'android' && deviceTier === 'low' ?
+    layoutAnimation = isLowTier ?
         LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600),
     colorScheme,
     hasTextView,
