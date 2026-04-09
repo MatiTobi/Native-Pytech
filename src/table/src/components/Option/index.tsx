@@ -29,6 +29,7 @@ const AddTextView = memo(({ children, hasTextView }: { children: React.ReactNode
     const hasTextView_ = hasTextView ?? flattenChildren(children).some(
         (child) => React.isValidElement(child) && child.type === Table.Option.Components.TextView
     )
+    console.log('hasTextView_', hasTextView_)
 
     const childrenLeft = <View style={styles.izq}>{children}</View>
     if (hasTextView_) return childrenLeft
