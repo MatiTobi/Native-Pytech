@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import TextInputOption from './TextInput';
+import TextInputOption from './textInput';
 export function formatPeso(value) {
     return new Intl.NumberFormat('es-AR', {
         style: 'currency',

@@ -1,4 +1,4 @@
-import { ColorSchemeType } from "../constants";
+import { ColorSchemeType } from "../constants/colors";
 export declare const useApp: () => {
     colorScheme: ColorSchemeType;
     fontScale: number;

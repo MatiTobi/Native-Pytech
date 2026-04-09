@@ -1,9 +1,9 @@
 import React, { memo, useMemo } from 'react'
 import { StyleProp, TextProps, TextStyle, StyleSheet } from 'react-native'
 
-import { Colors, ColorSchemeType, ThemeType } from '../../../constants'
-import Text$ from '../../../components/Text$'
-import ThemeComponent from '../../../components/Theme'
+import Colors, { type ColorSchemeType, type ThemeType } from '../../../constants/colors'
+import Text$ from '../../../components/text$'
+import ThemeComponent from '../../../components/theme'
 
 
 

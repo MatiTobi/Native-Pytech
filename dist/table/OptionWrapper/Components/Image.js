@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Image } from 'react-native';
-import { Colors } from '../../../constants';
-import { useApp } from '../../../providers/App';
+import Colors from '../../../constants/colors';
+import { useApp } from '../../../providers/app';
 /**
     Pone el tintColor según el tema.
 */

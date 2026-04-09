@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, TextProps, TextStyle } from 'react-native';
-import { ColorSchemeType } from '../../../constants';
+import { type ColorSchemeType } from '../../../constants/colors';
 /**
     Pone el color del texto según el tema.
 */

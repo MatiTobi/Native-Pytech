@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { memo, useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { Colors } from '../../../constants';
+import Colors from '../../../constants/colors';
 import Table from '../..';
 import { useTable } from '../../context';
 export const left = 16;

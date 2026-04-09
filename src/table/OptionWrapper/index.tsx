@@ -1,13 +1,13 @@
 import React, { memo } from 'react'
 import { OptionComponent, OptionWrapperProps } from './types'
 
-import ThemeComponent from '../../components/Theme'
-import { ColorSchemeType } from '../../constants'
+import ThemeComponent from '../../components/theme'
+import { type ColorSchemeType } from '../../constants/colors'
 
-import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView } from './Components'
-import Wrapper from './Wrapper'
-export { useBorder } from './Wrapper/Contexts/Borders'
-export { useDelete } from './Wrapper/Contexts/Delete/context'
+import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView } from './components'
+import Wrapper from './wrapper'
+export { useBorder } from './wrapper/contexts/borders'
+export { useDelete } from './wrapper/contexts/delete/context'
 
 
 

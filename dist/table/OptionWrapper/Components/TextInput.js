@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet, TextInput } from 'react-native';
-import { Colors } from '../../../constants';
-import { useApp } from '../../../providers/App';
+import Colors from '../../../constants/colors';
+import { useApp } from '../../../providers/app';
 export const selectAll = (input, value) => {
     if (value === null)
         return;

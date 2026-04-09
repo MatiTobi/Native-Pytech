@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from 'react'
 import { StyleProp, StyleSheet, View, ViewStyle, ViewProps } from 'react-native'
-import Text from './Text'
+import Text from './text'
 
 
 type TextType = (React.ReactElement<typeof Text>)

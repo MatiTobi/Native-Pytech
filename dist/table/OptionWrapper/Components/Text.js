@@ -1,8 +1,8 @@
 import React, { memo, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-import { Colors } from '../../../constants';
-import Text$ from '../../../components/Text$';
-import ThemeComponent from '../../../components/Theme';
+import Colors from '../../../constants/colors';
+import Text$ from '../../../components/text$';
+import ThemeComponent from '../../../components/theme';
 export default memo(({ ...props }) => {
     return <ThemeComponent component={Component} {...props}/>;
 });

@@ -4,31 +4,39 @@ import React, { memo, useEffect, useRef } from 'react'
 import { Platform, StyleSheet } from 'react-native'
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 
-import { addProps, Colors, ThemeType } from '../constants'
-import { useApp } from '../providers/App'
+import Colors, { type ThemeType } from '../constants/colors'
+import { addProps, useEffectWithoutFirstRender } from '../constants/utils'
+
+import { useApp } from '../providers/app'
 
 import { BordersContext, StoreContext, TableContext, TableStore } from './context'
-import OptionWrapper from './OptionWrapper'
+import OptionWrapper from './optionWrapper'
 import TableProps, { TableComponent } from './types'
+import Detail from './detail'
+
 
 export { useBorders, useStore, useTable } from './context'
-export { useDelete, useBorder } from './OptionWrapper'
+export { useDelete, useBorder } from './optionWrapper'
 
 
 
 const Table = memo(({
 
     children,
-    subtitulo,
-    itemDetalle,
+    title,
+    renderDetail,
     colorThemeType = 'default',
     type = 'default',
-    styleTable,
-    styleTableView,
+    style,
+    contentContainerStyle,
     allBorders = false,
     keys,
 
 } : TableProps) => {
+
+    // ------------- Variables -------------
+    const { colorScheme } = useApp()
+    const Theme : ThemeType = Colors[colorScheme]
 
     const store = useObservable<TableStore>({
         pressed_id: null,
@@ -48,43 +56,47 @@ const Table = memo(({
         borders: new Map<string, {top: (show: boolean) => void, bottom: (show: boolean) => void}>()
     })
 
-    const isFirstRender = useRef(true)
-
-    useEffect(() => {
-        if (isFirstRender.current) { isFirstRender.current = false; return }
-        store.deleted.keys.set(keys)
-    }, [keys])
-  
-    const { colorScheme } = useApp()
-    const Theme : ThemeType = Colors[colorScheme]
-
-    // Le agrega estilos y props a itemDetalle (Tiene que ser un Text)
-    const newItemDetalle = itemDetalle ?
-        addProps(itemDetalle, [styles.contTable_Text_2, {color: Theme.text2Libretas}], {
-            entering: FadeIn.duration(100),
-            exiting: FadeOut.duration(100),
-        })
-    : null;
-
     const layoutAnimation = Platform.OS === 'android' && deviceTier === 'low' ?
         LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600)
-    
+
+
+    // ------------- useEffect -------------
+    useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys])
+
+
     return (
-        <Animated.View style={[
-            styles.contTable,
-            type === 'default' ? {marginRight: 16, marginLeft: 16, marginBottom: newItemDetalle ? 20 : 30} : {},
-            styleTable
-        ]} key={subtitulo} layout={Platform.OS === 'web' ? undefined : LinearTransition.duration(100).easing(Easing.bezier(0.1, 0.1, 0, 1))}>
+        <Animated.View 
+            key={title}
+            layout={Platform.OS === 'web' ? undefined : LinearTransition.duration(100).easing(Easing.bezier(0.1, 0.1, 0, 1))}
+            style={[
+                styles.container,
+                type === 'default' ? {marginRight: 16, marginLeft: 16, marginBottom: renderDetail ? 20 : 30} : {},
+                style
+            ]}
+        >
+            {title &&
+                <Animated.Text
+                    key={title}
+                    style={[styles.title, {color: Theme.text2Libretas}]}
+                    exiting={FadeOut.duration(100)}
+                    entering={FadeIn.duration(100)}
+                >
+                    {title}
+                </Animated.Text>
+            }
+    
 
-            {subtitulo && <Animated.Text key={subtitulo} style={[styles.contTable_Text, {color: Theme.text2Libretas}]} exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}>{subtitulo}</Animated.Text>}
-
-            <Animated.View style={[
-                styles.contTable_View,
-                { backgroundColor: Colors.table[colorThemeType][colorScheme].background },
-                styleTableView,
-                type === 'default' ? {borderRadius: 26} : {},
-            ]} exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)} layout={layoutAnimation}>
-                
+            <Animated.View
+                exiting={FadeOut.duration(100)}
+                entering={FadeIn.duration(100)}
+                layout={layoutAnimation}
+                style={[
+                    styles.contentContainer,
+                    { backgroundColor: Colors.table[colorThemeType][colorScheme].background },
+                    contentContainerStyle,
+                    type === 'default' ? {borderRadius: 26} : {},
+                ]}
+            >
                 <TableContext.Provider value={{colorThemeType, type, keys, deviceTier, allBorders}}>
                     <StoreContext.Provider value={store}>
                         <BordersContext.Provider value={store.borders}>
@@ -92,12 +104,14 @@ const Table = memo(({
                         </BordersContext.Provider>
                     </StoreContext.Provider>
                 </TableContext.Provider>
-
-                {/*<View style={{position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: 'red', height: 1}} />*/}
-
             </Animated.View>
 
-            {newItemDetalle}
+
+            {renderDetail &&
+                <Animated.View entering={FadeIn.duration(100)} exiting={FadeOut.duration(100)}>
+                    {renderDetail()}
+                </Animated.View>
+            }
         </Animated.View>
     )
 }) as TableComponent
@@ -106,24 +120,22 @@ const Table = memo(({
 
 const styles = StyleSheet.create({
 
-    contTable: {
+    container: {
         gap: 6,
     },
-    contTable_Text: {
+    title: {
         marginLeft: 16,
         fontSize: 17,
         fontWeight: '600',
     },
-    contTable_Text_2: {
-        marginTop: 1.5,
-        marginLeft: 15,
-        fontSize: 13,
-        marginRight: 16,
-        lineHeight: 16
-    },
-    contTable_View: {
+    contentContainer: {
         overflow: 'hidden',
         position: 'relative',
+    },
+    viewDetail: {
+        marginTop: 1.5,
+        marginLeft: 15,
+        marginRight: 16
     }
 })
 
@@ -143,6 +155,7 @@ const getDeviceTier = () => {
 export const deviceTier = getDeviceTier();
 
 
+Table.Detail = Detail;
 Table.Option = OptionWrapper;
 
 export default Table

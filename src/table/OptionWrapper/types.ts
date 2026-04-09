@@ -3,9 +3,9 @@ import React from "react";
 import { GestureResponderEvent, StyleProp, ViewProps, ViewStyle } from "react-native";
 import { LinearTransition } from "react-native-reanimated";
 
-import { ColorSchemeType } from "../../constants"
+import { type ColorSchemeType } from "../../constants/colors"
 
-import {DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView} from './Components'
+import {DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView} from './components'
 
 
 
@@ -14,7 +14,7 @@ type OptionProps = {
     /**
         Lo que se va a renderizar dentro de la opción.
     */
-    children: null |React.ReactElement;
+    children?: React.ReactElement;
 
     /**
         Lo que se va a renderizar dentro de la view de la izquierda.

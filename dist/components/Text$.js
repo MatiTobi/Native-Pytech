@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 import { memo } from "react";
-import { useApp } from "../providers/App";
+import { useApp } from "../providers/app";
 export default memo(({ children, fontScale, ...props }) => {
     if (fontScale !== undefined)
         return <Text key={fontScale.toString()} {...props}>{children}</Text>;

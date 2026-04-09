@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import React, { memo } from 'react';
 import { Pressable } from 'react-native';
 //import { useDrag } from 'react-native-pytech/Libs/ReorderableList'
-import { Colors } from '../../../constants';
-import { useApp } from '../../../providers/App';
+import Colors from '../../../constants/colors';
+import { useApp } from '../../../providers/app';
 /**
     Icono de drag.
 */

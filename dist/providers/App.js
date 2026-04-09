@@ -3,22 +3,22 @@ import { createContext } from "react";
 import { useColorScheme, useWindowDimensions } from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-const App = createContext(null);
+const context = createContext(null);
 export const useApp = () => {
-    const context = useContext(App);
-    if (!context)
-        throw new Error('useApp must be used within an App.Provider');
-    return context;
+    const ctx = useContext(context);
+    if (!ctx)
+        throw new Error('useApp must be used within an AppProvider');
+    return ctx;
 };
 export default ({ children }) => {
     const colorScheme = useColorScheme();
     const { fontScale } = useWindowDimensions();
     const value = useMemo(() => ({ colorScheme: colorScheme, fontScale: fontScale }), [colorScheme, fontScale]);
     return (<SafeAreaProvider>
-            <App.Provider value={value}>
+            <context.Provider value={value}>
                 <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                     {children}
                 </ThemeProvider>
-            </App.Provider>
+            </context.Provider>
         </SafeAreaProvider>);
 };

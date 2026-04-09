@@ -3,8 +3,8 @@ import React, { memo } from 'react'
 import { Pressable, PressableProps } from 'react-native'
 
 //import { useDrag } from 'react-native-pytech/Libs/ReorderableList'
-import { Colors, ThemeType } from '../../../constants'
-import { useApp } from '../../../providers/App';
+import Colors, { type ThemeType } from '../../../constants/colors'
+import { useApp } from '../../../providers/app';
 
 
 /**

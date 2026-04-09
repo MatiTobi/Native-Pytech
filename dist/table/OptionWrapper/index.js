@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
-import ThemeComponent from '../../components/Theme';
-import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView } from './Components';
-import Wrapper from './Wrapper';
-export { useBorder } from './Wrapper/Contexts/Borders';
-export { useDelete } from './Wrapper/Contexts/Delete/context';
+import ThemeComponent from '../../components/theme';
+import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView } from './components';
+import Wrapper from './wrapper';
+export { useBorder } from './wrapper/contexts/borders';
+export { useDelete } from './wrapper/contexts/delete/context';
 const OptionWrapper = memo(({ ...props }) => {
     return <ThemeComponent component={Wrapper} {...props}/>;
 });

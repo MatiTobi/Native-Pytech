@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useApp } from '../providers/App'
-import { ColorSchemeType } from '../constants'
+import { useApp } from '../providers/app'
+import { type ColorSchemeType } from '../constants/colors'
 
 
 

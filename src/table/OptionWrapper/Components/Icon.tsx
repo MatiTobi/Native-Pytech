@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons'
 import React, { memo } from 'react'
 
-import { Colors, ThemeType } from '../../../constants'
-import { useApp } from '../../../providers/App'
+import Colors, { type ThemeType } from '../../../constants/colors'
+import { useApp } from '../../../providers/app'
 
 
 

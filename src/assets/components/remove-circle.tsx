@@ -1,4 +1,4 @@
-import { Colors } from '../../constants';
+import Colors from '../../constants/colors';
 import { memo } from 'react';
 import { PixelRatio, View } from 'react-native';
 

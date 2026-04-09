@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import TextInputOption from './TextInput'
+import TextInputOption from './textInput'
 import { TextInputProps } from 'react-native'
 
 

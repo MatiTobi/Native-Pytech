@@ -3,7 +3,7 @@ import { Pressable } from 'react-native'
 
 import { useDelete } from '../..'
 import RemoveCircle from '../../../assets/components/remove-circle'
-import { Colors } from '../../../constants'
+import Colors from '../../../constants/colors'
 
 
 

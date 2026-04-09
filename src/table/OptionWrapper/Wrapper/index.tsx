@@ -2,15 +2,15 @@ import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-nativ
 import { Platform, View, ViewProps } from 'react-native'
 import React, { memo } from 'react'
 
-import { Colors, ColorSchemeType } from '../../../constants'
+import Colors, { type ColorSchemeType } from '../../../constants/colors'
 
 import { deviceTier } from '../..'
 import { useTable } from '../../context'
 import { OptionWrapperProps } from '../types'
-import DeleteContext from './Contexts/Delete'
-import BordersContextWrapper from './Contexts/Borders'
-import Borders from './Borders'
-import Option, { left, right } from './Option'
+import DeleteContext from './contexts/delete'
+import BordersContextWrapper from './contexts/borders'
+import Borders from './borders'
+import Option, { left, right } from './option'
 
 
 

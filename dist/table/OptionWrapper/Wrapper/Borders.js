@@ -1,11 +1,12 @@
 import { useValue } from '@legendapp/state/react';
 import React, { memo, useEffect, useState } from 'react';
 import { PixelRatio, View, StyleSheet } from 'react-native';
-import { Colors, useEffectWithoutFirstRender } from '../../../constants';
-import { useApp } from '../../../providers/App';
+import Colors from '../../../constants/colors';
+import { useEffectWithoutFirstRender } from '../../../constants/utils';
+import { useApp } from '../../../providers/app';
 import { useStore, useTable } from '../../context';
-import { useBorder } from './Contexts/Borders';
-import { left, right } from './Option';
+import { useBorder } from './contexts/borders';
+import { left, right } from './option';
 const heightPixel = PixelRatio.roundToNearestPixel(1);
 export default memo(({ id, borders }) => {
     if (borders.color)

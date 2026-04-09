@@ -1,4 +1,4 @@
-export {default as Link} from './Link';
-export {default as Text$} from './Text$';
-export {default as Theme} from './Theme';
-export {default as Gradient} from './Gradient';
+export {default as Link} from './link';
+export {default as Text$} from './text$';
+export {default as Theme} from './theme';
+export {default as Gradient} from './gradient';

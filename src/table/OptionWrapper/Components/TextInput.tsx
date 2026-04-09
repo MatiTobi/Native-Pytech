@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { BlurEvent, FocusEvent, Platform, StyleSheet, TextInput, TextInputProps } from 'react-native'
 
-import { Colors, ThemeType } from '../../../constants'
-import { useApp } from '../../../providers/App'
+import Colors, { type ThemeType } from '../../../constants/colors'
+import { useApp } from '../../../providers/app'
 
 
 

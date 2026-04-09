@@ -1,13 +1,13 @@
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
 import { Platform, View } from 'react-native';
 import React, { memo } from 'react';
-import { Colors } from '../../../constants';
+import Colors from '../../../constants/colors';
 import { deviceTier } from '../..';
 import { useTable } from '../../context';
-import DeleteContext from './Contexts/Delete';
-import BordersContextWrapper from './Contexts/Borders';
-import Borders from './Borders';
-import Option, { left, right } from './Option';
+import DeleteContext from './contexts/delete';
+import BordersContextWrapper from './contexts/borders';
+import Borders from './borders';
+import Option, { left, right } from './option';
 const ViewDelete = memo(({ children, colorScheme, ...props }) => {
     const { colorThemeType } = useTable();
     return (<View style={{ backgroundColor: Colors.table[colorThemeType][colorScheme].background }} {...props}>

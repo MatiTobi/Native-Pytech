@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, ViewStyle, ViewProps } from 'react-native';
-import Text from './Text';
+import Text from './text';
 type TextType = (React.ReactElement<typeof Text>);
 type Props = {
     children: TextType | TextType[] | React.ReactNode;

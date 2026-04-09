@@ -4,15 +4,15 @@ import { useColorScheme, useWindowDimensions } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 
-import { ColorSchemeType } from "../constants"
+import { ColorSchemeType } from "../constants/colors"
 
 
 
-const App = createContext<{ colorScheme: ColorSchemeType, fontScale: number } | null>(null)
+const context = createContext<{ colorScheme: ColorSchemeType, fontScale: number } | null>(null)
 export const useApp = () => {
-	const context = useContext(App)
-	if (!context) throw new Error('useApp must be used within an App.Provider')
-	return context
+	const ctx = useContext(context)
+	if (!ctx) throw new Error('useApp must be used within an AppProvider')
+	return ctx
 }
 
 export default ({ children }: { children: React.ReactNode }) => {
@@ -24,11 +24,11 @@ export default ({ children }: { children: React.ReactNode }) => {
 
     return (
         <SafeAreaProvider>
-            <App.Provider value={value}>
+            <context.Provider value={value}>
                 <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                     {children}
                 </ThemeProvider>
-            </App.Provider>
+            </context.Provider>
         </SafeAreaProvider>
     )
 }
