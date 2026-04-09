@@ -1,8 +1,8 @@
 import { useContext, useMemo } from "react"
 import { createContext } from "react"
 import { useColorScheme, useWindowDimensions } from "react-native"
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 
 import { ColorSchemeType } from "../constants/colors"
 
