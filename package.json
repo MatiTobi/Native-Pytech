@@ -63,12 +63,16 @@
             "types": "./dist/providers/*.d.ts",
             "default": "./src/providers/*.tsx"
         },
-        "./assets/*": { "default": "./src/assets/*" },
+        "./assets/*": {
+            "default": "./src/assets/*"
+        },
         "./assets/components/*": {
             "types": "./dist/assets/components/*.d.ts",
             "default": "./src/assets/components/*.tsx"
         },
-        "./assets/images/*": { "default": "./src/assets/images/*" },
+        "./assets/images/*": {
+            "default": "./src/assets/images/*"
+        },
         "./assets/ionicons": {
             "types": "./dist/assets/ionicons/index.d.ts",
             "default": "./src/assets/ionicons/index.ts"
