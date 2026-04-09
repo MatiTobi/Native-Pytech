@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import colors from '../../constants';
 import Table from '../Table';
@@ -17,13 +17,12 @@ const flattenChildren = (children) => {
 };
 const AddTextView = memo(({ children, hasTextView }) => {
     const hasTextView_ = hasTextView ?? flattenChildren(children).some((child) => React.isValidElement(child) && child.type === Table.Option.Components.TextView);
-    console.log('hasTextView_', hasTextView_);
-    const childrenLeft = <View style={styles.izq}>{children}</View>;
+    const viewChildren = useCallback((children) => <View style={styles.izq}>{children}</View>, []);
     if (hasTextView_)
-        return childrenLeft;
-    return (<Table.Option.Components.TextView>
-            {childrenLeft}
-        </Table.Option.Components.TextView>);
+        return viewChildren(children);
+    return (viewChildren(<Table.Option.Components.TextView>
+                {children}
+            </Table.Option.Components.TextView>));
 });
 export default memo(({ children, childrenLeft, childrenRight, onPress, style, backgroundColorPressed, LinearGradientProps, colorScheme, hasTextView, }) => {
     // Component
