@@ -12,7 +12,7 @@ import ThemeComponent from '../../../../components/theme'
 */
 
 type Props = {
-    texto: string
+    text: string
     enabled: boolean
     fontScale?: string
     style: StyleProp<TextStyle>
@@ -26,7 +26,7 @@ export default memo(({ ...props } : Props & {colorScheme?: ColorSchemeType} & Te
 
 const Component = memo(({
 
-    texto,
+    text,
     enabled=true,
     style = {},
     colorScheme,
@@ -40,7 +40,7 @@ const Component = memo(({
 	
     return (
 		<Text$ fontScale={fontScale} style={textStyle} {...props}>
-            {texto}
+            {text}
         </Text$>
 	)
 })
