@@ -59,6 +59,9 @@
             "types": "./dist/providers/*.d.ts",
             "default": "./providers/*.tsx"
         },
+        "./assets/*": {
+            "default": "./assets/*"
+        },
         "./assets/ionicons": {
             "types": "./dist/assets/ionicons/index.d.ts",
             "default": "./assets/ionicons/index.ts"
