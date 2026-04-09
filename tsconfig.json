@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
         "jsx": "react-native",
         "esModuleInterop": true,
+        "rootDir": "./src",
         "outDir": "./dist",
         "declaration": true,
         "module": "esnext",
