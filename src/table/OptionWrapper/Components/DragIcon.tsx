@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons'
 import React, { memo } from 'react'
 import { Pressable, PressableProps } from 'react-native'
 
-//import { useDrag } from 'react-native-pytech/Libs/ReorderableList'
+//import { useDrag } from 'native-pytech/Libs/ReorderableList'
 import Colors, { type ThemeType } from '../../../constants/colors'
 import { useApp } from '../../../providers/app';
 
