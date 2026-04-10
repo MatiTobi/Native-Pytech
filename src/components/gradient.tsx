@@ -1,2 +1,2 @@
-export { default } from './gradient/index';
-export * from './gradient/index';
+export { default } from './_gradient/index';
+export * from './_gradient/index';
