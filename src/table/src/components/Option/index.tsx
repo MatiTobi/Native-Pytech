@@ -30,8 +30,6 @@ const AddTextView = memo(({ children, hasTextView }: { children: React.ReactNode
         (child) => React.isValidElement(child) && child.type === Table.Option.Components.TextView
     )
 
-    console.log('caca ardiente')
-
     const viewChildren = useCallback((children: React.ReactNode) => <View style={styles.izq}>{children}</View>, [])
     if (hasTextView_) return viewChildren(children)
     return (

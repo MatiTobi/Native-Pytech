@@ -55,9 +55,9 @@
             "types": "./dist/page/index.d.ts",
             "default": "./src/page/index.ts"
         },
-        "./components": {
-            "types": "./dist/components/index.d.ts",
-            "default": "./src/components/index.ts"
+        "./components/*": {
+            "types": "./dist/components/*.d.ts",
+            "default": "./src/components/*.tsx"
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",

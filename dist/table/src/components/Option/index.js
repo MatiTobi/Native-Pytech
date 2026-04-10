@@ -17,7 +17,6 @@ const flattenChildren = (children) => {
 };
 const AddTextView = memo(({ children, hasTextView }) => {
     const hasTextView_ = hasTextView ?? flattenChildren(children).some((child) => React.isValidElement(child) && child.type === Table.Option.Components.TextView);
-    console.log('caca ardiente');
     const viewChildren = useCallback((children) => <View style={styles.izq}>{children}</View>, []);
     if (hasTextView_)
         return viewChildren(children);
