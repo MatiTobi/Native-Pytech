@@ -2,6 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors, { sizes } from './constants';
+export { sizes };
 export default memo(({ text, color, type = 'small' }) => {
     const cantLetras = text.length;
     if (!cantLetras)
