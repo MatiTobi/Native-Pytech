@@ -59,6 +59,10 @@
             "types": "./dist/components/*.d.ts",
             "default": "./src/components/*.tsx"
         },
+        "./components/gradient": {
+            "types": "./dist/components/gradient/index.d.ts",
+            "default": "./src/components/gradient/index.tsx"
+        },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
             "default": "./src/providers/*.tsx"
