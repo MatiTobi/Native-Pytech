@@ -60,8 +60,8 @@
             "default": "./src/components/*.tsx"
         },
         "./components/gradient": {
-            "types": "./dist/components/gradient/index.d.ts",
-            "default": "./src/components/gradient/index.tsx"
+            "types": "./dist/components/Gradient/index.d.ts",
+            "default": "./src/components/Gradient/index.tsx"
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
