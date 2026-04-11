@@ -46,19 +46,19 @@
         },
         "./constants/*": {
             "types": "./dist/constants/*.d.ts",
-            "default": "./dict/constants/*.js"
+            "default": "./dist/constants/*.js"
         },
         "./table": {
             "types": "./dist/table/index.d.ts",
-            "default": "./dict/table/index.js"
+            "default": "./dist/table/index.js"
         },
         "./page": {
             "types": "./dist/page/index.d.ts",
-            "default": "./dict/page/index.js"
+            "default": "./dist/page/index.js"
         },
         "./components": {
             "types": "./dist/components/index.d.ts",
-            "default": "./dict/components/index.js"
+            "default": "./dist/components/index.js"
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
@@ -76,7 +76,7 @@
         },
         "./assets/ionicons": {
             "types": "./dist/assets/ionicons/index.d.ts",
-            "default": "./dict/assets/ionicons/index.js"
+            "default": "./dist/assets/ionicons/index.js"
         }
     }
 }
