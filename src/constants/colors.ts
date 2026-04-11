@@ -7,92 +7,6 @@ const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
 const Colors = {
-    table: {
-        default: {//hsl(240, 2%, 18%)
-            light: {
-                background: 'hsl(120, 100%, 100%)',
-                background_pressed: 'hsl(240, 5%, 83%)',
-                border: 'hsl(240, 2%, 91%)'
-            },
-            dark: {
-                background: 'hsl(240, 3%, 10.5%)',
-                background_pressed: 'hsl(240, 2%, 22.5%)',
-                border: 'hsl(240, 3%, 22.5%)'
-            }
-        },
-        modal: {
-            light: {
-                background: 'hsl(120, 100%, 100%)',
-                background_pressed: 'hsl(240, 5%, 83%)',
-                border: 'hsl(240, 2%, 91%)'
-            },
-            dark: {
-                background: 'hsl(240, 2%, 17.5%)',
-                background_pressed: 'hsl(240, 2%, 29.5%)',
-                border: 'hsl(240, 2%, 25.5%)'
-            }
-        },
-        modal2: {
-            light: {
-                background: 'hsl(240, 18%, 96%)',
-                background_pressed: 'hsl(252, 22%, 79%)',
-                border: 'hsl(240, 10%, 88%)'
-            },
-            dark: {
-                background: 'hsl(240, 2%, 17.5%)',
-                background_pressed: 'hsl(240, 2%, 29.5%)',
-                border: 'hsl(240, 2%, 25.5%)'
-            }
-        },
-        light: {
-            light: {
-                background: 'hsl(240, 18%, 96%)',
-                background_pressed: 'hsl(240, 8%, 91%)',
-                border: 'hsl(240, 10%, 88%)'
-            },
-            dark: {
-                background: 'hsl(240, 3%, 10.5%)',
-                background_pressed: 'hsl(240, 2%, 22.5%)',
-                border: 'hsl(240, 3%, 22.5%)'
-            }
-        },
-        lightBlue: {
-            light: {
-                background: 'hsl(190, 79%, 94%)',
-                background_pressed: 'hsl(190, 82%, 89%)',
-                border: ''
-            },
-            dark: {
-                background: 'hsl(194, 62%, 11.5%)',
-                background_pressed: 'hsl(193, 62%, 18%)',
-                border: ''
-            }
-        },
-        orange: {
-            light: {
-                background: 'hsl(37, 76.5%, 90%)',
-                background_pressed: 'hsl(36, 80%, 85%)',
-                border: ''
-            },
-            dark: {
-                background: 'hsl(38, 63.6%, 16.8%)',
-                background_pressed: 'hsl(36, 64.6%, 22.3%)',
-                border: ''
-            }
-        },
-        full: {
-            light: {
-                background: 'hsl(0, 0.00%, 100.00%)',
-                background_pressed: 'hsl(240, 5%, 83%)',
-                border: 'hsl(240, 2%, 91%)'
-            },
-            dark: {
-                background: 'hsl(0, 0.00%, 0.00%)',
-                background_pressed: 'hsl(240, 2%, 22.5%)',
-                border: 'hsl(240, 3%, 22.5%)'
-            }
-        },
-    },
     light: {
         text: 'black',
         textInvert: 'white',
@@ -157,12 +71,7 @@ const Colors = {
         contTableLightBlue: 'hsl(190, 79%, 94%)',
         pressableLightBlue: 'hsl(189, 82%, 89%)',
         contTableOrange: 'hsl(37, 76.50%, 90%)',
-        pressableOrange: 'hsl(36, 80%, 85%)',
-
-        colorTextButtonFooterEnabled: 'white',
-        colorButtonFooterDisabled: 'hsl(0, 0%, 80%)',
-        colorTextButtonFooterDisabled: 'hsl(240, 1%, 62%)',
-
+        pressableOrange: 'hsl(36, 80%, 85%)'
     },
     dark: {
         text: 'white',
@@ -228,13 +137,7 @@ const Colors = {
         contTableLightBlue: 'hsl(195, 62%, 13%)',
         pressableLightBlue: 'hsl(193, 63%, 18%)',
         contTableOrange: 'hsl(38, 63.60%, 17.30%)',
-        pressableOrange: 'hsl(36, 64.60%, 22.30%)',
-
-        colorButtonFooterEnabled: 'hsl(208, 99%, 50%)',
-        colorTextButtonFooterEnabled: 'white',
-        colorButtonFooterDisabled: 'hsl(240, 2%, 26%)',
-        colorTextButtonFooterDisabled: 'hsl(240, 1%, 50%)',
-        colorButtonFooterEnabledPressed: 'hsl(240, 2%, 22%)',
+        pressableOrange: 'hsl(36, 64.60%, 22.30%)'
     },
     perfil: {
         default: {dark: '#7580ba', light: '#b1c6e4'},

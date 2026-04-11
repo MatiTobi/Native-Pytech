@@ -1,6 +1,7 @@
 import { Platform, StyleProp } from 'react-native'
 import React, { createContext as reactCreateContext, useContext, useEffect, useLayoutEffect, useRef } from 'react'
 import * as Device from 'expo-device'
+import { hsla, parseToHsla, parseToRgba } from 'color2k';
 
 
 
@@ -21,6 +22,30 @@ const formatter = new Intl.NumberFormat('es-AR')
 export const numberFormat = (value: number): string => {
 	const abs = formatter.format(Math.abs(value))
 	return value < 0 ? `(${abs})` : abs
+}
+
+
+export function applyOpacity(color: string, opacity: number) {
+	try {
+		const [r, g, b] = parseToRgba(color); // ignoro alpha original
+		return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+	} catch (e) {
+		console.error('Color inválido:', color);
+		return color;
+	}
+}
+
+export function adjustLightness(color: string, percentage: number) {
+	try {
+		const [h, s, l, a] = parseToHsla(color);
+		// Ajustar luminosidad: percentage puede ser positivo (aclarar) o negativo (oscurecer)
+		// l está en rango 0-1, percentage es de -100 a +100
+		const newL = Math.max(0, Math.min(1, l + (percentage / 100)));
+		return hsla(h, s, newL, a);
+	} catch (e) {
+		console.error('Color inválido:', color);
+		return color;
+	}
 }
 
 

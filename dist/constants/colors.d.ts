@@ -3,92 +3,6 @@
  * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
 declare const Colors: {
-    table: {
-        default: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-        modal: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-        modal2: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-        light: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-        lightBlue: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-        orange: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-        full: {
-            light: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-            dark: {
-                background: string;
-                background_pressed: string;
-                border: string;
-            };
-        };
-    };
     light: {
         text: string;
         textInvert: string;
@@ -141,9 +55,6 @@ declare const Colors: {
         pressableLightBlue: string;
         contTableOrange: string;
         pressableOrange: string;
-        colorTextButtonFooterEnabled: string;
-        colorButtonFooterDisabled: string;
-        colorTextButtonFooterDisabled: string;
     };
     dark: {
         text: string;
@@ -197,11 +108,6 @@ declare const Colors: {
         pressableLightBlue: string;
         contTableOrange: string;
         pressableOrange: string;
-        colorButtonFooterEnabled: string;
-        colorTextButtonFooterEnabled: string;
-        colorButtonFooterDisabled: string;
-        colorTextButtonFooterDisabled: string;
-        colorButtonFooterEnabledPressed: string;
     };
     perfil: {
         default: {
