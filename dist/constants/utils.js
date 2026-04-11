@@ -41,7 +41,7 @@ export function adjustLightness(color, percentage) {
         return color;
     }
 }
-export const getDeviceTier = () => {
+export const _getDeviceTier = () => {
     if (Platform.OS !== 'android')
         return 'high';
     const ramGB = Device.totalMemory

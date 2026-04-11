@@ -16,7 +16,6 @@ export function useEffectWithoutFirstRender(effect: () => void, deps: any[]) {
 }
 
 
-
 export function useLayoutEffectWithoutFirstRender(effect: () => void, deps: any[]) {
     const isFirstRender = useRef(true)
 

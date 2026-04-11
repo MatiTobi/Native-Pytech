@@ -35,6 +35,7 @@ export function applyOpacity(color: string, opacity: number) {
 	}
 }
 
+
 export function adjustLightness(color: string, percentage: number) {
 	try {
 		const [h, s, l, a] = parseToHsla(color);
@@ -49,8 +50,7 @@ export function adjustLightness(color: string, percentage: number) {
 }
 
 
-
-export const getDeviceTier = () : 'low' | 'medium' | 'high' => {
+export const _getDeviceTier = () : 'low' | 'medium' | 'high' => {
 	if (Platform.OS !== 'android') return 'high'
   
 	const ramGB = Device.totalMemory
