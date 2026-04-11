@@ -62,7 +62,7 @@
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
-            "default": "./src/providers/*.tsx"
+            "default": "./dist/providers/*.js"
         },
         "./assets/*": {
             "default": "./src/assets/*"
