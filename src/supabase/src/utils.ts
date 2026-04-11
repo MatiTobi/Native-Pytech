@@ -1,7 +1,7 @@
 import supabase from './config'
 import { expoEnv } from 'constants/constants'
 
-const {SUPABASE_USERNAME_LOGIN, SUPABASE_PASSWORD_LOGIN} = expoEnv
+const { SUPABASE_USERNAME_LOGIN, SUPABASE_PASSWORD_LOGIN } = expoEnv
 
 
 export const logIn = async ({
