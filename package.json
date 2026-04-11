@@ -68,6 +68,9 @@
         "./assets/*": {
             "types": "./dist/assets/*.d.ts",
             "default": "./dist/assets/*.js"
+        },
+        "./assets/images/*": {
+            "default": "./dist/assets/images/*"
         }
     }
 }
