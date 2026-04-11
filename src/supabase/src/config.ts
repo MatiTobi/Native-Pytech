@@ -1,25 +1,20 @@
 import { expoEnv } from 'constants/constants'
 import { createClient } from '@supabase/supabase-js'
 import { Platform } from 'react-native'
-//import type AsyncStorageType from '@react-native-async-storage/async-storage'
+import type AsyncStorageType from '@react-native-async-storage/async-storage'
 
 import 'react-native-url-polyfill/auto'
-import { Buffer } from '@craftzdog/react-native-buffer'
-global.Buffer = Buffer as any
-
+import { Buffer } from 'buffer'
+global.Buffer = global.Buffer ?? Buffer
 
 
 
 // AsyncStorage
 const isWeb = Platform.OS === 'web'
 
-//let asyncStorage: typeof AsyncStorageType | undefined = undefined
-let asyncStorage: any = undefined
-if (!isWeb) {
-    try { asyncStorage = require('@react-native-async-storage/async-storage').default }
-	catch (error) { console.warn('AsyncStorage no disponible:', error) }
-}
-
+const asyncStorage: typeof AsyncStorageType | undefined = !isWeb
+    ? require('@react-native-async-storage/async-storage')?.default
+    : undefined
 
 
 // Configuración
