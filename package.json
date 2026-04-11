@@ -64,9 +64,6 @@
             "types": "./dist/providers/*.d.ts",
             "default": "./dist/providers/*.js"
         },
-        "./assets/*": {
-            "default": "./src/assets/*"
-        },
         "./assets/components/*": {
             "types": "./dist/assets/components/*.d.ts",
             "default": "./dist/assets/components/*.js"
