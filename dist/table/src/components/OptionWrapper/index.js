@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import ThemeComponent from '../../../../components/theme';
+import ThemeComponent from '../../../../components/Theme';
 import * as OptionComponents from '../OptionComponents';
 import Wrapper from '../Wrapper';
 const OptionWrapper = memo(({ ...props }) => {

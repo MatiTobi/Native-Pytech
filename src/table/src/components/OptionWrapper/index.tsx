@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import Props, { OptionComponent } from './types'
 
-import ThemeComponent from '../../../../components/theme'
+import ThemeComponent from '../../../../components/Theme'
 import { type ColorSchemeType } from '../../constants'
 
 import * as OptionComponents from '../OptionComponents'
