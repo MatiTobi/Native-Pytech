@@ -4,7 +4,7 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { Animated, Easing, LayoutChangeEvent, Platform, Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated'
 
-import { useLayoutEffectWithoutFirstRender } from '../../../../constants/utils'
+import { useLayoutEffectWithoutFirstRender } from '../../../../constants/hooks'
 import { isLowTier } from '../../../../constants/constants'
 
 import colors from '../../constants'

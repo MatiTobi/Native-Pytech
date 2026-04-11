@@ -2,7 +2,7 @@ import { useValue } from '@legendapp/state/react';
 import React, { memo, useEffect, useState } from 'react';
 import { PixelRatio, View, StyleSheet } from 'react-native';
 import colors from '../constants';
-import { useEffectWithoutFirstRender } from '../../../constants/utils';
+import { useEffectWithoutFirstRender } from '../../../constants/hooks';
 import { useApp } from '../../../providers/app';
 import { useStore, useTable } from '../context/table';
 import { useBorder } from '../context/borders';

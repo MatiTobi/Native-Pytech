@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import React, { createContext as reactCreateContext, useContext, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { createContext as reactCreateContext, useContext } from 'react';
 import * as Device from 'expo-device';
 import { hsla, parseToHsla, parseToRgba } from 'color2k';
 export const addProps = (element, additionalStyles = [], extraProps = {}) => {
@@ -40,26 +40,6 @@ export function adjustLightness(color, percentage) {
         console.error('Color inválido:', color);
         return color;
     }
-}
-export function useEffectWithoutFirstRender(effect, deps) {
-    const isFirstRender = useRef(true);
-    useEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
-            return;
-        }
-        return effect();
-    }, deps);
-}
-export function useLayoutEffectWithoutFirstRender(effect, deps) {
-    const isFirstRender = useRef(true);
-    useLayoutEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
-            return;
-        }
-        return effect();
-    }, deps);
 }
 export const getDeviceTier = () => {
     if (Platform.OS !== 'android')

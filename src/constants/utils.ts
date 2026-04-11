@@ -1,5 +1,5 @@
 import { Platform, StyleProp } from 'react-native'
-import React, { createContext as reactCreateContext, useContext, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { createContext as reactCreateContext, useContext } from 'react'
 import * as Device from 'expo-device'
 import { hsla, parseToHsla, parseToRgba } from 'color2k';
 
@@ -46,35 +46,6 @@ export function adjustLightness(color: string, percentage: number) {
 		console.error('Color inválido:', color);
 		return color;
 	}
-}
-
-
-export function useEffectWithoutFirstRender(effect: () => void, deps: any[]) {
-    const isFirstRender = useRef(true)
-
-    useEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false
-            return
-        }
-
-        return effect()
-    }, deps)
-}
-
-
-
-export function useLayoutEffectWithoutFirstRender(effect: () => void, deps: any[]) {
-    const isFirstRender = useRef(true)
-
-    useLayoutEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false
-            return
-        }
-
-        return effect()
-    }, deps)
 }
 
 

@@ -1,9 +1,10 @@
 import FontFaceObserver from 'fontfaceobserver';
 
 
+
 export const handleFontObserver = () => {
     console.log('handleFontObserver')
-    
+
     // Solo ejecutarlo en Web
     if (typeof document === 'undefined') return;
 

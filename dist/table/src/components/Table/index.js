@@ -3,7 +3,7 @@ import React, { memo, useMemo } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
 import colors from '../../constants';
-import { useEffectWithoutFirstRender } from '../../../../constants/utils';
+import { useEffectWithoutFirstRender } from '../../../../constants/hooks';
 import { useApp } from '../../../../providers/app';
 import { BordersProvider, StoreProvider, TableProvider } from '../../context/table';
 import OptionWrapper from '../OptionWrapper';
