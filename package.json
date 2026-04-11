@@ -65,20 +65,9 @@
             "types": "./dist/providers/*.d.ts",
             "default": "./dist/providers/*.js"
         },
-        "./assets": {
-            "types": "./dist/assets/index.d.ts",
-            "default": "./dist/assets/index.js"
-        },
-        "./assets/components/*": {
-            "types": "./dist/assets/components/*.d.ts",
-            "default": "./dist/assets/components/*.js"
-        },
-        "./assets/ionicons/*": {
-            "types": "./dist/assets/ionicons/*.d.ts",
-            "default": "./dist/assets/ionicons/*.js"
-        },
-        "./assets/images/*": {
-            "default": "./dist/assets/images/*"
+        "./assets/*": {
+            "types": "./dist/assets/*.d.ts",
+            "default": "./dist/assets/*.js"
         }
     }
 }
