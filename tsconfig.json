@@ -9,6 +9,8 @@
         "moduleResolution": "bundler",
         "target": "esnext",
         "skipLibCheck": true,
+        "baseUrl": "./src",
+        "paths": {}
     },
     "include": [
         "declarations.d.ts",

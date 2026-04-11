@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { useApp } from "../../../../providers/app"
+import { useApp } from "providers/app"
 import colors from '../../constants'
 import PageWrapper from '../PageWrapper'
 import Props, { Component } from './types'

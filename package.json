@@ -7,7 +7,7 @@
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && tsc-alias",
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
@@ -36,6 +36,7 @@
         "expo": "~54.0.33",
         "react": "19.2.5",
         "react-native": "0.81.5",
+        "tsc-alias": "^1.8.16",
         "typescript": "~5.9.2"
     },
     "exports": {
@@ -58,10 +59,6 @@
         "./components": {
             "types": "./dist/components/index.d.ts",
             "default": "./src/components/index.ts"
-        },
-        "./components/gradient": {
-            "types": "./dist/components/Gradient/index.d.ts",
-            "default": "./src/components/Gradient/index.tsx"
         },
         "./providers/*": {
             "types": "./dist/providers/*.d.ts",
