@@ -7,7 +7,8 @@ global.Buffer = global.Buffer ?? Buffer;
 // AsyncStorage
 const isWeb = Platform.OS === 'web';
 const asyncStorage = !isWeb
-    ? require('@react-native-async-storage/async-storage')?.default
+    //? require('@react-native-async-storage/async-storage')?.default
+    ? undefined
     : undefined;
 // Configuración
 const { SUPABASE_URL, SUPABASE_KEY } = expoEnv;

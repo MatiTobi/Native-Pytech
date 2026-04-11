@@ -13,7 +13,8 @@ global.Buffer = global.Buffer ?? Buffer
 const isWeb = Platform.OS === 'web'
 
 const asyncStorage: typeof AsyncStorageType | undefined = !isWeb
-    ? require('@react-native-async-storage/async-storage')?.default
+    //? require('@react-native-async-storage/async-storage')?.default
+    ? undefined
     : undefined
 
 
