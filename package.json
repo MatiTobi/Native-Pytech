@@ -7,7 +7,7 @@
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
-        "build": "tsc && tsc-alias",
+        "build": "tsc && tsc-alias && copyfiles -u 1 \"src/assets/images/**/*\" dist/",
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
@@ -33,6 +33,7 @@
     "devDependencies": {
         "@types/react": "~19.1.10",
         "babel-plugin-module-resolver": "^5.0.3",
+        "copyfiles": "^2.4.1",
         "expo": "~54.0.33",
         "react": "19.2.5",
         "react-native": "0.81.5",
@@ -64,16 +65,12 @@
             "types": "./dist/providers/*.d.ts",
             "default": "./dist/providers/*.js"
         },
-        "./assets/components/*": {
-            "types": "./dist/assets/components/*.d.ts",
-            "default": "./dist/assets/components/*.js"
+        "./assets/*": {
+            "types": "./dist/assets/*.d.ts",
+            "default": "./dist/assets/*.js"
         },
         "./assets/images/*": {
-            "default": "./src/assets/images/*"
-        },
-        "./assets/ionicons": {
-            "types": "./dist/assets/ionicons/index.d.ts",
-            "default": "./dist/assets/ionicons/index.js"
+            "default": "./dist/assets/images/*"
         }
     }
 }
