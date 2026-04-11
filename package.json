@@ -55,10 +55,6 @@
             "types": "./dist/page/index.d.ts",
             "default": "./src/page/index.ts"
         },
-        "./components/*": {
-            "types": "./dist/components/*.d.ts",
-            "default": "./src/components/*.tsx"
-        },
         "./components/gradient": {
             "types": "./dist/components/Gradient/index.d.ts",
             "default": "./src/components/Gradient/index.tsx"
