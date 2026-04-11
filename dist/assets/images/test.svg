@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  width="80"
+  height="80"
+  viewBox="0 0 80 80"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Fondo transparente -->
+  <rect
+    width="80"
+    height="80"
+    fill="none"
+  />
+
+  <!-- Círculo 50x50 centrado -->
+  <circle
+    cx="40"
+    cy="40"
+    r="25"
+    fill="CURRENT_COLOR"
+  />
+</svg>
