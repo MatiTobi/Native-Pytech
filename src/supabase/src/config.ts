@@ -12,10 +12,12 @@ global.Buffer = global.Buffer ?? Buffer
 // AsyncStorage
 const isWeb = Platform.OS === 'web'
 
-const asyncStorage: typeof AsyncStorageType | undefined = !isWeb
-    //? require('@react-native-async-storage/async-storage')?.default
-    ? undefined
-    : undefined
+let asyncStorage: typeof AsyncStorageType | undefined = undefined
+if (!isWeb) {
+    try { asyncStorage = require('@react-native-async-storage/async-storage').default }
+	catch (error) { console.warn('AsyncStorage no disponible:', error) }
+}
+
 
 
 // Configuración
