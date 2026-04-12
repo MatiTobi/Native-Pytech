@@ -1,3 +1,4 @@
-export { default } from './src/query';
-export { default as db } from './src/init';
+export { default } from './src/queryLocal';
+export { default as dbRef } from './src/init';
 export * from './src/init';
+export { reset } from './src/utils';
