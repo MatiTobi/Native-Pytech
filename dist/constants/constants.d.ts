@@ -7,4 +7,11 @@ type ExpoEnv = {
     SUPABASE_KEY: string;
 };
 export declare const expoEnv: Partial<ExpoEnv>;
+export declare const screenOptions: {
+    headerTitleAlign: string;
+    headerBackButtonMenuEnabled: boolean;
+    headerBackButtonDisplayMode: string;
+    headerTransparent: boolean;
+    headerLargeTitle: boolean;
+};
 export {};

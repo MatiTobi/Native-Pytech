@@ -15,3 +15,12 @@ type ExpoEnv = {
     SUPABASE_KEY: string
 }
 export const expoEnv: Partial<ExpoEnv> = Constants.expoConfig?.extra || {}
+
+
+export const screenOptions = {
+    headerTitleAlign: "center", 
+    headerBackButtonMenuEnabled: true,
+    headerBackButtonDisplayMode: 'default',
+    headerTransparent: Platform.OS === 'ios',
+    headerLargeTitle: true,
+}
