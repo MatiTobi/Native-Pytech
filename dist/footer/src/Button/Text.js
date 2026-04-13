@@ -1,5 +1,5 @@
 import colors from '../constants';
-import { useApp } from "providers/app";
+import { useApp } from "../../../providers/app";
 import { memo, useMemo } from 'react';
 import { StyleSheet, Text } from 'react-native';
 export default memo(({ text, enabled, themeColor = 'default' }) => {

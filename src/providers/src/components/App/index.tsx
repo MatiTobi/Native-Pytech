@@ -60,7 +60,7 @@ export default memo(({
                 <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                     
                     <Stack screenOptions={{ headerShown: false }}>
-                        {listStacksNames?.map((name) => (
+                        {listStackNames?.map((name) => (
                             <Stack.Screen key={name} name={name} />
                         ))}
                     </Stack>

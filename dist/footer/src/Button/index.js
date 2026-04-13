@@ -1,8 +1,8 @@
 import colors from '../constants';
-import { useApp } from "providers/app";
+import { useApp } from "../../../providers/app";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
-import { adjustLightness } from 'constants/utils';
+import { adjustLightness } from '../../../constants/utils';
 import Text from './Text';
 export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = true, themeColor = 'default' }) => {
     const { colorScheme } = useApp();

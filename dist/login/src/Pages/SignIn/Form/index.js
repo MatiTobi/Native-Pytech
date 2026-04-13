@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Platform, StyleSheet, View } from "react-native";
-import { useApp } from "providers/app";
+import { useApp } from "../../../../../providers/app";
 import colors from "../../../constants";
 import Input from "./Input";
 export default memo(({ store }) => {

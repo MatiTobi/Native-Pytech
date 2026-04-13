@@ -1,4 +1,4 @@
-import { useApp } from "providers/app";
+import { useApp } from "../../../providers/app";
 import { memo } from 'react';
 import { ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import colors from '../constants';

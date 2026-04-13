@@ -6,5 +6,5 @@ declare const colors: {
         backgroundColor: string;
     };
 };
-export { type ColorSchemeType } from "constants/colors";
+export { type ColorSchemeType } from "../../constants/colors";
 export default colors;
