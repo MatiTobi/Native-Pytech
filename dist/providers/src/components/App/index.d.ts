@@ -6,5 +6,5 @@ declare const useApp: () => {
     fontScale: number;
 };
 export { useApp };
-declare const _default: React.MemoExoticComponent<({ children, isLoading, renderItemLoading, onLoadingRealsed }: Props) => React.JSX.Element>;
+declare const _default: React.MemoExoticComponent<({ children, isLoading, renderItemLoading, onLoadingRealsed, getBackgroundColor }: Props) => React.JSX.Element>;
 export default _default;

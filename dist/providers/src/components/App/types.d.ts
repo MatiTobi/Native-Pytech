@@ -24,5 +24,11 @@ type Props = {
     onLoadingRealsed?: ({ router }: {
         router: Router;
     }) => void;
+    /**
+        Función para obtener el color de fondo de las paginas por defecto.
+    */
+    getBackgroundColor?: ({ colorScheme }: {
+        colorScheme: ColorSchemeType;
+    }) => string;
 };
 export default Props;

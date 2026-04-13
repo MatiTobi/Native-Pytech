@@ -15,7 +15,7 @@ export { useApp };
 export default memo(({ children, isLoading = true, renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?
     <LoginSvgDark width={200} height={200}/>
     :
-        <LoginSvg width={200} height={200}/>), onLoadingRealsed }) => {
+        <LoginSvg width={200} height={200}/>), onLoadingRealsed, getBackgroundColor }) => {
     const colorScheme = useColorScheme();
     const Theme = colors[colorScheme];
     const { fontScale } = useWindowDimensions();
@@ -26,7 +26,7 @@ export default memo(({ children, isLoading = true, renderItemLoading = ({ colorS
             onLoadingRealsed?.({ router });
     }, [isLoading]);
     if (isLoading) {
-        return (<View style={[styles.container, { backgroundColor: Theme.backgroundColor }]}>
+        return (<View style={[styles.container, { backgroundColor: getBackgroundColor?.({ colorScheme }) || Theme.backgroundColor }]}>
                 {renderItemLoading({ colorScheme })}
             </View>);
     }

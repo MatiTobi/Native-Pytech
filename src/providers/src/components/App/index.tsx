@@ -29,7 +29,8 @@ export default memo(({
     :
         <LoginSvg width={200} height={200}/>
     ),
-    onLoadingRealsed
+    onLoadingRealsed,
+    getBackgroundColor
 
 }: Props) => {
 
@@ -47,7 +48,7 @@ export default memo(({
 
     if (isLoading) {
         return (
-            <View style={[styles.container, { backgroundColor: Theme.backgroundColor }]}>
+            <View style={[styles.container, { backgroundColor: getBackgroundColor?.({colorScheme}) || Theme.backgroundColor }]}>
                 {renderItemLoading({colorScheme})}
             </View>
         )
