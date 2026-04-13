@@ -59,6 +59,10 @@
             "types": "./dist/footer/index.d.ts",
             "default": "./dist/footer/index.js"
         },
+        "./tabs": {
+            "types": "./dist/tabs/index.d.ts",
+            "default": "./dist/tabs/index.js"
+        },
         "./login": {
             "types": "./dist/login/index.d.ts",
             "default": "./dist/login/index.js"
