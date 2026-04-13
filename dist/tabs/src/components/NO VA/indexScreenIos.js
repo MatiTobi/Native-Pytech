@@ -1,4 +1,4 @@
-import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
+/*import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
 
 import type Props from './types'
 
@@ -20,4 +20,4 @@ export default ({
             <Badge>{String(badge)}</Badge>
         </NativeTabs.Trigger>
     )
-}
+}*/ 

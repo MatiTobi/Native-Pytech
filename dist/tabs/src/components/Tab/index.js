@@ -1,14 +1,19 @@
-import { NativeTabs } from "expo-router/unstable-native-tabs";
-import { useSegments } from 'expo-router';
+import { useSegments, Tabs } from 'expo-router';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { memo } from "react";
-import Screen from '../Screen';
-const Tab = memo(({ children, onSegmentChange }) => {
+export default memo(({ onSegmentChange, listTabs }) => {
     const segments = useSegments();
     const hideTabBar = onSegmentChange?.({ segments }) ?? false;
-    return (<NativeTabs minimizeBehavior="onScrollDown" blurEffect="dark" // Sólo se puede ver en iOS build app
-    >
-			{children}
-		</NativeTabs>);
+    return (<Tabs tabBar={hideTabBar ? () => null : undefined} screenOptions={{
+            headerShown: false,
+            tabBarStyle: {
+                borderTopWidth: 0
+            },
+        }}>
+			{listTabs.map((tab) => (<Tabs.Screen name={tab.name} options={{
+                title: tab.title || tab.name,
+                tabBarBadge: tab.badge,
+                tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name={tab.iconNameAndroid || 'cog-outline'} color={color} size={size}/>),
+            }}/>))}
+		</Tabs>);
 });
-Tab.Screen = Screen;
-export default Tab;
