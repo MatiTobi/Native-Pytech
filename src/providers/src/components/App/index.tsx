@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react"
+import React, { memo, useMemo, useState, useRef } from "react"
 import { Stack, useRouter } from "expo-router";
 import { useColorScheme, useWindowDimensions, View, StyleSheet } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -10,7 +10,7 @@ handleFontObserver() // esto intercepta todos los timeouts de fuentes
 import { createCtx } from "constants/utils"
 import LoginSvg from 'assets/images/login_letras.svg';
 import LoginSvgDark from 'assets/images/login_letras_dark.svg';
-import { useEffectWithoutFirstRender } from 'constants/hooks'
+import { useAsyncEffect, useEffectWithoutFirstRender } from 'constants/hooks'
 
 import colors, { ColorSchemeType } from "../../constants"
 import type Props from './types'
@@ -22,7 +22,6 @@ export { useApp }
 
 
 export default memo(({
-    isLoading=true,
     renderItemLoading=({ colorScheme }) => (colorScheme === 'dark' ?
         <LoginSvgDark width={200} height={200}/>
     :
@@ -30,23 +29,38 @@ export default memo(({
     ),
     onLoadingRealsed,
     getBackgroundColor,
-    listStackNames=[]
+    listStackNames=[],
+    getSession
 
 }: Props) => {
 
+    // -------------- Variables --------------
     const colorScheme = useColorScheme() as ColorSchemeType
     const Theme = colors[colorScheme]
 
-	const { fontScale } = useWindowDimensions()
+    const { fontScale } = useWindowDimensions()
     const router = useRouter()
 
-	const value = useMemo(() => ({ colorScheme: colorScheme, fontScale: fontScale }), [colorScheme, fontScale])
+    const [isLoading, setIsLoading] = useState(true)
+	const hasSessionRef = useRef(false)
 
+
+    // -------------- Effects --------------
     useEffectWithoutFirstRender(() => {
-        if (!isLoading) onLoadingRealsed?.({router})
+        if (!isLoading) onLoadingRealsed?.({router, hasSession: hasSessionRef.current})
     }, [isLoading])
 
-    if (isLoading) {
+    useAsyncEffect(async (isMounted) => {
+		hasSessionRef.current = (await getSession?.()) ?? true
+		if (!isMounted) return
+		setIsLoading(false)
+	}, [])
+
+
+    // -------------- Return --------------
+    const value = useMemo(() => ({ colorScheme: colorScheme, fontScale: fontScale }), [colorScheme, fontScale])
+
+    if (isLoading){
         return (
             <View style={[styles.container, { backgroundColor: getBackgroundColor?.({colorScheme}) || Theme.backgroundColor }]}>
                 {renderItemLoading({colorScheme})}
