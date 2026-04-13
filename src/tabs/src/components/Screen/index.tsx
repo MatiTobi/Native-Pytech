@@ -1,8 +1,6 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { Tabs } from "expo-router"
+import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
 
 import type Props from './types'
-
 
 
 
@@ -16,15 +14,10 @@ export default ({
 }: Props) => {
     
     return (
-        <Tabs.Screen
-            name={name}
-            options={{
-                title:title || name,
-                tabBarBadge: badge,
-                tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name={iconNameAndroid} color={color} size={size} />
-                ),
-            }}
-        />
+        <NativeTabs.Trigger name={name}>
+            <Label>{title}</Label>
+            <Icon sf={iconNameIos} drawable="bottom_bar" />
+            <Badge>{String(badge)}</Badge>
+        </NativeTabs.Trigger>
     )
 }
