@@ -30,5 +30,9 @@ type Props = {
     getBackgroundColor?: ({ colorScheme }: {
         colorScheme: ColorSchemeType;
     }) => string;
+    /**
+        Lista de nombres de los Stacks que se deben renderizar.
+    */
+    listStacksNames?: string[];
 };
 export default Props;

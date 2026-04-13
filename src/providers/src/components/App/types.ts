@@ -27,6 +27,10 @@ type Props = {
         Función para obtener el color de fondo de las paginas por defecto.
     */
     getBackgroundColor?: ({colorScheme}: {colorScheme: ColorSchemeType}) => string
+    /**
+        Lista de nombres de los Stacks que se deben renderizar.
+    */
+    listStacksNames?: string[]
 }
 
 export default Props
