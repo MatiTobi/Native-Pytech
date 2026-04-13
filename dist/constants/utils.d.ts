@@ -7,3 +7,4 @@ export declare function adjustLightness(color: string, percentage: number): stri
 export declare const _getDeviceTier: () => "low" | "medium" | "high";
 export declare const createCtx: <T>() => readonly [React.Provider<T>, () => T];
 export declare const createUseContext: <T>(context: React.Context<T | null>) => T;
+export declare const capitalize: (string: string) => string;

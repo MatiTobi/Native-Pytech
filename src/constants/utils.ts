@@ -75,3 +75,8 @@ export const createUseContext = <T>(context: React.Context<T | null>) => {
     if (!ctx) throw new Error('useContext debe usarse dentro de un context.Provider')
     return ctx as T
 }
+
+
+export const capitalize = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

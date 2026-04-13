@@ -64,3 +64,6 @@ export const createUseContext = (context) => {
         throw new Error('useContext debe usarse dentro de un context.Provider');
     return ctx;
 };
+export const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};

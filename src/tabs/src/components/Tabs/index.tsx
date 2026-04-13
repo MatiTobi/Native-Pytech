@@ -2,6 +2,7 @@ import { useSegments, Tabs } from 'expo-router';
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import React, { memo } from "react";
 
+import { capitalize } from 'constants/utils';
 import Props from './types';
 
 
@@ -29,7 +30,7 @@ export default memo(({
 				<Tabs.Screen
 					name={tab.name}
 					options={{
-						title:tab.title || tab.name,
+						title:tab.title || capitalize(tab.name),
 						tabBarBadge: tab.badge,
 						tabBarIcon: ({ color, size }) => (
 							<MaterialCommunityIcons name={tab.iconNameAndroid || 'cog-outline'} color={color} size={size} />

@@ -6,8 +6,8 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { handleFontObserver } from '../../../../constants/handleFontObserver';
 handleFontObserver(); // esto intercepta todos los timeouts de fuentes
 import { createCtx } from "../../../../constants/utils";
-import LoginSvg from 'assets/images/login_letras.svg';
-import LoginSvgDark from 'assets/images/login_letras_dark.svg';
+import LoginSvg from '../../../../assets/images/login_letras.svg';
+import LoginSvgDark from '../../../../assets/images/login_letras_dark.svg';
 import { useEffectWithoutFirstRender } from '../../../../constants/hooks';
 import colors from "../../constants";
 const [Provider, useApp] = createCtx();

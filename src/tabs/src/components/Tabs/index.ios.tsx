@@ -2,6 +2,7 @@ import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs
 import { useSegments } from 'expo-router';
 import React, { memo } from "react";
 
+import { capitalize } from 'constants/utils';
 import Props from './types';
 
 
@@ -22,7 +23,7 @@ export default memo(({
 		>
 			{listTabs.map((tab) => (
 				<NativeTabs.Trigger key={tab.name} name={tab.name}>
-					<Label>{tab.title}</Label>
+					<Label>{tab.title || capitalize(tab.name)}</Label>
 					<Icon sf={tab.iconNameIos || 'gearshape.fill'} drawable="bottom_bar" />
 					{tab.badge && <Badge>{String(tab.badge)}</Badge>}
 				</NativeTabs.Trigger>
