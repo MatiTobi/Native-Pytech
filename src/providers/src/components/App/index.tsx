@@ -21,12 +21,6 @@ export { useApp }
 
 export default memo(({
     children,
-    isLoading=false,
-    renderItemLoading=({ colorScheme }) => (colorScheme === 'dark' ?
-        <LoginSvgDark width={200} height={200}/>
-    :
-        <LoginSvg width={200} height={200}/>
-    )
 
 }: Props) => {
 
@@ -36,14 +30,6 @@ export default memo(({
 	const { fontScale } = useWindowDimensions()
 
 	const value = useMemo(() => ({ colorScheme: colorScheme, fontScale: fontScale }), [colorScheme, fontScale])
-
-    if (isLoading) {
-        return (
-            <View style={[styles.container, { backgroundColor: Theme.backgroundColor }]}>
-                {renderItemLoading({ colorScheme })}
-            </View>
-        )
-    }
 
     return (
         <SafeAreaProvider>
