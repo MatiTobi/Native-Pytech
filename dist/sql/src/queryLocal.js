@@ -1,9 +1,11 @@
 import dbRef from './init';
-const queryLocal = async ({ query, params, getReturn = true }) => {
+const queryLocal = async ({ query, params = [], onlyExecute = false }) => {
     if (!dbRef.current)
         throw new Error('Database not initialized');
+    console.log('onlyExecute', onlyExecute);
+    console.log('params', params);
     try {
-        if (getReturn)
+        if (!onlyExecute)
             return await (dbRef.current.getAllAsync(query, params));
         await dbRef.current.execAsync(query);
     }

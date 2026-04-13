@@ -32,7 +32,11 @@ export const _hasTables = async () => {
 export const _createTables = async ({ listTablesPaths, sqlOnCreateTables }) => {
     console.log('Creando tablas...');
     for (const path of listTablesPaths) {
-        const sql = require(path);
+        // Importa el contenido del archivo SQL desde el usuario
+        const { createRequire } = require('module');
+        const requireFromUser = createRequire(process.cwd() + '/');
+        const sql = requireFromUser(path);
+        // Ejecuta
         try {
             await _executeSQL({ sql: sql.default });
         }
