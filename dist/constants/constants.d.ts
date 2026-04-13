@@ -1,3 +1,4 @@
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 export declare const deviceTier: "low" | "medium" | "high";
 export declare const isLowTier: boolean;
 type ExpoEnv = {
@@ -7,11 +8,5 @@ type ExpoEnv = {
     SUPABASE_KEY: string;
 };
 export declare const expoEnv: Partial<ExpoEnv>;
-export declare const screenOptions: {
-    headerTitleAlign: string;
-    headerBackButtonMenuEnabled: boolean;
-    headerBackButtonDisplayMode: string;
-    headerTransparent: boolean;
-    headerLargeTitle: boolean;
-};
+export declare const screenOptions: NativeStackNavigationOptions;
 export {};

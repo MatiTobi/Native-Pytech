@@ -1,7 +1,7 @@
 import { Platform } from 'react-native'
 import { _getDeviceTier } from './utils'
 import Constants from 'expo-constants'
-
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
 
 export const deviceTier = _getDeviceTier()
@@ -17,7 +17,7 @@ type ExpoEnv = {
 export const expoEnv: Partial<ExpoEnv> = Constants.expoConfig?.extra || {}
 
 
-export const screenOptions = {
+export const screenOptions:NativeStackNavigationOptions = {
     headerTitleAlign: "center", 
     headerBackButtonMenuEnabled: true,
     headerBackButtonDisplayMode: 'default',
