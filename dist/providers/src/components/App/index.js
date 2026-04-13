@@ -12,10 +12,10 @@ import { useAsyncEffect, useEffectWithoutFirstRender } from '../../../../constan
 import colors from "../../constants";
 const [Provider, useApp] = createCtx();
 export { useApp };
-export default memo(({ renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?
+export default memo(({ listStackNames = [], getBackgroundColor, getSession, renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?
     <LoginSvgDark width={200} height={200}/>
     :
-        <LoginSvg width={200} height={200}/>), onLoadingRealsed, getBackgroundColor, listStackNames = [], getSession }) => {
+        <LoginSvg width={200} height={200}/>), onLoadingRealsed, }) => {
     // -------------- Variables --------------
     const colorScheme = useColorScheme();
     const Theme = colors[colorScheme];

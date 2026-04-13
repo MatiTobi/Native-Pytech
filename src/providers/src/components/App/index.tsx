@@ -22,15 +22,15 @@ export { useApp }
 
 
 export default memo(({
+    listStackNames=[],
+    getBackgroundColor,
+    getSession,
     renderItemLoading=({ colorScheme }) => (colorScheme === 'dark' ?
         <LoginSvgDark width={200} height={200}/>
     :
         <LoginSvg width={200} height={200}/>
     ),
     onLoadingRealsed,
-    getBackgroundColor,
-    listStackNames=[],
-    getSession
 
 }: Props) => {
 
