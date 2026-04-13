@@ -28,3 +28,18 @@ export function useLayoutEffectWithoutFirstRender(effect: () => void, deps: any[
         return effect()
     }, deps)
 }
+
+
+export function useAsyncEffect(
+    effect: (isMounted: () => boolean) => Promise<void>,
+    deps: any[]
+){
+    useEffect(() => {
+        let mounted = true
+        const isMounted = () => mounted
+
+        effect(isMounted)
+
+        return () => { mounted = false }
+    }, deps)
+}
