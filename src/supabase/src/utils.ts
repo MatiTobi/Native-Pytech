@@ -1,3 +1,4 @@
+import { User } from '@supabase/supabase-js'
 import supabase from './config'
 import { expoEnv } from 'constants/constants'
 
@@ -15,3 +16,11 @@ export const logIn = async ({
 }
 
 export const logOut = async () => await supabase.auth.signOut()
+
+
+export const getUser = async (): Promise<User | undefined> => {
+    try {
+        const { data } = await supabase.auth.getSession()
+        return data?.session?.user
+    } catch (e) {console.warn('Error verificando sesión:', e)}
+}

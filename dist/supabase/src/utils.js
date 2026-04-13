@@ -8,3 +8,12 @@ export const logIn = async ({ email = SUPABASE_USERNAME_LOGIN, password = SUPABA
     });
 };
 export const logOut = async () => await supabase.auth.signOut();
+export const getUser = async () => {
+    try {
+        const { data } = await supabase.auth.getSession();
+        return data?.session?.user;
+    }
+    catch (e) {
+        console.warn('Error verificando sesión:', e);
+    }
+};

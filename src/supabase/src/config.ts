@@ -20,7 +20,7 @@ const asyncStorage: typeof AsyncStorageType | undefined = !isWeb
 // Configuración
 const { SUPABASE_URL, SUPABASE_KEY } = expoEnv
 
-export default createClient(
+const supabase = createClient(
     SUPABASE_URL,
     SUPABASE_KEY,
     {
@@ -32,3 +32,4 @@ export default createClient(
         }
     }
 )
+export default supabase

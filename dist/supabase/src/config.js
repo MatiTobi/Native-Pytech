@@ -11,7 +11,7 @@ const asyncStorage = !isWeb
     : undefined;
 // Configuración
 const { SUPABASE_URL, SUPABASE_KEY } = expoEnv;
-export default createClient(SUPABASE_URL, SUPABASE_KEY, {
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
     auth: {
         autoRefreshToken: false,
         persistSession: true,
@@ -19,3 +19,4 @@ export default createClient(SUPABASE_URL, SUPABASE_KEY, {
         storage: asyncStorage
     }
 });
+export default supabase;
