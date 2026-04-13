@@ -1,4 +1,5 @@
-import { Tabs, useSegments } from 'expo-router';
+import { NativeTabs } from "expo-router/unstable-native-tabs";
+import { useSegments } from 'expo-router';
 import React, { memo } from "react";
 
 import Props, { Component } from './types';
@@ -16,17 +17,12 @@ const Tab = memo(({
 	const hideTabBar = onSegmentChange?.({ segments }) ?? false
   
 	return (
-		<Tabs
-			tabBar={hideTabBar ? () => null : undefined}
-			screenOptions={{ 
-				headerShown: false,
-				tabBarStyle: {
-					borderTopWidth: 0
-				},
-			}}
+		<NativeTabs
+			minimizeBehavior="onScrollDown"
+			blurEffect="dark" // Sólo se puede ver en iOS build app
 		>
 			{children}
-		</Tabs>
+		</NativeTabs>
 	)
 }) as Component;
 

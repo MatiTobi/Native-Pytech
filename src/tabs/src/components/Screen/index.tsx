@@ -19,7 +19,7 @@ export default ({
         <Tabs.Screen
             name={name}
             options={{
-                title:title,
+                title:title || name,
                 tabBarBadge: badge,
                 tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name={iconNameAndroid} color={color} size={size} />
