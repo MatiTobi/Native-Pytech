@@ -16,9 +16,6 @@ const queryLocal = async ({
 
     if (!dbRef.current) throw new Error('Database not initialized')
 
-    console.log('onlyExecute', onlyExecute)
-    console.log('params', params)
-
     try{
         if(!onlyExecute) return await (dbRef.current.getAllAsync(query, params))
         await dbRef.current.execAsync(query)

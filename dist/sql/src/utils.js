@@ -33,11 +33,9 @@ export const _createTables = async ({ listTablesPaths, sqlOnCreateTables }) => {
     console.log('Creando tablas...');
     for (const path of listTablesPaths) {
         // Importa el contenido del archivo SQL desde el usuario
-        /*const { createRequire } = require('module')
-        const requireFromUser = createRequire(process.cwd() + '/')
-
-        const sql = requireFromUser(path)*/
-        const file = require(path);
+        const { createRequire } = require('module');
+        const requireFromUser = createRequire(process.cwd() + '/');
+        const file = requireFromUser(path);
         console.log(path, file.default.length);
         // Ejecuta
         try {
