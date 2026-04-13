@@ -29,17 +29,12 @@ export const _hasTables = async () => {
         return false;
     }
 };
-export const _createTables = async ({ listTablesPaths, sqlOnCreateTables }) => {
+export const _createTables = async ({ listQueries, queryOnCreate }) => {
     console.log('Creando tablas...');
-    for (const path of listTablesPaths) {
-        // Importa el contenido del archivo SQL desde el usuario
-        const { createRequire } = require('module');
-        const requireFromUser = createRequire(process.cwd() + '/');
-        const file = requireFromUser(path);
-        console.log(path, file.default.length);
+    for (const query of listQueries) {
         // Ejecuta
         try {
-            await _executeSQL({ sql: file.default });
+            await _executeSQL({ query });
         }
         catch (e) {
             console.error('Error creando tablas:', e);
@@ -47,13 +42,13 @@ export const _createTables = async ({ listTablesPaths, sqlOnCreateTables }) => {
             return false;
         }
     }
-    if (sqlOnCreateTables)
-        await _executeSQL({ sql: sqlOnCreateTables });
+    if (queryOnCreate)
+        await _executeSQL({ query: queryOnCreate });
     return true;
 };
-export const _executeSQL = async ({ sql }) => {
-    const splitStr = sql.includes('END;') ? 'END;' : ';';
-    const statements = sql.split(splitStr).map(s => s.trim()).filter(Boolean);
+export const _executeSQL = async ({ query }) => {
+    const splitStr = query.includes('END;') ? 'END;' : ';';
+    const statements = query.split(splitStr).map(s => s.trim()).filter(Boolean);
     for (const statement of statements) {
         const query = `${statement}\n${splitStr}`;
         await dbRef.current.execAsync(query);

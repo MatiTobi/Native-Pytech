@@ -12,15 +12,15 @@ const dbRef = {
 
 export const init = async ({
     currentVersion,
-    listTablesPaths,
-    sqlOnCreateTables,
-    sqlOnDbExists
+    listQueriesTables,
+    queryOnCreateTables,
+    queryOnExists
 
 }: {
     currentVersion: number
-    listTablesPaths: string[]
-    sqlOnCreateTables?: string
-    sqlOnDbExists?: string
+    listQueriesTables: string[]
+    queryOnCreateTables?: string
+    queryOnExists?: string
 
 }): Promise<boolean> => {
 
@@ -37,9 +37,9 @@ export const init = async ({
     dbRef.current = await SQLite.openDatabaseAsync('app.db')
 
     if (!await _hasTables()){
-        const created = await _createTables({listTablesPaths, sqlOnCreateTables})
+        const created = await _createTables({listQueries: listQueriesTables, queryOnCreate: queryOnCreateTables})
         if (!created) return false
-    } else if (sqlOnDbExists) await _executeSQL({sql: sqlOnDbExists}) 
+    } else if (queryOnExists) await _executeSQL({query: queryOnExists}) 
 
     // En la web se usa memoria temporal (RAM) para que la view_rutas funcione
     if (Platform.OS === 'web') await dbRef.current.execAsync('PRAGMA temp_store = MEMORY')

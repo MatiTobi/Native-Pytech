@@ -33,21 +33,14 @@ export const _hasTables = async (): Promise<boolean> => {
 }
 
 
-export const _createTables = async ({listTablesPaths, sqlOnCreateTables}: {listTablesPaths: string[], sqlOnCreateTables?: string}): Promise<boolean> => {
+export const _createTables = async ({listQueries, queryOnCreate}: {listQueries: string[], queryOnCreate?: string}): Promise<boolean> => {
 
     console.log('Creando tablas...')
 
-    for (const path of listTablesPaths){
-
-        // Importa el contenido del archivo SQL desde el usuario
-        const { createRequire } = require('module')
-        const requireFromUser = createRequire(process.cwd() + '/')
-
-        const file = requireFromUser(path)
-        console.log(path, file.default.length)
+    for (const query of listQueries){
 
         // Ejecuta
-        try { await _executeSQL({sql: file.default}) }
+        try { await _executeSQL({query}) }
         catch (e){
             console.error('Error creando tablas:', e)
             await AsyncStorage.removeItem('DB_VERSION')
@@ -55,15 +48,15 @@ export const _createTables = async ({listTablesPaths, sqlOnCreateTables}: {listT
         }
     }
 
-    if (sqlOnCreateTables) await _executeSQL({sql: sqlOnCreateTables})
+    if (queryOnCreate) await _executeSQL({query: queryOnCreate})
     return true
 }
 
 
-export const _executeSQL = async ({sql}: {sql: string}): Promise<void> => {
+export const _executeSQL = async ({query}: {query: string}): Promise<void> => {
 
-    const splitStr = sql.includes('END;') ? 'END;' : ';'
-    const statements = sql.split(splitStr).map(s => s.trim()).filter(Boolean)
+    const splitStr = query.includes('END;') ? 'END;' : ';'
+    const statements = query.split(splitStr).map(s => s.trim()).filter(Boolean)
   
     for (const statement of statements){
         const query = `${statement}\n${splitStr}`
