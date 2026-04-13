@@ -8,6 +8,7 @@ type Props = {
     /**
         Función para ejecutar cuando se cambia entre páginas.
         En Android se puede usar para ocultar el tabBar.
+        Si retorna true, se oculta el tabBar.
     */
     onSegmentChange?: ({ segments }: {
         segments: string[];
