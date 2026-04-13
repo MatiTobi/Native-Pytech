@@ -19,3 +19,11 @@ export function useLayoutEffectWithoutFirstRender(effect, deps) {
         return effect();
     }, deps);
 }
+export function useAsyncEffect(effect, deps) {
+    useEffect(() => {
+        let mounted = true;
+        const isMounted = () => mounted;
+        effect(isMounted);
+        return () => { mounted = false; };
+    }, deps);
+}
