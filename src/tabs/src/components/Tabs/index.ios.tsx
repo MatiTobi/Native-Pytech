@@ -20,7 +20,7 @@ export default memo(({
 
 	// tabBar Hidden
 	if (hidden) return (
-		<Tabs tabBar={() => null}>
+		<Tabs tabBar={() => null} screenOptions={{headerShown: false}}>
 			{listTabs.map((tab) => (<Tabs.Screen name={tab.name} />))}
 		</Tabs>
 	)

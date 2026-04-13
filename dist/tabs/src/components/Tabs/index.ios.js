@@ -7,7 +7,7 @@ export default memo(({ hidden = false, onSegmentChange, listTabs }) => {
     const hideTabBar = onSegmentChange?.({ segments }) ?? false;
     // tabBar Hidden
     if (hidden)
-        return (<Tabs tabBar={() => null}>
+        return (<Tabs tabBar={() => null} screenOptions={{ headerShown: false }}>
 			{listTabs.map((tab) => (<Tabs.Screen name={tab.name}/>))}
 		</Tabs>);
     return (<NativeTabs minimizeBehavior="onScrollDown" blurEffect="dark" // Sólo se puede ver en iOS build app
