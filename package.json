@@ -8,9 +8,9 @@
     "license": "MIT",
     "scripts": {
         "build": "tsc && tsc-alias && copyfiles -u 1 \"src/assets/images/**/*\" dist/",
-        "typecheck": "tsc --noEmit",
-        "prepare": "npm run build"
+        "typecheck": "tsc --noEmit"
     },
+    "files": ["dist"],
     "peerDependencies": {
         "@expo/vector-icons": "^15.0.3",
         "@legendapp/list": "^2.0.19",
