@@ -7,7 +7,7 @@
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && tsc-alias && copyfiles -u 1 \"src/assets/images/**/*\" dist/",
         "typecheck": "tsc --noEmit",
         "prepare": "npm run build"
     },
