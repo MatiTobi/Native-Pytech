@@ -4,7 +4,7 @@ type Props = {
     /**
         Tiene que ser una lista de <Tab.Screen />.
     */
-    children?: (React.ReactElement<typeof Screen>)[];
+    children?: React.ReactNode;
     /**
         Función para ejecutar cuando se cambia entre páginas.
         En Android se puede usar para ocultar el tabBar.
