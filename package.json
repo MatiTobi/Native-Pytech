@@ -104,6 +104,7 @@
         "@supabase/supabase-js": "^2.103.0",
         "buffer": "^6.0.3",
         "expo-sqlite": "^15.2.14",
+        "native-pytech": "github:MatiTobi/React-Native",
         "react-native-url-polyfill": "^3.0.0"
     }
 }
