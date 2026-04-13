@@ -3,6 +3,10 @@ import { SFSymbol } from "sf-symbols-typescript";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 type Props = {
     /**
+        If true, the tabBar is hidden.
+    */
+    hidden?: boolean;
+    /**
         Función para ejecutar cuando se cambia entre páginas.
         En Android se puede usar para ocultar el tabBar.
         Si retorna true, se oculta el tabBar.

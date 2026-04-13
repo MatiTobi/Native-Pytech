@@ -1,13 +1,15 @@
 import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
-import { useSegments } from 'expo-router';
+import { Tabs, useSegments } from 'expo-router';
 import React, { memo } from "react";
 
 import { capitalize } from 'constants/utils';
 import Props from './types';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 
 
 export default memo(({
+	hidden=false,
 	onSegmentChange,
 	listTabs
 
@@ -15,6 +17,13 @@ export default memo(({
 
 	const segments = useSegments()
 	const hideTabBar = onSegmentChange?.({ segments }) ?? false
+
+	// tabBar Hidden
+	if (hidden) return (
+		<Tabs tabBar={() => null}>
+			{listTabs.map((tab) => (<Tabs.Screen name={tab.name} />))}
+		</Tabs>
+	)
   
 	return (
 		<NativeTabs

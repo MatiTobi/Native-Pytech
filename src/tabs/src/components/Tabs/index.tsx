@@ -8,6 +8,7 @@ import Props from './types';
 
 
 export default memo(({
+	hidden=false,
 	onSegmentChange,
 	listTabs
 
@@ -18,7 +19,7 @@ export default memo(({
   
 	return (
 		<Tabs
-			tabBar={hideTabBar ? () => null : undefined}
+			tabBar={hideTabBar || hidden ? () => null : undefined}
 			screenOptions={{ 
 				headerShown: false,
 				tabBarStyle: {

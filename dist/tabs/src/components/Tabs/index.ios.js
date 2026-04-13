@@ -1,10 +1,15 @@
 import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
-import { useSegments } from 'expo-router';
+import { Tabs, useSegments } from 'expo-router';
 import React, { memo } from "react";
 import { capitalize } from '../../../../constants/utils';
-export default memo(({ onSegmentChange, listTabs }) => {
+export default memo(({ hidden = false, onSegmentChange, listTabs }) => {
     const segments = useSegments();
     const hideTabBar = onSegmentChange?.({ segments }) ?? false;
+    // tabBar Hidden
+    if (hidden)
+        return (<Tabs tabBar={() => null}>
+			{listTabs.map((tab) => (<Tabs.Screen name={tab.name}/>))}
+		</Tabs>);
     return (<NativeTabs minimizeBehavior="onScrollDown" blurEffect="dark" // Sólo se puede ver en iOS build app
     >
 			{listTabs.map((tab) => (<NativeTabs.Trigger key={tab.name} name={tab.name}>
