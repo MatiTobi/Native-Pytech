@@ -3,19 +3,19 @@ import { Stack, useRouter } from "expo-router";
 import { useColorScheme, useWindowDimensions, View, StyleSheet } from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { handleFontObserver } from '../../../../constants/handleFontObserver';
+import { handleFontObserver } from 'constants/handleFontObserver';
 handleFontObserver(); // esto intercepta todos los timeouts de fuentes
-import { createCtx } from "../../../../constants/utils";
-import LoginSvg from '../../../../assets/images/login_letras.svg';
-import LoginSvgDark from '../../../../assets/images/login_letras_dark.svg';
-import { useEffectWithoutFirstRender } from '../../../../constants/hooks';
+import { createCtx } from "constants/utils";
+import LoginSvg from 'assets/images/login_letras.svg';
+import LoginSvgDark from 'assets/images/login_letras_dark.svg';
+import { useEffectWithoutFirstRender } from 'constants/hooks';
 import colors from "../../constants";
 const [Provider, useApp] = createCtx();
 export { useApp };
-export default memo(({ children, isLoading = true, renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?
+export default memo(({ isLoading = true, renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?
     <LoginSvgDark width={200} height={200}/>
     :
-        <LoginSvg width={200} height={200}/>), onLoadingRealsed, getBackgroundColor, listStacksNames = [] }) => {
+        <LoginSvg width={200} height={200}/>), onLoadingRealsed, getBackgroundColor, listStackNames = [] }) => {
     const colorScheme = useColorScheme();
     const Theme = colors[colorScheme];
     const { fontScale } = useWindowDimensions();
@@ -37,7 +37,7 @@ export default memo(({ children, isLoading = true, renderItemLoading = ({ colorS
                     <Stack screenOptions={{ headerShown: false }}>
                         {listStacksNames?.map((name) => (<Stack.Screen key={name} name={name}/>))}
                     </Stack>
-                    
+
                 </ThemeProvider>
             </Provider>
         </SafeAreaProvider>);

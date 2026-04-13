@@ -22,7 +22,6 @@ export { useApp }
 
 
 export default memo(({
-    children,
     isLoading=true,
     renderItemLoading=({ colorScheme }) => (colorScheme === 'dark' ?
         <LoginSvgDark width={200} height={200}/>
@@ -31,7 +30,7 @@ export default memo(({
     ),
     onLoadingRealsed,
     getBackgroundColor,
-    listStacksNames=[]
+    listStackNames=[]
 
 }: Props) => {
 
@@ -65,7 +64,7 @@ export default memo(({
                             <Stack.Screen key={name} name={name} />
                         ))}
                     </Stack>
-                    
+
                 </ThemeProvider>
             </Provider>
         </SafeAreaProvider>

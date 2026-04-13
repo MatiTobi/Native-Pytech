@@ -1,4 +1,4 @@
-import { expoEnv } from '../../constants/constants';
+import { expoEnv } from 'constants/constants';
 import { createClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
 import 'react-native-url-polyfill/auto';

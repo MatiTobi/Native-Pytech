@@ -1,5 +1,5 @@
 import React from 'react';
-import { type ColorSchemeType } from '../constants/colors';
+import { type ColorSchemeType } from 'constants/colors';
 type WithColorScheme = {
     colorScheme: ColorSchemeType;
 };

@@ -5,10 +5,6 @@ import { Router } from "expo-router"
 
 type Props = {
     /**
-        Stack de elementos que se deben renderizar dentro del provider.
-    */
-    children: React.ReactNode,
-    /**
         Indica si se debe mostrar el item de loading.
         Por defecto es true.
     */
@@ -30,7 +26,7 @@ type Props = {
     /**
         Lista de nombres de los Stacks que se deben renderizar.
     */
-    listStacksNames?: string[]
+    listStackNames?: string[]
 }
 
 export default Props

@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Keyboard, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { useApp } from "../../../../../providers/app";
+import { useApp } from "providers/app";
 import colors from '../../../constants';
 const anim = {
     duration: 400,
@@ -73,7 +73,7 @@ export default memo(({ placeholder = '', buttonSend = true, handleSubmit, messag
 
                 {buttonSend && (!isLoading ? (<Pressable style={{ paddingHorizontal: 10 }} onPress={onClickSubmit} onTouchStart={onClickSubmit}>
                             <View style={[styles.viewImage, { borderColor: Theme.borderColor }]}>
-                                <Image style={styles.image} tintColor={Theme.borderColor} source={require('../../../../../assets/images/flecha-hacia-abajo.png')}/>
+                                <Image style={styles.image} tintColor={Theme.borderColor} source={require('assets/images/flecha-hacia-abajo.png')}/>
                             </View>
                         </Pressable>) : (<View style={{ paddingHorizontal: 10 }}>
                             <ActivityIndicator size='small' style={{ margin: 'auto' }} color={Theme.borderColor}/>
