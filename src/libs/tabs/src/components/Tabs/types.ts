@@ -2,6 +2,7 @@ import { ComponentProps } from "react";
 
 import { SFSymbol } from "sf-symbols-typescript";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { NativeTabsTabBarItemRole } from "expo-router/unstable-native-tabs";
 
 
 
@@ -46,6 +47,12 @@ type TabProps = {
         @default 'cog-outline'
     */
     iconNameAndroid?: ComponentProps<typeof MaterialCommunityIcons>["name"];
+
+    /**
+        Role of the screen.
+        @platform ios
+    */
+    role?: NativeTabsTabBarItemRole;
 }
 
 export default Props

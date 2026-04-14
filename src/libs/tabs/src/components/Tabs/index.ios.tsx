@@ -30,7 +30,7 @@ export default memo(({
 			blurEffect="dark" // Sólo se puede ver en iOS build app
 		>
 			{listTabs.map((tab) => (
-				<NativeTabs.Trigger key={tab.name} name={tab.name}>
+				<NativeTabs.Trigger key={tab.name} name={tab.name} role={tab.role}>
 					<Label>{tab.title || capitalize(tab.name)}</Label>
 					<Icon sf={tab.iconNameIos || 'gearshape.fill'} drawable="bottom_bar" />
 					{tab.badge && <Badge>{String(tab.badge)}</Badge>}

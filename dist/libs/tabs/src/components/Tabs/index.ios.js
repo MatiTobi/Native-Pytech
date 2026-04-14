@@ -12,7 +12,7 @@ export default memo(({ hidden = false, onSegmentChange, listTabs }) => {
 		</Tabs>);
     return (<NativeTabs minimizeBehavior="onScrollDown" blurEffect="dark" // Sólo se puede ver en iOS build app
     >
-			{listTabs.map((tab) => (<NativeTabs.Trigger key={tab.name} name={tab.name}>
+			{listTabs.map((tab) => (<NativeTabs.Trigger key={tab.name} name={tab.name} role={tab.role}>
 					<Label>{tab.title || capitalize(tab.name)}</Label>
 					<Icon sf={tab.iconNameIos || 'gearshape.fill'} drawable="bottom_bar"/>
 					{tab.badge && <Badge>{String(tab.badge)}</Badge>}
