@@ -34,7 +34,7 @@ export default memo(({
 						title:tab.title || capitalize(tab.name),
 						tabBarBadge: tab.badge,
 						tabBarIcon: ({ color, size }) => (
-							<MaterialCommunityIcons name={tab.iconNameAndroid || 'cog-outline'} color={color} size={size} />
+							tab.iconNameAndroid && <MaterialCommunityIcons name={tab.iconNameAndroid} color={color} size={size} />
 						),
 					}}
 				/>
