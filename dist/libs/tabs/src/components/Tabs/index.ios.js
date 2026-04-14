@@ -14,7 +14,7 @@ export default memo(({ hidden = false, onSegmentChange, listTabs }) => {
     >
 			{listTabs.map((tab) => (<NativeTabs.Trigger key={tab.name} name={tab.name} role={tab.role}>
 					<Label>{tab.title || capitalize(tab.name)}</Label>
-					<Icon sf={tab.iconNameIos || 'gearshape.fill'} drawable="bottom_bar"/>
+					{tab.iconNameIos && <Icon sf={tab.iconNameIos} drawable="bottom_bar"/>}
 					{tab.badge && <Badge>{String(tab.badge)}</Badge>}
 				</NativeTabs.Trigger>))}
 		</NativeTabs>);

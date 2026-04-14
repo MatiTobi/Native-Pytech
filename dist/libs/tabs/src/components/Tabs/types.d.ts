@@ -35,12 +35,10 @@ type TabProps = {
     badge?: number | string;
     /**
         Icon name for the screen.
-        @default 'gearshape.fill'
     */
     iconNameIos?: SFSymbol;
     /**
         Icon name for the screen.
-        @default 'cog-outline'
     */
     iconNameAndroid?: ComponentProps<typeof MaterialCommunityIcons>["name"];
     /**
