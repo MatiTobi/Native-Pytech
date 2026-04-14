@@ -86,9 +86,9 @@
             "types": "./dist/components/index.d.ts",
             "default": "./dist/components/index.js"
         },
-        "./providers/*": {
-            "types": "./dist/providers/*.d.ts",
-            "default": "./dist/providers/*.js"
+        "./providers/app": {
+            "types": "./dist/providers/app.d.ts",
+            "default": "./dist/providers/app.js"
         },
         "./assets/*": {
             "types": "./dist/assets/*.d.ts",
