@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useApp } from 'libs/providers/app'
+import { useApp } from 'libs/providers/App'
 import { type ColorSchemeType } from 'libs/constants/colors'
 
 

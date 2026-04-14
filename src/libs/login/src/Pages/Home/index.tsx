@@ -6,7 +6,7 @@ import Screen from '../../Screen'
 
 import { handleSubmitLogIn } from '../utils'
 import Props from './types'
-import { Link } from 'libs/components'
+import Link from 'libs/components/Link'
 
 
 

@@ -1,5 +1,5 @@
 import colors from '../constants';
-import { useApp } from "libs/providers/app";
+import { useApp } from "libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 

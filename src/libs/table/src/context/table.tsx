@@ -1,7 +1,7 @@
 import type { Observable } from '@legendapp/state';
 
 import Props, { Store } from '../components/Table/types';
-import { createCtx } from '../../../constants/utils';
+import { createCtx } from 'libs/constants/utils';
 
 
 

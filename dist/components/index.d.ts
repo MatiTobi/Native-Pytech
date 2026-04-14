@@ -1,6 +1,0 @@
-export { default as CloseButton } from './CloseButton';
-export { default as Link } from './Link';
-export { default as Text } from './Text';
-export { default as Theme } from './Theme';
-export { default as Gradient } from './Gradient';
-export * from './Gradient';

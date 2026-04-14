@@ -5,14 +5,14 @@ import { Platform, StyleSheet } from 'react-native'
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 
 import colors from '../../constants'
-import { useEffectWithoutFirstRender } from '../../../../constants/hooks'
-import { useApp } from '../../../../providers/app'
+import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
+import { useApp } from 'libs/providers/App'
+import { isLowTier } from 'libs/constants/consts'
 
 import { BordersProvider, StoreProvider, TableProvider } from '../../context/table'
 import OptionWrapper from '../OptionWrapper'
 import Props, { Component, Store } from './types'
 import Detail from '../Detail'
-import { isLowTier } from '../../../../constants/consts'
 
 
 

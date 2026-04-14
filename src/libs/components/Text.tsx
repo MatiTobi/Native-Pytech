@@ -1,7 +1,7 @@
 import { Text, TextProps } from "react-native"
 import { memo } from "react"
 
-import { useApp } from "libs/providers/app"
+import { useApp } from "libs/providers/App"
 
 
 

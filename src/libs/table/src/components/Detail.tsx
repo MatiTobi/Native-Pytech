@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Text } from "react-native";
 
-import { useApp } from '../../../providers/app'
+import { useApp } from 'libs/providers/App'
 import colors from "../constants";
 
 

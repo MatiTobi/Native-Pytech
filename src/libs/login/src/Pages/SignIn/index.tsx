@@ -2,15 +2,15 @@ import { Ionicons } from '@expo/vector-icons';
 import { useObservable, useValue } from '@legendapp/state/react';
 import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
-import { Link } from 'libs/components';
+import Link from 'libs/components/Link';
 import Footer from 'libs/footer';
-import Page from 'native-pytech/page';
-import colors from '../../constants';
-import { useApp } from "libs/providers/app";
+import Page from 'libs/page';
+import { useApp } from "libs/providers/App";
 import supabase from "libs/supabase";
 
-import { useRouter } from 'expo-router';
+import colors from '../../constants';
 import Screen from '../../Screen';
 import Form from './Form';
 import Props, { Store } from './types';

@@ -4,7 +4,6 @@ import React, { memo } from "react";
 
 import { capitalize } from 'libs/constants/utils';
 import Props from './types';
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 
 

@@ -2,7 +2,7 @@ import { Observable } from "@legendapp/state";
 import { memo } from "react";
 import { Platform, StyleSheet, View } from "react-native";
 
-import { useApp } from "libs/providers/app"
+import { useApp } from "libs/providers/App"
 import colors from "../../../constants";
 
 import { Store } from "../types";
