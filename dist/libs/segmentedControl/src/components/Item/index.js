@@ -16,9 +16,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 0,
-        overflow: 'hidden',
         paddingHorizontal: 15,
+        overflow: 'hidden',
     },
     text: {
         fontSize: 13,

@@ -142,42 +142,57 @@ export default memo(({
         onPress(selectedIndex)
     }, [selectedIndex])
 
+    const content = (
+        <>
+            <Animated.View style={[styles.containerSelected, animatedStyle]}>
+                <View style={styles.selected} />
+            </Animated.View>
+
+            {data.map((text, index) => (
+                <Item
+                    key={index}
+                    text={text}
+                    onPress={() => onPress(index)}
+                    onLayout={(e) => onLayoutItem(index, e)}
+                    {...itemProps}
+                />
+            ))}
+        </>
+    )
+
     return (
         <Container
             style={style}
             onLayout={(e) => widthContainerShared.value = (e.nativeEvent.layout.width - 2*2)} // Restamos 4px de margin
         >
-            <ScrollView
-                ref={scrollRef}
-                horizontal={!equalWidths}
-                showsHorizontalScrollIndicator={false}
-                style={styles.scrollView}
-                contentContainerStyle={[styles.contentContainer, { flex: equalWidths || !isScrollable ? 1 : undefined }, contentContainerStyle]}
-                scrollEventThrottle={16}
-                onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}
-            >
-                <Animated.View style={[styles.containerSelected, animatedStyle]}>
-                    <View style={styles.selected} />
-                </Animated.View>
-
-                {data.map((text, index) => (
-                    <Item
-                        key={index}
-                        text={text}
-                        onPress={() => onPress(index)}
-                        onLayout={(e) => onLayoutItem(index, e)}
-                        {...itemProps}
-                    />
-                ))}
-                
-            </ScrollView>
+            {equalWidths || !isScrollable ? (
+                <View style={[styles.view, contentContainerStyle]}>
+                    {content}
+                </View>
+            ) : (
+                <ScrollView
+                    ref={scrollRef}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    style={styles.scrollView}
+                    contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
+                    scrollEventThrottle={16}
+                    onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}
+                >
+                    {content}
+                </ScrollView>
+            )}
         </Container>
     )
 })
 
 
 const styles = StyleSheet.create({
-
+    view: {
+        flexDirection: 'row',
+        flex: 1,
+        flexGrow: 1
+    },
     scrollView: {
         margin: 2,
         borderRadius: 999,
