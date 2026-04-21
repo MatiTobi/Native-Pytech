@@ -36,6 +36,7 @@ export default memo(({
 
 
 const styles = StyleSheet.create({
+    
     pressable: {
         flex: 1,
         alignItems: 'center',
