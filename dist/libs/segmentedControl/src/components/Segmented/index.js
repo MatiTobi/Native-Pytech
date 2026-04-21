@@ -37,8 +37,11 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollabl
         const inferior = idxInferiorShared.value;
         const superior = idxSuperiorShared.value;
         // Los widths son iguales
-        if (equalWidthsShared.value)
-            return inferior * (widthContainerShared.value / widths.length);
+        if (equalWidthsShared.value) {
+            const width = widthContainerShared.value / widths.length;
+            const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [inferior * width, superior * width]);
+            return newLeft;
+        }
         // Varian los widths
         const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0);
         const leftSuperior = widths.slice(0, superior).reduce((acc, width) => acc + (width || 0), 0);
@@ -95,7 +98,8 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollabl
     useEffectWithoutFirstRender(() => {
         onPress(selectedIndex);
     }, [selectedIndex]);
-    return (<Container style={style} onLayout={(e) => widthContainerShared.value = e.nativeEvent.layout.width}>
+    return (<Container style={style} onLayout={(e) => widthContainerShared.value = (e.nativeEvent.layout.width - 2 * 2)} // Restamos 4px de margin
+    >
             <ScrollView ref={scrollRef} horizontal={!equalWidths} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths || !isScrollable ? 1 : undefined }, contentContainerStyle]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
                 <Animated.View style={[styles.containerSelected, animatedStyle]}>
                     <View style={styles.selected}/>

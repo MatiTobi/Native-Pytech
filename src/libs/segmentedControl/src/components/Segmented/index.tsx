@@ -65,7 +65,11 @@ export default memo(({
         const superior = idxSuperiorShared.value
 
         // Los widths son iguales
-        if (equalWidthsShared.value) return inferior * (widthContainerShared.value / widths.length)
+        if (equalWidthsShared.value){
+            const width = widthContainerShared.value / widths.length
+            const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [inferior * width, superior * width])
+            return newLeft
+        }
 
         // Varian los widths
         const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0)
@@ -141,7 +145,7 @@ export default memo(({
     return (
         <Container
             style={style}
-            onLayout={(e) => widthContainerShared.value = e.nativeEvent.layout.width}
+            onLayout={(e) => widthContainerShared.value = (e.nativeEvent.layout.width - 2*2)} // Restamos 4px de margin
         >
             <ScrollView
                 ref={scrollRef}
