@@ -12,7 +12,7 @@ const anim = {
     easing: Easing.bezier(0.2, 0.2, 0, 1)
     //easing: Easing.linear
 };
-export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSelectedIndexRef, isScrollable = true, style, contentContainerStyle, unselectedFontBold = true, ...itemProps }) => {
+export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollable = true, style, contentContainerStyle, ...itemProps }) => {
     // ---------------- Variables ----------------
     const { selectedIndexShared } = useShared();
     const [equalWidths, setEqualWidths] = useState(false);
@@ -69,7 +69,6 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
     });
     // ---------------- Functions ----------------
     const onPress = useCallback((index) => {
-        const prevIndex = currentSelectedIndexRef.current;
         selectedIndexShared.value = withTiming(index, anim);
         setCurrentSelectedIndex(index);
         if (!equalWidthsShared.value)
@@ -78,7 +77,6 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
                 scrollX: scrollXRef.current,
                 containerWidth: widthContainerShared.value,
                 scrollRef,
-                prevIndex,
                 index
             });
     }, []);
@@ -94,12 +92,12 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
         onPress(selectedIndex);
     }, [selectedIndex]);
     return (<Container style={style} onLayout={(e) => widthContainerShared.value = e.nativeEvent.layout.width}>
-            <ScrollView ref={scrollRef} horizontal={!equalWidths} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }, contentContainerStyle]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
+            <ScrollView ref={scrollRef} horizontal={!equalWidths} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths || !isScrollable ? 1 : undefined }, contentContainerStyle]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
                 <Animated.View style={[styles.containerSelected, animatedStyle]}>
                     <View style={styles.selected}/>
                 </Animated.View>
 
-                {data.map((text, index) => (<Item key={index} index={index} text={text} onPress={() => onPress(index)} onLayout={(e) => onLayoutItem(index, e)} unselectedFontBold={unselectedFontBold} {...itemProps}/>))}
+                {data.map((text, index) => (<Item key={index} text={text} onPress={() => onPress(index)} onLayout={(e) => onLayoutItem(index, e)} {...itemProps}/>))}
                 
             </ScrollView>
         </Container>);

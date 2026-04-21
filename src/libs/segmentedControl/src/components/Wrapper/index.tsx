@@ -20,11 +20,9 @@ export default memo(({
     const _selectedIndex = getIndex(selectedIndex)
 
     // Creamos el state interno para activar el onChange
-    const [currentSelectedIndex, setCurrentSelectedIndex] = useState(selectedIndex)
-    const currentSelectedIndexRef = useRef(selectedIndex)
+    const [currentSelectedIndex, setCurrentSelectedIndex] = useState(_selectedIndex)
 
     useEffectWithoutFirstRender(() => {
-        currentSelectedIndexRef.current = currentSelectedIndex
         onChange?.({index: currentSelectedIndex, item: data[currentSelectedIndex]})
     }, [currentSelectedIndex])
 
@@ -36,7 +34,6 @@ export default memo(({
             data={data}
             selectedIndex={_selectedIndex}
             setCurrentSelectedIndex={setCurrentSelectedIndex}
-            currentSelectedIndexRef={currentSelectedIndexRef}
             {...props}
         />
     )

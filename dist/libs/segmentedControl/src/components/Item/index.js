@@ -1,9 +1,14 @@
 import React, { memo } from "react";
-import { Pressable, StyleSheet } from "react-native";
-import Text from "../Text";
-export default memo(({ onPress, onLayout, ...props }) => {
+import { Pressable, StyleSheet, Text } from "react-native";
+import { useApp } from "../../../../../libs/providers/App";
+import colors from "../../colors";
+export default memo(({ text, onPress, onLayout, textStyle, }) => {
+    const { colorScheme } = useApp();
+    const Theme = colors[colorScheme];
     return (<Pressable style={styles.pressable} onPress={onPress} onLayout={onLayout}>
-            <Text {...props}/>
+            <Text numberOfLines={1} style={[styles.text, { color: Theme.text }, textStyle]}>
+                {text}
+            </Text>
         </Pressable>);
 });
 const styles = StyleSheet.create({
@@ -14,5 +19,9 @@ const styles = StyleSheet.create({
         borderRadius: 0,
         overflow: 'hidden',
         paddingHorizontal: 15,
+    },
+    text: {
+        fontSize: 13,
+        fontWeight: '600',
     }
 });

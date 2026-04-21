@@ -23,11 +23,6 @@ type Props = {
     */
     isScrollable?: boolean;
     /**
-        Pone o no en negrita el texto de los items no seleccionados.
-        @default true
-    */
-    unselectedFontBold?: boolean;
-    /**
         style del contenedor de la ScrollView.
     */
     style?: StyleProp<ViewStyle>;

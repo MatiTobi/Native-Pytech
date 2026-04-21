@@ -24,11 +24,9 @@ export default memo(({
     data,
     selectedIndex,
     setCurrentSelectedIndex,
-    currentSelectedIndexRef,
     isScrollable = true,
     style,
     contentContainerStyle,
-    unselectedFontBold = true,
     ...itemProps
 
 }: Props) => {
@@ -101,7 +99,6 @@ export default memo(({
         scheduleOnRN(setEqualWidths, value)
     })
 
-
     // ---------------- useAnimatedStyle ----------------
     const animatedStyle = useAnimatedStyle(() => {
         return { width: widthChipShared.value, left: leftChipShared.value}
@@ -110,8 +107,6 @@ export default memo(({
 
     // ---------------- Functions ----------------
     const onPress = useCallback((index:number) => {
-        const prevIndex = currentSelectedIndexRef.current
-
         selectedIndexShared.value = withTiming(index, anim)
         setCurrentSelectedIndex(index)
 
@@ -120,7 +115,6 @@ export default memo(({
             scrollX: scrollXRef.current,
             containerWidth: widthContainerShared.value,
             scrollRef,
-            prevIndex,
             index
         })
     }, [])
@@ -151,7 +145,7 @@ export default memo(({
                 horizontal={!equalWidths}
                 showsHorizontalScrollIndicator={false}
                 style={styles.scrollView}
-                contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }, contentContainerStyle]}
+                contentContainerStyle={[styles.contentContainer, { flex: equalWidths || !isScrollable ? 1 : undefined }, contentContainerStyle]}
                 scrollEventThrottle={16}
                 onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}
             >
@@ -162,11 +156,9 @@ export default memo(({
                 {data.map((text, index) => (
                     <Item
                         key={index}
-                        index={index}
                         text={text}
                         onPress={() => onPress(index)}
                         onLayout={(e) => onLayoutItem(index, e)}
-                        unselectedFontBold={unselectedFontBold}
                         {...itemProps}
                     />
                 ))}
