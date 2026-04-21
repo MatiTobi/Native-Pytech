@@ -36,6 +36,10 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollabl
         const widths = widthsShared.value;
         const inferior = idxInferiorShared.value;
         const superior = idxSuperiorShared.value;
+        // Los widths son iguales
+        if (equalWidthsShared.value)
+            return inferior * (widthContainerShared.value / widths.length);
+        // Varian los widths
         const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0);
         const leftSuperior = widths.slice(0, superior).reduce((acc, width) => acc + (width || 0), 0);
         const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [leftInferior, leftSuperior]);

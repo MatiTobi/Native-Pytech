@@ -64,6 +64,10 @@ export default memo(({
         const inferior = idxInferiorShared.value
         const superior = idxSuperiorShared.value
 
+        // Los widths son iguales
+        if (equalWidthsShared.value) return inferior * (widthContainerShared.value / widths.length)
+
+        // Varian los widths
         const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0)
         const leftSuperior = widths.slice(0, superior).reduce((acc, width) => acc + (width || 0), 0)
 
@@ -133,7 +137,6 @@ export default memo(({
     useEffectWithoutFirstRender(() => {
         onPress(selectedIndex)
     }, [selectedIndex])
-
 
     return (
         <Container
