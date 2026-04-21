@@ -8,10 +8,12 @@ type Props = Omit<PropsWrapper, 'onChange' | 'selectedIndex'> & {
         selectedIndex del componente.
     */
     selectedIndex: number
+
     /**
         Actualiza el index seleccionado.
     */
     setCurrentSelectedIndex: (index: number) => void
+    
     /**
         Ref al index seleccionado. Para evitar re-renderizaciones.
     */

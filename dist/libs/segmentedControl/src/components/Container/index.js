@@ -5,12 +5,12 @@ import colors from "../../colors";
 export default memo(({ children, onLayout, style }) => {
     const { colorScheme } = useApp();
     const Theme = colors[colorScheme];
-    return (<View style={[styles.segmented, { backgroundColor: Theme.backgroundColor }, style]} onLayout={onLayout}>
+    return (<View style={[styles.container, { backgroundColor: Theme.backgroundColor }, style]} onLayout={onLayout}>
             {children}
         </View>);
 });
 const styles = StyleSheet.create({
-    segmented: {
+    container: {
         borderRadius: 999,
         minHeight: 32,
         overflow: 'hidden',

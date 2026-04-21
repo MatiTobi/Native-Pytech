@@ -1,5 +1,5 @@
 import React, { memo, useState, useRef, useCallback } from 'react';
-import { View, Pressable, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Pressable, Text, StyleSheet, ScrollView, LayoutChangeEvent } from 'react-native';
 import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming, useDerivedValue, useAnimatedReaction, SharedValue } from 'react-native-reanimated'
 import { scheduleOnRN } from 'react-native-worklets'
 
@@ -25,7 +25,11 @@ export default memo(({
     selectedIndex,
     setCurrentSelectedIndex,
     currentSelectedIndexRef,
-    style
+    isScrollable = true,
+    style,
+    contentContainerStyle,
+    unselectedFontBold = true,
+    ...itemProps
 
 }: Props) => {
 
@@ -44,6 +48,7 @@ export default memo(({
 
     // ---------------- useDerivedValue ----------------
     const equalWidthsShared = useDerivedValue(() => {
+        if (!isScrollable) return true
         const widthContainer = widthContainerShared.value
         const widths = widthsShared.value
 
@@ -120,36 +125,21 @@ export default memo(({
         })
     }, [])
 
+    const onLayoutItem = useCallback((index: number, e: LayoutChangeEvent) => {
+        const width = e.nativeEvent.layout.width
+        const newWidths = [...widthsRef.current]
+        
+        newWidths[index] = width
+        widthsRef.current = newWidths
+        widthsShared.value = newWidths
+    }, [])
+
 
     // ---------------- Hooks ----------------
     useEffectWithoutFirstRender(() => {
         onPress(selectedIndex)
     }, [selectedIndex])
 
-
-    const content = (
-        <>
-            <Animated.View style={[styles.containerSelected, animatedStyle]}>
-                <View style={styles.selected} />
-            </Animated.View>
-
-            {data.map((item, index) => (
-                <Item
-                    key={index}
-                    item={item}
-                    onPress={() => onPress(index)}
-                    onLayout={(e) => {
-                        const width = e.nativeEvent.layout.width
-                        const newWidths = [...widthsRef.current]
-                        
-                        newWidths[index] = width
-                        widthsRef.current = newWidths
-                        widthsShared.value = newWidths
-                    }}
-                />
-            ))}
-        </>
-    )
 
     return (
         <Container
@@ -161,11 +151,26 @@ export default memo(({
                 horizontal={!equalWidths}
                 showsHorizontalScrollIndicator={false}
                 style={styles.scrollView}
-                contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }]}
+                contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }, contentContainerStyle]}
                 scrollEventThrottle={16}
                 onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}
             >
-                {content}
+                <Animated.View style={[styles.containerSelected, animatedStyle]}>
+                    <View style={styles.selected} />
+                </Animated.View>
+
+                {data.map((text, index) => (
+                    <Item
+                        key={index}
+                        index={index}
+                        text={text}
+                        onPress={() => onPress(index)}
+                        onLayout={(e) => onLayoutItem(index, e)}
+                        unselectedFontBold={unselectedFontBold}
+                        {...itemProps}
+                    />
+                ))}
+                
             </ScrollView>
         </Container>
     )

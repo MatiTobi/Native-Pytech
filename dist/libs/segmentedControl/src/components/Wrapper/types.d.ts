@@ -1,4 +1,4 @@
-import { StyleProp, ViewStyle } from "react-native";
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
 type Props = {
     /**
         contentContainerStyle de la ScrollView.
@@ -18,8 +18,26 @@ type Props = {
         item: string;
     }) => void;
     /**
-        contentContainerStyle de la ScrollView.
+        Si es false, el componente no será scrollable.
+        @default true
+    */
+    isScrollable?: boolean;
+    /**
+        Pone o no en negrita el texto de los items no seleccionados.
+        @default true
+    */
+    unselectedFontBold?: boolean;
+    /**
+        style del contenedor de la ScrollView.
     */
     style?: StyleProp<ViewStyle>;
+    /**
+        contentContainerStyle de la ScrollView.
+    */
+    contentContainerStyle?: StyleProp<ViewStyle>;
+    /**
+        style de los textos de los items.
+    */
+    textStyle?: StyleProp<TextStyle>;
 };
 export default Props;

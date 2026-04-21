@@ -12,7 +12,7 @@ const anim = {
     easing: Easing.bezier(0.2, 0.2, 0, 1)
     //easing: Easing.linear
 };
-export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSelectedIndexRef, style }) => {
+export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSelectedIndexRef, isScrollable = true, style, contentContainerStyle, unselectedFontBold = true, ...itemProps }) => {
     // ---------------- Variables ----------------
     const { selectedIndexShared } = useShared();
     const [equalWidths, setEqualWidths] = useState(false);
@@ -23,6 +23,8 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
     const widthContainerShared = useSharedValue(0);
     // ---------------- useDerivedValue ----------------
     const equalWidthsShared = useDerivedValue(() => {
+        if (!isScrollable)
+            return true;
         const widthContainer = widthContainerShared.value;
         const widths = widthsShared.value;
         const sumWidths = widths.reduce((acc, width) => acc + width, 0);
@@ -80,26 +82,25 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
                 index
             });
     }, []);
+    const onLayoutItem = useCallback((index, e) => {
+        const width = e.nativeEvent.layout.width;
+        const newWidths = [...widthsRef.current];
+        newWidths[index] = width;
+        widthsRef.current = newWidths;
+        widthsShared.value = newWidths;
+    }, []);
     // ---------------- Hooks ----------------
     useEffectWithoutFirstRender(() => {
         onPress(selectedIndex);
     }, [selectedIndex]);
-    const content = (<>
-            <Animated.View style={[styles.containerSelected, animatedStyle]}>
-                <View style={styles.selected}/>
-            </Animated.View>
-
-            {data.map((item, index) => (<Item key={index} item={item} onPress={() => onPress(index)} onLayout={(e) => {
-                const width = e.nativeEvent.layout.width;
-                const newWidths = [...widthsRef.current];
-                newWidths[index] = width;
-                widthsRef.current = newWidths;
-                widthsShared.value = newWidths;
-            }}/>))}
-        </>);
     return (<Container style={style} onLayout={(e) => widthContainerShared.value = e.nativeEvent.layout.width}>
-            <ScrollView ref={scrollRef} horizontal={!equalWidths} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
-                {content}
+            <ScrollView ref={scrollRef} horizontal={!equalWidths} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }, contentContainerStyle]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
+                <Animated.View style={[styles.containerSelected, animatedStyle]}>
+                    <View style={styles.selected}/>
+                </Animated.View>
+
+                {data.map((text, index) => (<Item key={index} index={index} text={text} onPress={() => onPress(index)} onLayout={(e) => onLayoutItem(index, e)} unselectedFontBold={unselectedFontBold} {...itemProps}/>))}
+                
             </ScrollView>
         </Container>);
 });

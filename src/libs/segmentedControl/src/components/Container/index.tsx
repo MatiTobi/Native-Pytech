@@ -14,7 +14,7 @@ export default memo(({ children, onLayout, style }: Props) => {
     
     return (
         <View
-            style={[styles.segmented, { backgroundColor: Theme.backgroundColor }, style]}
+            style={[styles.container, { backgroundColor: Theme.backgroundColor }, style]}
             onLayout={onLayout}
         >
             {children}
@@ -24,7 +24,7 @@ export default memo(({ children, onLayout, style }: Props) => {
 
 
 const styles = StyleSheet.create({
-    segmented: {
+    container: {
         borderRadius: 999,
         minHeight: 32,
         overflow: 'hidden',

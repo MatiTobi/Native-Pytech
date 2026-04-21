@@ -10,7 +10,7 @@ export default memo(({ children, onLayout, style }: Props) => {
     return (
         <GlassView
             glassEffectStyle={'clear'}
-            style={[styles.segmented, style]}
+            style={[styles.container, style]}
             onLayout={onLayout}
             //isInteractive={true}
         >
@@ -21,7 +21,7 @@ export default memo(({ children, onLayout, style }: Props) => {
 
 
 const styles = StyleSheet.create({
-    segmented: {
+    container: {
         borderRadius: 999,
         minHeight: 32,
         overflow: 'hidden',
