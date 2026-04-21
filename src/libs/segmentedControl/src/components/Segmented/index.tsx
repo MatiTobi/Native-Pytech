@@ -1,6 +1,6 @@
 import React, { memo, useState, useRef, useCallback } from 'react';
-import { View, Pressable, Text, StyleSheet, ScrollView, LayoutChangeEvent } from 'react-native';
-import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming, useDerivedValue, useAnimatedReaction, SharedValue } from 'react-native-reanimated'
+import { View, StyleSheet, ScrollView, LayoutChangeEvent } from 'react-native';
+import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated'
 import { scheduleOnRN } from 'react-native-worklets'
 
 import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
@@ -16,7 +16,6 @@ import Props from './types'
 const anim = {
     duration: 400,
     easing: Easing.bezier(0.2, 0.2, 0, 1)
-    //easing: Easing.linear
 }
 
 
@@ -189,6 +188,7 @@ export default memo(({
 
 const styles = StyleSheet.create({
     view: {
+        margin: 2,
         flexDirection: 'row',
         flex: 1,
         flexGrow: 1

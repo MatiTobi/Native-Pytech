@@ -10,7 +10,6 @@ import Item from '../Item';
 const anim = {
     duration: 400,
     easing: Easing.bezier(0.2, 0.2, 0, 1)
-    //easing: Easing.linear
 };
 export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollable = true, style, contentContainerStyle, ...itemProps }) => {
     // ---------------- Variables ----------------
@@ -116,6 +115,7 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollabl
 });
 const styles = StyleSheet.create({
     view: {
+        margin: 2,
         flexDirection: 'row',
         flex: 1,
         flexGrow: 1
