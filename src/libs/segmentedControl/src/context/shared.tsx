@@ -1,5 +1,5 @@
 import { type SharedValue, useSharedValue } from "react-native-reanimated"
-import { createContext } from "react"
+import React, { createContext, memo } from "react"
 
 import { getIndex } from "../utils"
 import { useContext } from "react"
@@ -11,7 +11,7 @@ const context = createContext<ContextType | null>(null)
 export const useShared = () => useContext(context)
 
 
-export default ({ children, selectedIndex=0 }: { children: React.ReactNode, selectedIndex?: number }) => {
+export default memo(({ children, selectedIndex=0 }: { children: React.ReactNode, selectedIndex?: number }) => {
 
     const _selectedIndex = getIndex(selectedIndex)
 
@@ -22,4 +22,4 @@ export default ({ children, selectedIndex=0 }: { children: React.ReactNode, sele
             {children}
         </context.Provider>
     )
-}
+})
