@@ -1,14 +1,12 @@
 import React, { memo, useState, useRef, useCallback } from 'react';
 import { View, Pressable, Text, StyleSheet, ScrollView } from 'react-native';
-import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated'
+import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming, useDerivedValue, useAnimatedReaction, SharedValue } from 'react-native-reanimated'
 import { scheduleOnRN } from 'react-native-worklets'
 
-import { useApp } from 'libs/providers/App'
 import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
 
-import { useShared } from '../../context/shared'
+import { useShared, type ContextType } from '../../context/shared'
 import { scrollToIndex } from '../../utils'
-import colors from '../../colors'
 import Container from '../Container'
 import Item from '../Item';
 import Props from './types'
@@ -32,7 +30,7 @@ export default memo(({
 }: Props) => {
 
     // ---------------- Variables ----------------
-    const { selectedIndexShared } = useShared()
+    const { selectedIndexShared } = useShared() as ContextType
 
     const [equalWidths, setEqualWidths] = useState(false)
 
@@ -53,37 +51,36 @@ export default memo(({
         return sumWidths <= widthContainer
     })
 
+    const idxInferiorShared = useDerivedValue(() => Math.floor(selectedIndexShared.value))
+    const idxSuperiorShared = useDerivedValue(() => Math.ceil(selectedIndexShared.value))
+
     const leftChipShared = useDerivedValue(() => {
-        const num = selectedIndexShared.value
+        
         const widths = widthsShared.value
 
-        const inferior = Math.floor(num)
-        const superior = Math.ceil(num)
+        const inferior = idxInferiorShared.value
+        const superior = idxSuperiorShared.value
 
         const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0)
         const leftSuperior = widths.slice(0, superior).reduce((acc, width) => acc + (width || 0), 0)
 
-        const newLeft = interpolate(num, [inferior, superior], [leftInferior, leftSuperior])
+        const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [leftInferior, leftSuperior])
         return newLeft
     })
 
     const widthChipShared = useDerivedValue(() => {
-    
-        const equalWidths = equalWidthsShared.value
-        const widthContainer = widthContainerShared.value
 
-        const num = selectedIndexShared.value
         const widths = widthsShared.value
-
-        if (equalWidths) return widthContainer / widths.length
-
-        const inferior = Math.floor(num)
-        const superior = Math.ceil(num)
-
+        
+        if (equalWidthsShared.value) return widthContainerShared.value / widths.length
+        
+        const inferior = idxInferiorShared.value
+        const superior = idxSuperiorShared.value
+        
         const widthInferior = widths[inferior] || 0
         const widthSuperior = widths[superior] || 0
 
-        const newWidth = interpolate(num, [inferior, superior], [widthInferior, widthSuperior])
+        const newWidth = interpolate(selectedIndexShared.value, [inferior, superior], [widthInferior, widthSuperior])
         return newWidth
     })
 
@@ -138,7 +135,7 @@ export default memo(({
 
             {data.map((item, index) => (
                 <Item
-                    index={index}
+                    key={index}
                     item={item}
                     onPress={() => onPress(index)}
                     onLayout={(e) => {
@@ -159,19 +156,17 @@ export default memo(({
             style={style}
             onLayout={(e) => widthContainerShared.value = e.nativeEvent.layout.width}
         >
-            {equalWidths ? content :
-                <ScrollView
-                    ref={scrollRef}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    style={styles.scrollView}
-                    contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }]}
-                    scrollEventThrottle={16}
-                    onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}
-                >
-                    {content}
-                </ScrollView>
-            }
+            <ScrollView
+                ref={scrollRef}
+                horizontal={!equalWidths}
+                showsHorizontalScrollIndicator={false}
+                style={styles.scrollView}
+                contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }]}
+                scrollEventThrottle={16}
+                onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}
+            >
+                {content}
+            </ScrollView>
         </Container>
     )
 })
@@ -180,6 +175,7 @@ export default memo(({
 const styles = StyleSheet.create({
 
     scrollView: {
+        margin: 2,
         borderRadius: 999,
     },
     contentContainer: {

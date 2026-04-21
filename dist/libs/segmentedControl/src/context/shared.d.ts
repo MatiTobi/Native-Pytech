@@ -1,7 +1,8 @@
 import { type SharedValue } from "react-native-reanimated";
-export declare const useShared: () => {
+export type ContextType = {
     selectedIndexShared: SharedValue<number>;
 };
+export declare const useShared: () => ContextType;
 declare const _default: ({ children, selectedIndex }: {
     children: React.ReactNode;
     selectedIndex?: number;

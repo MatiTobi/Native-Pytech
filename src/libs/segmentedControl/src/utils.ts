@@ -13,7 +13,7 @@ export const scrollToIndex = ({
     prevIndex,
     index
 
-} : {widths: number[], scrollX: number, containerWidth: number, scrollRef: RefObject<ScrollView>, prevIndex: number, index: number}) => {
+} : {widths: number[], scrollX: number, containerWidth: number, scrollRef: RefObject<ScrollView | null>, prevIndex: number, index: number}) => {
 
     if (!widths[index] || !containerWidth) return
 

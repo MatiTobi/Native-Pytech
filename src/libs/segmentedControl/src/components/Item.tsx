@@ -7,26 +7,24 @@ import colors from "../colors"
 
 
 type Props = {
-    index: number
     item: string
     onPress: () => void
     onLayout: (event: LayoutChangeEvent) => void
 }
 
 
-export default memo(({ index, item, onPress, onLayout }: Props) => {
+export default memo(({ item, onPress, onLayout }: Props) => {
 
     const { colorScheme } = useApp()
     const Theme = colors[colorScheme]
 
     return (
         <Pressable
-            key={index}
             style={styles.pressable}
             onPress={onPress}
             onLayout={onLayout}
         >
-            <Text numberOfLines={1} style={[styles.text, { color: Theme.text2 }]}>{item}</Text>
+            <Text numberOfLines={1} style={[styles.text, { color: Theme.text }]}>{item}</Text>
         </Pressable>
     )
 })

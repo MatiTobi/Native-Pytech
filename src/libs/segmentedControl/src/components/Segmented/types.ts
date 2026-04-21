@@ -1,10 +1,13 @@
-import type { StyleProp, ViewStyle } from "react-native"
 import type { RefObject } from "react"
 import type PropsWrapper from "../Wrapper/types"
 
 
 
-type Props = Omit<PropsWrapper, 'onChange'> & {
+type Props = Omit<PropsWrapper, 'onChange' | 'selectedIndex'> & {
+    /**
+        selectedIndex del componente.
+    */
+    selectedIndex: number
     /**
         Actualiza el index seleccionado.
     */

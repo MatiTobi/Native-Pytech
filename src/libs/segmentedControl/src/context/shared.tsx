@@ -6,7 +6,8 @@ import { useContext } from "react"
 
 
 
-const context = createContext<{selectedIndexShared: SharedValue<number>} | null>(null)
+export type ContextType = {selectedIndexShared: SharedValue<number>}
+const context = createContext<ContextType | null>(null)
 export const useShared = () => useContext(context)
 
 

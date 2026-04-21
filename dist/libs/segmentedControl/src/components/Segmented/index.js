@@ -28,28 +28,26 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
         const sumWidths = widths.reduce((acc, width) => acc + width, 0);
         return sumWidths <= widthContainer;
     });
+    const idxInferiorShared = useDerivedValue(() => Math.floor(selectedIndexShared.value));
+    const idxSuperiorShared = useDerivedValue(() => Math.ceil(selectedIndexShared.value));
     const leftChipShared = useDerivedValue(() => {
-        const num = selectedIndexShared.value;
         const widths = widthsShared.value;
-        const inferior = Math.floor(num);
-        const superior = Math.ceil(num);
+        const inferior = idxInferiorShared.value;
+        const superior = idxSuperiorShared.value;
         const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0);
         const leftSuperior = widths.slice(0, superior).reduce((acc, width) => acc + (width || 0), 0);
-        const newLeft = interpolate(num, [inferior, superior], [leftInferior, leftSuperior]);
+        const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [leftInferior, leftSuperior]);
         return newLeft;
     });
     const widthChipShared = useDerivedValue(() => {
-        const equalWidths = equalWidthsShared.value;
-        const widthContainer = widthContainerShared.value;
-        const num = selectedIndexShared.value;
         const widths = widthsShared.value;
-        if (equalWidths)
-            return widthContainer / widths.length;
-        const inferior = Math.floor(num);
-        const superior = Math.ceil(num);
+        if (equalWidthsShared.value)
+            return widthContainerShared.value / widths.length;
+        const inferior = idxInferiorShared.value;
+        const superior = idxSuperiorShared.value;
         const widthInferior = widths[inferior] || 0;
         const widthSuperior = widths[superior] || 0;
-        const newWidth = interpolate(num, [inferior, superior], [widthInferior, widthSuperior]);
+        const newWidth = interpolate(selectedIndexShared.value, [inferior, superior], [widthInferior, widthSuperior]);
         return newWidth;
     });
     // ---------------- useAnimatedReaction ----------------
@@ -91,7 +89,7 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
                 <View style={styles.selected}/>
             </Animated.View>
 
-            {data.map((item, index) => (<Item index={index} item={item} onPress={() => onPress(index)} onLayout={(e) => {
+            {data.map((item, index) => (<Item key={index} item={item} onPress={() => onPress(index)} onLayout={(e) => {
                 const width = e.nativeEvent.layout.width;
                 const newWidths = [...widthsRef.current];
                 newWidths[index] = width;
@@ -100,14 +98,14 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, currentSele
             }}/>))}
         </>);
     return (<Container style={style} onLayout={(e) => widthContainerShared.value = e.nativeEvent.layout.width}>
-            {equalWidths ? content :
-            <ScrollView ref={scrollRef} horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
-                    {content}
-                </ScrollView>}
+            <ScrollView ref={scrollRef} horizontal={!equalWidths} showsHorizontalScrollIndicator={false} style={styles.scrollView} contentContainerStyle={[styles.contentContainer, { flex: equalWidths ? 1 : undefined }]} scrollEventThrottle={16} onScroll={e => scrollXRef.current = e.nativeEvent.contentOffset.x}>
+                {content}
+            </ScrollView>
         </Container>);
 });
 const styles = StyleSheet.create({
     scrollView: {
+        margin: 2,
         borderRadius: 999,
     },
     contentContainer: {

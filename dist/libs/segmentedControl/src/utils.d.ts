@@ -5,7 +5,7 @@ export declare const scrollToIndex: ({ widths, scrollX, containerWidth, scrollRe
     widths: number[];
     scrollX: number;
     containerWidth: number;
-    scrollRef: RefObject<ScrollView>;
+    scrollRef: RefObject<ScrollView | null>;
     prevIndex: number;
     index: number;
 }) => void;

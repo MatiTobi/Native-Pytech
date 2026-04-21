@@ -11,9 +11,8 @@ export default memo(({ children, onLayout, style }) => {
 });
 const styles = StyleSheet.create({
     segmented: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 2,
+        borderRadius: 999,
+        minHeight: 32,
+        overflow: 'hidden',
     }
 });
