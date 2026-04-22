@@ -7,7 +7,7 @@
   "author": "Matias Tobias Gutierrez",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && tsc && tsc-alias && copyfiles -u 2 \"src/libs/assets/images/**/*\" dist/libs/",
+    "build": "bash scripts/build.sh",
     "typecheck": "tsc --noEmit"
   },
   "files": [

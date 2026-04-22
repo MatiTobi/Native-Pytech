@@ -52,8 +52,6 @@ export default memo(({
 
 }: Props) => {
 
-    //console.log('OptionWrapper', id)
-
     // Restricciones
     if (onDelete && onPress) throw new Error('onDelete y onPress no pueden ser usados juntos')
 

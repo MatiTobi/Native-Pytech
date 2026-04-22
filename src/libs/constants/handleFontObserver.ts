@@ -3,8 +3,6 @@ import FontFaceObserver from 'fontfaceobserver';
 
 
 export default () => {
-    console.log('handleFontObserver')
-
     // Solo ejecutarlo en Web
     if (typeof document === 'undefined') return;
 
