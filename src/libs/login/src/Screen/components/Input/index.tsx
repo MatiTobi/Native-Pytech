@@ -130,7 +130,7 @@ export default memo(({
                                 <Image
                                     style={styles.image}
                                     tintColor={Theme.borderColor}
-                                    source={require('assets/images/flecha-hacia-abajo.png')} 
+                                    source={require('../../../../../assets/images/flecha-hacia-abajo.png')} 
                                 />
                             </View>
                         </Pressable>
