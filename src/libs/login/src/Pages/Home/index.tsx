@@ -23,6 +23,7 @@ export default memo(({
     useEffect(() => {
         (async () => {
             const { error } = await logIn()
+            console.log('error login', error)
             if (!error) console.log('LogIn exitoso')
         })()
     }, [])
