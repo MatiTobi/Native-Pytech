@@ -12,8 +12,8 @@ import Props from './types';
 
 export default memo(({
     isScrollable,
-    setCurrentSelectedIndex,
-    setEqualWidths,
+    onFinishedSelectedIndex,
+    onChangeEqualWidths,
     widthsShared,
     widthContainerShared
 
@@ -82,11 +82,11 @@ export default memo(({
     useAnimatedReaction(() => selectedIndexShared.value, (value, prev) => {
         if (prev === value) return
         const hasFinished = Number.isInteger(value)
-        if (hasFinished) scheduleOnRN(setCurrentSelectedIndex, value)
+        if (hasFinished && onFinishedSelectedIndex) scheduleOnRN(onFinishedSelectedIndex, value)
     })
 
     useAnimatedReaction(() => equalWidthsShared.value, (value) => {
-        scheduleOnRN(setEqualWidths, value)
+        onChangeEqualWidths && scheduleOnRN(onChangeEqualWidths, value)
     })
 
 

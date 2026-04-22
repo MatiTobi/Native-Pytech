@@ -1,7 +1,6 @@
 import React, { memo, useState, useRef, useCallback } from 'react';
 import { View, StyleSheet, ScrollView, LayoutChangeEvent } from 'react-native';
-import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated'
-import { scheduleOnRN } from 'react-native-worklets'
+import { Easing, useSharedValue, withTiming, useDerivedValue } from 'react-native-reanimated'
 
 import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
 
@@ -88,8 +87,8 @@ export default memo(({
         <>
             <AnimatedChip
                 isScrollable={isScrollable}
-                setCurrentSelectedIndex={setCurrentSelectedIndex}
-                setEqualWidths={setEqualWidths}
+                onFinishedSelectedIndex={(index) => setCurrentSelectedIndex(index)}
+                onChangeEqualWidths={(isEqualWidths) => setEqualWidths(isEqualWidths)}
                 widthsShared={widthsShared}
                 widthContainerShared={widthContainerShared}
             />

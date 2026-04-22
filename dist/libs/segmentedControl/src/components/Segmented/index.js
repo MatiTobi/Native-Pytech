@@ -54,7 +54,7 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollabl
         onPress(selectedIndex);
     }, [selectedIndex]);
     const content = (<>
-            <AnimatedChip isScrollable={isScrollable} setCurrentSelectedIndex={setCurrentSelectedIndex} setEqualWidths={setEqualWidths} widthsShared={widthsShared} widthContainerShared={widthContainerShared}/>
+            <AnimatedChip isScrollable={isScrollable} onFinishedSelectedIndex={(index) => setCurrentSelectedIndex(index)} onChangeEqualWidths={(isEqualWidths) => setEqualWidths(isEqualWidths)} widthsShared={widthsShared} widthContainerShared={widthContainerShared}/>
 
             {data.map((text, index) => (<Item key={index} text={text} onPress={() => onPress(index)} onLayout={(e) => onLayoutItem(index, e)} {...itemProps}/>))}
         </>);

@@ -5,7 +5,7 @@ import { scheduleOnRN } from 'react-native-worklets';
 import { useApp } from '../../../../../libs/providers/App';
 import { useShared } from '../../context/shared';
 import colors from '../../colors';
-export default memo(({ isScrollable, setCurrentSelectedIndex, setEqualWidths, widthsShared, widthContainerShared }) => {
+export default memo(({ isScrollable, onFinishedSelectedIndex, onChangeEqualWidths, widthsShared, widthContainerShared }) => {
     // ---------------- Variables ----------------
     const { colorScheme } = useApp();
     const Theme = colors[colorScheme];
@@ -53,11 +53,11 @@ export default memo(({ isScrollable, setCurrentSelectedIndex, setEqualWidths, wi
         if (prev === value)
             return;
         const hasFinished = Number.isInteger(value);
-        if (hasFinished)
-            scheduleOnRN(setCurrentSelectedIndex, value);
+        if (hasFinished && onFinishedSelectedIndex)
+            scheduleOnRN(onFinishedSelectedIndex, value);
     });
     useAnimatedReaction(() => equalWidthsShared.value, (value) => {
-        scheduleOnRN(setEqualWidths, value);
+        onChangeEqualWidths && scheduleOnRN(onChangeEqualWidths, value);
     });
     // ---------------- useAnimatedStyle ----------------
     const animatedStyle = useAnimatedStyle(() => {
