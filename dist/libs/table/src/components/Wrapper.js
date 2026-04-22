@@ -22,7 +22,6 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, onDelete,
     color: null
 }, backgroundColorPressed, LinearGradientProps, layoutAnimation = isLowTier ?
     LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600), colorScheme, hasTextView, ...props }) => {
-    //console.log('OptionWrapper', id)
     // Restricciones
     if (onDelete && onPress)
         throw new Error('onDelete y onPress no pueden ser usados juntos');

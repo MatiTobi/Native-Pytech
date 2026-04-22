@@ -1,4 +1,4 @@
-import supabase, { logIn, getUser } from "../../../../libs/supabase";
+import supabase, { logIn } from "../../../../libs/supabase";
 export const getAbbreviatedName = ({ firstname, lastname, mail }) => {
     // Si tiene "firstname" y "lastname", se usa la primera letra de cada uno
     // Si solo tiene firstname, se usa las primeras dos letras de "firstname"
@@ -20,11 +20,7 @@ export const getAbbreviatedName = ({ firstname, lastname, mail }) => {
 export const handleSubmitLogIn = async ({ username, router }) => {
     username = username.trim();
     const mail = username.includes('@') ? username : `${username}@pytech.com`;
-    console.log('mail', mail);
-    console.log('supabase', supabase, getUser());
     const { data, error } = await supabase.schema('admin').from('perfiles').select('firstname,secondname,lastname,color').eq('mail', mail);
-    console.log('data', data);
-    console.log('error', error);
     if (error)
         return { succeded: false, message: error.message };
     if (data.length === 0)

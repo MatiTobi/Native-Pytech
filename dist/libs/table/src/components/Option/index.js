@@ -71,7 +71,6 @@ const OnPressView = memo(({ backgroundColorPressed, colorScheme }: { backgroundC
 */
 //(20.3 - 0.5) / 2 = 9.9
 //const paddingVertical = (24.1 - paddingTopItem - gap) / 2
-//console.log('paddingVertical', paddingVertical)
 const styles = StyleSheet.create({
     Item_View: {
         flex: 1,
