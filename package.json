@@ -7,7 +7,7 @@
     "author": "Matias Tobias Gutierrez",
     "license": "MIT",
     "scripts": {
-        "build": "rimraf dist && tsc && tsc-alias && copyfiles -u 2 \"src/libs/assets/images/**/*\" dist/app/",
+        "build": "rimraf dist && tsc && tsc-alias && copyfiles -u 2 \"src/libs/assets/images/**/*\" dist/libs/",
         "typecheck": "tsc --noEmit"
     },
     "files": [
@@ -51,7 +51,7 @@
             "default": "./dist/app/*.js"
         },
         "./assets/images/*": {
-            "default": "./dist/app/assets/images/*"
+            "default": "./dist/libs/assets/images/*"
         }
     },
     "dependencies": {
