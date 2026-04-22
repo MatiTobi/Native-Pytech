@@ -1,5 +1,5 @@
 import { Router } from 'expo-router'
-import supabase, { logIn } from "libs/supabase"
+import supabase, { logIn, getUser } from "libs/supabase"
 
 
 
@@ -27,7 +27,7 @@ export const handleSubmitLogIn = async ({username, router}: {username: string, r
     username = username.trim()
     const mail = username.includes('@') ? username : `${username}@pytech.com`
     console.log('mail', mail)
-    console.log('supabase', supabase)
+    console.log('supabase', supabase, getUser())
 
     const { data, error } = await supabase.schema('admin').from('perfiles').select('firstname,secondname,lastname,color').eq('mail', mail)
     console.log('data', data)
