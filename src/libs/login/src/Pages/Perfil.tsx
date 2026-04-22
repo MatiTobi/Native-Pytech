@@ -10,7 +10,7 @@ import { PerfilColorType } from '../constants'
 
 export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, onSuccess?: () => Promise<void> }) => {
     
-    const { mail, firstname, lastname, color } = useLocalSearchParams() as {mail: string, firstname?: string, lastname?: string, color: PerfilColorType}
+    const { mail, firstname, secondname, lastname, color } = useLocalSearchParams() as {mail: string, firstname?: string, secondname?: string, lastname?: string, color: PerfilColorType}
     const router = useRouter()
 
     const handleSubmit = async ({value}: {value: string}) => {
