@@ -10,6 +10,7 @@ import { scrollToIndex } from '../../utils'
 import Container from '../Container'
 import Item from '../Item';
 import Props from './types'
+import AnimatedChip from '../AnimatedChip'
 
 
 
@@ -53,64 +54,6 @@ export default memo(({
         return sumWidths <= widthContainer
     })
 
-    const idxInferiorShared = useDerivedValue(() => Math.floor(selectedIndexShared.value))
-    const idxSuperiorShared = useDerivedValue(() => Math.ceil(selectedIndexShared.value))
-
-    const leftChipShared = useDerivedValue(() => {
-        
-        const widths = widthsShared.value
-
-        const inferior = idxInferiorShared.value
-        const superior = idxSuperiorShared.value
-
-        // Los widths son iguales
-        if (equalWidthsShared.value){
-            const width = widthContainerShared.value / widths.length
-            const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [inferior * width, superior * width])
-            return newLeft
-        }
-
-        // Varian los widths
-        const leftInferior = widths.slice(0, inferior).reduce((acc, width) => acc + (width || 0), 0)
-        const leftSuperior = widths.slice(0, superior).reduce((acc, width) => acc + (width || 0), 0)
-
-        const newLeft = interpolate(selectedIndexShared.value, [inferior, superior], [leftInferior, leftSuperior])
-        return newLeft
-    })
-
-    const widthChipShared = useDerivedValue(() => {
-
-        const widths = widthsShared.value
-        
-        if (equalWidthsShared.value) return widthContainerShared.value / widths.length
-        
-        const inferior = idxInferiorShared.value
-        const superior = idxSuperiorShared.value
-        
-        const widthInferior = widths[inferior] || 0
-        const widthSuperior = widths[superior] || 0
-
-        const newWidth = interpolate(selectedIndexShared.value, [inferior, superior], [widthInferior, widthSuperior])
-        return newWidth
-    })
-
-
-    // ---------------- useAnimatedReaction ----------------
-    useAnimatedReaction(() => selectedIndexShared.value, (value, prev) => {
-        if (prev === value) return
-        const hasFinished = Number.isInteger(value)
-        if (hasFinished) scheduleOnRN(setCurrentSelectedIndex, value)
-    })
-
-    useAnimatedReaction(() => equalWidthsShared.value, (value) => {
-        scheduleOnRN(setEqualWidths, value)
-    })
-
-    // ---------------- useAnimatedStyle ----------------
-    const animatedStyle = useAnimatedStyle(() => {
-        return { width: widthChipShared.value, left: leftChipShared.value}
-    })
-
 
     // ---------------- Functions ----------------
     const onPress = useCallback((index:number) => {
@@ -143,9 +86,13 @@ export default memo(({
 
     const content = (
         <>
-            <Animated.View style={[styles.containerSelected, animatedStyle]}>
-                <View style={styles.selected} />
-            </Animated.View>
+            <AnimatedChip
+                isScrollable={isScrollable}
+                setCurrentSelectedIndex={setCurrentSelectedIndex}
+                setEqualWidths={setEqualWidths}
+                widthsShared={widthsShared}
+                widthContainerShared={widthContainerShared}
+            />
 
             {data.map((text, index) => (
                 <Item

@@ -2,12 +2,14 @@ export declare const colors: {
     light: {
         text: string;
         text2: string;
-        backgroundColor: string;
+        background: string;
+        chip: string;
     };
     dark: {
         text: string;
         text2: string;
-        backgroundColor: string;
+        background: string;
+        chip: string;
     };
 };
 export default colors;

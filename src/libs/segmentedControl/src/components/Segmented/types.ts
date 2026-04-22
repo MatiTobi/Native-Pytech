@@ -1,4 +1,3 @@
-import type { RefObject } from "react"
 import type PropsWrapper from "../Wrapper/types"
 
 

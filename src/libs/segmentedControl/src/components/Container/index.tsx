@@ -14,7 +14,7 @@ export default memo(({ children, onLayout, style }: Props) => {
     
     return (
         <View
-            style={[styles.container, { backgroundColor: Theme.backgroundColor }, style]}
+            style={[styles.container, { backgroundColor: Theme.background }, style]}
             onLayout={onLayout}
         >
             {children}

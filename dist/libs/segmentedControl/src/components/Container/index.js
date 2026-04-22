@@ -5,7 +5,7 @@ import colors from "../../colors";
 export default memo(({ children, onLayout, style }) => {
     const { colorScheme } = useApp();
     const Theme = colors[colorScheme];
-    return (<View style={[styles.container, { backgroundColor: Theme.backgroundColor }, style]} onLayout={onLayout}>
+    return (<View style={[styles.container, { backgroundColor: Theme.background }, style]} onLayout={onLayout}>
             {children}
         </View>);
 });
