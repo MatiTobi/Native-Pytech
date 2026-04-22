@@ -20,7 +20,11 @@ export const getAbbreviatedName = ({ firstname, lastname, mail }) => {
 export const handleSubmitLogIn = async ({ username, router }) => {
     username = username.trim();
     const mail = username.includes('@') ? username : `${username}@pytech.com`;
+    console.log('mail', mail);
+    console.log('supabase', supabase);
     const { data, error } = await supabase.schema('admin').from('perfiles').select('firstname,secondname,lastname,color').eq('mail', mail);
+    console.log('data', data);
+    console.log('error', error);
     if (error)
         return { succeded: false, message: error.message };
     if (data.length === 0)

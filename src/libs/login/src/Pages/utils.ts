@@ -26,8 +26,12 @@ export const handleSubmitLogIn = async ({username, router}: {username: string, r
         
     username = username.trim()
     const mail = username.includes('@') ? username : `${username}@pytech.com`
+    console.log('mail', mail)
+    console.log('supabase', supabase)
 
     const { data, error } = await supabase.schema('admin').from('perfiles').select('firstname,secondname,lastname,color').eq('mail', mail)
+    console.log('data', data)
+    console.log('error', error)
     if (error)  return {succeded: false, message: error.message}
     if (data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
 
