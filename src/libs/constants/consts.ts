@@ -15,7 +15,6 @@ type ExpoEnv = {
     SUPABASE_KEY: string
 }
 export const expoEnv: Partial<ExpoEnv> = Constants.expoConfig?.extra || {}
-console.log('expoEnv', expoEnv)
 
 
 export const screenOptions:NativeStackNavigationOptions = {
