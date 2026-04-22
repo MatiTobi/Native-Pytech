@@ -1,4 +1,7 @@
 import colorsLib from "libs/constants/colors"
+import colorsTable from "libs/table/src/constants"
+
+
 
 export const colors = {
     light: {
