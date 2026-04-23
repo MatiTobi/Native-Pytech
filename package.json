@@ -18,10 +18,10 @@
     "@expo/vector-icons": "^15.0.3",
     "@legendapp/list": "^2.0.19",
     "@legendapp/state": "^3.0.0-beta.45",
-
+    
     "@react-native-masked-view/masked-view": "0.3.2",
     "color2k": "^2.0.3",
-
+    "expo": "~55.0.16",
 
     "expo-blur": "~55.0.0",
     "expo-constants": "~55.0.15",
