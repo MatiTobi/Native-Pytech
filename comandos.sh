@@ -7,4 +7,4 @@ git add .
 git commit -m "."
 git push
 
-npm install github:MatiTobi/Native-Pytech --legacy-peer-deps
+npm install github:MatiTobi/Native-Pytech
