@@ -8,5 +8,5 @@ export declare const colors: {
         text2: string;
     };
 };
-export { type ColorSchemeType } from "../../../libs/constants/colors";
+export { type ColorSchemeType } from "libs/constants/colors";
 export default colors;

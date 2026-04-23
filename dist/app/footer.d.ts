@@ -1,2 +1,2 @@
-export { default } from '../libs/footer';
-export * from '../libs/footer';
+export { default } from 'libs/footer';
+export * from 'libs/footer';
