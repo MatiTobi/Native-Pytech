@@ -1,7 +1,7 @@
 import { MeshGradientView } from 'expo-mesh-gradient';
 import { memo } from 'react';
 import { StyleSheet } from 'react-native';
-import { applyOpacity } from '../../../../libs/constants/utils';
+import { applyOpacity } from 'libs/constants/utils';
 export default memo(({ backgroundColorPage }) => {
     const c06 = applyOpacity(backgroundColorPage, 0.6);
     const c08 = applyOpacity(backgroundColorPage, 0.8);

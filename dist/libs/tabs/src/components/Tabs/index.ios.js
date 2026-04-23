@@ -1,7 +1,7 @@
 import { Badge, Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
 import { Tabs, useSegments } from 'expo-router';
 import React, { memo } from "react";
-import { capitalize } from '../../../../../libs/constants/utils';
+import { capitalize } from 'libs/constants/utils';
 export default memo(({ hidden = false, onSegmentChange, listTabs }) => {
     const segments = useSegments();
     const hideTabBar = onSegmentChange?.({ segments }) ?? false;
