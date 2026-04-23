@@ -1,2 +1,2 @@
-export { default } from 'libs/sql';
-export * from 'libs/sql';
+export { default } from '../libs/sql';
+export * from '../libs/sql';

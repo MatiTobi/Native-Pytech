@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { Pressable } from 'react-native';
 //import { useDrag } from 'libs/ReorderableList'
 import colors from '../../constants';
-import { useApp } from 'libs/providers/App';
+import { useApp } from '../../../../../libs/providers/App';
 /**
     Icono de drag.
 */

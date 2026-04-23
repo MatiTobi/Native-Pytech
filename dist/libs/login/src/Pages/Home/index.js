@@ -1,9 +1,9 @@
 import { useRouter } from 'expo-router';
 import { memo, useEffect } from 'react';
-import { logIn } from 'libs/supabase';
+import { logIn } from '../../../../../libs/supabase';
 import Screen from '../../Screen';
 import { handleSubmitLogIn } from '../utils';
-import Link from 'libs/components/Link';
+import Link from '../../../../../libs/components/Link';
 export default memo(({ title = 'MiApp', subtitle = 'Inicia sesión con un correo electrónico o nombre de usuario para usar la aplicación.', iconPage = <Screen.SvgPytech />, textCreateAccount }) => {
     const router = useRouter();
     useEffect(() => {

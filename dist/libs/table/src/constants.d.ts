@@ -103,6 +103,6 @@ export declare const colors: {
         };
     };
 };
-export { type ColorSchemeType } from "libs/constants/colors";
+export { type ColorSchemeType } from "../../../libs/constants/colors";
 export type ColorThemeType = keyof typeof colors.table;
 export default colors;
