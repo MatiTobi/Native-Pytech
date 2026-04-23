@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Text } from "react-native";
-import { useApp } from 'libs/providers/App';
+import { useApp } from '../../../../libs/providers/App';
 import colors from "../constants";
 export default memo(({ text }) => {
     const { colorScheme } = useApp();

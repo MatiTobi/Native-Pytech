@@ -2,7 +2,7 @@ import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-nativ
 import { View } from 'react-native';
 import React, { memo } from 'react';
 import colors from '../constants';
-import { isLowTier } from 'libs/constants/consts';
+import { isLowTier } from '../../../../libs/constants/consts';
 import { useTable } from '../context/table';
 import Delete from './Delete';
 import BordersContextWrapper from '../context/borders';

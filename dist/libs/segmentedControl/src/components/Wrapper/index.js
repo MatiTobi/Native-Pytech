@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { useEffectWithoutFirstRender } from 'libs/constants/hooks';
+import { useEffectWithoutFirstRender } from '../../../../../libs/constants/hooks';
 import Segmented from '../Segmented';
 import Provider, { useShared } from '../../context/shared';
 import { getIndex } from '../../utils';

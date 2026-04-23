@@ -1,4 +1,4 @@
-import { useApp } from "libs/providers/App";
+import { useApp } from "../../../../libs/providers/App";
 import { memo } from 'react';
 import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import colors from '../constants';
