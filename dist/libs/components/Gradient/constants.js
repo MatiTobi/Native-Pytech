@@ -19,7 +19,8 @@ export const colors = {
 const diameterCircle = {
     small: 40,
     medium: 45,
-    large: 50
+    large: 50,
+    extraLarge: 100
 };
 export const sizes = Object.fromEntries(Object.entries(diameterCircle).map(([key, value]) => [key, {
         diameter: value,
