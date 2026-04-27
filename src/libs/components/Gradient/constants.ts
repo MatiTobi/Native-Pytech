@@ -24,7 +24,7 @@ const diameterCircle = {
     small: 40,
     medium: 45,
     large: 50,
-    extraLarge: 100
+    extraLarge: 200
 }
 
 export type sizesType = keyof typeof diameterCircle
