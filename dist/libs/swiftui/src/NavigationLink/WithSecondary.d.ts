@@ -1,6 +1,5 @@
-import { TextProps, LabelProps } from '@expo/ui/swift-ui';
+import { TextProps, LabelProps, ButtonProps } from '@expo/ui/swift-ui';
 import React from 'react';
-import { Props as NavigationLinkProps } from './Wrapper';
 type Props = LabelProps & {
     /**
         Children to display on the left.
@@ -10,7 +9,7 @@ type Props = LabelProps & {
     /**
         Function to navigate to the destination page.
     */
-    onPress?: NavigationLinkProps['onPress'];
+    onPress?: ButtonProps['onPress'];
     /**
         Secondary text to display on the right.
     */

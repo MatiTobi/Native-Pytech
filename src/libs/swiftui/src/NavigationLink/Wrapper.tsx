@@ -1,33 +1,38 @@
-import { Button, HStack, Spacer, Image } from '@expo/ui/swift-ui';
+import { Button, HStack, Spacer, Image, type ButtonProps } from '@expo/ui/swift-ui';
+import { foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 
-
-
-export type Props = {
-    /**
-        Children to display in the navigation link.
-    */
-    children?: React.ReactNode
-    /**
-        Function to navigate to the destination page.
-    */
-    onPress?: () => void
-}
 
 
 export default memo(({
     children,
-    onPress,
+    modifiers,
+    ...buttonProps
 
-}: Props) => {
+}: ButtonProps) => {
 
+    const _modifiers = useMemo(() => [foregroundStyle({ type: 'color', color: Color.ios.label })], [])
+    
 	return (
         <HStack>
-            {onPress && <Button onPress={() => onPress?.()} />}
-            {children}
-            <Spacer />
-            <Image systemName='chevron.right' size={16} color={Color.ios.opaqueSeparator} />
+            <Button
+                {...buttonProps}
+                modifiers={[..._modifiers, ...(modifiers || [])]}
+            >
+                {children}
+            </Button>
+            <ChevronRight />
         </HStack>
 	);
+})
+
+
+const ChevronRight = memo(() => {
+	return (
+        <>
+            <Spacer />
+            <Image systemName='chevron.right' size={16} color={Color.ios.opaqueSeparator} />
+        </>
+	)
 })

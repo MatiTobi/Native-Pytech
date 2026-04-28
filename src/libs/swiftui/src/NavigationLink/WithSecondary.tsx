@@ -1,8 +1,8 @@
-import { HStack, Spacer, TextProps, Label, LabelProps } from '@expo/ui/swift-ui';
+import { HStack, Spacer, TextProps, Label, LabelProps, ButtonProps } from '@expo/ui/swift-ui';
 import React, { memo } from 'react';
 
 import Text from '../Text';
-import NavigationLink, { Props as NavigationLinkProps } from './Wrapper'
+import NavigationLink from './Wrapper'
 
 
 
@@ -15,7 +15,7 @@ type Props = LabelProps & {
     /**
         Function to navigate to the destination page.
     */
-    onPress?: NavigationLinkProps['onPress']
+    onPress?: ButtonProps['onPress']
     /**
         Secondary text to display on the right.
     */
