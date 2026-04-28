@@ -1,4 +1,4 @@
-import { HStack, Spacer, TextProps } from '@expo/ui/swift-ui';
+import { HStack, Spacer, TextProps, Label } from '@expo/ui/swift-ui';
 import React, { memo } from 'react';
 
 import Text from '../Text';
@@ -8,9 +8,9 @@ import NavigationLink from './Wrapper'
 
 type Props = {
     /**
-        Text to display on the left.
+        Children to display on the left.
     */
-    title?: string
+    children?: React.ReactNode
     /**
         Secondary text to display on the right.
     */
@@ -20,10 +20,6 @@ type Props = {
     */
     onPress?: () => void
     /**
-        Props to apply to the title.
-    */
-    titleTextProps?: TextProps
-    /**
         Props to apply to the secondary text.
     */
     secondaryTextProps?: TextProps
@@ -31,9 +27,8 @@ type Props = {
 
 
 export default memo(({
-    title,
+    children,
     secondaryText,
-    titleTextProps,
     secondaryTextProps,
     onPress,
 
@@ -42,7 +37,7 @@ export default memo(({
 	return (
         <NavigationLink onPress={onPress}>
             <HStack>
-                <Text {...titleTextProps}>{title}</Text>
+                {children}
                 <Spacer />
                 <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
             </HStack>
