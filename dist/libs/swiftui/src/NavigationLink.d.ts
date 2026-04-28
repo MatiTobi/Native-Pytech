@@ -8,11 +8,6 @@ type Props = {
         Function to navigate to the destination page.
     */
     onPress?: () => void;
-    /**
-        Add a <Spacer /> so teh Image is aligned to the right.
-        @default true
-    */
-    addSpacer?: boolean;
 };
-declare const _default: React.MemoExoticComponent<({ children, onPress, addSpacer }: Props) => React.JSX.Element>;
+declare const _default: React.MemoExoticComponent<({ children, onPress, }: Props) => React.JSX.Element>;
 export default _default;

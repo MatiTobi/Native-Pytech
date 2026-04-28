@@ -13,18 +13,12 @@ type Props = {
         Function to navigate to the destination page.
     */
     onPress?: () => void
-    /**
-        Add a <Spacer /> so teh Image is aligned to the right.
-        @default true
-    */
-    addSpacer?: boolean
 }
 
 
 export default memo(({
     children,
     onPress,
-    addSpacer=true
 
 }: Props) => {
 
@@ -32,7 +26,7 @@ export default memo(({
         <HStack>
             {onPress && <Button onPress={() => onPress?.()} />}
             {children}
-            {addSpacer && <Spacer />}
+            <Spacer />
             <Image systemName='chevron.right' size={16} color={Color.ios.opaqueSeparator} />
         </HStack>
 	);
