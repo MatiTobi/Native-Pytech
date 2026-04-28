@@ -20,7 +20,8 @@ const diameterCircle = {
     small: 40,
     medium: 45,
     large: 50,
-    extraLarge: 200
+    extraLarge: 100,
+    extraExtraLarge: 200
 };
 export const sizes = Object.fromEntries(Object.entries(diameterCircle).map(([key, value]) => [key, {
         diameter: value,

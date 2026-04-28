@@ -69,6 +69,7 @@ declare const diameterCircle: {
     medium: number;
     large: number;
     extraLarge: number;
+    extraExtraLarge: number;
 };
 export type sizesType = keyof typeof diameterCircle;
 export type letterCountType = 1 | 2 | 3;
