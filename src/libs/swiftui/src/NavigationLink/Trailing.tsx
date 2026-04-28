@@ -3,22 +3,22 @@ import { Color } from 'expo-router';
 import React, { memo } from 'react';
 
 import Text from '../Text';
-import { RightProps } from './types';
+import { TrailingProps } from './types';
 
 
 
 export default memo(({
-    secondaryText,
-    secondaryTextProps
+    text,
+    textProps
 
-}: RightProps) => {
+}: TrailingProps) => {
 
 	return (
         <>
             <Spacer />
-            {secondaryText ? (
+            {text ? (
                 <HStack spacing={5}>
-                    <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
+                    <Text {...textProps} secondary>{text}</Text>
                     <ChevronRight />
                 </HStack>
             ) : (

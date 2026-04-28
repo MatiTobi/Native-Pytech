@@ -2,14 +2,14 @@ import { Button, HStack } from '@expo/ui/swift-ui';
 import React, { memo } from 'react';
 
 import type Props from './types';
-import Right from './Right';
+import Trailing from './Trailing';
 
 
 
 export default memo(({
     children,
-    secondaryText,
-    secondaryTextProps,
+    textTrailing,
+    textTrailingProps,
     ...buttonProps
 
 }: Props) => {
@@ -19,7 +19,7 @@ export default memo(({
             <Button {...buttonProps}>
                 {children}
             </Button>
-            <Right secondaryText={secondaryText} secondaryTextProps={secondaryTextProps} />
+            <Trailing text={textTrailing} textProps={textTrailingProps} />
         </HStack>
 	);
 })

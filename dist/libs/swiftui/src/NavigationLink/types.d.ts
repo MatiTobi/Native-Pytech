@@ -1,13 +1,22 @@
 import { ButtonProps, TextProps } from "@expo/ui/swift-ui";
-export type RightProps = {
+export type TrailingProps = {
     /**
-        Secondary text to display on the right.
+        Text to display on the Trailing Stack.
     */
-    secondaryText?: string;
+    text?: string;
     /**
-        Props to apply to the secondary text.
+        TextProps to apply to the Trailing Stack text.
     */
-    secondaryTextProps?: TextProps;
+    textProps?: TextProps;
 };
-type Props = ButtonProps & RightProps;
+type Props = ButtonProps & {
+    /**
+        Text to display on the Trailing Stack.
+    */
+    textTrailing?: TrailingProps['text'];
+    /**
+        TextProps to apply to the Trailing Stack text.
+    */
+    textTrailingProps?: TrailingProps['textProps'];
+};
 export default Props;
