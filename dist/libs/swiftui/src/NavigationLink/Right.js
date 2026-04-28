@@ -5,7 +5,7 @@ import Text from '../Text';
 export default memo(({ secondaryText, secondaryTextProps }) => {
     return (<>
             <Spacer />
-            {secondaryText ? (<HStack spacing={2}>
+            {secondaryText ? (<HStack spacing={5}>
                     <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
                     <ChevronRight />
                 </HStack>) : (<ChevronRight />)}
