@@ -6,7 +6,7 @@ import Trailing from './Trailing';
 export default memo(({ children, systemImage, label, modifiers, maintainButtonStyle = false, textTrailing, textTrailingProps, ...buttonProps }) => {
     // Va a poner una Label cuando no tenga que mantener el estilo del button y haya una imagen.
     // Si no tiene que mantener el estilo del button y no hay una imagen, solo va a cambiar el foregroundColor.
-    const renderLabel = !maintainButtonStyle && systemImage;
+    const renderLabel = !maintainButtonStyle && systemImage !== undefined;
     const _modifiers = (!maintainButtonStyle && !renderLabel) ? [foregroundStyle(Color.ios.label)] : [];
     const buttonSystemImage = !renderLabel ? systemImage : undefined;
     const buttonLabel = !renderLabel ? label : undefined;

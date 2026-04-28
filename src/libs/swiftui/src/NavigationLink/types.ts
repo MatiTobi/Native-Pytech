@@ -24,7 +24,7 @@ type Props = ButtonProps & {
     */
     textTrailingProps?: TrailingProps['textProps']
     /**
-        false: Will .
+        false: Renders a Label if systemImage is provided, otherwise put a foregroundStyle(Color.ios.label) modifier.
         @default false
     */
     maintainButtonStyle?: boolean

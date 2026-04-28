@@ -22,7 +22,7 @@ export default memo(({
 
     // Va a poner una Label cuando no tenga que mantener el estilo del button y haya una imagen.
     // Si no tiene que mantener el estilo del button y no hay una imagen, solo va a cambiar el foregroundColor.
-    const renderLabel = !maintainButtonStyle && systemImage
+    const renderLabel = !maintainButtonStyle && systemImage !== undefined
 
     const _modifiers = (!maintainButtonStyle && !renderLabel) ? [foregroundStyle(Color.ios.label)] : []
 
