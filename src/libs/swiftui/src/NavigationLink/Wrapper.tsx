@@ -18,7 +18,7 @@ export default memo(({
         <HStack>
             <Button
                 {...buttonProps}
-                modifiers={[..._modifiers, ...(modifiers || [])]}
+                //modifiers={[..._modifiers, ...(modifiers || [])]}
             >
                 {children}
             </Button>
