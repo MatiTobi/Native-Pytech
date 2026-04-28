@@ -1,7 +1,4 @@
-import type { ButtonProps } from '@expo/ui/swift-ui';
-import WithSecondary from './WithSecondary';
-type Component = React.MemoExoticComponent<React.FC<ButtonProps>> & {
-    WithSecondary: typeof WithSecondary;
-};
-declare const NavigationLink: Component;
-export default NavigationLink;
+import React from 'react';
+import type Props from './types';
+declare const _default: React.MemoExoticComponent<({ children, secondaryText, secondaryTextProps, ...buttonProps }: Props) => React.JSX.Element>;
+export default _default;

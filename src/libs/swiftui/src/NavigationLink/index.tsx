@@ -1,13 +1,25 @@
-import type { ButtonProps } from '@expo/ui/swift-ui';
-import Wrapper from './Wrapper';
-import WithSecondary from './WithSecondary';
+import { Button, HStack } from '@expo/ui/swift-ui';
+import React, { memo } from 'react';
+
+import type Props from './types';
+import Right from './Right';
 
 
-type Component = React.MemoExoticComponent<React.FC<ButtonProps>> & {
-    WithSecondary: typeof WithSecondary
-}
 
+export default memo(({
+    children,
+    secondaryText,
+    secondaryTextProps,
+    ...buttonProps
 
-const NavigationLink = Wrapper as Component;
-NavigationLink.WithSecondary = WithSecondary;
-export default NavigationLink;
+}: Props) => {
+    
+	return (
+        <HStack>
+            <Button {...buttonProps}>
+                {children}
+            </Button>
+            <Right secondaryText={secondaryText} secondaryTextProps={secondaryTextProps} />
+        </HStack>
+	);
+})
