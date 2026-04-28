@@ -6,8 +6,30 @@ import colors, { sizes, letterCountType, sizesType } from './constants'
 export { sizes }
 
 
+export type Props = {
+    /**
+        The text to display in the gradient.
+        Must be less than 3 characters.
+    */
+    text: string
+    /**
+        The color of the gradient.
+    */
+    color: keyof typeof colors
+    /**
+        The size of the gradient.
+        @default 'small'
+    */
+    type: sizesType
+}
 
-export default memo(({ text, color, type = 'small' } : { text: string, color: keyof typeof colors, type: sizesType }) => {
+
+export default memo(({
+    text,
+    color,
+    type = 'small'
+
+} : Props) => {
 
     const cantLetras = text.length as letterCountType
     if (!cantLetras) throw new Error('Text must be at least 1 character')
