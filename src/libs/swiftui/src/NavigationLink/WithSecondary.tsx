@@ -1,4 +1,4 @@
-import { HStack, Spacer, TextProps, Label } from '@expo/ui/swift-ui';
+import { HStack, Spacer, TextProps, Label, LabelProps } from '@expo/ui/swift-ui';
 import React, { memo } from 'react';
 
 import Text from '../Text';
@@ -6,21 +6,16 @@ import NavigationLink, { Props as NavigationLinkProps } from './Wrapper'
 
 
 
-type Props = Omit<NavigationLinkProps, 'children'> & {
+type Props = LabelProps & {
     /**
         Children to display on the left.
-        If not provided, the title will be displayed.
+        If not provided, the label will be displayed.
     */
     children?: React.ReactNode
     /**
-        Text to display on the left.
-        Will render if the children are not provided.
+        Function to navigate to the destination page.
     */
-    title?: string
-    /**
-        Props to apply to the title.
-    */
-    titleTextProps?: TextProps
+    onPress?: NavigationLinkProps['onPress']
     /**
         Secondary text to display on the right.
     */
@@ -34,18 +29,17 @@ type Props = Omit<NavigationLinkProps, 'children'> & {
 
 export default memo(({
     children,
-    title,
-    titleTextProps,
+    onPress,
     secondaryText,
     secondaryTextProps,
-    ...navigationLinkProps
+    ...labelProps
 
 }: Props) => {
 
 	return (
-        <NavigationLink {...navigationLinkProps}>
+        <NavigationLink onPress={onPress}>
             <HStack>
-                {children || <Text {...titleTextProps}>{title}</Text>}
+                {children || <Label {...labelProps} />}
                 <Spacer />
                 <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
             </HStack>
