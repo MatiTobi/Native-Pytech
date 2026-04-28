@@ -2,11 +2,11 @@ import { HStack, Spacer, TextProps, Label } from '@expo/ui/swift-ui';
 import React, { memo } from 'react';
 
 import Text from '../Text';
-import NavigationLink from './Wrapper'
+import NavigationLink, { Props as NavigationLinkProps } from './Wrapper'
 
 
 
-type Props = {
+type Props = Omit<NavigationLinkProps, 'children'> & {
     /**
         Children to display on the left.
     */
@@ -15,10 +15,6 @@ type Props = {
         Secondary text to display on the right.
     */
     secondaryText?: string
-    /**
-        Function to navigate to the destination page.
-    */
-    onPress?: () => void
     /**
         Props to apply to the secondary text.
     */
@@ -30,12 +26,12 @@ export default memo(({
     children,
     secondaryText,
     secondaryTextProps,
-    onPress,
+    ...navigationLinkProps
 
 }: Props) => {
 
 	return (
-        <NavigationLink onPress={onPress}>
+        <NavigationLink {...navigationLinkProps}>
             <HStack>
                 {children}
                 <Spacer />
