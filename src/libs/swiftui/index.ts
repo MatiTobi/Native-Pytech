@@ -1,4 +1,6 @@
-export { default as Icon } from './src/Icon'
 export { default as NavigationLink } from './src/NavigationLink'
+export { default as Icon } from './src/Icon'
+export { default as IconSection } from './src/IconSection'
+export { default as ListWithoutTop } from './src/ListWithoutTop'
 export { default as Text } from './src/Text'
 export { default as TextSubtitle } from './src/TextSubtitle'
