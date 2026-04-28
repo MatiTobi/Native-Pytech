@@ -1,8 +1,7 @@
-import { Button, HStack, Text } from '@expo/ui/swift-ui';
+import { Button, HStack, Label } from '@expo/ui/swift-ui';
 import { foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
 import React, { memo } from 'react';
-import Icon from '../Icon';
 import Trailing from './Trailing';
 export default memo(({ children, systemImage, label, modifiers, maintainButtonStyle = false, textTrailing, textTrailingProps, ...buttonProps }) => {
     // Va a poner una Label cuando no tenga que mantener el estilo del button y haya una imagen.
@@ -15,9 +14,7 @@ export default memo(({ children, systemImage, label, modifiers, maintainButtonSt
             <Button modifiers={[..._modifiers, ...(modifiers || [])]} systemImage={buttonSystemImage} label={buttonLabel} {...buttonProps}>
                 {children}
             </Button>
-            {!children && renderLabel && (<Icon systemImage={systemImage}>
-                        <Text>{label}</Text>
-                    </Icon>)}
+            {!children && renderLabel && (<Label title={label} systemImage={systemImage}/>)}
             <Trailing text={textTrailing} textProps={textTrailingProps}/>
         </HStack>);
 });
