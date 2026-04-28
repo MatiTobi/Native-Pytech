@@ -60,5 +60,7 @@
       "default": "./dist/libs/assets/images/*"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@expo/ui": "~55.0.12"
+  }
 }
