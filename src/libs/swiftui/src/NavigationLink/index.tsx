@@ -1,8 +1,9 @@
-import { Button, HStack, Label } from '@expo/ui/swift-ui';
+import { Button, HStack, Text } from '@expo/ui/swift-ui';
 import { foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
 import React, { memo } from 'react';
 
+import Icon from '../Icon';
 import type Props from './types';
 import Trailing from './Trailing';
 
@@ -37,12 +38,15 @@ export default memo(({
                 label={buttonLabel}
                 {...buttonProps}
             >
-                {
-                    children || (
-                        renderLabel && <Label title={label} systemImage={systemImage}/>
-                    )
-                }
+                {children}
             </Button>
+            {
+                !children && renderLabel && (
+                    <Icon systemImage={systemImage}>
+                        <Text>{label}</Text>
+                    </Icon>
+                )
+            }
             <Trailing text={textTrailing} textProps={textTrailingProps} />
         </HStack>
 	);
