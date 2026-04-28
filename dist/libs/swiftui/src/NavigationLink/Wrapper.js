@@ -1,9 +1,7 @@
 import { Button, HStack, Spacer, Image } from '@expo/ui/swift-ui';
-import { foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
-import React, { memo, useMemo } from 'react';
-export default memo(({ children, modifiers, ...buttonProps }) => {
-    const _modifiers = useMemo(() => [foregroundStyle({ type: 'color', color: Color.ios.label })], []);
+import React, { memo } from 'react';
+export default memo(({ children, ...buttonProps }) => {
     return (<HStack>
             <Button {...buttonProps}>
                 {children}

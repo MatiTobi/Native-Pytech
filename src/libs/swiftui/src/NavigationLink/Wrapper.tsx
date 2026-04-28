@@ -7,19 +7,13 @@ import React, { memo, useMemo } from 'react';
 
 export default memo(({
     children,
-    modifiers,
     ...buttonProps
 
 }: ButtonProps) => {
-
-    const _modifiers = useMemo(() => [foregroundStyle({ type: 'color', color: Color.ios.label })], [])
     
 	return (
         <HStack>
-            <Button
-                {...buttonProps}
-                //modifiers={[..._modifiers, ...(modifiers || [])]}
-            >
+            <Button {...buttonProps}>
                 {children}
             </Button>
             <ChevronRight />
