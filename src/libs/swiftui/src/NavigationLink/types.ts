@@ -23,6 +23,11 @@ type Props = ButtonProps & {
         TextProps to apply to the Trailing Stack text.
     */
     textTrailingProps?: TrailingProps['textProps']
+    /**
+        false: Will .
+        @default false
+    */
+    maintainButtonStyle?: boolean
 }
 
 export default Props;
