@@ -17,9 +17,8 @@ export default memo(({
         <>
             <Spacer />
             {text ? (
-                <HStack>
+                <HStack spacing={10}>
                     <Text {...textProps} secondary>{text}</Text>
-                    <Spacer />
                     <ChevronRight />
                 </HStack>
             ) : (
