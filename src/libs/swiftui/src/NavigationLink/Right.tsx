@@ -1,4 +1,4 @@
-import { Spacer, Image } from '@expo/ui/swift-ui';
+import { Spacer, Image, HStack } from '@expo/ui/swift-ui';
 import { Color } from 'expo-router';
 import React, { memo } from 'react';
 
@@ -16,10 +16,14 @@ export default memo(({
 	return (
         <>
             <Spacer />
-            {secondaryText && (
-                <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
+            {secondaryText ? (
+                <HStack spacing={2}>
+                    <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
+                    <ChevronRight />
+                </HStack>
+            ) : (
+                <ChevronRight />
             )}
-            <ChevronRight />
         </>
 	)
 })
