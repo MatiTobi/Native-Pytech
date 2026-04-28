@@ -20,7 +20,7 @@ export const expoEnv: Partial<ExpoEnv> = Constants.expoConfig?.extra || {}
 export const screenOptions:NativeStackNavigationOptions = {
     headerTitleAlign: "center", 
     headerBackButtonMenuEnabled: true,
-    headerBackButtonDisplayMode: 'default',
+    headerBackButtonDisplayMode: 'minimal',
     headerTransparent: Platform.OS === 'ios',
     headerLargeTitle: true,
 }

@@ -7,7 +7,7 @@ export const expoEnv = Constants.expoConfig?.extra || {};
 export const screenOptions = {
     headerTitleAlign: "center",
     headerBackButtonMenuEnabled: true,
-    headerBackButtonDisplayMode: 'default',
+    headerBackButtonDisplayMode: 'minimal',
     headerTransparent: Platform.OS === 'ios',
     headerLargeTitle: true,
 };
