@@ -41,7 +41,7 @@ export default memo(({
 
 }: Props) => {
 
-    const spacing = gradientProps?.type === 'extraLarge' ? 16 : 20
+    const spacing = gradientProps?.type === 'extraLarge' ? 10 : 20
 
     const titleElement = useMemo(() => (
         <Text modifiers={[font({weight: 'bold', size: 30})]}>
@@ -61,7 +61,7 @@ export default memo(({
                 subtitle ? (
                     <VStack modifiers={[frame({ alignment: 'center' })]} spacing={2}>
                         <Title title={title} />
-                        <Text secondary modifiers={[font({weight: 'bold'})]}>
+                        <Text secondary>
                             {subtitle}
                         </Text>
                     </VStack>

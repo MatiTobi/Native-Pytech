@@ -5,7 +5,7 @@ import Gradient from '../../../../libs/components/Gradient';
 import Text from '../Text';
 import Section from './Section';
 export default memo(({ title, subtitle, gradientProps, buttonProps, }) => {
-    const spacing = gradientProps?.type === 'extraLarge' ? 16 : 20;
+    const spacing = gradientProps?.type === 'extraLarge' ? 10 : 20;
     const titleElement = useMemo(() => (<Text modifiers={[font({ weight: 'bold', size: 30 })]}>
             {title}
         </Text>), [title]);
@@ -16,7 +16,7 @@ export default memo(({ title, subtitle, gradientProps, buttonProps, }) => {
 
             {(title || subtitle) && (subtitle ? (<VStack modifiers={[frame({ alignment: 'center' })]} spacing={2}>
                         <Title title={title}/>
-                        <Text secondary modifiers={[font({ weight: 'bold' })]}>
+                        <Text secondary>
                             {subtitle}
                         </Text>
                     </VStack>) : (<Title title={title}/>))}
