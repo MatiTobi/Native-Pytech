@@ -1,5 +1,5 @@
 import React from 'react';
-type Props = {
+export type Props = {
     /**
         Children to display in the navigation link.
     */
