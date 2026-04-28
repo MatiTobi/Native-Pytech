@@ -9,8 +9,18 @@ import NavigationLink, { Props as NavigationLinkProps } from './Wrapper'
 type Props = Omit<NavigationLinkProps, 'children'> & {
     /**
         Children to display on the left.
+        If not provided, the title will be displayed.
     */
     children?: React.ReactNode
+    /**
+        Text to display on the left.
+        Will render if the children are not provided.
+    */
+    title?: string
+    /**
+        Props to apply to the title.
+    */
+    titleTextProps?: TextProps
     /**
         Secondary text to display on the right.
     */
@@ -24,6 +34,8 @@ type Props = Omit<NavigationLinkProps, 'children'> & {
 
 export default memo(({
     children,
+    title,
+    titleTextProps,
     secondaryText,
     secondaryTextProps,
     ...navigationLinkProps
@@ -33,7 +45,7 @@ export default memo(({
 	return (
         <NavigationLink {...navigationLinkProps}>
             <HStack>
-                {children}
+                {children || <Text {...titleTextProps}>{title}</Text>}
                 <Spacer />
                 <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
             </HStack>
