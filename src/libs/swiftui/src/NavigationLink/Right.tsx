@@ -17,10 +17,7 @@ export default memo(({
         <>
             <Spacer />
             {secondaryText && (
-                <>
-                    <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
-                    <Spacer />
-                </>
+                <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
             )}
             <ChevronRight />
         </>

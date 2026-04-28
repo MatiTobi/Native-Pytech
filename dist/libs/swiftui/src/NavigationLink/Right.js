@@ -5,10 +5,7 @@ import Text from '../Text';
 export default memo(({ secondaryText, secondaryTextProps }) => {
     return (<>
             <Spacer />
-            {secondaryText && (<>
-                    <Text {...secondaryTextProps} secondary>{secondaryText}</Text>
-                    <Spacer />
-                </>)}
+            {secondaryText && (<Text {...secondaryTextProps} secondary>{secondaryText}</Text>)}
             <ChevronRight />
         </>);
 });
