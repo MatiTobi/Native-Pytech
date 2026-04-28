@@ -1,6 +1,6 @@
 import { Button, RNHostView, VStack, ButtonProps } from '@expo/ui/swift-ui';
 import { frame, font, buttonStyle } from '@expo/ui/swift-ui/modifiers';
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import Gradient, { Props as GradientProps } from 'libs/components/Gradient';
 
@@ -43,6 +43,12 @@ export default memo(({
 
     const spacing = gradientProps?.type === 'extraLarge' ? 16 : 20
 
+    const titleElement = useMemo(() => (
+        <Text modifiers={[font({weight: 'bold', size: 30})]}>
+            {title}
+        </Text>
+    ), [title])
+
     return (
         <Section spacing={spacing}>
             {gradientProps && (
@@ -51,14 +57,16 @@ export default memo(({
                 </RNHostView>
             )}
 
-            <VStack modifiers={[frame({ alignment: 'center' })]} spacing={2}>
-                <Text modifiers={[
-                    font({weight: 'bold', size: 30}),
-                ]}>
-                    {title}
-                </Text>
-                <Text secondary>{subtitle}</Text>
-            </VStack>
+            {(title || subtitle) && (
+                subtitle ? (
+                    <VStack modifiers={[frame({ alignment: 'center' })]} spacing={2}>
+                        <Title title={title} />
+                        <Text secondary>{subtitle}</Text>
+                    </VStack>
+                ) : (
+                    <Title title={title} />
+                )
+            )}
 
             {buttonProps && (
                 <Button
@@ -67,5 +75,14 @@ export default memo(({
                 />
             )}
         </Section>
+    )
+})
+
+
+const Title = memo(({ title }: { title: string }) => {
+    return (
+        <Text modifiers={[font({weight: 'bold', size: 30})]}>
+            {title}
+        </Text>
     )
 })
