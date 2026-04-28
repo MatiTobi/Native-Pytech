@@ -16,7 +16,9 @@ export default memo(({ title, subtitle, gradientProps, buttonProps, }) => {
 
             {(title || subtitle) && (subtitle ? (<VStack modifiers={[frame({ alignment: 'center' })]} spacing={2}>
                         <Title title={title}/>
-                        <Text secondary>{subtitle}</Text>
+                        <Text secondary modifiers={[font({ weight: 'bold' })]}>
+                            {subtitle}
+                        </Text>
                     </VStack>) : (<Title title={title}/>))}
 
             {buttonProps && (<Button {...buttonProps} modifiers={[buttonStyle('bordered'), ...(buttonProps?.modifiers || [])]}/>)}
