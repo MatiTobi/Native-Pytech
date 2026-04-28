@@ -1,4 +1,5 @@
 import Wrapper from './Wrapper';
 import WithSecondary from './WithSecondary';
-Wrapper.WithSecondary = WithSecondary;
-export default Wrapper;
+const NavigationLink = Wrapper;
+NavigationLink.WithSecondary = WithSecondary;
+export default NavigationLink;

@@ -7,5 +7,6 @@ type Component = React.MemoExoticComponent<React.FC<WrapperProps>> & {
 }
 
 
-(Wrapper as Component).WithSecondary = WithSecondary;
-export default Wrapper;
+const NavigationLink = Wrapper as Component;
+NavigationLink.WithSecondary = WithSecondary;
+export default NavigationLink;
