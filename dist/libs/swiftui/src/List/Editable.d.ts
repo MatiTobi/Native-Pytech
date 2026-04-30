@@ -75,5 +75,5 @@ type Props<T> = {
     withoutTopPadding?: boolean;
 };
 declare function Component<T>({ children, data, keyExtractor, editMode, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove, enableDelete, withoutTopPadding, }: Props<T>): React.JSX.Element;
-declare const _default: React.MemoExoticComponent<typeof Component>;
+declare const _default: typeof Component;
 export default _default;

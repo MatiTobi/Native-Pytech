@@ -162,4 +162,4 @@ function Component<T>({
     )
 }
 
-export default memo(Component)
+export default memo(Component) as typeof Component
