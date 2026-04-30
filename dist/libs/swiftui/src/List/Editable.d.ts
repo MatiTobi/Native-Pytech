@@ -1,7 +1,7 @@
 import { ListProps, ListForEachProps, SectionProps } from "@expo/ui/swift-ui";
 import { ViewModifier } from "@expo/ui/swift-ui/modifiers";
 import React from "react";
-type Props = {
+type Props<T> = {
     /**
         The children elements to be rendered inside the list.
         They will be rendered before the data items.
@@ -11,13 +11,13 @@ type Props = {
         The data items to be rendered inside the list.
         @default []
     */
-    data?: any[];
+    data?: T[];
     /**
         The function to extract the key from the data item.
         @example
         keyExtractor={(item) => item.id}
     */
-    keyExtractor?: (item: any) => string | number;
+    keyExtractor?: (item: T) => string | number;
     /**
         Whether the list is in edit mode.
         @default false
@@ -42,7 +42,7 @@ type Props = {
         The prop "modifier" is the modifier to be applied to the item [tag(key)].
     */
     renderItem?: ({ item, modifier }: {
-        item: any;
+        item: T;
         modifier: ViewModifier;
     }) => React.ReactNode;
     /**
@@ -74,5 +74,6 @@ type Props = {
     */
     withoutTopPadding?: boolean;
 };
-declare const _default: React.MemoExoticComponent<({ children, data, keyExtractor, editMode, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove, enableDelete, withoutTopPadding, }: Props) => React.JSX.Element>;
+declare function Component<T>({ children, data, keyExtractor, editMode, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove, enableDelete, withoutTopPadding, }: Props<T>): React.JSX.Element;
+declare const _default: React.MemoExoticComponent<typeof Component>;
 export default _default;

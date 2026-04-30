@@ -4,7 +4,7 @@ import React, { memo, useCallback, useMemo, useState } from "react"
 
 
 
-type Props = {
+type Props<T> = {
     /**
         The children elements to be rendered inside the list.
         They will be rendered before the data items.
@@ -15,14 +15,14 @@ type Props = {
         The data items to be rendered inside the list.
         @default []
     */
-    data?: any[]
+    data?: T[]
 
     /**
         The function to extract the key from the data item.
         @example
         keyExtractor={(item) => item.id}
     */
-    keyExtractor?: (item: any) => string | number
+    keyExtractor?: (item: T) => string | number
 
     /**
         Whether the list is in edit mode.
@@ -45,7 +45,7 @@ type Props = {
         The function to render the item.
         The prop "modifier" is the modifier to be applied to the item [tag(key)].
     */
-    renderItem?: ({item, modifier}: {item: any, modifier: ViewModifier}) => React.ReactNode
+    renderItem?: ({item, modifier}: {item: T, modifier: ViewModifier}) => React.ReactNode
 
     /**
         The props to be applied to the list.
@@ -83,7 +83,7 @@ type Props = {
 }
 
 
-export default memo(({
+function Component<T>({
     children,
     data=[],
     keyExtractor,
@@ -98,10 +98,10 @@ export default memo(({
     enableDelete=false,
     withoutTopPadding=false,
 
-}: Props) => {
+}: Props<T>){
 
     // ---------------------- Variables ----------------------
-    const [_data, setData] = useState(data)
+    const [_data, setData] = useState<T[]>(data ?? [])
 
 
     // ---------------------- Modifiers ----------------------
@@ -152,7 +152,7 @@ export default memo(({
                     onMove={handleMove}
                     modifiers={[...modifiersListForEach, ...(listForEachProps?.modifiers || [])]}
                 >
-                    {_data.map((item: any, index: number) => {
+                    {_data.map((item, index: number) => {
                         const key = keyExtractor?.(item) ?? index
                         return renderItem?.({item, modifier: tag(key)})
                     })}
@@ -160,4 +160,6 @@ export default memo(({
             </Section>
         </List>
     )
-})
+}
+
+export default memo(Component)

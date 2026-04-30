@@ -1,9 +1,9 @@
 import { List, Section } from "@expo/ui/swift-ui";
 import { listStyle, environment, moveDisabled, tag, deleteDisabled, padding } from "@expo/ui/swift-ui/modifiers";
 import React, { memo, useCallback, useMemo, useState } from "react";
-export default memo(({ children, data = [], keyExtractor, editMode = false, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove = false, enableDelete = false, withoutTopPadding = false, }) => {
+function Component({ children, data = [], keyExtractor, editMode = false, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove = false, enableDelete = false, withoutTopPadding = false, }) {
     // ---------------------- Variables ----------------------
-    const [_data, setData] = useState(data);
+    const [_data, setData] = useState(data ?? []);
     // ---------------------- Modifiers ----------------------
     const modifiersList = useMemo(() => [
         listStyle('inset'),
@@ -44,4 +44,5 @@ export default memo(({ children, data = [], keyExtractor, editMode = false, onDe
                 </List.ForEach>
             </Section>
         </List>);
-});
+}
+export default memo(Component);
