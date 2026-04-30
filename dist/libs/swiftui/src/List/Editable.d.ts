@@ -58,15 +58,15 @@ type Props = {
     */
     listSectionProps?: SectionProps;
     /**
-        Whether to disable the move of the items.
-        @default true
+        Whether to enable the move of the items.
+        @default false
     */
-    disableMove?: boolean;
+    enableMove?: boolean;
     /**
-        Whether to disable the delete of the items.
-        @default true
+        Whether to enable the delete of the items.
+        @default false
     */
-    disableDelete?: boolean;
+    enableDelete?: boolean;
     /**
         Whether to remove the top padding of the list.
         It puts [padding({ top: -15 })] to the list.
@@ -74,5 +74,5 @@ type Props = {
     */
     withoutTopPadding?: boolean;
 };
-declare const _default: React.MemoExoticComponent<({ children, data, keyExtractor, editMode, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, disableMove, disableDelete, withoutTopPadding, }: Props) => React.JSX.Element>;
+declare const _default: React.MemoExoticComponent<({ children, data, keyExtractor, editMode, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove, enableDelete, withoutTopPadding, }: Props) => React.JSX.Element>;
 export default _default;

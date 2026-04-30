@@ -63,16 +63,16 @@ type Props = {
     listSectionProps?: SectionProps
 
     /**
-        Whether to disable the move of the items.
-        @default true
+        Whether to enable the move of the items.
+        @default false
     */
-    disableMove?: boolean
+    enableMove?: boolean
 
     /**
-        Whether to disable the delete of the items.
-        @default true
+        Whether to enable the delete of the items.
+        @default false
     */
-    disableDelete?: boolean
+    enableDelete?: boolean
 
     /**
         Whether to remove the top padding of the list.
@@ -94,8 +94,8 @@ export default memo(({
     listProps,
     listForEachProps,
     listSectionProps,
-    disableMove=true,
-    disableDelete=true,
+    enableMove=false,
+    enableDelete=false,
     withoutTopPadding=false,
 
 }: Props) => {
@@ -108,15 +108,15 @@ export default memo(({
     const modifiersList = useMemo(() => [
         listStyle('inset'),
         environment('editMode', editMode ? 'active' : 'inactive'),
-        moveDisabled(disableMove),
-        deleteDisabled(disableDelete),
+        moveDisabled(!enableMove),
+        deleteDisabled(!enableDelete),
         withoutTopPadding ? padding({ top: -15 }) : undefined,
-    ], [editMode, disableMove, disableDelete, withoutTopPadding])
+    ], [editMode, enableMove, enableDelete, withoutTopPadding])
 
     const modifiersListForEach = useMemo(() => [
-        moveDisabled(disableMove),
-        deleteDisabled(disableDelete)
-    ], [disableMove, disableDelete])
+        moveDisabled(!enableMove),
+        deleteDisabled(!enableDelete)
+    ], [enableMove, enableDelete])
 
 
     // ---------------------- Functions ----------------------

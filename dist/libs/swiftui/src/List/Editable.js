@@ -1,21 +1,21 @@
 import { List, Section } from "@expo/ui/swift-ui";
 import { listStyle, environment, moveDisabled, tag, deleteDisabled, padding } from "@expo/ui/swift-ui/modifiers";
 import React, { memo, useCallback, useMemo, useState } from "react";
-export default memo(({ children, data = [], keyExtractor, editMode = false, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, disableMove = true, disableDelete = true, withoutTopPadding = false, }) => {
+export default memo(({ children, data = [], keyExtractor, editMode = false, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove = false, enableDelete = false, withoutTopPadding = false, }) => {
     // ---------------------- Variables ----------------------
     const [_data, setData] = useState(data);
     // ---------------------- Modifiers ----------------------
     const modifiersList = useMemo(() => [
         listStyle('inset'),
         environment('editMode', editMode ? 'active' : 'inactive'),
-        moveDisabled(disableMove),
-        deleteDisabled(disableDelete),
+        moveDisabled(!enableMove),
+        deleteDisabled(!enableDelete),
         withoutTopPadding ? padding({ top: -15 }) : undefined,
-    ], [editMode, disableMove, disableDelete, withoutTopPadding]);
+    ], [editMode, enableMove, enableDelete, withoutTopPadding]);
     const modifiersListForEach = useMemo(() => [
-        moveDisabled(disableMove),
-        deleteDisabled(disableDelete)
-    ], [disableMove, disableDelete]);
+        moveDisabled(!enableMove),
+        deleteDisabled(!enableDelete)
+    ], [enableMove, enableDelete]);
     // ---------------------- Functions ----------------------
     const handleDelete = useCallback((indices) => {
         setData(prev => prev.filter((_, i) => !indices.includes(i)));
