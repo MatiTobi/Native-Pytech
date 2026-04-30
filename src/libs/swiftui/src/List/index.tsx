@@ -2,18 +2,16 @@ import { List, ListProps } from '@expo/ui/swift-ui';
 import { padding } from '@expo/ui/swift-ui/modifiers';
 import React, { memo } from 'react';
 
+import Editable from './Editable';
 
 
-type Props = ListProps & {
-    children: React.ReactNode
-}
 
-export default memo(({
+const Component = memo(({
     children,
     modifiers,
     ...listProps
     
-}: Props) => {
+}: ListProps) => {
 
     const _modifiers = [padding({ top: -15 })]
 
@@ -22,4 +20,9 @@ export default memo(({
             {children}
         </List>
     )
-})
+}) as React.MemoExoticComponent<React.FC<ListProps>> & {
+    Editable: typeof Editable
+};
+
+Component.Editable = Editable
+export default Component
