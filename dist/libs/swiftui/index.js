@@ -3,4 +3,5 @@ export { default as Icon } from './src/Icon';
 export { default as IconSection } from './src/IconSection';
 export { default as List } from './src/List';
 export { default as Text } from './src/Text';
+export { default as Picker } from './src/Picker';
 export { default as TextSubtitle } from './src/TextSubtitle';
