@@ -1,6 +1,5 @@
 import { ListProps, ListForEachProps, SectionProps } from "@expo/ui/swift-ui";
 import { ViewModifier } from "@expo/ui/swift-ui/modifiers";
-import React from "react";
 type Props<T> = {
     /**
         The children elements to be rendered inside the list.
@@ -74,6 +73,4 @@ type Props<T> = {
     */
     withoutTopPadding?: boolean;
 };
-declare function Component<T>({ children, data, keyExtractor, editMode, onDelete, onMove, renderItem, listProps, listForEachProps, listSectionProps, enableMove, enableDelete, withoutTopPadding, }: Props<T>): React.JSX.Element;
-declare const _default: typeof Component;
-export default _default;
+export default Props;
