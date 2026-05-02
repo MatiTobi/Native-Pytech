@@ -10,7 +10,7 @@ function Component({ children, data = [], keyExtractor, editMode = false, onDele
         environment('editMode', editMode ? 'active' : 'inactive'),
         moveDisabled(!enableMove),
         deleteDisabled(!enableDelete),
-        withoutTopPadding ? padding({ top: -15 }) : undefined,
+        ...(withoutTopPadding ? [padding({ top: -15 })] : []),
     ], [editMode, enableMove, enableDelete, withoutTopPadding]);
     const modifiersListForEach = useMemo(() => [
         moveDisabled(!enableMove),
