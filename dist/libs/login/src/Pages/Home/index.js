@@ -4,7 +4,7 @@ import { logIn } from '../../../../../libs/supabase';
 import Screen from '../../Screen';
 import { handleSubmitLogIn } from '../utils';
 import Link from '../../../../../libs/components/Link';
-export default memo(({ title = 'MiApp', subtitle = 'Inicia sesión con un correo electrónico o nombre de usuario para usar la aplicación.', iconPage = <Screen.SvgPytech />, textCreateAccount }) => {
+export default memo(({ title = 'MiApp', subtitle = 'Inicia sesión con un correo electrónico o nombre de usuario para usar la aplicación.', iconPage = <Screen.SvgPytech />, textCreateAccount, supabaseSchema = 'admin', supabaseTable = 'profiles', enableCreateAccount = false, }) => {
     const router = useRouter();
     useEffect(() => {
         (async () => {
@@ -14,7 +14,12 @@ export default memo(({ title = 'MiApp', subtitle = 'Inicia sesión con un correo
         })();
     }, []);
     return (<Screen iconPage={iconPage} title={title} subtitle={subtitle} bottomElements={<>
-                    <Screen.Input placeholder='Correo o nombre de usuario' keyboardType='email-address' autoComplete='email' handleSubmit={async ({ value }) => await handleSubmitLogIn({ username: value, router })}/>
-                    <Link text={textCreateAccount || `Crear tu cuenta de ${title}`} onPress={({ router }) => router.push({ pathname: '/login/inicio/signIn' })}/>
+                    <Screen.Input placeholder='Correo o nombre de usuario' keyboardType='email-address' autoComplete='email' handleSubmit={async ({ value }) => await handleSubmitLogIn({
+                schema: supabaseSchema,
+                table: supabaseTable,
+                username: value,
+                router
+            })}/>
+                    {enableCreateAccount && (<Link text={textCreateAccount || `Crear tu cuenta de ${title}`} onPress={({ router }) => router.push({ pathname: '/login/inicio/signIn' })}/>)}
                 </>}/>);
 });

@@ -10,7 +10,7 @@ import { PerfilColorType } from '../constants'
 
 export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, onSuccess?: () => Promise<void> }) => {
     
-    const { mail, firstname, secondname, lastname, color } = useLocalSearchParams() as {mail: string, firstname?: string, secondname?: string, lastname?: string, color: PerfilColorType}
+    const { mail, first_name, second_name, last_name, color } = useLocalSearchParams() as {mail: string, first_name?: string, second_name?: string, last_name?: string, color: PerfilColorType}
     const router = useRouter()
 
     const handleSubmit = async ({value}: {value: string}) => {
@@ -24,8 +24,8 @@ export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, o
 
     return (
         <Screen
-            iconPage={<Screen.Gradient text={getAbbreviatedName({firstname, lastname, mail})} color={color} />}
-            title={`¡Hola${firstname ? ` ${firstname}` : ''}!`}
+            iconPage={<Screen.Gradient text={getAbbreviatedName({first_name, last_name, mail})} color={color} />}
+            title={`¡Hola${first_name ? ` ${first_name}` : ''}!`}
             bottomElements={
                 <Screen.Input
                     placeholder='Contraseña'

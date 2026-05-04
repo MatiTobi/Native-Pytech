@@ -14,7 +14,10 @@ export default memo(({
     title='MiApp',
     subtitle='Inicia sesión con un correo electrónico o nombre de usuario para usar la aplicación.',
     iconPage=<Screen.SvgPytech />,
-    textCreateAccount
+    textCreateAccount,
+    supabaseSchema='admin',
+    supabaseTable='profiles',
+    enableCreateAccount=false,
 
 }: Props) => {
 
@@ -38,12 +41,19 @@ export default memo(({
                         placeholder='Correo o nombre de usuario'
                         keyboardType='email-address'
                         autoComplete='email'
-                        handleSubmit={async ({value}) => await handleSubmitLogIn({username: value, router})}
+                        handleSubmit={async ({value}) => await handleSubmitLogIn({
+                            schema: supabaseSchema,
+                            table: supabaseTable,
+                            username: value,
+                            router
+                        })}
                     />
-                    <Link
-                        text={textCreateAccount || `Crear tu cuenta de ${title}`}
-                        onPress={({ router }) => router.push({pathname: '/login/inicio/signIn'})}
-                    />
+                    {enableCreateAccount && (
+                        <Link
+                            text={textCreateAccount || `Crear tu cuenta de ${title}`}
+                            onPress={({ router }) => router.push({pathname: '/login/inicio/signIn'})}
+                        />
+                    )}
                 </>
             }
         />
