@@ -4,7 +4,7 @@ import { memo } from 'react';
 import Screen from '../Screen';
 import { getAbbreviatedName, handleSubmitLogInPerfil } from './utils';
 export default memo(({ routeOnSuccess, onSuccess }) => {
-    const { mail, first_name, second_name, last_name, color } = useLocalSearchParams();
+    const { user_id, mail, first_name, second_name, last_name, color } = useLocalSearchParams();
     const router = useRouter();
     const handleSubmit = async ({ value }) => {
         const { succeded, message } = await handleSubmitLogInPerfil({ mail, password: value });

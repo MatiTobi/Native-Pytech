@@ -22,17 +22,23 @@ export const getAbbreviatedName = ({first_name, last_name, mail}: {first_name?: 
 }
 
 
-export const handleSubmitLogIn = async ({schema, table, username, router}: {schema: string, table: string, username: string, router: Router}) => {
+export const handleSubmitLogIn = async ({username, router}: {username: string, router: Router}) => {
         
     username = username.trim()
     const mail = username.includes('@') ? username : `${username}@pytech.com`
 
-    const { data, error } = await supabase.schema(schema).from(table).select('first_name,second_name,last_name,color').eq('mail', mail)
+    // Obtengo el user_id
+    const { data: dataUsers, error: errorUsers } = await supabase.schema('admin').from('users').select('id').eq('mail', mail)
+    if (errorUsers) return {succeded: false, message: errorUsers.message}
+    if (dataUsers.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
+
+    // Obtengo los datos del perfil
+    const { data, error } = await supabase.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id)
     if (error)  return {succeded: false, message: error.message}
     if (data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
 
     // Success
-    router.push({ pathname: '/login/inicio/perfil', params: {...data[0], mail: mail} })
+    router.push({ pathname: '/login/inicio/perfil', params: {...data[0], user_id: dataUsers[0].id, mail: mail} })
     return {succeded: true, message: ''}
 }
 

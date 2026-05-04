@@ -4,9 +4,7 @@ export declare const getAbbreviatedName: ({ first_name, last_name, mail }: {
     last_name?: string;
     mail: string;
 }) => string;
-export declare const handleSubmitLogIn: ({ schema, table, username, router }: {
-    schema: string;
-    table: string;
+export declare const handleSubmitLogIn: ({ username, router }: {
     username: string;
     router: Router;
 }) => Promise<{
