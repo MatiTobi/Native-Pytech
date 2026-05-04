@@ -8,7 +8,7 @@ import { PerfilColorType } from '../constants'
 
 
 
-type localSearchParamsType = {
+type LocalSearchParamsType = {
     user_id: string,
     mail: string,
     first_name?: string,
@@ -20,7 +20,7 @@ type localSearchParamsType = {
 
 export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, onSuccess?: () => Promise<void> }) => {
     
-    const { user_id, mail, first_name, second_name, last_name, color } = useLocalSearchParams() as localSearchParamsType
+    const { user_id, mail, first_name, second_name, last_name, color } = useLocalSearchParams() as LocalSearchParamsType
     const router = useRouter()
 
     const handleSubmit = async ({value}: {value: string}) => {
