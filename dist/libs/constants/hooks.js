@@ -1,6 +1,6 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import { useFocusEffect } from 'expo-router';
-export function useEffectWithoutFirstRender(effect, deps) {
+export const useEffectWithoutFirstRender = (effect, deps) => {
     const isFirstRender = useRef(true);
     useEffect(() => {
         if (isFirstRender.current) {
@@ -9,8 +9,8 @@ export function useEffectWithoutFirstRender(effect, deps) {
         }
         return effect();
     }, deps);
-}
-export function useLayoutEffectWithoutFirstRender(effect, deps) {
+};
+export const useLayoutEffectWithoutFirstRender = (effect, deps) => {
     const isFirstRender = useRef(true);
     useLayoutEffect(() => {
         if (isFirstRender.current) {
@@ -19,20 +19,32 @@ export function useLayoutEffectWithoutFirstRender(effect, deps) {
         }
         return effect();
     }, deps);
-}
-export function useAsyncEffect(effect, deps) {
+};
+export const useAsyncEffect = (effect, deps) => {
     useEffect(() => {
         let mounted = true;
         const isMounted = () => mounted;
         effect(isMounted);
         return () => { mounted = false; };
     }, deps);
-}
-export function useAsyncFocusEffect(effect) {
-    useFocusEffect(() => {
+};
+export const useAsyncFocusEffect = (effect) => {
+    useFocusEffect(useCallback(() => {
         let mounted = true;
         const isMounted = () => mounted;
-        effect(isMounted);
+        void effect(isMounted);
         return () => { mounted = false; };
-    });
-}
+    }, [effect]));
+};
+export const useAsyncFocusEffectWithoutFirstRender = (effect) => {
+    const isFirstFocus = useRef(true);
+    useFocusEffect(useCallback(() => {
+        let mounted = true;
+        const isMounted = () => mounted;
+        if (isFirstFocus.current)
+            isFirstFocus.current = false;
+        else
+            void effect(isMounted);
+        return () => { mounted = false; };
+    }, [effect]));
+};
