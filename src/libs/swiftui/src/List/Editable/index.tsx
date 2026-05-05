@@ -1,7 +1,8 @@
 import { List, Section } from "@expo/ui/swift-ui"
 import { listStyle, environment, moveDisabled, tag, deleteDisabled, padding } from "@expo/ui/swift-ui/modifiers"
-import React, { memo, useCallback, useMemo, useState } from "react"
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react"
 
+import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
 import type Props from "./types"
 
 
@@ -25,6 +26,10 @@ function Component<T>({
 
     // ---------------------- Variables ----------------------
     const [_data, setData] = useState<T[]>(data ?? [])
+
+
+    // ---------------------- Hooks ----------------------
+    useEffectWithoutFirstRender(() => setData(data ?? []), [data])
 
 
     // ---------------------- Modifiers ----------------------
