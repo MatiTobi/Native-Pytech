@@ -47,7 +47,7 @@ type Props<T> = {
     /**
         The props to be applied to the list.
     */
-    listProps?: ListProps;
+    listProps?: Omit<ListProps, 'children'>;
     /**
         The props to be applied to the list.
     */
