@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useFocusEffect } from 'expo-router';
 export function useEffectWithoutFirstRender(effect, deps) {
     const isFirstRender = useRef(true);
     useEffect(() => {
@@ -26,4 +27,12 @@ export function useAsyncEffect(effect, deps) {
         effect(isMounted);
         return () => { mounted = false; };
     }, deps);
+}
+export function useAsyncFocusEffect(effect) {
+    useFocusEffect(() => {
+        let mounted = true;
+        const isMounted = () => mounted;
+        effect(isMounted);
+        return () => { mounted = false; };
+    });
 }
