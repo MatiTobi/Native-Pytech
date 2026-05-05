@@ -11,7 +11,7 @@ export type Props = {
         The text to display in the gradient.
         Must be less than 3 characters.
     */
-    text: string
+    text?: string
     /**
         The color of the gradient.
     */
@@ -30,17 +30,21 @@ export default memo(({
     type = 'small'
 
 } : Props) => {
-
-    const cantLetras = text.length as letterCountType
-    if (!cantLetras) throw new Error('Text must be at least 1 character')
-    if (cantLetras > 3) throw new Error('Text must be less than 3 characters')
     
     const typeSizes = useMemo(() => sizes[type], [type])
-    const textComponent = useMemo(() =>
-        <Text style={[styles.text, { fontSize: typeSizes.fontSize[cantLetras] }]} allowFontScaling={false}>
-            {text}
-        </Text>
-    , [text, cantLetras, typeSizes])
+
+    const textComponent = useMemo(() => {
+
+        const cantLetras = text?.length
+        if (!text || !cantLetras) return null
+        if (cantLetras > 3) throw new Error('Text must be less than 3 characters')
+
+        return (
+            <Text style={[styles.text, { fontSize: typeSizes.fontSize[cantLetras as letterCountType] }]} allowFontScaling={false}>
+                {text}
+            </Text>
+        )
+    } , [text, typeSizes])
 
     return (
         <LinearGradient

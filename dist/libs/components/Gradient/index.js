@@ -4,15 +4,17 @@ import { LinearGradient } from 'expo-linear-gradient';
 import colors, { sizes } from './constants';
 export { sizes };
 export default memo(({ text, color, type = 'small' }) => {
-    const cantLetras = text.length;
-    if (!cantLetras)
-        throw new Error('Text must be at least 1 character');
-    if (cantLetras > 3)
-        throw new Error('Text must be less than 3 characters');
     const typeSizes = useMemo(() => sizes[type], [type]);
-    const textComponent = useMemo(() => <Text style={[styles.text, { fontSize: typeSizes.fontSize[cantLetras] }]} allowFontScaling={false}>
-            {text}
-        </Text>, [text, cantLetras, typeSizes]);
+    const textComponent = useMemo(() => {
+        const cantLetras = text?.length;
+        if (!text || !cantLetras)
+            return null;
+        if (cantLetras > 3)
+            throw new Error('Text must be less than 3 characters');
+        return (<Text style={[styles.text, { fontSize: typeSizes.fontSize[cantLetras] }]} allowFontScaling={false}>
+                {text}
+            </Text>);
+    }, [text, typeSizes]);
     return (<LinearGradient style={[styles.gradient, { height: typeSizes.diameter, borderRadius: typeSizes.diameter }]} colors={[colors[color].light, colors[color].dark]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }}>
             {textComponent}
         </LinearGradient>);

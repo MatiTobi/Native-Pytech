@@ -6,7 +6,7 @@ export type Props = {
         The text to display in the gradient.
         Must be less than 3 characters.
     */
-    text: string;
+    text?: string;
     /**
         The color of the gradient.
     */
