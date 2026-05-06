@@ -11,6 +11,10 @@ const asyncStorage = !isWeb
     : undefined;
 // Configuración
 const { SUPABASE_URL, SUPABASE_KEY } = expoEnv;
+if (!SUPABASE_URL)
+    throw new Error('SUPABASE_URL is not set');
+if (!SUPABASE_KEY)
+    throw new Error('SUPABASE_KEY is not set');
 const supabase = utils.createClient({
     url: SUPABASE_URL,
     key: SUPABASE_KEY,
