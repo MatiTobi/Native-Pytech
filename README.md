@@ -23,6 +23,18 @@ import { ... } from 'native-pytech/login'
 import { ... } from 'native-pytech/supabase'
 ```
 
+# Rutas disponibles
+
+- `/login`
+- `/signup`
+- `/forgotPassword`
+- `/resetPassword`
+- `/verifyEmail`
+- `/verifyPhone`
+- `/verifyCode`
+- `/verifyToken`
+- `/verifyUser`
+
 ## Licencia
 
 MIT — ver `LICENSE`.
