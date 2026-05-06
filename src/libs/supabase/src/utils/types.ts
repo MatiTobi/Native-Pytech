@@ -14,7 +14,7 @@ export type CreateClientParams = {
 
 export type ExecFunctionParams = {
     schema: string,
-    functionName: string,
+    name: string,
     args: Record<string, any>
 }
 

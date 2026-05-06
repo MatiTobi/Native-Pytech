@@ -7,10 +7,10 @@ export const getUser = async (supabase) => {
     return data?.session?.user;
 };
 export const createClient = ({ url, key, options }) => (createSupabaseClient(url, key, options));
-export const execFunction = async (supabase, { schema = 'app', functionName, args }) => {
-    const { data, error } = await supabase.schema(schema).rpc(functionName, args);
+export const execFunction = async (supabase, { schema = 'app', name, args }) => {
+    const { data, error } = await supabase.schema(schema).rpc(name, args);
     if (error) {
-        console.error(functionName, error);
+        console.error(name, error);
         return null;
     }
     return data;

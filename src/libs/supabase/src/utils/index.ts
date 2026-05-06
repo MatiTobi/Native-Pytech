@@ -31,14 +31,14 @@ export const execFunction = async (
     supabase: SupabaseClient,
     {
         schema='app',
-        functionName,
+        name,
         args
     }: ExecFunctionParams
 ): Promise<any | null> => {
 
-	const { data, error } = await supabase.schema(schema).rpc(functionName, args)
+	const { data, error } = await supabase.schema(schema).rpc(name, args)
     if (error){
-        console.error(functionName, error)
+        console.error(name, error)
         return null
     }
 	return data

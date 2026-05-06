@@ -7,7 +7,7 @@ export declare const logOut: (supabase: SupabaseClient) => Promise<{
 }>;
 export declare const getUser: (supabase: SupabaseClient) => Promise<import("@supabase/auth-js").User>;
 export declare const createClient: ({ url, key, options }: CreateClientParams) => SupabaseClient<any, "public", "public", any, any>;
-export declare const execFunction: (supabase: SupabaseClient, { schema, functionName, args }: ExecFunctionParams) => Promise<any | null>;
+export declare const execFunction: (supabase: SupabaseClient, { schema, name, args }: ExecFunctionParams) => Promise<any | null>;
 export declare const getUserById: (supabase: SupabaseClient, { uid }: {
     uid: string;
 }) => Promise<import("@supabase/auth-js").UserResponse>;
