@@ -13,6 +13,8 @@ const getExpoEnv = () => {
         SUPABASE_SERVICE_ROLE_KEY: expoEnv.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY,
     };
 };
+console.log('process.env', process.env);
+console.log('process.env.SUPABASE_SERVICE_ROLE_KEY', process.env.SUPABASE_SERVICE_ROLE_KEY);
 export const expoEnv = getExpoEnv();
 console.log('expoEnv', expoEnv);
 export const screenOptions = {
