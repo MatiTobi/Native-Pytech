@@ -25,8 +25,8 @@ import { ... } from 'native-pytech/{submodulo}'
 Ejemplos:
 
 ```ts
-import { ... } from 'native-pytech/login'
-import { ... } from 'native-pytech/supabase'
+import Login, { ... } from 'native-pytech/login'
+import Table, { ... } from 'native-pytech/table'
 ```
 
 # Rutas disponibles
