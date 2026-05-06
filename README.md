@@ -31,7 +31,8 @@ import { ... } from 'native-pytech/supabase'
 - `/footer`
 - `/login`
 - `/page`
-- `/providers` — incluye subrutas, p. ej. `/providers/app` → `import { ... } from 'native-pytech/providers/app'`
+- `/providers`
+  - `/providers/app` — `import { ... } from 'native-pytech/providers/app'`
 - `/segmentedControl`
 - `/sql`
 - `/supabase`
