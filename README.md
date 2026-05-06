@@ -12,13 +12,11 @@ Instalá también las **peer dependencies** que use tu app (Expo, React Native, 
 
 ## Uso
 
-Entrada principal (reexporta los módulos públicos):
-
 ```ts
-import { ... } from 'native-pytech'
+import { ... } from 'native-pytech/{submodulo}'
 ```
 
-Submódulos (ejemplos):
+Ejemplos:
 
 ```ts
 import { ... } from 'native-pytech/login'
