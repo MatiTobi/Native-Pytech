@@ -30,7 +30,6 @@ import { ... } from 'native-pytech/supabase'
         - `/RemoveCircle`
         - `/ReorderThreeOutline`
     - `/images`
-        - `/*.png`
     - `/ionicons`
 - `/components`
     - `/Gradient`
