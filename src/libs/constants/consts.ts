@@ -18,8 +18,7 @@ type ExpoEnv = {
 
 const getExpoEnv: () => Partial<ExpoEnv> = () => {
     const expoEnv = Constants.expoConfig?.extra || {}
-    console.log('expoEnv', expoEnv)
-
+    
     return {
         SUPABASE_USERNAME_LOGIN: expoEnv.SUPABASE_USERNAME_LOGIN || process.env.SUPABASE_USERNAME_LOGIN,
         SUPABASE_PASSWORD_LOGIN: expoEnv.SUPABASE_PASSWORD_LOGIN || process.env.SUPABASE_PASSWORD_LOGIN,
@@ -29,7 +28,6 @@ const getExpoEnv: () => Partial<ExpoEnv> = () => {
     }
 }
 export const expoEnv = getExpoEnv()
-console.log('expoEnv', expoEnv)
 
 
 export const screenOptions:NativeStackNavigationOptions = {

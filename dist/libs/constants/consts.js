@@ -5,7 +5,6 @@ export const deviceTier = _getDeviceTier();
 export const isLowTier = Platform.OS === 'android' && deviceTier === 'low';
 const getExpoEnv = () => {
     const expoEnv = Constants.expoConfig?.extra || {};
-    console.log('expoEnv', expoEnv);
     return {
         SUPABASE_USERNAME_LOGIN: expoEnv.SUPABASE_USERNAME_LOGIN || process.env.SUPABASE_USERNAME_LOGIN,
         SUPABASE_PASSWORD_LOGIN: expoEnv.SUPABASE_PASSWORD_LOGIN || process.env.SUPABASE_PASSWORD_LOGIN,
@@ -15,7 +14,6 @@ const getExpoEnv = () => {
     };
 };
 export const expoEnv = getExpoEnv();
-console.log('expoEnv', expoEnv);
 export const screenOptions = {
     headerTitleAlign: "center",
     headerBackButtonMenuEnabled: true,
