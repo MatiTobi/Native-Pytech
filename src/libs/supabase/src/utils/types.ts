@@ -13,7 +13,7 @@ export type CreateClientParams = {
 }
 
 export type ExecFunctionParams = {
-    schema: string,
+    schema?: string,
     name: string,
     args?: Record<string, any>
 }

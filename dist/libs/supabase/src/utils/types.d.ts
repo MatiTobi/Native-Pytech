@@ -9,7 +9,7 @@ export type CreateClientParams = {
     options?: SupabaseClientOptions<'public'>;
 };
 export type ExecFunctionParams = {
-    schema: string;
+    schema?: string;
     name: string;
     args?: Record<string, any>;
 };
