@@ -18,4 +18,4 @@ export const execFunction = async (supabase, { schema = 'app', functionName, arg
 export const getUserById = async (supabase, { uid }) => (await supabase.auth.admin.getUserById(uid));
 export const updateUser = async (supabase, { uid, attributes }) => (await supabase.auth.admin.updateUserById(uid, attributes));
 export const deleteUser = async (supabase, { uid }) => (await supabase.auth.admin.deleteUser(uid));
-export const createUser = async (supabase, { attributes }) => (await supabase.auth.admin.createUser(attributes));
+export const signUp = async (supabase, credentials) => (await supabase.auth.signUp(credentials));

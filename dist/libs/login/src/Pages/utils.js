@@ -1,4 +1,4 @@
-import supabase, { logIn } from "libs/supabase";
+import supabase from "../../../../libs/supabase";
 export const getAbbreviatedName = ({ first_name, last_name, mail }) => {
     // Si tiene "firstname" y "lastname", se usa la primera letra de cada uno
     // Si solo tiene firstname, se usa las primeras dos letras de "firstname"
@@ -21,13 +21,13 @@ export const handleSubmitLogIn = async ({ username, router }) => {
     username = username.trim();
     const mail = username.includes('@') ? username : `${username}@pytech.com`;
     // Obtengo el user_id
-    const { data: dataUsers, error: errorUsers } = await supabase.schema('admin').from('users').select('id').eq('mail', mail);
+    const { data: dataUsers, error: errorUsers } = await supabase.client.schema('admin').from('users').select('id').eq('mail', mail);
     if (errorUsers)
         return { succeded: false, message: errorUsers.message };
     if (dataUsers.length === 0)
         return { succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.' };
     // Obtengo los datos del perfil
-    const { data, error } = await supabase.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id);
+    const { data, error } = await supabase.client.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id);
     if (error)
         return { succeded: false, message: error.message };
     if (data.length === 0)
@@ -38,7 +38,7 @@ export const handleSubmitLogIn = async ({ username, router }) => {
 };
 export const handleSubmitLogInPerfil = async ({ mail, password }) => {
     password = password.trim();
-    const { data, error } = await logIn({ email: mail, password });
+    const { data, error } = await supabase.logIn({ email: mail, password });
     if (error) {
         if (error.message === 'Invalid login credentials') {
             return { succeded: false, message: 'La contraseña que ingresaste es incorrecta, vuelve a intentarlo.' };

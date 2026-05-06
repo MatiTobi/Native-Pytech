@@ -12,7 +12,7 @@ export const logIn = async ({
 }: {
     email?: string,
     password?: string
-}) => (
+} = {}) => (
     await utils.logIn(supabase, { email, password })
 )
 
@@ -25,4 +25,9 @@ export const getUser = async () => await utils.getUser(supabase)
 
 export const execFunction = async (params: utils.types.ExecFunctionParams) => (
     await utils.execFunction(supabase, params)
+)
+
+
+export const signUp = async (params: utils.types.SignUpParams) => (
+    await utils.signUp(supabase, params)
 )

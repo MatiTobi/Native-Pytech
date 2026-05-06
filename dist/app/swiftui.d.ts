@@ -1,1 +1,1 @@
-export * from 'libs/swiftui';
+export * from '../libs/swiftui';

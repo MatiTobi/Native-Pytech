@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router'
 import { memo, useEffect } from 'react'
 
-import { logIn } from 'libs/supabase'
+import supabase from 'libs/supabase'
 import Screen from '../../Screen'
 
 import { handleSubmitLogIn } from '../utils'
@@ -23,7 +23,7 @@ export default memo(({
 
     useEffect(() => {
         (async () => {
-            const { error } = await logIn()
+            const { error } = await supabase.logIn()
             if (!error) console.log('LogIn exitoso')
         })()
     }, [])

@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React, { memo } from 'react';
 import colors from '../../constants';
-import { useApp } from 'libs/providers/App';
+import { useApp } from '../../../../../libs/providers/App';
 /**
     Pone el color según el tema.
 */

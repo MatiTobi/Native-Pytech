@@ -1,4 +1,4 @@
-import { AdminUserAttributes, SupabaseClientOptions } from '@supabase/supabase-js'
+import { AdminUserAttributes, SignUpWithPasswordCredentials, SupabaseClientOptions } from '@supabase/supabase-js'
 
 
 export type LogInParams = {
@@ -23,6 +23,4 @@ export type UpdateUserParams = {
     attributes: AdminUserAttributes
 }
 
-export type CreateUserParams = {
-    attributes: AdminUserAttributes
-}
+export type SignUpParams = SignUpWithPasswordCredentials

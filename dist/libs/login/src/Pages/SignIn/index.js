@@ -3,11 +3,11 @@ import { useObservable, useValue } from '@legendapp/state/react';
 import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import Link from 'libs/components/Link';
-import Footer from 'libs/footer';
-import Page from 'libs/page';
-import { useApp } from "libs/providers/App";
-import supabase from "libs/supabase";
+import Link from '../../../../../libs/components/Link';
+import Footer from '../../../../../libs/footer';
+import Page from '../../../../../libs/page';
+import { useApp } from "../../../../../libs/providers/App";
+import supabase from "../../../../../libs/supabase";
 import colors from '../../constants';
 import Screen from '../../Screen';
 import Form from './Form';
@@ -83,7 +83,7 @@ export default memo(({ title = 'Apple', subtitle, iconPage = <Screen.SvgLogoPyte
     const createAccountEnabled = useValue(() => store.createAccountEnabled.get());
     const _subtitle = subtitle || `Solo necesitas una cuenta de ${title} para acceder a todos los servicios de ${title}.\n¿Ya tienes una cuenta de ${title}?`;
     const onPress = async ({ name, lastName, email, password }) => {
-        const { data, error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.signUp({ email, password });
         console.log('data', data);
         console.log('error', error);
         return !error;

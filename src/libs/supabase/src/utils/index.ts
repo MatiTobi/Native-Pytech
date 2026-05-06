@@ -1,7 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
-import type { CreateClientParams, CreateUserParams, ExecFunctionParams, LogInParams, UpdateUserParams } from './types'
+import type { CreateClientParams, SignUpParams, ExecFunctionParams, LogInParams, UpdateUserParams } from './types'
 export * as types from './types'
 
 
@@ -60,6 +60,6 @@ export const deleteUser = async (supabase: SupabaseClient, {uid}: {uid: string})
 )
 
 
-export const createUser = async (supabase: SupabaseClient, {attributes}: CreateUserParams) => (
-    await supabase.auth.admin.createUser(attributes)
+export const signUp = async (supabase: SupabaseClient, credentials: SignUpParams) => (
+    await supabase.auth.signUp(credentials)
 )
