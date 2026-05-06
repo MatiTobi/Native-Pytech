@@ -11,7 +11,7 @@ export type CreateClientParams = {
 export type ExecFunctionParams = {
     schema: string;
     name: string;
-    args: Record<string, any>;
+    args?: Record<string, any>;
 };
 export type UpdateUserParams = {
     uid: string;
