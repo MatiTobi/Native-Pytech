@@ -25,15 +25,18 @@ import { ... } from 'native-pytech/supabase'
 
 # Rutas disponibles
 
+- `/assets`
+- `/components`
+- `/constants`
+- `/footer`
 - `/login`
-- `/signup`
-- `/forgotPassword`
-- `/resetPassword`
-- `/verifyEmail`
-- `/verifyPhone`
-- `/verifyCode`
-- `/verifyToken`
-- `/verifyUser`
+- `/page`
+- `/providers`
+- `/segmentedControl`
+- `/sql`
+- `/supabase`
+- `/swiftui`
+- `/table`
 
 ## Licencia
 
