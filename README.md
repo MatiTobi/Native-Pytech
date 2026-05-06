@@ -8,6 +8,12 @@ Librería de componentes y utilidades para apps **React Native** / **Expo** (Pyt
 npm install native-pytech
 ```
 
+ó para mantener actualizado:
+
+```bash
+npx expo install native-pytech@latest
+```
+
 Instalá también las **peer dependencies** que use tu app (Expo, React Native, etc.). Revisá la sección `peerDependencies` en el `package.json` del paquete o de este repo.
 
 ## Uso
