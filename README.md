@@ -26,13 +26,29 @@ import { ... } from 'native-pytech/supabase'
 # Rutas disponibles
 
 - `/assets`
+    - `/components`
+        - `/RemoveCircle`
+        - `/ReorderThreeOutline`
+    - `/images`
+        - `/*.png`
+    - `/ionicons`
 - `/components`
+    - `/Gradient`
+    - `/CloseButton`
+    - `/Link`
+    - `/Text`
+    - `/Theme`
 - `/constants`
+    - `/colors`
+    - `/consts`
+    - `/handleFontObserver`
+    - `/hooks`
+    - `/utils`
 - `/footer`
 - `/login`
 - `/page`
 - `/providers`
-  - `/providers/app` — `import { ... } from 'native-pytech/providers/app'`
+    - `/app`
 - `/segmentedControl`
 - `/sql`
 - `/supabase`
