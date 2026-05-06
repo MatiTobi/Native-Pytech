@@ -1,4 +1,4 @@
-import supabase, { logIn } from "../../../../libs/supabase";
+import supabase, { logIn } from "libs/supabase";
 export const getAbbreviatedName = ({ first_name, last_name, mail }) => {
     // Si tiene "firstname" y "lastname", se usa la primera letra de cada uno
     // Si solo tiene firstname, se usa las primeras dos letras de "firstname"

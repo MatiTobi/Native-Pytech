@@ -2,7 +2,7 @@ import MaskedView from '@react-native-masked-view/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
 import { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { applyOpacity } from '../../../../libs/constants/utils';
+import { applyOpacity } from 'libs/constants/utils';
 export default memo(({ backgroundColorPage }) => {
     const c06 = applyOpacity(backgroundColorPage, 0.6);
     const c08 = applyOpacity(backgroundColorPage, 0.8);

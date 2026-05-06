@@ -1,2 +1,2 @@
-export { default } from '../libs/table';
-export * from '../libs/table';
+export { default } from 'libs/table';
+export * from 'libs/table';
