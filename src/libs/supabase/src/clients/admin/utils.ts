@@ -1,5 +1,6 @@
 import supabase from './config'
 import * as utils from '../../utils'
+import { AdminUserAttributes } from '@supabase/supabase-js'
 
 
 export const getUserById = async (uid: string) => (
@@ -7,8 +8,11 @@ export const getUserById = async (uid: string) => (
 )
 
 
-export const updateUser = async (params: utils.types.UpdateUserParams) => (
-    await utils.updateUser(supabase, params)
+export const updateUser = async (
+    uid: string,
+    attributes: utils.types.UpdateUserParams['attributes']
+) => (
+    await utils.updateUser(supabase, {uid, attributes})
 )
 
 
