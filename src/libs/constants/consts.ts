@@ -18,6 +18,8 @@ type ExpoEnv = {
 
 const getExpoEnv: () => Partial<ExpoEnv> = () => {
     const expoEnv = Constants.expoConfig?.extra || {}
+    console.log('expoEnv', expoEnv)
+
     return {
         SUPABASE_USERNAME_LOGIN: expoEnv.SUPABASE_USERNAME_LOGIN || process.env.SUPABASE_USERNAME_LOGIN,
         SUPABASE_PASSWORD_LOGIN: expoEnv.SUPABASE_PASSWORD_LOGIN || process.env.SUPABASE_PASSWORD_LOGIN,
@@ -26,8 +28,6 @@ const getExpoEnv: () => Partial<ExpoEnv> = () => {
         SUPABASE_SERVICE_ROLE_KEY: expoEnv.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY,
     }
 }
-console.log('process.env', process.env)
-console.log('process.env.SUPABASE_SERVICE_ROLE_KEY', process.env.SUPABASE_SERVICE_ROLE_KEY)
 export const expoEnv = getExpoEnv()
 console.log('expoEnv', expoEnv)
 
