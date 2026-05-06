@@ -8,7 +8,7 @@ Librería de componentes y utilidades para apps **React Native** / **Expo** (Pyt
 npm install native-pytech
 ```
 
-ó para mantener actualizado:
+Para mantener actualizado:
 
 ```bash
 npx expo install native-pytech@latest
