@@ -4,25 +4,6 @@ import { PerfilColorType } from '../constants'
 
 
 
-export const getAbbreviatedName = ({first_name, last_name, mail}: {first_name?: string, last_name?: string, mail: string}) => {
-    // Si tiene "firstname" y "lastname", se usa la primera letra de cada uno
-    // Si solo tiene firstname, se usa las primeras dos letras de "firstname"
-    // Si solo tiene lastname, se usa las primeras dos letras de "lastname"
-    // No tiene ninguno, se usa las primeras dos letras de "mail"
-
-    const f = first_name?.[0] ?? ''
-    const l = last_name?.[0] ?? ''
-
-    let name = ''
-    if (f && l) name = f + l
-    else if (f) name = f + (first_name?.[1] ?? f)
-    else if (l) name = l + (last_name?.[1] ?? l)
-    else name = mail?.slice(0, 2) ?? ''
-
-    return name.toUpperCase()
-}
-
-
 export type LoginData = {
     first_name: string,
     gradient_text: string,
@@ -33,25 +14,11 @@ export type LoginData = {
 export const handleSubmitLogIn = async ({username, router}: {username: string, router: Router}) => {
 
     const identifier = username.trim()
-        
-    /*username = username.trim()
-    const mail = username.includes('@') ? username : `${username}@pytech.com`
-
-    // Obtengo el user_id
-    const { data: dataUsers, error: errorUsers } = await supabase.client.schema('admin').from('users').select('id').eq('mail', mail)
-    if (errorUsers) return {succeded: false, message: errorUsers.message}
-    if (dataUsers.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
-
-    // Obtengo los datos del perfil
-    const { data, error } = await supabase.client.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id)
-    if (error)  return {succeded: false, message: error.message}
-    if (data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}*/
 
     const data = await supabase.execFunction({
         name: 'login',
         args: { p_identifier: identifier }
     }) as LoginData | null
-    console.log('login', data)
     if (!data) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
 
     // Success
