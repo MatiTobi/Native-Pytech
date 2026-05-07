@@ -18,6 +18,18 @@ export const numberFormat = (value) => {
     const abs = formatter.format(Math.abs(value));
     return value < 0 ? `(${abs})` : abs;
 };
+export const numberFormatInverted = (value) => {
+    const trimmed = value.trim();
+    const isNegative = /^\(.*\)$/.test(trimmed);
+    const normalized = trimmed
+        .replace(/[()]/g, '')
+        .replace(/\./g, '')
+        .replace(',', '.');
+    const parsed = Number.parseFloat(normalized);
+    if (Number.isNaN(parsed))
+        return 0;
+    return isNegative ? -parsed : parsed;
+};
 export function applyOpacity(color, opacity) {
     try {
         const [r, g, b] = parseToRgba(color); // ignoro alpha original
