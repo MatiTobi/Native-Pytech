@@ -30,6 +30,20 @@ export const numberFormatInverted = (value) => {
         return 0;
     return isNegative ? -parsed : parsed;
 };
+export const formatDate = (value) => {
+    const [year, month, day] = value.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    const monthText = new Intl.DateTimeFormat('es-AR', {
+        month: 'long',
+    }).format(date);
+    const dayText = new Intl.DateTimeFormat('es-AR', {
+        day: '2-digit',
+    }).format(date);
+    const yearText = new Intl.DateTimeFormat('es-AR', {
+        year: 'numeric',
+    }).format(date);
+    return `${monthText} ${dayText}, ${yearText}`;
+};
 export function applyOpacity(color, opacity) {
     try {
         const [r, g, b] = parseToRgba(color); // ignoro alpha original

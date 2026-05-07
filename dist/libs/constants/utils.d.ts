@@ -3,6 +3,7 @@ import React from 'react';
 export declare const addProps: (element: React.ReactElement | null, additionalStyles?: StyleProp<any>, extraProps?: Record<string, any>) => React.ReactElement | null;
 export declare const numberFormat: (value: number) => string;
 export declare const numberFormatInverted: (value: string) => number;
+export declare const formatDate: (value: string) => string;
 export declare function applyOpacity(color: string, opacity: number): string;
 export declare function adjustLightness(color: string, percentage: number): string;
 export declare const _getDeviceTier: () => "low" | "medium" | "high";
