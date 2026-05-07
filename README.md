@@ -49,6 +49,7 @@ import Table, { ... } from 'native-pytech/table'
     - `/handleFontObserver`
     - `/hooks`
     - `/utils`
+- `/editPage`
 - `/footer`
 - `/login`
 - `/page`
