@@ -3,24 +3,13 @@ import { Platform } from 'react-native'
 import { memo } from 'react'
 
 import Screen from '../Screen'
-import { getAbbreviatedName, handleSubmitLogInPerfil } from './utils'
-import { PerfilColorType } from '../constants'
+import { handleSubmitLogInPerfil, type LoginData } from './utils'
 
-
-
-type LocalSearchParamsType = {
-    user_id: string,
-    mail: string,
-    first_name?: string,
-    second_name?: string,
-    last_name?: string,
-    color: PerfilColorType
-}
 
 
 export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, onSuccess?: () => Promise<void> }) => {
     
-    const { user_id, mail, first_name, second_name, last_name, color } = useLocalSearchParams() as LocalSearchParamsType
+    const { mail, first_name, gradient_text, color } = useLocalSearchParams<LoginData>()
     const router = useRouter()
 
     const handleSubmit = async ({value}: {value: string}) => {
@@ -34,7 +23,7 @@ export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, o
 
     return (
         <Screen
-            iconPage={<Screen.Gradient text={getAbbreviatedName({first_name, last_name, mail})} color={color} />}
+            iconPage={<Screen.Gradient text={gradient_text} color={color} />}
             title={`¡Hola${first_name ? ` ${first_name}` : ''}!`}
             bottomElements={
                 <Screen.Input

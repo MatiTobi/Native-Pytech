@@ -1,5 +1,6 @@
 import { Router } from 'expo-router'
 import supabase from "libs/supabase"
+import { PerfilColorType } from '../constants'
 
 
 
@@ -22,7 +23,16 @@ export const getAbbreviatedName = ({first_name, last_name, mail}: {first_name?: 
 }
 
 
+export type LoginData = {
+    first_name: string,
+    gradient_text: string,
+    color: PerfilColorType,
+    mail: string
+}
+
 export const handleSubmitLogIn = async ({username, router}: {username: string, router: Router}) => {
+
+    const identifier = username.trim()
         
     /*username = username.trim()
     const mail = username.includes('@') ? username : `${username}@pytech.com`
@@ -37,16 +47,15 @@ export const handleSubmitLogIn = async ({username, router}: {username: string, r
     if (error)  return {succeded: false, message: error.message}
     if (data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}*/
 
-    const {data, error} = await supabase.execFunction({
+    const data = await supabase.execFunction({
         name: 'login',
-        args: { p_identifier: username }
-    })
+        args: { p_identifier: identifier }
+    }) as LoginData | null
     console.log('login', data)
-    if (error) return {succeded: false, message: error.message}
     if (!data) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
 
     // Success
-    router.push({ pathname: '/login/inicio/perfil', params: {...data, user_id: data.user_id, mail: data.email} })
+    router.push({ pathname: '/login/inicio/perfil', params: data })
     return {succeded: true, message: ''}
 }
 

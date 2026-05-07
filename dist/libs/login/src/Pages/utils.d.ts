@@ -9,7 +9,7 @@ export declare const handleSubmitLogIn: ({ username, router }: {
     router: Router;
 }) => Promise<{
     succeded: boolean;
-    message: string;
+    message: any;
 }>;
 export declare const handleSubmitLogInPerfil: ({ mail, password }: {
     mail: string;

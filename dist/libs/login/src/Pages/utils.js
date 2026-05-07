@@ -18,22 +18,29 @@ export const getAbbreviatedName = ({ first_name, last_name, mail }) => {
     return name.toUpperCase();
 };
 export const handleSubmitLogIn = async ({ username, router }) => {
-    username = username.trim();
-    const mail = username.includes('@') ? username : `${username}@pytech.com`;
+    /*username = username.trim()
+    const mail = username.includes('@') ? username : `${username}@pytech.com`
+
     // Obtengo el user_id
-    const { data: dataUsers, error: errorUsers } = await supabase.client.schema('admin').from('users').select('id').eq('mail', mail);
-    if (errorUsers)
-        return { succeded: false, message: errorUsers.message };
-    if (dataUsers.length === 0)
-        return { succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.' };
+    const { data: dataUsers, error: errorUsers } = await supabase.client.schema('admin').from('users').select('id').eq('mail', mail)
+    if (errorUsers) return {succeded: false, message: errorUsers.message}
+    if (dataUsers.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
+
     // Obtengo los datos del perfil
-    const { data, error } = await supabase.client.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id);
+    const { data, error } = await supabase.client.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id)
+    if (error)  return {succeded: false, message: error.message}
+    if (data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}*/
+    const { data, error } = await supabase.execFunction({
+        name: 'login',
+        args: { p_identifier: username }
+    });
+    console.log('login', data);
     if (error)
         return { succeded: false, message: error.message };
-    if (data.length === 0)
+    if (!data)
         return { succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.' };
     // Success
-    router.push({ pathname: '/login/inicio/perfil', params: { ...data[0], user_id: dataUsers[0].id, mail: mail } });
+    router.push({ pathname: '/login/inicio/perfil', params: { ...data, user_id: data.user_id, mail: data.email } });
     return { succeded: true, message: '' };
 };
 export const handleSubmitLogInPerfil = async ({ mail, password }) => {
