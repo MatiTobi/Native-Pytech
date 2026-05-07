@@ -18,6 +18,7 @@ export const getAbbreviatedName = ({ first_name, last_name, mail }) => {
     return name.toUpperCase();
 };
 export const handleSubmitLogIn = async ({ username, router }) => {
+    const identifier = username.trim();
     /*username = username.trim()
     const mail = username.includes('@') ? username : `${username}@pytech.com`
 
@@ -30,17 +31,15 @@ export const handleSubmitLogIn = async ({ username, router }) => {
     const { data, error } = await supabase.client.schema('admin').from('profiles').select('first_name,second_name,last_name,color').eq('user_id', dataUsers[0].id)
     if (error)  return {succeded: false, message: error.message}
     if (data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}*/
-    const { data, error } = await supabase.execFunction({
+    const data = await supabase.execFunction({
         name: 'login',
-        args: { p_identifier: username }
+        args: { p_identifier: identifier }
     });
     console.log('login', data);
-    if (error)
-        return { succeded: false, message: error.message };
     if (!data)
         return { succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.' };
     // Success
-    router.push({ pathname: '/login/inicio/perfil', params: { ...data, user_id: data.user_id, mail: data.email } });
+    router.push({ pathname: '/login/inicio/perfil', params: data });
     return { succeded: true, message: '' };
 };
 export const handleSubmitLogInPerfil = async ({ mail, password }) => {
