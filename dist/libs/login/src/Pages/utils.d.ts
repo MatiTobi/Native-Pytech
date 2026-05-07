@@ -1,10 +1,5 @@
 import { Router } from 'expo-router';
 import { PerfilColorType } from '../constants';
-export declare const getAbbreviatedName: ({ first_name, last_name, mail }: {
-    first_name?: string;
-    last_name?: string;
-    mail: string;
-}) => string;
 export type LoginData = {
     first_name: string;
     gradient_text: string;

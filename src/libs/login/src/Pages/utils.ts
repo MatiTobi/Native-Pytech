@@ -18,11 +18,11 @@ export const handleSubmitLogIn = async ({username, router}: {username: string, r
     const data = await supabase.execFunction({
         name: 'login',
         args: { p_identifier: identifier }
-    }) as LoginData | null
-    if (!data) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
-
+    }) as LoginData[] | null
+    if (!data || data.length === 0) return {succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.'}
+    
     // Success
-    router.push({ pathname: '/login/inicio/perfil', params: data })
+    router.push({ pathname: '/login/inicio/perfil', params: data[0] })
     return {succeded: true, message: ''}
 }
 

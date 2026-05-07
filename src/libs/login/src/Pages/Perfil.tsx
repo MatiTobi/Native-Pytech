@@ -10,7 +10,6 @@ import { handleSubmitLogInPerfil, type LoginData } from './utils'
 export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, onSuccess?: () => Promise<void> }) => {
     
     const { mail, first_name, gradient_text, color } = useLocalSearchParams<LoginData>()
-    console.log('gradient_text', gradient_text)
     const router = useRouter()
 
     const handleSubmit = async ({value}: {value: string}) => {
