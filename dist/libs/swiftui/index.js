@@ -5,3 +5,4 @@ export { default as List } from './src/List';
 export { default as Text } from './src/Text';
 export { default as Picker } from './src/Picker';
 export { default as TextSubtitle } from './src/TextSubtitle';
+export { default as Dialog } from './src/Dialog';
