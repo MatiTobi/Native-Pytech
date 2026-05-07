@@ -24,6 +24,7 @@ export const numberFormat = (value: number): string => {
 	return value < 0 ? `(${abs})` : abs
 }
 
+
 export const numberFormatInverted = (value: string): number => {
 	const trimmed = value.trim()
 	const isNegative = /^\(.*\)$/.test(trimmed)
@@ -36,6 +37,27 @@ export const numberFormatInverted = (value: string): number => {
 	if (Number.isNaN(parsed)) return 0
 
 	return isNegative ? -parsed : parsed
+}
+
+
+export const formatDate = (value: string): string => {
+	const [year, month, day] = value.split('-').map(Number)
+
+	const date = new Date(year, month - 1, day)
+
+	const monthText = new Intl.DateTimeFormat('es-AR', {
+		month: 'long',
+	}).format(date)
+
+	const dayText = new Intl.DateTimeFormat('es-AR', {
+		day: '2-digit',
+	}).format(date)
+
+	const yearText = new Intl.DateTimeFormat('es-AR', {
+		year: 'numeric',
+	}).format(date)
+
+	return `${monthText} ${dayText}, ${yearText}`
 }
 
 
