@@ -24,6 +24,20 @@ export const numberFormat = (value: number): string => {
 	return value < 0 ? `(${abs})` : abs
 }
 
+export const numberFormatInverted = (value: string): number => {
+	const trimmed = value.trim()
+	const isNegative = /^\(.*\)$/.test(trimmed)
+	const normalized = trimmed
+		.replace(/[()]/g, '')
+		.replace(/\./g, '')
+		.replace(',', '.')
+
+	const parsed = Number.parseFloat(normalized)
+	if (Number.isNaN(parsed)) return 0
+
+	return isNegative ? -parsed : parsed
+}
+
 
 export function applyOpacity(color: string, opacity: number) {
 	try {

@@ -5,10 +5,10 @@ export const handleSubmitLogIn = async ({ username, router }) => {
         name: 'login',
         args: { p_identifier: identifier }
     });
-    if (!data)
+    if (!data || data.length === 0)
         return { succeded: false, message: 'Revisa la información de la cuenta que ingresaste y vuelve a intentarlo.' };
     // Success
-    router.push({ pathname: '/login/inicio/perfil', params: data });
+    router.push({ pathname: '/login/inicio/perfil', params: data[0] });
     return { succeded: true, message: '' };
 };
 export const handleSubmitLogInPerfil = async ({ mail, password }) => {

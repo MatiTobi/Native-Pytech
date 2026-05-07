@@ -5,7 +5,6 @@ import Screen from '../Screen';
 import { handleSubmitLogInPerfil } from './utils';
 export default memo(({ routeOnSuccess, onSuccess }) => {
     const { mail, first_name, gradient_text, color } = useLocalSearchParams();
-    console.log('gradient_text', gradient_text);
     const router = useRouter();
     const handleSubmit = async ({ value }) => {
         const { succeded, message } = await handleSubmitLogInPerfil({ mail, password: value });
