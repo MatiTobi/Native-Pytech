@@ -92,7 +92,7 @@ const phoneToText = (phone: number | string) => {
 
 const dateToTextFormat = (
 	date: Date,
-	format = 'DD/MM/YYYY'
+	format = 'YYYY-MM-DD'
 ) => {
 	const values = {
 		DD: String(date.getDate()).padStart(2, '0'),
