@@ -1,1 +1,1 @@
-export * from '@/libs/constants/hooks'
+export { default } from '@/libs/constants/hooks'
