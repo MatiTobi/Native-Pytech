@@ -44,6 +44,9 @@ export const formatDate = (value) => {
     }).format(date);
     return `${monthText} ${dayText}, ${yearText}`;
 };
+export const isValidMail = (mail) => {
+    return mail.includes('@') && mail.endsWith('.com');
+};
 export function applyOpacity(color, opacity) {
     try {
         const [r, g, b] = parseToRgba(color); // ignoro alpha original
