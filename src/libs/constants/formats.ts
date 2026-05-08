@@ -90,24 +90,25 @@ const phoneToText = (phone: number | string) => {
 }
 
 
-const dateToTextFormat = (date: Date, format: string = "YYYY-MM-DD"): string => {
-    const parts = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'America/Argentina/Buenos_Aires',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-    }).formatToParts(date)
+const dateToTextFormat = (
+	date: Date,
+	format = 'DD/MM/YYYY'
+) => {
+	const values = {
+		DD: String(date.getDate()).padStart(2, '0'),
+		MM: String(date.getMonth() + 1).padStart(2, '0'),
+		YYYY: String(date.getFullYear()),
+		YY: String(date.getFullYear()).slice(-2),
+		HH: String(date.getHours()).padStart(2, '0'),
+		mm: String(date.getMinutes()).padStart(2, '0'),
+		ss: String(date.getSeconds()).padStart(2, '0'),
+	}
 
-    const year = parts.find((part) => part.type === 'year')?.value ?? ''
-    const month = parts.find((part) => part.type === 'month')?.value ?? ''
-    const day = parts.find((part) => part.type === 'day')?.value ?? ''
-
-    return format
-        .replace('YYYY', year)
-        .replace('MM', month)
-        .replace('DD', day)
+	return format.replace(
+		/DD|MM|YYYY|YY|HH|mm|ss/g,
+		match => values[match as keyof typeof values]
+	)
 }
-
 
 // ------------------- Export -------------------
 const Formats = {
