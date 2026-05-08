@@ -33,7 +33,7 @@ export default memo(({
 	const onValueChange = useCallback((value: Date) => {		
 		store.values[index].set({
 			value: value,
-			hasChanged: value !== defaultValue,
+			hasChanged: (value !== defaultValue && defaultValue !== undefined),
 			isValid: true,
 		})
 	}, [])

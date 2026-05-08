@@ -36,7 +36,7 @@ export default memo(({
 		
 		store.values[index].set({
 			value: _value,
-			hasChanged: _value !== defaultValue,
+			hasChanged: (_value !== defaultValue && defaultValue !== undefined),
 			isValid: isValid?.(_value) ?? true,
 		})
 	}, [])
