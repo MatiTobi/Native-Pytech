@@ -66,13 +66,29 @@ const phoneToText = (phone) => {
     }
     return extra ? `${base}${extra}` : base;
 };
+const dateToTextFormat = (date, format = "YYYY-MM-DD") => {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'America/Argentina/Buenos_Aires',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    }).formatToParts(date);
+    const year = parts.find((part) => part.type === 'year')?.value ?? '';
+    const month = parts.find((part) => part.type === 'month')?.value ?? '';
+    const day = parts.find((part) => part.type === 'day')?.value ?? '';
+    return format
+        .replace('YYYY', year)
+        .replace('MM', month)
+        .replace('DD', day);
+};
 // ------------------- Export -------------------
 const Formats = {
     numberToText,
     TextToNumber,
     numberToTextCurrency,
-    dateToText,
     capitalizeText,
     phoneToText,
+    dateToText,
+    dateToTextFormat,
 };
 export default Formats;
