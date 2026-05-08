@@ -26,7 +26,7 @@ export default memo(({
         <Section>
             <VStack
                 spacing={20}
-                modifiers={[..._modifiers, ...(modifiers || [])]}
+                modifiers={[...(modifiers || []), ..._modifiers]}
                 {...vStackProps}
             >
                 {children}

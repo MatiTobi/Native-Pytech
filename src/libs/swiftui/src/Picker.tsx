@@ -24,7 +24,7 @@ export default memo(({
 
     return (
         <Picker
-            modifiers={[..._modifiers, ...(modifiers || [])]}
+            modifiers={[...(modifiers || []), ..._modifiers]}
             {...pickerProps}
         >
             {data.map(item => (

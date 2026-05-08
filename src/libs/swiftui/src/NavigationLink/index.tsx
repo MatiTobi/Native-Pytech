@@ -32,7 +32,7 @@ export default memo(({
 	return (
         <HStack>
             <Button
-                modifiers={[..._modifiers, ...(modifiers || [])]}
+                modifiers={[...(modifiers || []), ..._modifiers]}
                 systemImage={buttonSystemImage}
                 label={buttonLabel}
                 {...buttonProps}

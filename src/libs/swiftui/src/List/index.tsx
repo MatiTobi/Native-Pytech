@@ -25,7 +25,7 @@ const Component = memo(({
     const _modifiers = useMemo(() => [padding({ top: -15 })], [])
 
     return (
-        <List modifiers={[..._modifiers, ...(modifiers || [])]} {...listProps}>
+        <List modifiers={[...(modifiers || []), ..._modifiers]} {...listProps}>
             {children}
         </List>
     )

@@ -13,6 +13,6 @@ export default memo(({
     const _modifiers = useMemo(() => secondary ? [foregroundStyle({type: 'hierarchical', style: 'secondary'})] : [], [secondary]);
 
     return (
-        <Text modifiers={[..._modifiers, ...(modifiers || [])]} {...restProps} />
+        <Text modifiers={[...(modifiers || []), ..._modifiers]} {...restProps} />
     )
 })

@@ -71,7 +71,7 @@ function Component<T>({
     return (
         <List
             {...listProps}
-            modifiers={[...modifiersList, ...(listProps?.modifiers || [])]}
+            modifiers={[...(listProps?.modifiers || []), ...modifiersList]}
         >
             {children}
             <Section {...listSectionProps}>
@@ -80,7 +80,7 @@ function Component<T>({
                     onDelete={handleDelete}
                     onMove={handleMove}
                     modifiers={[...modifiersListForEach, ...(listForEachProps?.modifiers || [])]}
-                >
+                    >
                     {_data.map((item, index: number) => {
                         const key = keyExtractor?.(item) ?? index
                         return renderItem?.({item, modifier: tag(key)})
