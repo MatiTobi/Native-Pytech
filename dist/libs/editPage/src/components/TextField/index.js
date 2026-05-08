@@ -17,7 +17,7 @@ export default memo(({ defaultValue, placeholder, keyboardType, autocapitalizati
         const _value = value.trim() === '' ? null : value.trim();
         store.values[index].set({
             value: _value,
-            hasChanged: (_value !== defaultValue && defaultValue !== undefined),
+            hasChanged: _value !== defaultValue,
             isValid: isValid?.(_value) ?? true,
         });
     }, []);
