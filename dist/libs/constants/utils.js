@@ -13,37 +13,6 @@ export const addProps = (element, additionalStyles = [], extraProps = {}) => {
         ...extraProps
     });
 };
-const formatter = new Intl.NumberFormat('es-AR');
-export const numberFormat = (value) => {
-    const abs = formatter.format(Math.abs(value));
-    return value < 0 ? `(${abs})` : abs;
-};
-export const numberFormatInverted = (value) => {
-    const trimmed = value.trim();
-    const isNegative = /^\(.*\)$/.test(trimmed);
-    const normalized = trimmed
-        .replace(/[()]/g, '')
-        .replace(/\./g, '')
-        .replace(',', '.');
-    const parsed = Number.parseFloat(normalized);
-    if (Number.isNaN(parsed))
-        return 0;
-    return isNegative ? -parsed : parsed;
-};
-export const formatDate = (value) => {
-    const [year, month, day] = value.split('-').map(Number);
-    const date = new Date(year, month - 1, day);
-    const monthText = new Intl.DateTimeFormat('es-AR', {
-        month: 'long',
-    }).format(date);
-    const dayText = new Intl.DateTimeFormat('es-AR', {
-        day: '2-digit',
-    }).format(date);
-    const yearText = new Intl.DateTimeFormat('es-AR', {
-        year: 'numeric',
-    }).format(date);
-    return `${monthText} ${dayText}, ${yearText}`;
-};
 export const isValidMail = (mail) => {
     return mail.includes('@') && mail.endsWith('.com');
 };
@@ -92,7 +61,4 @@ export const createUseContext = (context) => {
     if (!ctx)
         throw new Error('useContext debe usarse dentro de un context.Provider');
     return ctx;
-};
-export const capitalize = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
 };

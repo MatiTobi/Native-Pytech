@@ -1,17 +1,7 @@
 import React, { memo } from 'react'
 import TextInputOption from './textInput'
 import { TextInputProps } from 'react-native'
-
-
-
-export function formatPeso(value: number): string {
-    return new Intl.NumberFormat('es-AR', {
-		style: 'currency',
-		currency: 'ARS',
-		minimumFractionDigits: 0,  // <- no obliga decimales
-		maximumFractionDigits: 2   // <- si vienen, los respeta
-    }).format(Number(value))
-}
+import Formats from 'libs/constants/formats'
 
 
 
@@ -28,7 +18,7 @@ export default memo(({...props} : TextInputProps) => {
             autoCorrect={false}
             placeholder={'$0'}
 
-            mask={(value) => value ? formatPeso(value) : formatPeso(0)}
+            mask={(value) => value ? Formats.numberToTextCurrency(value) : Formats.numberToTextCurrency(0)}
 
             {...props}
         />
