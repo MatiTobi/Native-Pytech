@@ -15,7 +15,7 @@ export default memo(({ label, defaultValue, minDate = new Date(new Date().setFul
     const onValueChange = useCallback((value) => {
         store.values[index].set({
             value: value,
-            hasChanged: value !== defaultValue,
+            hasChanged: (value !== defaultValue && defaultValue !== undefined),
             isValid: true,
         });
     }, []);
