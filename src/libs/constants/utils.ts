@@ -61,6 +61,11 @@ export const formatDate = (value: string): string => {
 }
 
 
+export const isValidMail = (mail: string): boolean => {
+    return mail.includes('@') && mail.endsWith('.com')
+}
+
+
 export function applyOpacity(color: string, opacity: number) {
 	try {
 		const [r, g, b] = parseToRgba(color); // ignoro alpha original
