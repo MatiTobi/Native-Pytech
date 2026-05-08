@@ -1,1 +1,1 @@
-export * from 'libs/constants/formats'
+export { default } from 'libs/constants/formats'
