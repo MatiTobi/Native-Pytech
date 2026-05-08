@@ -10,7 +10,7 @@ type Props<T> = {
     renderItem?: (item: T) => React.ReactNode;
     /**
         Function to be called when the user saves the changes.
-        If the function returns true, the user will be redirected to the previous screen.
+        If the function returns false, the user will not be redirected to the previous screen.
     */
     onSave?: (values: (string | null | Date)[]) => boolean | Promise<boolean>;
 };

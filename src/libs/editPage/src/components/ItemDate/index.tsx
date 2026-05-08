@@ -29,7 +29,7 @@ export default memo(({
 		...(modifiers ?? []),
 	], [modifiers])
 
-	
+
 	// ------------------- Hooks -------------------
 	useEffect(() => setSelection(defaultValue), [defaultValue])
 
@@ -39,7 +39,7 @@ export default memo(({
 		setSelection(value)
 		store.values[index].set({
 			value: value,
-			hasChanged: value !== defaultValue,
+			hasChanged: value.getTime() !== defaultValue?.getTime(),
 			isValid: true,
 		})
 	}, [])
