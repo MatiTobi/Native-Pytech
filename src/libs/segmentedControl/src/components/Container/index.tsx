@@ -2,7 +2,7 @@ import React, { memo } from "react"
 import { View, StyleSheet } from "react-native"
 
 import Props from './types'
-import { useApp } from "libs/providers/App"
+import { useApp } from "@/libs/providers/App"
 import colors from "../../colors"
 
 

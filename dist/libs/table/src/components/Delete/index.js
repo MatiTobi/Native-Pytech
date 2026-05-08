@@ -3,7 +3,7 @@ import { useSelector } from '@legendapp/state/react';
 import React, { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated';
-import { useLayoutEffectWithoutFirstRender } from '../../../../../libs/constants/hooks';
+import Hooks from '../../../../../libs/constants/hooks';
 import { isLowTier } from '../../../../../libs/constants/consts';
 import colors from '../../constants';
 import { useStore } from '../../context/table';
@@ -22,7 +22,7 @@ export default memo(({ children, ...props }) => {
 const Component = memo(({ children, id, removeWidth, onDelete, onDeleteShown, setDeleted, }) => {
     const store = useStore();
     const is_deleted = useSelector(() => store.deleted.id.get() === id);
-    useLayoutEffectWithoutFirstRender(() => {
+    Hooks.useLayoutEffectWithoutFirstRender(() => {
         if (is_deleted)
             return;
         onDeleteShown?.(id, false);

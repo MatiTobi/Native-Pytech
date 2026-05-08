@@ -3,15 +3,15 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { memo } from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { applyOpacity } from 'libs/constants/utils'
+import Utils from '@/libs/constants/utils'
 
 
 
 export default memo(({backgroundColorPage}: {backgroundColorPage: string}) => {
 
-    const c06 = applyOpacity(backgroundColorPage, 0.6)
-    const c08 = applyOpacity(backgroundColorPage, 0.8)
-    const c09 = applyOpacity(backgroundColorPage, 0.9)
+    const c06 = Utils.applyOpacity(backgroundColorPage, 0.6)
+    const c08 = Utils.applyOpacity(backgroundColorPage, 0.8)
+    const c09 = Utils.applyOpacity(backgroundColorPage, 0.9)
 
     return (
             <MaskedView

@@ -1,1 +1,1 @@
-export { default } from 'libs/editPage'
+export { default } from '@/libs/editPage'

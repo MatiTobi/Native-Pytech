@@ -1,6 +1,6 @@
 import supabase from './config'
 import * as utils from '../../utils'
-import { expoEnv } from 'libs/constants/consts'
+import { expoEnv } from '@/libs/constants/consts'
 
 const { SUPABASE_USERNAME_LOGIN, SUPABASE_PASSWORD_LOGIN } = expoEnv
 

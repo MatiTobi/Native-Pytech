@@ -1,4 +1,4 @@
-import { expoEnv } from 'libs/constants/consts'
+import { expoEnv } from '@/libs/constants/consts'
 import * as utils from '../../utils'
 import { createClient } from '@supabase/supabase-js'
 import { Platform } from 'react-native'

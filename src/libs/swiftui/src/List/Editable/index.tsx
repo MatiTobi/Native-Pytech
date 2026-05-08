@@ -2,7 +2,7 @@ import { List, Section } from "@expo/ui/swift-ui"
 import { listStyle, environment, moveDisabled, tag, deleteDisabled, padding } from "@expo/ui/swift-ui/modifiers"
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react"
 
-import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
+import Hooks from '@/libs/constants/hooks'
 import type Props from "./types"
 
 
@@ -29,7 +29,7 @@ function Component<T>({
 
 
     // ---------------------- Hooks ----------------------
-    useEffectWithoutFirstRender(() => setData(data ?? []), [data])
+    Hooks.useEffectWithoutFirstRender(() => setData(data ?? []), [data])
 
 
     // ---------------------- Modifiers ----------------------

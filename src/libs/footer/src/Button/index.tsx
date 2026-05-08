@@ -1,9 +1,9 @@
 import colors from '../constants';
-import { useApp } from "libs/providers/App";
+import { useApp } from "@/libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
-import { adjustLightness } from 'libs/constants/utils';
+import Utils from '@/libs/constants/utils';
 import Text from './Text';
 import { Props } from './types';
 
@@ -29,10 +29,10 @@ export default memo(({
             pressed ? 
                 themeColor === 'default' ?
                     colors.especiales.azul_pressed :
-                    colorScheme === 'dark' ? adjustLightness(backgroundColorPage, 10) : backgroundColorPage
+                    colorScheme === 'dark' ? Utils.adjustLightness(backgroundColorPage, 10) : backgroundColorPage
             : themeColor === 'default' ?
-                adjustLightness(colors.especiales.azul, -10) :
-                colorScheme === 'dark' ? backgroundColorPage : adjustLightness(backgroundColorPage, -1)
+                Utils.adjustLightness(colors.especiales.azul, -10) :
+                colorScheme === 'dark' ? backgroundColorPage : Utils.adjustLightness(backgroundColorPage, -1)
         )
         : Theme.colorButtonFooterDisabled
     }, [enabled, themeColor, backgroundColorPage, colorScheme])

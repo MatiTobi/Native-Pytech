@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import { Pressable, StyleSheet, Text } from "react-native"
 
-import { useApp } from "libs/providers/App"
+import { useApp } from "@/libs/providers/App"
 import colors from "../../colors"
 import type Props from "./types"
 

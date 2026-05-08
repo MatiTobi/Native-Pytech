@@ -1,10 +1,10 @@
 import colors from '../constants';
 import { GlassView } from 'expo-glass-effect';
-import { useApp } from "libs/providers/App";
+import { useApp } from "@/libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
-import { adjustLightness } from 'libs/constants/utils';
+import Utils from '@/libs/constants/utils';
 import Text from './Text';
 import { Props } from './types';
 
@@ -37,7 +37,7 @@ export default memo(({
 
     const backgroundColor = useCallback((pressed: boolean) => {
         return enabled ? 
-            (themeColor === 'default' ? adjustLightness(colors.especiales.azul, -10) : undefined)
+            (themeColor === 'default' ? Utils.adjustLightness(colors.especiales.azul, -10) : undefined)
         : Theme.colorButtonFooterDisabled
     }, [enabled, themeColor])
 

@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 import React, { createContext as reactCreateContext, useContext } from 'react';
 import * as Device from 'expo-device';
 import { hsla, parseToHsla, parseToRgba } from 'color2k';
-export const addProps = (element, additionalStyles = [], extraProps = {}) => {
+const addProps = (element, additionalStyles = [], extraProps = {}) => {
     if (!React.isValidElement(element))
         return null;
     return React.cloneElement(element, {
@@ -13,10 +13,10 @@ export const addProps = (element, additionalStyles = [], extraProps = {}) => {
         ...extraProps
     });
 };
-export const isValidMail = (mail) => {
+const isValidMail = (mail) => {
     return mail.includes('@') && mail.endsWith('.com');
 };
-export function applyOpacity(color, opacity) {
+const applyOpacity = (color, opacity) => {
     try {
         const [r, g, b] = parseToRgba(color); // ignoro alpha original
         return `rgba(${r}, ${g}, ${b}, ${opacity})`;
@@ -25,8 +25,8 @@ export function applyOpacity(color, opacity) {
         console.error('Color inválido:', color);
         return color;
     }
-}
-export function adjustLightness(color, percentage) {
+};
+const adjustLightness = (color, percentage) => {
     try {
         const [h, s, l, a] = parseToHsla(color);
         // Ajustar luminosidad: percentage puede ser positivo (aclarar) o negativo (oscurecer)
@@ -38,8 +38,8 @@ export function adjustLightness(color, percentage) {
         console.error('Color inválido:', color);
         return color;
     }
-}
-export const _getDeviceTier = () => {
+};
+const _getDeviceTier = () => {
     if (Platform.OS !== 'android')
         return 'high';
     const ramGB = Device.totalMemory
@@ -51,14 +51,25 @@ export const _getDeviceTier = () => {
         return 'medium';
     return 'high';
 };
-export const createCtx = () => {
+const createCtx = () => {
     const context = reactCreateContext(null);
     const useCtx = () => createUseContext(context);
     return [context.Provider, useCtx];
 };
-export const createUseContext = (context) => {
+const createUseContext = (context) => {
     const ctx = useContext(context);
     if (!ctx)
         throw new Error('useContext debe usarse dentro de un context.Provider');
     return ctx;
 };
+// ------------------- Export -------------------
+const Utils = {
+    addProps,
+    isValidMail,
+    applyOpacity,
+    adjustLightness,
+    _getDeviceTier,
+    createCtx,
+    createUseContext,
+};
+export default Utils;

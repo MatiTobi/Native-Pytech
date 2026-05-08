@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
-import { _getDeviceTier } from './utils';
+import Utils from './utils';
 import Constants from 'expo-constants';
-export const deviceTier = _getDeviceTier();
+export const deviceTier = Utils._getDeviceTier();
 export const isLowTier = Platform.OS === 'android' && deviceTier === 'low';
 const getExpoEnv = () => {
     const expoEnv = Constants.expoConfig?.extra || {};

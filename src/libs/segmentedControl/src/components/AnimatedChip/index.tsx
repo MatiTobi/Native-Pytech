@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import Animated, { interpolate, useAnimatedStyle, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated'
 import { scheduleOnRN } from 'react-native-worklets'
 
-import { useApp } from 'libs/providers/App';
+import { useApp } from '@/libs/providers/App';
 import { useShared, type ContextType } from '../../context/shared'
 import colors from '../../colors';
 import Props from './types';

@@ -1,4 +1,4 @@
-import colorsLib from "libs/constants/colors"
+import colorsLib from "@/libs/constants/colors"
 
 export const colors = {
     theme: {
@@ -107,7 +107,7 @@ export const colors = {
 }
 
 
-export { type ColorSchemeType } from "libs/constants/colors"
+export { type ColorSchemeType } from "@/libs/constants/colors"
 export type ColorThemeType = keyof typeof colors.table
 
 

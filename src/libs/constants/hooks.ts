@@ -3,7 +3,7 @@ import { useFocusEffect } from 'expo-router';
 
 
 
-export const useEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
+const useEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
     const isFirstRender = useRef(true)
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const useEffectWithoutFirstRender = (effect: () => void, deps: any[]) => 
 }
 
 
-export const useLayoutEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
+const useLayoutEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
     const isFirstRender = useRef(true)
 
     useLayoutEffect(() => {
@@ -31,7 +31,7 @@ export const useLayoutEffectWithoutFirstRender = (effect: () => void, deps: any[
 }
 
 
-export const useAsyncEffect = (
+const useAsyncEffect = (
     effect: (isMounted: () => boolean) => Promise<void>,
     deps: any[]
 ) => {
@@ -46,7 +46,7 @@ export const useAsyncEffect = (
 }
 
 
-export const useAsyncFocusEffect = (
+const useAsyncFocusEffect = (
     effect: (isMounted: () => boolean) => Promise<void>
 ) => {
     useFocusEffect(
@@ -62,7 +62,7 @@ export const useAsyncFocusEffect = (
 }
 
 
-export const useAsyncFocusEffectWithoutFirstRender = (
+const useAsyncFocusEffectWithoutFirstRender = (
 	effect: (isMounted: () => boolean) => Promise<void>
 ) => {
 	const isFirstFocus = useRef(true)
@@ -79,3 +79,14 @@ export const useAsyncFocusEffectWithoutFirstRender = (
 		}, [effect])
 	)
 }
+
+
+// ------------------- Export -------------------
+const Hooks = {
+	useEffectWithoutFirstRender,
+	useLayoutEffectWithoutFirstRender,
+	useAsyncEffect,
+	useAsyncFocusEffect,
+	useAsyncFocusEffectWithoutFirstRender,
+}
+export default Hooks

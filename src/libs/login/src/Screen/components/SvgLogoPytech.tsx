@@ -1,7 +1,7 @@
 import { memo } from "react"
 import LogoSvg from '../../../../assets/images/logo_letras.svg'
 import LogoSvgDark from '../../../../assets/images/logo_letras_dark.svg'
-import { useApp } from "libs/providers/App"
+import { useApp } from "@/libs/providers/App"
 
 
 

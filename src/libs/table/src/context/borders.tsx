@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, RefObject, useMemo, useRef } from "react"
 
-import { createCtx } from "libs/constants/utils"
+import Utils from "@/libs/constants/utils"
 
 
 
-const [Provider, useBorder] = createCtx<RefObject<
+const [Provider, useBorder] = Utils.createCtx<RefObject<
     {
         top: Dispatch<SetStateAction<boolean>>,
         bottom: Dispatch<SetStateAction<boolean>>

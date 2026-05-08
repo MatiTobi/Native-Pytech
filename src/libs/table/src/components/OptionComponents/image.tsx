@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Image, ImageSourcePropType } from 'react-native'
 
 import colors from '../../constants'
-import { useApp } from 'libs/providers/App'
+import { useApp } from '@/libs/providers/App'
 
 
 

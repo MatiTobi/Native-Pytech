@@ -3,7 +3,7 @@ import { Platform, View, ViewProps } from 'react-native'
 import React, { memo } from 'react'
 
 import colors, { type ColorSchemeType } from '../constants'
-import { isLowTier } from 'libs/constants/consts'
+import { isLowTier } from '@/libs/constants/consts'
 
 import { useTable } from '../context/table'
 import Props from './OptionWrapper/types'

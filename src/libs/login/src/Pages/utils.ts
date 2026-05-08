@@ -1,5 +1,5 @@
 import { Router } from 'expo-router'
-import supabase from "libs/supabase"
+import supabase from "@/libs/supabase"
 import { PerfilColorType } from '../constants'
 
 

@@ -1,4 +1,4 @@
-import colorsLib from "libs/constants/colors"
+import colorsLib from "@/libs/constants/colors"
 
 const colors = {
     light: {
@@ -10,6 +10,6 @@ const colors = {
 }
 
 
-export { type ColorSchemeType } from "libs/constants/colors"
+export { type ColorSchemeType } from "@/libs/constants/colors"
 
 export default colors

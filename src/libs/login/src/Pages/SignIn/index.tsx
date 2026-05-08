@@ -4,11 +4,11 @@ import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
-import Link from 'libs/components/Link';
-import Footer from 'libs/footer';
-import Page from 'libs/page';
-import { useApp } from "libs/providers/App";
-import supabase from "libs/supabase";
+import Link from '@/libs/components/Link';
+import Footer from '@/libs/footer';
+import Page from '@/libs/page';
+import { useApp } from "@/libs/providers/App";
+import supabase from "@/libs/supabase";
 
 import colors from '../../constants';
 import Screen from '../../Screen';

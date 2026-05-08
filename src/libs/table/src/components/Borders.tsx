@@ -3,8 +3,8 @@ import React, { memo, useEffect, useState } from 'react'
 import { PixelRatio, View, StyleSheet } from 'react-native'
 
 import colors from '../constants'
-import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
-import { useApp } from 'libs/providers/App'
+import Hooks from '@/libs/constants/hooks'
+import { useApp } from '@/libs/providers/App'
 
 import { useStore, useTable } from '../context/table'
 import { useBorder } from '../context/borders'
@@ -83,7 +83,7 @@ const BorderExtended = memo(({ isTop, id, color }: { isTop: boolean, id: string,
         else bordersRef.current.bottom = setShow
     }, [])
 
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         setShow(showStore)
     }, [showStore])
 

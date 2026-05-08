@@ -4,8 +4,8 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { Animated, Easing, LayoutChangeEvent, Platform, Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native'
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated'
 
-import { useLayoutEffectWithoutFirstRender } from 'libs/constants/hooks'
-import { isLowTier } from 'libs/constants/consts'
+import Hooks from '@/libs/constants/hooks'
+import { isLowTier } from '@/libs/constants/consts'
 
 import colors from '../../constants'
 
@@ -44,7 +44,7 @@ const Component = memo(({
 
     const is_deleted = useSelector(() => store.deleted.id.get() === id)
 
-    useLayoutEffectWithoutFirstRender(() => {
+    Hooks.useLayoutEffectWithoutFirstRender(() => {
         if (is_deleted) return
 
         onDeleteShown?.(id, false)

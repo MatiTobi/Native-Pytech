@@ -1,2 +1,2 @@
-import { createCtx } from "../../../../libs/constants/utils";
-export const [DeleteProvider, useDelete] = createCtx();
+import Utils from "../../../../libs/constants/utils";
+export const [DeleteProvider, useDelete] = Utils.createCtx();

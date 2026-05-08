@@ -3,7 +3,7 @@ import { GlassView } from 'expo-glass-effect';
 import { useApp } from "../../../../libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
-import { adjustLightness } from '../../../../libs/constants/utils';
+import Utils from '../../../../libs/constants/utils';
 import Text from './Text';
 export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = true, themeColor = 'default' }) => {
     const { colorScheme } = useApp();
@@ -23,7 +23,7 @@ export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = t
     }, [onPress, onSubmit]);
     const backgroundColor = useCallback((pressed) => {
         return enabled ?
-            (themeColor === 'default' ? adjustLightness(colors.especiales.azul, -10) : undefined)
+            (themeColor === 'default' ? Utils.adjustLightness(colors.especiales.azul, -10) : undefined)
             : Theme.colorButtonFooterDisabled;
     }, [enabled, themeColor]);
     const color = useMemo(() => themeColor === 'default' ? colors.especiales.celeste : Theme.text2, [themeColor]);

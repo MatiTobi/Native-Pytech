@@ -1,2 +1,2 @@
-import { createCtx } from '../../../../libs/constants/utils';
-export const [Provider, useItem] = createCtx();
+import Utils from '../../../../libs/constants/utils';
+export const [Provider, useItem] = Utils.createCtx();

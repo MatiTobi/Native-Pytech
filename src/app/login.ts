@@ -1,2 +1,2 @@
-export { default } from 'libs/login'
-export * from 'libs/login'
+export { default } from '@/libs/login'
+export * from '@/libs/login'
