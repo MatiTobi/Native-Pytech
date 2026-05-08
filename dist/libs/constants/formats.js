@@ -1,3 +1,4 @@
+import { format as DateFormatter } from 'date-fns';
 const formatter = new Intl.NumberFormat('es-AR');
 const numberToText = (value) => {
     const abs = formatter.format(Math.abs(value));
@@ -66,17 +67,14 @@ const phoneToText = (phone) => {
     }
     return extra ? `${base}${extra}` : base;
 };
-const dateToTextFormat = (date, format = 'YYYY-MM-DD') => {
-    const values = {
-        DD: String(date.getDate()).padStart(2, '0'),
-        MM: String(date.getMonth() + 1).padStart(2, '0'),
-        YYYY: String(date.getFullYear()),
-        YY: String(date.getFullYear()).slice(-2),
-        HH: String(date.getHours()).padStart(2, '0'),
-        mm: String(date.getMinutes()).padStart(2, '0'),
-        ss: String(date.getSeconds()).padStart(2, '0'),
-    };
-    return format.replace(/DD|MM|YYYY|YY|HH|mm|ss/g, match => values[match]);
+const dateToTextFormat = (date, 
+/**
+    Format of the date.
+    @default 'YYYY-MM-DD'
+*/
+format = 'YYYY-MM-DD') => {
+    const _format = format.replaceAll('Y', 'y').replaceAll('m', 'M').replaceAll('D', 'd');
+    return DateFormatter(date, _format);
 };
 // ------------------- Export -------------------
 const Formats = {

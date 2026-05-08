@@ -95,10 +95,6 @@ const phoneToText = (phone: number | string) => {
 
 const dateToTextFormat = (
 	date: Date,
-	/**
-		Format of the date.
-		@default 'YYYY-MM-DD'
-	*/
 	format = 'YYYY-MM-DD'
 ) => {
 	const _format = format.replaceAll('Y', 'y').replaceAll('m', 'M').replaceAll('D', 'd')
