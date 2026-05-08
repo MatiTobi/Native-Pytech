@@ -12,10 +12,10 @@ type Props<T> = {
         Function to be called when the user saves the changes.
         If the function returns true, the user will be redirected to the previous screen.
     */
-    onSave?: (values: (string | null)[]) => boolean | Promise<boolean>;
+    onSave?: (values: (string | null | Date)[]) => boolean | Promise<boolean>;
 };
 export type Values = Record<number, {
-    value: string | null | undefined;
+    value: string | null | Date | undefined;
     hasChanged: boolean;
     isValid: boolean;
 }>;
