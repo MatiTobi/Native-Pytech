@@ -55,7 +55,7 @@ type Props<T> = {
     /**
         The props to be applied to the list.
     */
-    listSectionProps?: SectionProps;
+    listSectionProps?: Omit<SectionProps, 'children'>;
     /**
         Whether to enable the move of the items.
         @default false

@@ -11,7 +11,7 @@ export default memo(({ children, systemImage, label, modifiers, maintainButtonSt
     const buttonSystemImage = !renderLabel ? systemImage : undefined;
     const buttonLabel = !renderLabel ? label : undefined;
     return (<HStack>
-            <Button modifiers={[..._modifiers, ...(modifiers || [])]} systemImage={buttonSystemImage} label={buttonLabel} {...buttonProps}>
+            <Button modifiers={[...(modifiers || []), ..._modifiers]} systemImage={buttonSystemImage} label={buttonLabel} {...buttonProps}>
                 {children}
             </Button>
             {!children && renderLabel && (<Label title={label} systemImage={systemImage}/>)}

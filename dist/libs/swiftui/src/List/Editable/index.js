@@ -36,7 +36,7 @@ function Component({ children, data = [], keyExtractor, editMode = false, onDele
         });
         onMove?.({ listIndexes: sourceIndices, destinationIndex: adjustedDest });
     }, [onMove]);
-    return (<List {...listProps} modifiers={[...modifiersList, ...(listProps?.modifiers || [])]}>
+    return (<List {...listProps} modifiers={[...(listProps?.modifiers || []), ...modifiersList]}>
             {children}
             <Section {...listSectionProps}>
                 <List.ForEach {...listForEachProps} onDelete={handleDelete} onMove={handleMove} modifiers={[...modifiersListForEach, ...(listForEachProps?.modifiers || [])]}>

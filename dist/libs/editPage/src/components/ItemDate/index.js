@@ -9,8 +9,8 @@ export default memo(({ label, defaultValue, minDate = new Date(new Date().setFul
     const { index } = useItem();
     const [selection, setSelection] = useState(defaultValue);
     const _modifiers = useMemo(() => [
-        environment('locale', 'es_ES'),
         ...(modifiers ?? []),
+        environment('locale', 'es_ES'),
     ], [modifiers]);
     // ------------------- Hooks -------------------
     useEffect(() => setSelection(defaultValue), [defaultValue]);

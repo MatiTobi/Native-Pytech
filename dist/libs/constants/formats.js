@@ -67,12 +67,7 @@ const phoneToText = (phone) => {
     }
     return extra ? `${base}${extra}` : base;
 };
-const dateToTextFormat = (date, 
-/**
-    Format of the date.
-    @default 'YYYY-MM-DD'
-*/
-format = 'YYYY-MM-DD') => {
+const dateToTextFormat = (date, format = 'YYYY-MM-DD') => {
     const _format = format.replaceAll('Y', 'y').replaceAll('m', 'M').replaceAll('D', 'd');
     return DateFormatter(date, _format);
 };

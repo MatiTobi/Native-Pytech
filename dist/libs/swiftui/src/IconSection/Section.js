@@ -9,7 +9,7 @@ export default memo(({ children, modifiers, ...vStackProps }) => {
         listRowInsets({ bottom: 0.1 })
     ];
     return (<Section>
-            <VStack spacing={20} modifiers={[..._modifiers, ...(modifiers || [])]} {...vStackProps}>
+            <VStack spacing={20} modifiers={[...(modifiers || []), ..._modifiers]} {...vStackProps}>
                 {children}
             </VStack>
         </Section>);

@@ -13,7 +13,7 @@ import Editable from './Editable';
 */
 const Component = memo(({ children, modifiers, ...listProps }) => {
     const _modifiers = useMemo(() => [padding({ top: -15 })], []);
-    return (<List modifiers={[..._modifiers, ...(modifiers || [])]} {...listProps}>
+    return (<List modifiers={[...(modifiers || []), ..._modifiers]} {...listProps}>
             {children}
         </List>);
 });
