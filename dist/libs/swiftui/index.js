@@ -1,8 +1,8 @@
-export { default as NavigationLink } from './src/NavigationLink';
-export { default as Icon } from './src/Icon';
-export { default as IconSection } from './src/IconSection';
-export { default as List } from './src/List';
-export { default as Text } from './src/Text';
-export { default as Picker } from './src/Picker';
-export { default as TextSubtitle } from './src/TextSubtitle';
-export { default as Dialog } from './src/Dialog';
+export { default as NavigationLink } from './src/components/NavigationLink';
+export { default as Icon } from './src/components/Icon';
+export { default as IconSection } from './src/components/IconSection';
+export { default as List } from './src/components/List';
+export { default as Text } from './src/components/Text';
+export { default as Picker } from './src/components/Picker';
+export { default as TextSubtitle } from './src/components/TextSubtitle';
+export { default as Dialog } from './src/components/Dialog';
