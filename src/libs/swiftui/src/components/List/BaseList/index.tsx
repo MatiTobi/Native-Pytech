@@ -1,5 +1,5 @@
-import { List, ListProps } from '@expo/ui/swift-ui';
-import { padding } from '@expo/ui/swift-ui/modifiers';
+import { List } from '@expo/ui/swift-ui';
+import { padding, refreshable } from '@expo/ui/swift-ui/modifiers';
 import React, { memo, useMemo } from 'react';
 
 import type Props from './types';
@@ -15,15 +15,21 @@ import type Props from './types';
 export default memo(({
     children,
     modifiers,
-    disablePaddingTop=false,
+    disablePaddingTop,
+    onRefresh,
     ...listProps
     
 }: Props) => {
 
-    const _modifiers = useMemo(() => disablePaddingTop ? [] : [padding({ top: -15 })], [disablePaddingTop])
+    const _modifiers = useMemo(() => [
+        ...(modifiers ?? []),
+
+        ...(disablePaddingTop ? [padding({ top: -15 })] : []),
+        ...(onRefresh ? [refreshable(onRefresh)] : []),
+    ], [modifiers, disablePaddingTop, onRefresh])
 
     return (
-        <List modifiers={[...(modifiers || []), ..._modifiers]} {...listProps}>
+        <List modifiers={_modifiers} {...listProps}>
             {children}
         </List>
     )

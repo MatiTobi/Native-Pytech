@@ -20,11 +20,14 @@ export default memo(({
 
 }: Props) => {
 
-    const _modifiers = useMemo(() => [pickerStyle('menu')], [])
+    const _modifiers = useMemo(() => [
+        ...(modifiers ?? []),
+        pickerStyle('menu'),
+    ], [modifiers])
 
     return (
         <Picker
-            modifiers={[...(modifiers || []), ..._modifiers]}
+            modifiers={_modifiers}
             {...pickerProps}
         >
             {data.map(item => (

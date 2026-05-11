@@ -25,9 +25,9 @@ export default memo(({
 	const [selection, setSelection] = useState<Date>(defaultValue)
 
 	const _modifiers = useMemo(() => [
-		...(modifiers ?? []),
+        ...(modifiers ?? []),
 		environment('locale', 'es_ES'),
-	], [modifiers])
+    ], [modifiers])
 
 
 	// ------------------- Hooks -------------------

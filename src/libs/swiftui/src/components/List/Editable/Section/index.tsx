@@ -1,6 +1,6 @@
 import { List, Section } from "@expo/ui/swift-ui"
-import { listStyle, environment, moveDisabled, tag, deleteDisabled, padding } from "@expo/ui/swift-ui/modifiers"
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react"
+import { moveDisabled, tag, deleteDisabled } from "@expo/ui/swift-ui/modifiers"
+import React, { memo, useCallback, useState } from "react"
 
 import Hooks from '@/libs/constants/hooks'
 import type Props from "./types"
@@ -21,8 +21,6 @@ function Component<T>({
     const { enableMove, enableDelete } = useListEditable()
     const [_data, setData] = useState<T[]>(data ?? [])
 
-
-    // ---------------------- Hooks ----------------------
     Hooks.useEffectWithoutFirstRender(() => setData(data ?? []), [data])
 
 

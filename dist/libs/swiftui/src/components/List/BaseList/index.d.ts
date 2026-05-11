@@ -6,5 +6,5 @@ import type Props from './types';
     Este componente extiende "List" de @expo/ui/swift-ui y agrega automáticamente:
     - padding({ top: -15 })
 */
-declare const _default: React.MemoExoticComponent<({ children, modifiers, disablePaddingTop, ...listProps }: Props) => React.JSX.Element>;
+declare const _default: React.MemoExoticComponent<({ children, modifiers, disablePaddingTop, onRefresh, ...listProps }: Props) => React.JSX.Element>;
 export default _default;

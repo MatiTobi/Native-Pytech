@@ -10,9 +10,12 @@ export default memo(({
     
 }: TextProps & { secondary?: boolean }) => {
 
-    const _modifiers = useMemo(() => secondary ? [foregroundStyle({type: 'hierarchical', style: 'secondary'})] : [], [secondary]);
+    const _modifiers = useMemo(() => [
+        ...(modifiers ?? []),
+        ...(secondary ? [foregroundStyle({type: 'hierarchical', style: 'secondary'})] : []),
+    ], [modifiers, secondary]);
 
     return (
-        <Text modifiers={[...(modifiers || []), ..._modifiers]} {...restProps} />
+        <Text modifiers={_modifiers} {...restProps} />
     )
 })

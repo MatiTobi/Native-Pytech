@@ -1,7 +1,7 @@
 import { Button, HStack, Label } from '@expo/ui/swift-ui';
 import { foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import type Props from './types';
 import Trailing from './Trailing';
@@ -24,7 +24,10 @@ export default memo(({
     // Si no tiene que mantener el estilo del button y no hay una imagen, solo va a cambiar el foregroundColor.
     const renderLabel = !maintainButtonStyle && systemImage !== undefined
 
-    const _modifiers = (!maintainButtonStyle && !renderLabel) ? [foregroundStyle(Color.ios.label)] : []
+    const _modifiers = useMemo(() => [
+        ...(modifiers ?? []),
+        ...(!maintainButtonStyle && !renderLabel ? [foregroundStyle(Color.ios.label)] : []),
+    ], [modifiers, maintainButtonStyle, renderLabel])
 
     const buttonSystemImage = !renderLabel ? systemImage : undefined
     const buttonLabel = !renderLabel ? label : undefined
@@ -32,7 +35,7 @@ export default memo(({
 	return (
         <HStack>
             <Button
-                modifiers={[...(modifiers || []), ..._modifiers]}
+                modifiers={_modifiers}
                 systemImage={buttonSystemImage}
                 label={buttonLabel}
                 {...buttonProps}

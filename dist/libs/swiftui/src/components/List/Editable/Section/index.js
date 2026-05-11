@@ -7,7 +7,6 @@ function Component({ data = [], keyExtractor, onDelete, onMove, renderItem }) {
     // ---------------------- Variables ----------------------
     const { enableMove, enableDelete } = useListEditable();
     const [_data, setData] = useState(data ?? []);
-    // ---------------------- Hooks ----------------------
     Hooks.useEffectWithoutFirstRender(() => setData(data ?? []), [data]);
     // ---------------------- Functions ----------------------
     const handleDelete = useCallback((indices) => {
