@@ -13,9 +13,7 @@ type Props = {
     /**
         If it is given, displays a gradient.
     */
-    gradientProps?: {
-        text: GradientProps['text'];
-        color: GradientProps['color'];
+    gradientProps?: Omit<GradientProps, 'type'> & {
         type: 'extraLarge' | 'extraExtraLarge';
     };
     /**

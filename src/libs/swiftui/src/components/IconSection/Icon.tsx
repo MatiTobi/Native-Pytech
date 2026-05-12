@@ -41,12 +41,6 @@ export default memo(({
 
     const spacing = gradientProps?.type === 'extraLarge' ? 10 : 20
 
-    const titleElement = useMemo(() => (
-        <Text modifiers={[font({weight: 'bold', size: 30})]}>
-            {title}
-        </Text>
-    ), [title])
-
     return (
         <Section spacing={spacing}>
             {gradientProps && (

@@ -21,7 +21,7 @@ export default memo(({
     const textComponent = useMemo(() => {
 
         const cantLetras = text?.length
-        if (!text || !cantLetras || systemName) return null
+        if (!text || !cantLetras) return null
         if (cantLetras > 3) throw new Error('Text must be less than 3 characters')
 
         return (
