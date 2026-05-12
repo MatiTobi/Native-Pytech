@@ -4,7 +4,7 @@ import Button from './Button'
 
 type Props = {
     children: React.ReactNode,
-    backgroundColorPage: string
+    backgroundColorPage?: string
 }
 
 

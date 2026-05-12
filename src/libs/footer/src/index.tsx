@@ -35,7 +35,7 @@ const Footer = memo(({children, backgroundColorPage}: Props) => {
                 />
             </MaskedView>
 
-            <Background backgroundColorPage={backgroundColorPage} />
+            {backgroundColorPage && <Background backgroundColorPage={backgroundColorPage} />}
 
             <View style={[styles.view, {paddingBottom: insets.bottom + 5}]}>
                 {children}

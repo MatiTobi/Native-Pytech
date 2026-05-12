@@ -29,10 +29,10 @@ export default memo(({
             pressed ? 
                 themeColor === 'default' ?
                     colors.especiales.azul_pressed :
-                    colorScheme === 'dark' ? Utils.adjustLightness(backgroundColorPage, 10) : backgroundColorPage
+                    colorScheme === 'dark' ? Utils.adjustLightness(backgroundColorPage ?? 'white', 10) : backgroundColorPage ?? 'white'
             : themeColor === 'default' ?
                 Utils.adjustLightness(colors.especiales.azul, -10) :
-                colorScheme === 'dark' ? backgroundColorPage : Utils.adjustLightness(backgroundColorPage, -1)
+                colorScheme === 'dark' ? backgroundColorPage : Utils.adjustLightness(backgroundColorPage ?? 'white', -1)
         )
         : Theme.colorButtonFooterDisabled
     }, [enabled, themeColor, backgroundColorPage, colorScheme])

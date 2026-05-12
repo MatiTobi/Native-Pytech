@@ -21,8 +21,10 @@ export type Props = {
 
     /**
         Color de fondo de la página.
+        @android
+        @web
     */
-    backgroundColorPage: string,
+    backgroundColorPage?: string,
 } & TextProps
 
 
