@@ -1,4 +1,4 @@
-import colors from '../constants';
+import colors from '../../constants';
 import { useApp } from "@/libs/providers/App";
 import { memo, useMemo } from 'react';
 import { StyleSheet, Text } from 'react-native';

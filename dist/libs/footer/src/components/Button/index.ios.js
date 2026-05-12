@@ -1,9 +1,9 @@
-import colors from '../constants';
+import colors from '../../constants';
 import { GlassView } from 'expo-glass-effect';
-import { useApp } from "../../../../libs/providers/App";
+import { useApp } from "../../../../../libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
-import Utils from '../../../../libs/constants/utils';
+import Utils from '../../../../../libs/constants/utils';
 import Text from './Text';
 export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = true, themeColor = 'default' }) => {
     const { colorScheme } = useApp();

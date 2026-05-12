@@ -6,12 +6,21 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { memo } from 'react'
 
 import Background from './Background'
-import Button from './Button'
-import Props, { Component } from './types'
+import ButtonView from './View'
 
 
 
-const Footer = memo(({children, backgroundColorPage}: Props) => {
+type Props = {
+    children: React.ReactNode,
+    backgroundColorPage?: string
+}
+
+
+export default memo(({
+    children,
+    backgroundColorPage
+
+}: Props) => {
 
     const insets = useSafeAreaInsets()
 
@@ -38,16 +47,14 @@ const Footer = memo(({children, backgroundColorPage}: Props) => {
             {backgroundColorPage && <Background backgroundColorPage={backgroundColorPage} />}
 
             <View style={[styles.view, {paddingBottom: insets.bottom + 5}]}>
-                {children}
+                <ButtonView>
+                    {children}
+                </ButtonView>
             </View>
 
         </View>
     )
-}) as Component
-
-Footer.Button = Button
-
-export default Footer
+})
 
 
 const styles = StyleSheet.create({
@@ -58,11 +65,9 @@ const styles = StyleSheet.create({
     },
     view: {
         position: 'relative',
-        paddingHorizontal: 17 * 2,
         paddingTop: 70,
         justifyContent: 'center',
-        alignItems: 'center',
-        gap: 10,
+        alignItems: 'center'
     }
 })
 

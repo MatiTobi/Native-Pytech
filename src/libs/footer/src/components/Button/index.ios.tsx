@@ -1,4 +1,4 @@
-import colors from '../constants';
+import colors from '../../constants';
 import { GlassView } from 'expo-glass-effect';
 import { useApp } from "@/libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';

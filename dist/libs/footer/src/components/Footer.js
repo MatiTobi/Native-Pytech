@@ -1,0 +1,38 @@
+import { View, StyleSheet } from 'react-native';
+import MaskedView from '@react-native-masked-view/masked-view';
+import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { memo } from 'react';
+import Background from './Background';
+import ButtonView from './View';
+export default memo(({ children, backgroundColorPage }) => {
+    const insets = useSafeAreaInsets();
+    return (<View style={styles.footer}>
+            <MaskedView style={[StyleSheet.absoluteFillObject]} maskElement={<LinearGradient colors={['transparent', 'transparent', 'rgba(0, 0, 0, 0.8)', 'black', 'black']} locations={[0, 0.05, 0.2, 0.5, 1]} style={StyleSheet.absoluteFillObject}/>}>
+                <BlurView intensity={6} tint='dark' style={StyleSheet.absoluteFillObject}/>
+            </MaskedView>
+
+            {backgroundColorPage && <Background backgroundColorPage={backgroundColorPage}/>}
+
+            <View style={[styles.view, { paddingBottom: insets.bottom + 5 }]}>
+                <ButtonView>
+                    {children}
+                </ButtonView>
+            </View>
+
+        </View>);
+});
+const styles = StyleSheet.create({
+    footer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+    },
+    view: {
+        position: 'relative',
+        paddingTop: 70,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});

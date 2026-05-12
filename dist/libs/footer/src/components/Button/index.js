@@ -1,8 +1,8 @@
-import colors from '../constants';
-import { useApp } from "../../../../libs/providers/App";
+import colors from '../../constants';
+import { useApp } from "../../../../../libs/providers/App";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
-import Utils from '../../../../libs/constants/utils';
+import Utils from '../../../../../libs/constants/utils';
 import Text from './Text';
 export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = true, themeColor = 'default' }) => {
     const { colorScheme } = useApp();
@@ -12,10 +12,10 @@ export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = t
         return enabled ? (pressed ?
             themeColor === 'default' ?
                 colors.especiales.azul_pressed :
-                colorScheme === 'dark' ? Utils.adjustLightness(backgroundColorPage, 10) : backgroundColorPage
+                colorScheme === 'dark' ? Utils.adjustLightness(backgroundColorPage ?? 'white', 10) : backgroundColorPage ?? 'white'
             : themeColor === 'default' ?
                 Utils.adjustLightness(colors.especiales.azul, -10) :
-                colorScheme === 'dark' ? backgroundColorPage : Utils.adjustLightness(backgroundColorPage, -1))
+                colorScheme === 'dark' ? backgroundColorPage : Utils.adjustLightness(backgroundColorPage ?? 'white', -1))
             : Theme.colorButtonFooterDisabled;
     }, [enabled, themeColor, backgroundColorPage, colorScheme]);
     const _onPress = useCallback(async () => {
