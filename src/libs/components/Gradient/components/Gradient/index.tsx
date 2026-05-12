@@ -2,32 +2,17 @@ import React, { memo, useMemo } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-import colors, { sizes, letterCountType, sizesType } from './constants'
-export { sizes }
+import colors, { sizes, letterCountType } from '../../constants'
+import type Props from './types'
+import Icon from '../Icon'
 
-
-export type Props = {
-    /**
-        The text to display in the gradient.
-        Must be less than 3 characters.
-    */
-    text?: string
-    /**
-        The color of the gradient.
-    */
-    color: keyof typeof colors
-    /**
-        The size of the gradient.
-        @default 'small'
-    */
-    type: sizesType
-}
 
 
 export default memo(({
     text,
     color,
-    type = 'small'
+    type = 'small',
+    systemName
 
 } : Props) => {
     
@@ -36,7 +21,7 @@ export default memo(({
     const textComponent = useMemo(() => {
 
         const cantLetras = text?.length
-        if (!text || !cantLetras) return null
+        if (!text || !cantLetras || systemName) return null
         if (cantLetras > 3) throw new Error('Text must be less than 3 characters')
 
         return (
@@ -53,7 +38,7 @@ export default memo(({
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
         >
-            {textComponent}
+            {textComponent ?? (systemName && <Icon systemName={systemName} />)}
         </LinearGradient>
     )
 })

@@ -81,7 +81,7 @@ export default memo(({
 })
 
 
-const Title = memo(({ title }: { title: string }) => {
+const Title = memo(({ title }: { title?: string }) => {
     return (
         <Text modifiers={[font({weight: 'bold', size: 30})]}>
             {title}
