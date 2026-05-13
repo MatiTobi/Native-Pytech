@@ -39,7 +39,9 @@ export default memo(({
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
         >
-            {textComponent ?? (systemName && <Icon systemName={systemName} iconSize={iconSize} />)}
+            {textComponent ?? (systemName && (
+                <Icon systemName={systemName} size={iconSize ?? typeSizes.diameter/2} />
+            ))}
         </LinearGradient>
     )
 })

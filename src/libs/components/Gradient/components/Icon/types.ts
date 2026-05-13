@@ -13,7 +13,7 @@ type Props = {
         @ios
         @default 100
     */
-    iconSize?: number;
+    size?: number;
 }
 
 export default Props

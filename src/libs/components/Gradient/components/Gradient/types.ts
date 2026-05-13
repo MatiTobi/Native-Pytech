@@ -2,7 +2,7 @@ import colors, { sizesType } from '../../constants'
 import IconProps from '../Icon/types'
 
 
-export type Props = IconProps & {
+export type Props = Omit<IconProps, 'size'> & {
     /**
         The text to display in the gradient.
         Must be less than 3 characters.
@@ -17,6 +17,12 @@ export type Props = IconProps & {
         @default 'small'
     */
     type: sizesType
+    /**
+        The size of the icon.
+        @ios
+        @default (typeSizes.diameter/2)
+    */
+    iconSize?: number
 }
 
 export default Props

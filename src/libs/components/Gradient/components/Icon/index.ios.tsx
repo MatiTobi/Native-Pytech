@@ -4,10 +4,10 @@ import type Props from './types';
 
 
 
-export default ({ systemName, iconSize=100 }: Props) => {
+export default ({ systemName, size=100 }: Props) => {
     return (
         <Host matchContents>
-            <Image systemName={systemName} color='white' size={iconSize} />
+            <Image systemName={systemName} color='white' size={size} />
         </Host>
     )
 }

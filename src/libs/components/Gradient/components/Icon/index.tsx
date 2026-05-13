@@ -1,3 +1,3 @@
 import type Props from './types'
 
-export default ({ systemName, iconSize=100 }: Props) => null
+export default ({ systemName, size=100 }: Props) => null
