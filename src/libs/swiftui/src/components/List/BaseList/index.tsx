@@ -24,7 +24,7 @@ export default memo(({
     const _modifiers = useMemo(() => [
         ...(modifiers ?? []),
 
-        ...(disablePaddingTop ? [padding({ top: -15 })] : []),
+        ...(disablePaddingTop ? [] : [padding({ top: -15 })]),
         ...(onRefresh ? [refreshable(onRefresh)] : []),
     ], [modifiers, disablePaddingTop, onRefresh])
 
