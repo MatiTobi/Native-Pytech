@@ -16,7 +16,7 @@ export default memo(({ text, color, type = 'small', systemName, iconSize, }) => 
             </Text>);
     }, [text, typeSizes]);
     return (<LinearGradient style={[styles.gradient, { height: typeSizes.diameter, borderRadius: typeSizes.diameter }]} colors={[colors[color].light, colors[color].dark]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }}>
-            {textComponent ?? (systemName && <Icon systemName={systemName} iconSize={iconSize}/>)}
+            {textComponent ?? (systemName && (<Icon systemName={systemName} size={iconSize ?? typeSizes.diameter / 2}/>))}
         </LinearGradient>);
 });
 const styles = StyleSheet.create({

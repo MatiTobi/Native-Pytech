@@ -6,7 +6,7 @@ import { PerfilColorType } from '../constants'
 
 export type LoginData = {
     first_name: string,
-    gradient_text: string,
+    abbreviation: string,
     color: PerfilColorType,
     mail: string
 }
