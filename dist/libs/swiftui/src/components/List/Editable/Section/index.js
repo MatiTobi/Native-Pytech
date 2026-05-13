@@ -1,7 +1,7 @@
 import { List, Section } from "@expo/ui/swift-ui";
 import { moveDisabled, tag, deleteDisabled } from "@expo/ui/swift-ui/modifiers";
 import React, { memo, useCallback, useState } from "react";
-import Hooks from '@/libs/constants/hooks';
+import Hooks from '../../../../../../../libs/constants/hooks';
 import { useListEditable } from "../../../../context/ListEditable";
 function Component({ data = [], keyExtractor, onDelete, onMove, renderItem }) {
     // ---------------------- Variables ----------------------

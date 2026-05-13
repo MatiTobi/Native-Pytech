@@ -1,7 +1,7 @@
 import { memo } from "react";
 import LogoSvg from '../../../../assets/images/logo_letras.svg';
 import LogoSvgDark from '../../../../assets/images/logo_letras_dark.svg';
-import { useApp } from "@/libs/providers/App";
+import { useApp } from "../../../../../libs/providers/App";
 export default memo(({ size = 200 }) => {
     const { colorScheme } = useApp();
     const props = { width: size, height: size };

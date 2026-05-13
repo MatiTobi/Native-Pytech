@@ -1,4 +1,4 @@
-import { colors } from '@/libs/table';
+import { colors } from '../../../libs/table';
 import { memo } from 'react';
 import { PixelRatio, View } from 'react-native';
 export default memo(({ size = 30, color = colors.table.default.dark.border }) => {

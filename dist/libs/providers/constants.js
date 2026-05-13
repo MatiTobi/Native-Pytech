@@ -1,4 +1,4 @@
-import colorsLib from "@/libs/constants/colors";
+import colorsLib from "../../libs/constants/colors";
 const colors = {
     light: {
         backgroundColor: colorsLib.light.backgroundColor3,

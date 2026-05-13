@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated, { interpolate, useAnimatedStyle, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
-import { useApp } from '@/libs/providers/App';
+import { useApp } from '../../../../../libs/providers/App';
 import { useShared } from '../../context/shared';
 import colors from '../../colors';
 export default memo(({ isScrollable, onFinishedSelectedIndex, onChangeEqualWidths, widthsShared, widthContainerShared }) => {
