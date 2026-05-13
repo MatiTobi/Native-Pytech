@@ -1,1 +1,1 @@
-export default ({ systemName, iconSize = 100 }) => null;
+export default ({ systemName, size = 100 }) => null;

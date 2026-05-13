@@ -6,6 +6,6 @@ declare const Formats: {
     capitalizeText: (string: string) => string;
     phoneToText: (phone: number | string) => string;
     dateToText: (value: string) => string;
-    dateToTextFormat: (date: Date, format?: string) => string;
+    dateToTextFormat: (date: Date, format?: string) => any;
 };
 export default Formats;
