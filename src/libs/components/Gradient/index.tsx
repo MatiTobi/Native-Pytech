@@ -3,7 +3,7 @@ import { StyleSheet, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 import colors, { sizes, letterCountType, sizesType } from './constants'
-export { sizes }
+export { sizes, colors }
 
 
 export type Props = {
