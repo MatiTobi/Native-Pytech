@@ -4,7 +4,7 @@ import { memo } from 'react';
 import Screen from '../Screen';
 import { handleSubmitLogInPerfil } from './utils';
 export default memo(({ routeOnSuccess, onSuccess }) => {
-    const { mail, first_name, gradient_text, color } = useLocalSearchParams();
+    const { mail, first_name, abbreviation, color } = useLocalSearchParams();
     const router = useRouter();
     const handleSubmit = async ({ value }) => {
         const { succeded, message } = await handleSubmitLogInPerfil({ mail, password: value });
@@ -15,5 +15,5 @@ export default memo(({ routeOnSuccess, onSuccess }) => {
         }
         return { succeded, message };
     };
-    return (<Screen iconPage={<Screen.Gradient text={`${gradient_text}`} color={color}/>} title={`¡Hola${first_name ? ` ${first_name}` : ''}!`} bottomElements={<Screen.Input placeholder='Contraseña' keyboardType='default' secureTextEntry={true} autoComplete='password' handleSubmit={handleSubmit} autoFocus={Platform.OS === 'web'}/>}/>);
+    return (<Screen iconPage={<Screen.Gradient text={`${abbreviation}`} color={color}/>} title={`¡Hola${first_name ? ` ${first_name}` : ''}!`} bottomElements={<Screen.Input placeholder='Contraseña' keyboardType='default' secureTextEntry={true} autoComplete='password' handleSubmit={handleSubmit} autoFocus={Platform.OS === 'web'}/>}/>);
 });
