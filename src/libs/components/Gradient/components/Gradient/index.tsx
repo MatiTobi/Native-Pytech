@@ -12,7 +12,8 @@ export default memo(({
     text,
     color,
     type = 'small',
-    systemName
+    systemName,
+    iconSize,
 
 } : Props) => {
     
@@ -38,7 +39,7 @@ export default memo(({
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
         >
-            {textComponent ?? (systemName && <Icon systemName={systemName} />)}
+            {textComponent ?? (systemName && <Icon systemName={systemName} iconSize={iconSize} />)}
         </LinearGradient>
     )
 })

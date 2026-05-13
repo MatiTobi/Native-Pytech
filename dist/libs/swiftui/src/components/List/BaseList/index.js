@@ -10,7 +10,7 @@ import React, { memo, useMemo } from 'react';
 export default memo(({ children, modifiers, disablePaddingTop, onRefresh, ...listProps }) => {
     const _modifiers = useMemo(() => [
         ...(modifiers ?? []),
-        ...(disablePaddingTop ? [padding({ top: -15 })] : []),
+        ...(disablePaddingTop ? [] : [padding({ top: -15 })]),
         ...(onRefresh ? [refreshable(onRefresh)] : []),
     ], [modifiers, disablePaddingTop, onRefresh]);
     return (<List modifiers={_modifiers} {...listProps}>
