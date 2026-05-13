@@ -16,18 +16,6 @@ type Props = Omit<ScreenProps, 'inputElement' | 'subtitle'> & {
     textCreateAccount?: string
 
     /**
-        Nombre del esquema de la base de datos.
-        @default "admin"
-    */
-    supabaseSchema?: string
-
-    /**
-        Nombre de la tabla de la base de datos.
-        @default "perfiles"
-    */
-    supabaseTable?: string
-
-    /**
         Indica si se debe mostrar el botón para crear una cuenta.
         @default false
     */

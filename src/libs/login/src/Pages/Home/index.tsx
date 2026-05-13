@@ -1,12 +1,12 @@
 import { useRouter } from 'expo-router'
 import { memo, useEffect } from 'react'
 
-import { logIn } from 'libs/supabase'
+import supabase from '@/libs/supabase'
 import Screen from '../../Screen'
 
 import { handleSubmitLogIn } from '../utils'
 import Props from './types'
-import Link from 'libs/components/Link'
+import Link from '@/libs/components/Link'
 
 
 
@@ -15,8 +15,6 @@ export default memo(({
     subtitle='Inicia sesión con un correo electrónico o nombre de usuario para usar la aplicación.',
     iconPage=<Screen.SvgPytech />,
     textCreateAccount,
-    supabaseSchema='admin',
-    supabaseTable='profiles',
     enableCreateAccount=false,
 
 }: Props) => {
@@ -25,7 +23,7 @@ export default memo(({
 
     useEffect(() => {
         (async () => {
-            const { error } = await logIn()
+            const { error } = await supabase.logIn()
             if (!error) console.log('LogIn exitoso')
         })()
     }, [])
@@ -41,12 +39,7 @@ export default memo(({
                         placeholder='Correo o nombre de usuario'
                         keyboardType='email-address'
                         autoComplete='email'
-                        handleSubmit={async ({value}) => await handleSubmitLogIn({
-                            schema: supabaseSchema,
-                            table: supabaseTable,
-                            username: value,
-                            router
-                        })}
+                        handleSubmit={async ({value}) => await handleSubmitLogIn({username: value, router})}
                     />
                     {enableCreateAccount && (
                         <Link

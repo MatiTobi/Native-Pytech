@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { useEffectWithoutFirstRender } from '../../../../../libs/constants/hooks';
+import Hooks from '../../../../../libs/constants/hooks';
 import Segmented from '../Segmented';
 import Provider, { useShared } from '../../context/shared';
 import { getIndex } from '../../utils';
@@ -7,7 +7,7 @@ export default memo(({ data = [], selectedIndex = 0, onChange, ...props }) => {
     const _selectedIndex = getIndex(selectedIndex);
     // Creamos el state interno para activar el onChange
     const [currentSelectedIndex, setCurrentSelectedIndex] = useState(_selectedIndex);
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         onChange?.({ index: currentSelectedIndex, item: data[currentSelectedIndex] });
     }, [currentSelectedIndex]);
     // Nos fijamos si ya está dentro del context.

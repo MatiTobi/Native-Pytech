@@ -6,6 +6,7 @@ type ExpoEnv = {
     SUPABASE_PASSWORD_LOGIN: string;
     SUPABASE_URL: string;
     SUPABASE_KEY: string;
+    SUPABASE_SERVICE_ROLE_KEY: string;
 };
 export declare const expoEnv: Partial<ExpoEnv>;
 export declare const screenOptions: NativeStackNavigationOptions;

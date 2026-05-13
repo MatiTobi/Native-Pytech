@@ -1,3 +1,8 @@
-export declare function useEffectWithoutFirstRender(effect: () => void, deps: any[]): void;
-export declare function useLayoutEffectWithoutFirstRender(effect: () => void, deps: any[]): void;
-export declare function useAsyncEffect(effect: (isMounted: () => boolean) => Promise<void>, deps: any[]): void;
+declare const Hooks: {
+    useEffectWithoutFirstRender: (effect: () => void, deps: any[]) => void;
+    useLayoutEffectWithoutFirstRender: (effect: () => void, deps: any[]) => void;
+    useAsyncEffect: (effect: (isMounted: () => boolean) => Promise<void>, deps: any[]) => void;
+    useAsyncFocusEffect: (effect: (isMounted: () => boolean) => Promise<void>) => void;
+    useAsyncFocusEffectWithoutFirstRender: (effect: (isMounted: () => boolean) => Promise<void>) => void;
+};
+export default Hooks;

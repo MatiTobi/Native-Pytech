@@ -2,7 +2,7 @@ import { useValue } from '@legendapp/state/react';
 import React, { memo, useEffect, useState } from 'react';
 import { PixelRatio, View, StyleSheet } from 'react-native';
 import colors from '../constants';
-import { useEffectWithoutFirstRender } from '../../../../libs/constants/hooks';
+import Hooks from '../../../../libs/constants/hooks';
 import { useApp } from '../../../../libs/providers/App';
 import { useStore, useTable } from '../context/table';
 import { useBorder } from '../context/borders';
@@ -59,7 +59,7 @@ const BorderExtended = memo(({ isTop, id, color }) => {
         else
             bordersRef.current.bottom = setShow;
     }, []);
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         setShow(showStore);
     }, [showStore]);
     return <Border show={Show} color={color}/>;

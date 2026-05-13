@@ -1,7 +1,7 @@
 import React, { memo, useState, useRef, useCallback } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Easing, useSharedValue, withTiming, useDerivedValue } from 'react-native-reanimated';
-import { useEffectWithoutFirstRender } from '../../../../../libs/constants/hooks';
+import Hooks from '../../../../../libs/constants/hooks';
 import { useShared } from '../../context/shared';
 import { scrollToIndex } from '../../utils';
 import Container from '../Container';
@@ -50,7 +50,7 @@ export default memo(({ data, selectedIndex, setCurrentSelectedIndex, isScrollabl
         widthsShared.value = newWidths;
     }, []);
     // ---------------- Hooks ----------------
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         onPress(selectedIndex);
     }, [selectedIndex]);
     const content = (<>

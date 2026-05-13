@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 
-import { useEffectWithoutFirstRender } from 'libs/constants/hooks';
+import Hooks from '@/libs/constants/hooks';
 
 import Props from './types';
 import Segmented from '../Segmented';
@@ -22,7 +22,7 @@ export default memo(({
     // Creamos el state interno para activar el onChange
     const [currentSelectedIndex, setCurrentSelectedIndex] = useState(_selectedIndex)
 
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         onChange?.({index: currentSelectedIndex, item: data[currentSelectedIndex]})
     }, [currentSelectedIndex])
 

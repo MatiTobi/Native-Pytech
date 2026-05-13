@@ -1,6 +1,6 @@
 {
   "name": "native-pytech",
-  "version": "1.0.0",
+  "version": "1.0.46",
   "description": "Libreria de React Native Pytech",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,10 +8,14 @@
   "license": "MIT",
   "scripts": {
     "build": "node scripts/build.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
+    "release": "npm version patch && npm publish"
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
   "peerDependencies": {
     "@expo/vector-icons": "^15.0.3",
@@ -52,6 +56,10 @@
     "typescript": "~5.9.2"
   },
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
     "./*": {
       "types": "./dist/app/*.d.ts",
       "default": "./dist/app/*.js"
@@ -61,6 +69,7 @@
     }
   },
   "dependencies": {
-    "@expo/ui": "~55.0.12"
+    "@expo/ui": "~55.0.12",
+    "date-fns": "^4.1.0"
   }
 }

@@ -2,7 +2,7 @@ import React, { memo, useState, useRef, useCallback } from 'react';
 import { View, StyleSheet, ScrollView, LayoutChangeEvent } from 'react-native';
 import { Easing, useSharedValue, withTiming, useDerivedValue } from 'react-native-reanimated'
 
-import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
+import Hooks from '@/libs/constants/hooks'
 
 import { useShared, type ContextType } from '../../context/shared'
 import { scrollToIndex } from '../../utils'
@@ -79,7 +79,7 @@ export default memo(({
 
 
     // ---------------- Hooks ----------------
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         onPress(selectedIndex)
     }, [selectedIndex])
 

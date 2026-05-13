@@ -2,15 +2,18 @@
 	"compilerOptions": {
 		"jsx": "react-native",
 		"esModuleInterop": true,
-		"rootDir": "./src",
 		"outDir": "./dist",
 		"declaration": true,
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"target": "esnext",
 		"skipLibCheck": true,
-		"baseUrl": "./src",
-		"paths": {}
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"./src/*"
+			],
+		}
 	},
 	"include": [
 		"declarations.d.ts",

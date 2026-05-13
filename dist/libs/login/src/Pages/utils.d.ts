@@ -1,12 +1,12 @@
 import { Router } from 'expo-router';
-export declare const getAbbreviatedName: ({ first_name, last_name, mail }: {
-    first_name?: string;
-    last_name?: string;
+import { PerfilColorType } from '../constants';
+export type LoginData = {
+    first_name: string;
+    gradient_text: string;
+    color: PerfilColorType;
     mail: string;
-}) => string;
-export declare const handleSubmitLogIn: ({ schema, table, username, router }: {
-    schema: string;
-    table: string;
+};
+export declare const handleSubmitLogIn: ({ username, router }: {
     username: string;
     router: Router;
 }) => Promise<{

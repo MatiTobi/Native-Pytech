@@ -5,12 +5,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import handleFontObserver from '../../../libs/constants/handleFontObserver';
 handleFontObserver(); // esto intercepta todos los timeouts de fuentes
-import { createCtx } from "../../../libs/constants/utils";
+import Utils from "../../../libs/constants/utils";
 import LoginSvg from '../../assets/images/login_letras.svg';
 import LoginSvgDark from '../../assets/images/login_letras_dark.svg';
-import { useAsyncEffect, useEffectWithoutFirstRender } from '../../../libs/constants/hooks';
+import Hooks from '../../../libs/constants/hooks';
 import colors from "../constants";
-const [Provider, useApp] = createCtx();
+const [Provider, useApp] = Utils.createCtx();
 export { useApp };
 export default memo(({ listStackNames = [], getBackgroundColor, getSession, renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?
     <LoginSvgDark width={200} height={200}/>
@@ -24,11 +24,11 @@ export default memo(({ listStackNames = [], getBackgroundColor, getSession, rend
     const [isLoading, setIsLoading] = useState(true);
     const hasSessionRef = useRef(false);
     // -------------- Effects --------------
-    useEffectWithoutFirstRender(() => {
+    Hooks.useEffectWithoutFirstRender(() => {
         if (!isLoading)
             onLoadingRealsed?.({ router, hasSession: hasSessionRef.current });
     }, [isLoading]);
-    useAsyncEffect(async (isMounted) => {
+    Hooks.useAsyncEffect(async (isMounted) => {
         hasSessionRef.current = (await getSession?.()) ?? true;
         if (!isMounted)
             return;

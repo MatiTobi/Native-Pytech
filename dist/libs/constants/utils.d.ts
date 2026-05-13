@@ -1,10 +1,12 @@
 import { StyleProp } from 'react-native';
 import React from 'react';
-export declare const addProps: (element: React.ReactElement | null, additionalStyles?: StyleProp<any>, extraProps?: Record<string, any>) => React.ReactElement | null;
-export declare const numberFormat: (value: number) => string;
-export declare function applyOpacity(color: string, opacity: number): string;
-export declare function adjustLightness(color: string, percentage: number): string;
-export declare const _getDeviceTier: () => "low" | "medium" | "high";
-export declare const createCtx: <T>() => readonly [React.Provider<T>, () => T];
-export declare const createUseContext: <T>(context: React.Context<T | null>) => T;
-export declare const capitalize: (string: string) => string;
+declare const Utils: {
+    addProps: (element: React.ReactElement | null, additionalStyles?: StyleProp<any>, extraProps?: Record<string, any>) => React.ReactElement | null;
+    isValidMail: (mail: string) => boolean;
+    applyOpacity: (color: string, opacity: number) => string;
+    adjustLightness: (color: string, percentage: number) => string;
+    _getDeviceTier: () => "low" | "medium" | "high";
+    createCtx: <T>() => readonly [React.Provider<T>, () => T];
+    createUseContext: <T>(context: React.Context<T | null>) => T;
+};
+export default Utils;

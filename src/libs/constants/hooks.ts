@@ -1,8 +1,9 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { useFocusEffect } from 'expo-router';
 
 
 
-export function useEffectWithoutFirstRender(effect: () => void, deps: any[]) {
+const useEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
     const isFirstRender = useRef(true)
 
     useEffect(() => {
@@ -16,7 +17,7 @@ export function useEffectWithoutFirstRender(effect: () => void, deps: any[]) {
 }
 
 
-export function useLayoutEffectWithoutFirstRender(effect: () => void, deps: any[]) {
+const useLayoutEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
     const isFirstRender = useRef(true)
 
     useLayoutEffect(() => {
@@ -30,10 +31,10 @@ export function useLayoutEffectWithoutFirstRender(effect: () => void, deps: any[
 }
 
 
-export function useAsyncEffect(
+const useAsyncEffect = (
     effect: (isMounted: () => boolean) => Promise<void>,
     deps: any[]
-){
+) => {
     useEffect(() => {
         let mounted = true
         const isMounted = () => mounted
@@ -43,3 +44,49 @@ export function useAsyncEffect(
         return () => { mounted = false }
     }, deps)
 }
+
+
+const useAsyncFocusEffect = (
+    effect: (isMounted: () => boolean) => Promise<void>
+) => {
+    useFocusEffect(
+        useCallback(() => {
+            let mounted = true
+            const isMounted = () => mounted
+
+            void effect(isMounted)
+
+            return () => { mounted = false }
+        }, [effect])
+    )   
+}
+
+
+const useAsyncFocusEffectWithoutFirstRender = (
+	effect: (isMounted: () => boolean) => Promise<void>
+) => {
+	const isFirstFocus = useRef(true)
+  
+	useFocusEffect(
+		useCallback(() => {
+			let mounted = true
+			const isMounted = () => mounted
+	
+			if (isFirstFocus.current) isFirstFocus.current = false
+			else void effect(isMounted)
+	
+			return () => { mounted = false }
+		}, [effect])
+	)
+}
+
+
+// ------------------- Export -------------------
+const Hooks = {
+	useEffectWithoutFirstRender,
+	useLayoutEffectWithoutFirstRender,
+	useAsyncEffect,
+	useAsyncFocusEffect,
+	useAsyncFocusEffectWithoutFirstRender,
+}
+export default Hooks

@@ -5,7 +5,7 @@ import { hsla, parseToHsla, parseToRgba } from 'color2k';
 
 
 
-export const addProps = (element: React.ReactElement | null, additionalStyles: StyleProp<any> = [], extraProps: Record<string, any> = {}): React.ReactElement | null => {
+const addProps = (element: React.ReactElement | null, additionalStyles: StyleProp<any> = [], extraProps: Record<string, any> = {}): React.ReactElement | null => {
     if (!React.isValidElement(element)) return null;
 
     return React.cloneElement<any>(element, {
@@ -18,14 +18,12 @@ export const addProps = (element: React.ReactElement | null, additionalStyles: S
 }
 
 
-const formatter = new Intl.NumberFormat('es-AR')
-export const numberFormat = (value: number): string => {
-	const abs = formatter.format(Math.abs(value))
-	return value < 0 ? `(${abs})` : abs
+const isValidMail = (mail: string): boolean => {
+    return mail.includes('@') && mail.endsWith('.com')
 }
 
 
-export function applyOpacity(color: string, opacity: number) {
+const applyOpacity = (color: string, opacity: number) => {
 	try {
 		const [r, g, b] = parseToRgba(color); // ignoro alpha original
 		return `rgba(${r}, ${g}, ${b}, ${opacity})`;
@@ -36,7 +34,7 @@ export function applyOpacity(color: string, opacity: number) {
 }
 
 
-export function adjustLightness(color: string, percentage: number) {
+const adjustLightness = (color: string, percentage: number) => {
 	try {
 		const [h, s, l, a] = parseToHsla(color);
 		// Ajustar luminosidad: percentage puede ser positivo (aclarar) o negativo (oscurecer)
@@ -50,7 +48,7 @@ export function adjustLightness(color: string, percentage: number) {
 }
 
 
-export const _getDeviceTier = () : 'low' | 'medium' | 'high' => {
+const _getDeviceTier = () : 'low' | 'medium' | 'high' => {
 	if (Platform.OS !== 'android') return 'high'
   
 	const ramGB = Device.totalMemory
@@ -63,20 +61,28 @@ export const _getDeviceTier = () : 'low' | 'medium' | 'high' => {
 }
 
 
-export const createCtx = <T>() => {
+const createCtx = <T>() => {
     const context = reactCreateContext<T | null>(null)
     const useCtx = () => createUseContext(context)
     return [context.Provider, useCtx] as const
 }
 
 
-export const createUseContext = <T>(context: React.Context<T | null>) => {
+const createUseContext = <T>(context: React.Context<T | null>) => {
     const ctx = useContext(context)
     if (!ctx) throw new Error('useContext debe usarse dentro de un context.Provider')
     return ctx as T
 }
 
 
-export const capitalize = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+// ------------------- Export -------------------
+const Utils = {
+	addProps,
+	isValidMail,
+	applyOpacity,
+	adjustLightness,
+	_getDeviceTier,
+	createCtx,
+	createUseContext,
 }
+export default Utils

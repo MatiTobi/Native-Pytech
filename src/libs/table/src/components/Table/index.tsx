@@ -5,9 +5,9 @@ import { Platform, StyleSheet } from 'react-native'
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 
 import colors from '../../constants'
-import { useEffectWithoutFirstRender } from 'libs/constants/hooks'
-import { useApp } from 'libs/providers/App'
-import { isLowTier } from 'libs/constants/consts'
+import Hooks from '@/libs/constants/hooks'
+import { useApp } from '@/libs/providers/App'
+import { isLowTier } from '@/libs/constants/consts'
 
 import { BordersProvider, StoreProvider, TableProvider } from '../../context/table'
 import OptionWrapper from '../OptionWrapper'
@@ -56,7 +56,7 @@ const Table = memo(({
 
 
     // ------------- useEffect -------------
-    useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys])
+    Hooks.useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys])
 
     const value = useMemo(() => ({colorThemeType, type, keys, allBorders}), [colorThemeType, type, keys, allBorders])
 

@@ -83,7 +83,7 @@ export default memo(({ title = 'Apple', subtitle, iconPage = <Screen.SvgLogoPyte
     const createAccountEnabled = useValue(() => store.createAccountEnabled.get());
     const _subtitle = subtitle || `Solo necesitas una cuenta de ${title} para acceder a todos los servicios de ${title}.\n¿Ya tienes una cuenta de ${title}?`;
     const onPress = async ({ name, lastName, email, password }) => {
-        const { data, error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.signUp({ email, password });
         console.log('data', data);
         console.log('error', error);
         return !error;

@@ -1,0 +1,86 @@
+import colors from '../../constants';
+import { useApp } from "@/libs/providers/App";
+import { memo, useCallback, useMemo, useState } from 'react';
+import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
+
+import Utils from '@/libs/constants/utils';
+import Text from './Text';
+import { Props } from './types';
+
+
+
+export default memo(({
+    text,
+    onPress,
+    onSubmit,
+    backgroundColorPage,
+    enabled=true,
+    themeColor='default'
+    
+}: Props) => {
+
+    const { colorScheme } = useApp()
+    const Theme = colors.theme[colorScheme]
+
+    const [isLoading, setIsLoading] = useState(false)
+
+    const backgroundColor = useCallback((pressed: boolean) => {
+        return enabled ? (
+            pressed ? 
+                themeColor === 'default' ?
+                    colors.especiales.azul_pressed :
+                    colorScheme === 'dark' ? Utils.adjustLightness(backgroundColorPage ?? 'white', 10) : backgroundColorPage ?? 'white'
+            : themeColor === 'default' ?
+                Utils.adjustLightness(colors.especiales.azul, -10) :
+                colorScheme === 'dark' ? backgroundColorPage : Utils.adjustLightness(backgroundColorPage ?? 'white', -1)
+        )
+        : Theme.colorButtonFooterDisabled
+    }, [enabled, themeColor, backgroundColorPage, colorScheme])
+
+    const _onPress = useCallback(async () => {
+        if (isLoading) return
+        if (onPress){
+            setIsLoading(true)
+            const result = await onPress()
+            setIsLoading(false)
+            if (!result) return
+        }
+        onSubmit?.()
+    }, [onPress, onSubmit])
+
+    const color = useMemo(() => themeColor === 'default' ? colors.especiales.celeste : Theme.text2, [themeColor])
+    
+    return (
+        <Pressable
+            disabled={!enabled}
+            onPress={_onPress}
+            style={({ pressed }) => [
+                styles.button,
+                {
+                    backgroundColor: backgroundColor(pressed),
+                    borderColor: backgroundColor(true)
+                }
+            ]}
+        >
+            {!isLoading ? (
+                <Text text={text} enabled={enabled} themeColor={themeColor} />
+            ) : (
+                <ActivityIndicator size='small' style={{margin: 'auto'}} color={color} />
+            )}
+        </Pressable>
+    )
+})
+
+
+const styles = StyleSheet.create({
+    button: {
+        borderRadius: 99,
+        paddingHorizontal: 20,
+        paddingVertical: 15.5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        borderWidth: 1,
+        boxShadow: '0 0 40px 0 rgba(0, 0, 0, 0.1)',
+    }
+})
