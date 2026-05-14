@@ -1,4 +1,5 @@
 import { ViewModifier } from "@expo/ui/swift-ui/modifiers";
+import { SectionProps } from "@expo/ui/swift-ui";
 type Props<T> = {
     /**
         The data items to be rendered inside the list.
@@ -33,5 +34,9 @@ type Props<T> = {
         item: T;
         tagModifier: ViewModifier;
     }) => React.ReactNode;
+    /**
+        The props to apply to the Section.
+    */
+    sectionProps?: Omit<SectionProps, 'children'>;
 };
 export default Props;

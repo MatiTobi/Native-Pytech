@@ -23,4 +23,4 @@ export type UpdateUserParams = {
     attributes: AdminUserAttributes
 }
 
-export type SignUpParams = SignUpWithPasswordCredentials
+export type NewUserParams = AdminUserAttributes

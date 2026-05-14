@@ -3,7 +3,7 @@ import { moveDisabled, tag, deleteDisabled } from "@expo/ui/swift-ui/modifiers";
 import React, { memo, useCallback, useState } from "react";
 import Hooks from '../../../../../../../libs/constants/hooks';
 import { useListEditable } from "../../../../context/ListEditable";
-function Component({ data = [], keyExtractor, onDelete, onMove, renderItem }) {
+function Component({ data = [], keyExtractor, onDelete, onMove, renderItem, sectionProps, }) {
     // ---------------------- Variables ----------------------
     const { enableMove, enableDelete } = useListEditable();
     const [_data, setData] = useState(data ?? []);
@@ -24,7 +24,7 @@ function Component({ data = [], keyExtractor, onDelete, onMove, renderItem }) {
         });
         onMove?.({ listIndexes: sourceIndices, destinationIndex: adjustedDest });
     }, [onMove]);
-    return (<Section>
+    return (<Section {...sectionProps}>
             <List.ForEach onDelete={handleDelete} onMove={handleMove} modifiers={[moveDisabled(!enableMove), deleteDisabled(!enableDelete)]}>
                 {_data.map((item, index) => {
             const key = keyExtractor?.(item) ?? index;
