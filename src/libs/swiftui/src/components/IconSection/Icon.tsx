@@ -1,5 +1,5 @@
 import { Button, RNHostView, VStack, ButtonProps } from '@expo/ui/swift-ui';
-import { frame, font, buttonStyle } from '@expo/ui/swift-ui/modifiers';
+import { frame, font, buttonStyle, foregroundStyle, background, clipShape } from '@expo/ui/swift-ui/modifiers';
 import React, { memo, useMemo } from 'react';
 
 import Gradient, { Props as GradientProps } from '@/libs/components/Gradient';
@@ -44,9 +44,7 @@ export default memo(({
     return (
         <Section spacing={spacing}>
             {gradientProps && (
-                <RNHostView matchContents >
-                    <Gradient {...gradientProps} />
-                </RNHostView>
+                <Gradient {...gradientProps}/>
             )}
 
             {(title || subtitle) && (
