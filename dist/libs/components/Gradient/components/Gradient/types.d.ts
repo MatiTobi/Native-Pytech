@@ -1,4 +1,4 @@
-import { sizesType, Colors } from '../../constants';
+import { sizesType, ColorsType } from '../../constants';
 import IconProps from '../Icon/types';
 export type Props = Omit<IconProps, 'size'> & {
     /**
@@ -10,7 +10,7 @@ export type Props = Omit<IconProps, 'size'> & {
         The color of the gradient.
         @default 'default'
     */
-    color?: Colors;
+    color?: ColorsType;
     /**
         The size of the gradient.
         @default 'small'
