@@ -29,10 +29,10 @@ export default memo(({
     const modifiersText = useMemo(() => [
         frame({ width: width - 110 }),
         font({ weight: 'semibold' }),
-        foregroundStyle(colors.especiales.celeste)
+        foregroundStyle('#85fffd') // colors.especiales.celeste
     ], [width])
 
-    
+
     return (
         <Button
             onPress={onSubmit}

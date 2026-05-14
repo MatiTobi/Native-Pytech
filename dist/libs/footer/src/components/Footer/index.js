@@ -4,8 +4,8 @@ import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { memo } from 'react';
-import Background from './Background';
-import ButtonView from './View';
+import Background from '../Background';
+import ButtonView from '../View';
 export default memo(({ children, backgroundColorPage }) => {
     const insets = useSafeAreaInsets();
     return (<View style={styles.footer}>
