@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import TextInputOption from './textInput';
-import Formats from '@/libs/constants/formats';
+import Formats from '../../../../../libs/constants/formats';
 /**
     Se utiliza específicamente para formatear el valor del input a pesos.
     Utiliza el componente de TextInputOption.

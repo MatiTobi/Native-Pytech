@@ -1,4 +1,4 @@
-import type { ColorsType } from '@/libs/components/Gradient';
+import type { ColorsType } from '../../../../libs/components/Gradient';
 import PropsPage from '../Page/types';
 type Props = PropsPage & {
     /**

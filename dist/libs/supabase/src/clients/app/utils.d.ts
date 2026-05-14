@@ -8,4 +8,4 @@ export declare const logOut: () => Promise<{
 }>;
 export declare const getUser: () => Promise<import("@supabase/auth-js").User>;
 export declare const execFunction: (params: utils.types.ExecFunctionParams) => Promise<any>;
-export declare const signUp: (params: utils.types.SignUpParams) => Promise<any>;
+export declare const signUp: (params: utils.types.SignUpParams) => Promise<import("@supabase/auth-js").AuthResponse>;

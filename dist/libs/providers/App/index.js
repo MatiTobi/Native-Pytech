@@ -3,12 +3,12 @@ import { Stack, useRouter } from "expo-router";
 import { useColorScheme, useWindowDimensions, View, StyleSheet } from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import handleFontObserver from '@/libs/constants/handleFontObserver';
+import handleFontObserver from '../../../libs/constants/handleFontObserver';
 handleFontObserver(); // esto intercepta todos los timeouts de fuentes
-import Utils from "@/libs/constants/utils";
+import Utils from "../../../libs/constants/utils";
 import LoginSvg from '../../assets/images/login_letras.svg';
 import LoginSvgDark from '../../assets/images/login_letras_dark.svg';
-import Hooks from '@/libs/constants/hooks';
+import Hooks from '../../../libs/constants/hooks';
 import colors from "../constants";
 const [Provider, useApp] = Utils.createCtx();
 export { useApp };

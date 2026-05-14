@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import Utils from "@/libs/constants/utils";
+import Utils from "../../../../libs/constants/utils";
 const [Provider, useBorder] = Utils.createCtx();
 export { useBorder };
 export default ({ children }) => {
