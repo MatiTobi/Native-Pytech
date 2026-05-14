@@ -34,7 +34,7 @@ export default memo(({
     const modifiers = useMemo(() => [
         frame({ width: typeSizes.diameter, height: typeSizes.diameter }),
         foregroundStyle('white'),
-        background(colors[color].dark),
+        background(colors[color].middle),
         clipShape('circle'),
     ], [typeSizes, color])
 

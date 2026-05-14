@@ -21,7 +21,7 @@ export default memo(({ text, color = 'default', type = 'small', sizeDiameter, sy
         foregroundStyle('white'),
         background(colors[color].dark),
         clipShape('circle'),
-    ], [typeSizes]);
+    ], [typeSizes, color]);
     // Return
     if (text && cantLetras <= 3) {
         return (<Text modifiers={[
