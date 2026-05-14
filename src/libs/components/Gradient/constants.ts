@@ -1,5 +1,4 @@
 
-
 export const colors = {
 	default: {
 		dark: '#7580ba',

@@ -1,7 +1,7 @@
 export const colors = {
     default: {
         dark: '#7580ba',
-        middle: '#93a3cf',
+        middle: '#7580ba',
         light: '#b1c6e4'
     },
     rojo: {

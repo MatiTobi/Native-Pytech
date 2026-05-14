@@ -19,7 +19,7 @@ export default memo(({ text, color = 'default', type = 'small', sizeDiameter, sy
     const modifiers = useMemo(() => [
         frame({ width: typeSizes.diameter, height: typeSizes.diameter }),
         foregroundStyle('white'),
-        background(colors[color].dark),
+        background(colors[color].middle),
         clipShape('circle'),
     ], [typeSizes, color]);
     // Return
