@@ -18,7 +18,6 @@ export default memo(({ text, color = 'default', type = 'small', sizeDiameter, sy
     const cantLetras = text?.length ?? 0;
     const modifiers = useMemo(() => [
         frame({ width: typeSizes.diameter, height: typeSizes.diameter }),
-        font({ weight: 'semibold', size: typeSizes.fontSize[cantLetras] }),
         foregroundStyle('white'),
         background(colors[color].dark),
         clipShape('circle'),

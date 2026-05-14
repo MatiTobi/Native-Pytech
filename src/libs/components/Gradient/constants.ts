@@ -82,6 +82,7 @@ export const colors = {
 		light: '#bbce82'
 	}
 }
+export type Colors = keyof typeof colors
 
 
 const diameterCircle = {
