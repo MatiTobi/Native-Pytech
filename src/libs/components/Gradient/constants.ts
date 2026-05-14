@@ -82,7 +82,7 @@ export const colors = {
 		light: '#bbce82'
 	}
 }
-export type Colors = keyof typeof colors
+export type ColorsType = keyof typeof colors
 
 
 const diameterCircle = {
