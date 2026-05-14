@@ -1,5 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js';
-import type { CreateClientParams, SignUpParams, ExecFunctionParams, LogInParams, UpdateUserParams } from './types';
+import type { CreateClientParams, ExecFunctionParams, LogInParams, UpdateUserParams, NewUserParams } from './types';
 export * as types from './types';
 export declare const logIn: (supabase: SupabaseClient, params: LogInParams) => Promise<import("@supabase/auth-js").AuthTokenResponsePassword>;
 export declare const logOut: (supabase: SupabaseClient) => Promise<{
@@ -15,4 +15,4 @@ export declare const updateUser: (supabase: SupabaseClient, { uid, attributes }:
 export declare const deleteUser: (supabase: SupabaseClient, { uid }: {
     uid: string;
 }) => Promise<import("@supabase/auth-js").UserResponse>;
-export declare const signUp: (supabase: SupabaseClient, credentials: SignUpParams) => Promise<import("@supabase/auth-js").AuthResponse>;
+export declare const newUser: (supabase: SupabaseClient, attributes: NewUserParams) => Promise<import("@supabase/auth-js").UserResponse>;

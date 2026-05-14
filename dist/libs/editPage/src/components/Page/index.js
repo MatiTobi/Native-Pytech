@@ -2,7 +2,7 @@ import { Host, List, Section } from '@expo/ui/swift-ui';
 import { useObservable, useValue } from '@legendapp/state/react';
 import { Stack, useRouter } from 'expo-router';
 import React, { memo, useCallback, useMemo, useRef } from 'react';
-import Hooks from '../../../../../libs/constants/hooks';
+import Hooks from '@/libs/constants/hooks';
 import { Provider } from '../../context/page';
 import { Provider as ItemProvider } from '../../context/item';
 function Component({ data = [], renderItem, onSave, }) {

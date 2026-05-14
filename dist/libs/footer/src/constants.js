@@ -1,4 +1,4 @@
-import colorsLib from "../../../libs/constants/colors";
+import colorsLib from "@/libs/constants/colors";
 const colors = {
     theme: {
         light: {
