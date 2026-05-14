@@ -80,6 +80,7 @@ export declare const colors: {
         light: string;
     };
 };
+export type Colors = keyof typeof colors;
 declare const diameterCircle: {
     small: number;
     medium: number;
