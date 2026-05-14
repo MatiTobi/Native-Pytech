@@ -1,4 +1,4 @@
-import { Button, RNHostView, VStack } from '@expo/ui/swift-ui';
+import { Button, VStack } from '@expo/ui/swift-ui';
 import { frame, font, buttonStyle } from '@expo/ui/swift-ui/modifiers';
 import React, { memo } from 'react';
 import Gradient from '../../../../../libs/components/Gradient';
@@ -7,9 +7,7 @@ import Section from './Section';
 export default memo(({ title, subtitle, gradientProps, buttonProps, }) => {
     const spacing = gradientProps?.type === 'extraLarge' ? 10 : 20;
     return (<Section spacing={spacing}>
-            {gradientProps && (<RNHostView matchContents>
-                    <Gradient {...gradientProps}/>
-                </RNHostView>)}
+            {gradientProps && (<Gradient {...gradientProps}/>)}
 
             {(title || subtitle) && (subtitle ? (<VStack modifiers={[frame({ alignment: 'center' })]} spacing={2}>
                         <Title title={title}/>

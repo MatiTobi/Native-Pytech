@@ -47,6 +47,7 @@ export default memo(({
             systemName={systemName}
             color='white'
             size={iconSize ?? typeSizes.diameter/2}
+            modifiers={modifiers}
         />
     )
 })
