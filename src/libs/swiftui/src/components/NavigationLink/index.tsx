@@ -16,6 +16,7 @@ export default memo(({
     maintainButtonStyle = false,
     textTrailing,
     textTrailingProps,
+    hStackProps,
     ...buttonProps
 
 }: Props) => {
@@ -33,7 +34,7 @@ export default memo(({
     const buttonLabel = !renderLabel ? label : undefined
 
 	return (
-        <HStack>
+        <HStack {...hStackProps}>
             <Button
                 modifiers={_modifiers}
                 systemImage={buttonSystemImage}
