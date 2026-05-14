@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Overlay } from '@expo/ui/swift-ui';
+import { Overlay, VStack } from '@expo/ui/swift-ui';
 
 
 
@@ -15,7 +15,9 @@ export default memo(({
 }: Props) => {
     return (
         <Overlay.Content>
-            {children}
+            <VStack spacing={10}>
+                {children}
+            </VStack>
         </Overlay.Content>
     )
 })

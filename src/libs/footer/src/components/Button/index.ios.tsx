@@ -29,8 +29,8 @@ export default memo(({
     const modifiersText = useMemo(() => [
         frame({ width: width - 110 }),
         font({ weight: 'semibold' }),
-        foregroundStyle('#85fffd') // colors.especiales.celeste
-    ], [width])
+        ...(enabled ? [foregroundStyle('#85fffd')] : []), // colors.especiales.celeste
+    ], [width, enabled])
 
 
     return (
