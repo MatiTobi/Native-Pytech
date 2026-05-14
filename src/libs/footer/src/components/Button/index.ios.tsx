@@ -1,6 +1,6 @@
 import { Button, Text } from '@expo/ui/swift-ui';
 import { frame, font, foregroundStyle, buttonStyle, controlSize, disabled } from '@expo/ui/swift-ui/modifiers';
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
 
 import { Props } from './types';
@@ -31,10 +31,18 @@ export default memo(({
         ...(enabled ? [foregroundStyle('#85fffd')] : []), // colors.especiales.celeste
     ], [width, enabled])
 
+    const _onPress = useCallback(async () => {
+        if (onPress){
+            const result = await onPress()
+            if (!result) return
+        }
+        onSubmit?.()
+    }, [onPress, onSubmit])
 
+    
     return (
         <Button
-            onPress={onSubmit}
+            onPress={_onPress}
             modifiers={modifiers}
         >
             <Text modifiers={modifiersText}>

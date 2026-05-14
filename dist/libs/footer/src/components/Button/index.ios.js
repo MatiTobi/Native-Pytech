@@ -16,7 +16,7 @@ export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = t
     ], [width, enabled]);
     return (<Button onPress={onSubmit} modifiers={modifiers}>
             <Text modifiers={modifiersText}>
-                Siguiente
+                {text}
             </Text>
         </Button>);
 });
