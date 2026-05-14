@@ -12,8 +12,8 @@ export default memo(({ text, onPress, onSubmit, backgroundColorPage, enabled = t
     const modifiersText = useMemo(() => [
         frame({ width: width - 110 }),
         font({ weight: 'semibold' }),
-        foregroundStyle('#85fffd') // colors.especiales.celeste
-    ], [width]);
+        ...(enabled ? [foregroundStyle('#85fffd')] : []), // colors.especiales.celeste
+    ], [width, enabled]);
     return (<Button onPress={onSubmit} modifiers={modifiers}>
             <Text modifiers={modifiersText}>
                 Siguiente

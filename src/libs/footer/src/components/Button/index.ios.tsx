@@ -3,7 +3,6 @@ import { frame, font, foregroundStyle, buttonStyle, controlSize, disabled } from
 import React, { memo, useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
 
-import colors from '../../constants';
 import { Props } from './types';
 
 
@@ -39,7 +38,7 @@ export default memo(({
             modifiers={modifiers}
         >
             <Text modifiers={modifiersText}>
-                Siguiente
+                {text}
             </Text>
         </Button>
     )
