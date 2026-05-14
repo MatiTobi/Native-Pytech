@@ -21,5 +21,5 @@ export default memo(({ text, color, type = 'small', systemName, iconSize, }) => 
                 {text}
             </Text>);
     }
-    return (<Image systemName={systemName} color='white' size={iconSize ?? typeSizes.diameter / 2}/>);
+    return (<Image systemName={systemName} color='white' size={iconSize ?? typeSizes.diameter / 2} modifiers={modifiers}/>);
 });

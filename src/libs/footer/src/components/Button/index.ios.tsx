@@ -1,12 +1,11 @@
-import colors from '../../constants';
-import { GlassView } from 'expo-glass-effect';
-import { useApp } from "@/libs/providers/App";
-import { memo, useCallback, useMemo, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
+import { Button, Text } from '@expo/ui/swift-ui';
+import { frame, font, foregroundStyle, buttonStyle, controlSize, disabled } from '@expo/ui/swift-ui/modifiers';
+import React, { memo, useMemo } from 'react';
+import { useWindowDimensions } from 'react-native';
 
-import Utils from '@/libs/constants/utils';
-import Text from './Text';
+import colors from '../../constants';
 import { Props } from './types';
+
 
 
 export default memo(({
@@ -19,63 +18,29 @@ export default memo(({
     
 }: Props) => {
 
-    const { colorScheme } = useApp()
-    const Theme = colors.theme[colorScheme]
+    const { width } = useWindowDimensions();
 
-    const [isLoading, setIsLoading] = useState(false)
+    const modifiers = useMemo(() => [
+        disabled(!enabled),
+        buttonStyle('glassProminent'),
+        controlSize('large')
+    ], [enabled])
 
-    const _onPress = useCallback(async () => {
-        if (isLoading) return
-        if (onPress){
-            setIsLoading(true)
-            const result = await onPress()
-            setIsLoading(false)
-            if (!result) return
-        }
-        onSubmit?.()
-    }, [onPress, onSubmit])
+    const modifiersText = useMemo(() => [
+        frame({ width: width - 110 }),
+        font({ weight: 'semibold' }),
+        foregroundStyle(colors.especiales.celeste)
+    ], [width])
 
-    const backgroundColor = useCallback((pressed: boolean) => {
-        return enabled ? 
-            (themeColor === 'default' ? Utils.adjustLightness(colors.especiales.azul, -10) : undefined)
-        : Theme.colorButtonFooterDisabled
-    }, [enabled, themeColor])
-
-    const color = useMemo(() => themeColor === 'default' ? colors.especiales.celeste : Theme.text2, [themeColor])
-
+    
     return (
-        <Pressable disabled={!enabled} onPress={_onPress} style={{width: '100%'}}>
-            <GlassView
-                glassEffectStyle={themeColor === 'default' ? "clear" : "regular"}
-                isInteractive={enabled}
-                style={[
-                    styles.button,
-                    {backgroundColor: backgroundColor(true)}
-                ]}
-            >
-                {!isLoading ? (
-                    <Text text={text} enabled={enabled} themeColor={themeColor} />
-                ) : (
-                    <ActivityIndicator size='small' style={{margin: 'auto'}} color={color} />
-                )}
-            </GlassView>
-        </Pressable>
+        <Button
+            onPress={onSubmit}
+            modifiers={modifiers}
+        >
+            <Text modifiers={modifiersText}>
+                Siguiente
+            </Text>
+        </Button>
     )
 })
-
-
-const styles = StyleSheet.create({
-    button: {
-        borderRadius: 99,
-        paddingHorizontal: 20,
-        paddingVertical: 15.5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-    },
-    text: {
-        fontSize: 17,
-        fontWeight: '600',
-    }
-})
-
