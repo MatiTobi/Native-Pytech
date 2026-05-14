@@ -3,7 +3,7 @@ import { StyleSheet, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import colors, { sizes } from '../../constants';
 import Icon from '../Icon';
-export default memo(({ text, color, type = 'small', systemName, iconSize, }) => {
+export default memo(({ text, color = 'default', type = 'small', sizeDiameter, systemName, iconSize, }) => {
     const typeSizes = useMemo(() => sizes[type], [type]);
     const textComponent = useMemo(() => {
         const cantLetras = text?.length;
