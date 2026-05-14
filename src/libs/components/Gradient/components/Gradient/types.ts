@@ -10,13 +10,18 @@ export type Props = Omit<IconProps, 'size'> & {
     text?: string
     /**
         The color of the gradient.
+        @default 'default'
     */
-    color: keyof typeof colors
+    color?: keyof typeof colors
     /**
         The size of the gradient.
         @default 'small'
     */
-    type: sizesType
+    type?: sizesType
+    /**
+        The size of the gradient. If "type" is provided, this will be ignored.
+    */
+    sizeDiameter?: number
     /**
         The size of the icon.
         @ios

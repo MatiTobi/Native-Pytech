@@ -9,14 +9,26 @@ import type Props from './types'
 
 export default memo(({
     text,
-    color,
-    type = 'small',
+    color='default',
+    type='small',
+    sizeDiameter,
     systemName,
     iconSize,
 
 } : Props) => {
 
-    const typeSizes = useMemo(() => sizes[type], [type])
+    const typeSizes = useMemo(() => {
+        if (!sizeDiameter) return sizes[type]
+        return {
+            diameter: sizeDiameter,
+            fontSize: {
+                1: sizeDiameter * 0.53,
+                2: sizeDiameter * 0.48,
+                3: sizeDiameter * 0.43
+            }
+        }
+    }, [type])
+
     const cantLetras = text?.length ?? 0
     
     const modifiers = useMemo(() => [

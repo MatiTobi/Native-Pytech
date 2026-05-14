@@ -10,8 +10,9 @@ import Icon from '../Icon'
 
 export default memo(({
     text,
-    color,
-    type = 'small',
+    color='default',
+    type='small',
+    sizeDiameter,
     systemName,
     iconSize,
 
