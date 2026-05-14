@@ -36,7 +36,7 @@ export default memo(({
         foregroundStyle('white'),
         background(colors[color].dark),
         clipShape('circle'),
-    ], [typeSizes])
+    ], [typeSizes, color])
 
 
     // Return
