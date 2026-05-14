@@ -32,7 +32,7 @@ export const handleSubmitLogInPerfil = async ({mail, password}: {mail: string, p
     password = password.trim()
 
     const {data, error} = await supabase.logIn({email: mail, password})
-    if (error) {
+    if (error){
         if(error.message === 'Invalid login credentials'){
             return {succeded: false, message: 'La contraseña que ingresaste es incorrecta, vuelve a intentarlo.'}
         }
