@@ -13,7 +13,8 @@ function Component<T>({
     keyExtractor,
     onDelete,
     onMove,
-    renderItem
+    renderItem,
+    sectionProps,
 
 }: Props<T>){
 
@@ -44,7 +45,7 @@ function Component<T>({
 
 
     return (
-        <Section>
+        <Section {...sectionProps}>
             <List.ForEach
                 onDelete={handleDelete}
                 onMove={handleMove}
