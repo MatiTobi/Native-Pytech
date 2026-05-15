@@ -20,9 +20,9 @@ export default memo(({
 		Array.from({ length: Math.ceil(listColors.length / 4) }, (_, i) => listColors.slice(i * 4, i * 4 + 4))
 	, [listColors])
 
-	const _onSelectColor = useCallback((color: ColorsType) => {
+	const _onSelectColor = useCallback(async (color: ColorsType) => {
+		await onSelectColor?.(color)
 		router.back()
-		onSelectColor?.(color)
 	}, [onSelectColor])
 
 
