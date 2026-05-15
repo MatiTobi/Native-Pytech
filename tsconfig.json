@@ -9,6 +9,7 @@
 		"target": "esnext",
 		"skipLibCheck": true,
 		"baseUrl": ".",
+		"rootDir": ".",
 		"paths": {
 			"@/*": [
 				"./src/*"

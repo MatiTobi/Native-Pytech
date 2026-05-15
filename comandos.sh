@@ -7,4 +7,5 @@ git add .
 git commit -m "."
 git push
 
-npm install github:MatiTobi/Native-Pytech
+# dev reload-native-pytech
+npx expo install native-pytech@latest      
