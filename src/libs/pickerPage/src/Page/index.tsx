@@ -16,8 +16,8 @@ export default memo(({
 
     const router = useRouter()
 
-    const _onSelectionChange = (selection: string) => {
-        onSelectionChange?.(selection)
+    const _onSelectionChange = async (selection: string) => {
+        await onSelectionChange?.(selection)
         router.back()
     }
 

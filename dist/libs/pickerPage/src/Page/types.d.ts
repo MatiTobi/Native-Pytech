@@ -6,7 +6,7 @@ type Props = {
     /**
         Selected value.
     */
-    selectedValue?: string;
+    selected?: string;
     /**
         Function to be called when the user changes the search text.
     */
