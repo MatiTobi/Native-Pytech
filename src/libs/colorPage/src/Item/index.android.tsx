@@ -17,9 +17,9 @@ export default memo(({
 
 	const modifiers = useMemo(() => [
 		sizeModifier(size, size),
-		clip({ type: 'circle' }),
+		border(2, colors[color].light),
 		background(colors[color].middle),
-		border(1, colors[color].light),
+		clip({ type: 'circle' }),
 		clickable(() => onSelectColor?.(color))
     ], [])
 

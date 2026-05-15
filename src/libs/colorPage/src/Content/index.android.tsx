@@ -15,7 +15,7 @@ export default memo(({
 		<Host style={{ flex: 1 }}>
 			<Column verticalArrangement={{ spacedBy: 16 }}>
 				{colorRows.map((row, index) => (
-					<Row key={index} verticalArrangement="spaceBetween" >
+					<Row key={index} verticalArrangement="spaceEvenly" >
 						{row.map((color, indexColor) => (
 							<Item color={color} size={55} {...pageProps}/>
 						))}
