@@ -8,4 +8,5 @@ git commit -m "."
 git push
 
 # dev reload-native-pytech
-npx expo install native-pytech@latest      
+npx expo install native-pytech@latest
+
