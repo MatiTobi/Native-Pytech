@@ -9,7 +9,7 @@ import type Props from './types';
 
 export default memo(({
 	children,
-    selectedValue,
+    selected,
     onSelectionChange,
     adjustRowInsets
 
@@ -25,7 +25,7 @@ export default memo(({
 			<List modifiers={[listStyle('inset')]} disablePaddingTop>
 				<Section>
 					<Picker
-						selection={selectedValue}
+						selection={selected}
 						onSelectionChange={onSelectionChange}
 						modifiers={_modifiersPicker}
 					>
