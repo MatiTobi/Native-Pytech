@@ -3,8 +3,8 @@ import React, { memo } from "react";
 import Content from '../Content';
 export default memo(({ children, onChangeSearchText, onSelectionChange, ...props }) => {
     const router = useRouter();
-    const _onSelectionChange = (selection) => {
-        onSelectionChange?.(selection);
+    const _onSelectionChange = async (selection) => {
+        await onSelectionChange?.(selection);
         router.back();
     };
     return (<>
