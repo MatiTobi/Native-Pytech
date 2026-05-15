@@ -7,3 +7,4 @@ export const logOut = async () => await utils.logOut(supabase);
 export const getUser = async () => await utils.getUser(supabase);
 export const execFunction = async (params) => (await utils.execFunction(supabase, params));
 export const signUp = async (params) => (await utils.signUp(supabase, params));
+export const updateMyUser = async (params) => (await utils.updateMyUser(supabase, params));

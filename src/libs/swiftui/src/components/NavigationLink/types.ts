@@ -1,4 +1,4 @@
-import { ButtonProps, TextProps } from "@expo/ui/swift-ui"
+import { ButtonProps, HStackProps, TextProps } from "@expo/ui/swift-ui"
 
 
 
@@ -28,6 +28,10 @@ type Props = ButtonProps & {
         @default false
     */
     maintainButtonStyle?: boolean
+    /**
+        HStackProps to apply to the HStack.
+    */
+    hStackProps?: Omit<HStackProps, 'children'>
 }
 
 export default Props;

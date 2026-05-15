@@ -5,8 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { memo } from 'react'
 
-import Background from './Background'
-import ButtonView from './View'
+import Background from '../Background'
+import ButtonView from '../View'
 
 
 

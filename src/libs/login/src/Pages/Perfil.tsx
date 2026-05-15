@@ -9,7 +9,7 @@ import { handleSubmitLogInPerfil, type LoginData } from './utils'
 
 export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, onSuccess?: () => Promise<void> }) => {
     
-    const { mail, first_name, gradient_text, color } = useLocalSearchParams<LoginData>()
+    const { mail, first_name, abbreviation, color } = useLocalSearchParams<LoginData>()
     const router = useRouter()
 
     const handleSubmit = async ({value}: {value: string}) => {
@@ -23,7 +23,7 @@ export default memo(({ routeOnSuccess, onSuccess }: { routeOnSuccess?: string, o
 
     return (
         <Screen
-            iconPage={<Screen.Gradient text={`${gradient_text}`} color={color} />}
+            iconPage={<Screen.Gradient text={`${abbreviation}`} color={color} />}
             title={`¡Hola${first_name ? ` ${first_name}` : ''}!`}
             bottomElements={
                 <Screen.Input

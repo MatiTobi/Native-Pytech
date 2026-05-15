@@ -31,3 +31,8 @@ export const execFunction = async (params: utils.types.ExecFunctionParams) => (
 export const signUp = async (params: utils.types.SignUpParams) => (
     await utils.signUp(supabase, params)
 )
+
+
+export const updateMyUser = async (params: utils.types.UpdateMyUserParams) => (
+    await utils.updateMyUser(supabase, params)
+)

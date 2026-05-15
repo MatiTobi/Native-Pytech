@@ -15,7 +15,9 @@ export const execFunction = async (supabase, { schema = 'app', name, args }) => 
     }
     return data;
 };
+export const updateMyUser = async (supabase, attributes) => (await supabase.auth.updateUser(attributes));
 export const getUserById = async (supabase, { uid }) => (await supabase.auth.admin.getUserById(uid));
 export const updateUser = async (supabase, { uid, attributes }) => (await supabase.auth.admin.updateUserById(uid, attributes));
 export const deleteUser = async (supabase, { uid }) => (await supabase.auth.admin.deleteUser(uid));
 export const signUp = async (supabase, credentials) => (await supabase.auth.signUp(credentials));
+export const newUser = async (supabase, attributes) => (await supabase.auth.admin.createUser(attributes));
