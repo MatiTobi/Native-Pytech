@@ -1,5 +1,4 @@
 import type { ColorsType } from '@/libs/components/Gradient'
-import type itemProps from '../Item/types'
 
 export type BaseProps = {
     /**
@@ -14,12 +13,25 @@ export type BaseProps = {
     onSelectColor?: (color: ColorsType) => void
 }
 
+export type renderGradientProps = {
+    /**
+        Color to display.
+    */
+    color: ColorsType
+
+    /**
+        Size of the item.
+    */
+    size: number
+}
+
+
 type Props = BaseProps & {
 
     /**
         Function to render the item.
     */
-    renderItem?: (props: itemProps) => React.ReactNode
+    renderGradient?: (props: renderGradientProps) => React.ReactNode
 }
 
 export default Props
