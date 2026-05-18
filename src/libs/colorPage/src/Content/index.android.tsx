@@ -1,5 +1,5 @@
 import { Host, Column, Row } from '@expo/ui/jetpack-compose';
-import React, { memo } from 'react';
+import React, { Fragment, memo } from 'react';
 import type Props from './types';
 
 
@@ -15,9 +15,11 @@ export default memo(({
 			<Column verticalArrangement={{ spacedBy: 16 }}>
 				{colorRows.map((row, index) => (
 					<Row key={index} verticalArrangement="spaceEvenly" >
-						{row.map((color, indexColor) => (
-							renderItem?.({ color, size: 55, ...pageProps })
-						))}
+						{row.map((color, indexColor) => renderItem == null ? null : (
+							<Fragment key={indexColor}>
+								{React.createElement(renderItem, { color, size: 55, ...pageProps })}
+							</Fragment>))
+						}
 					</Row>
 				))}
 			</Column>
