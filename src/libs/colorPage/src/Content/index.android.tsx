@@ -1,13 +1,12 @@
 import { Host, Column, Row } from '@expo/ui/jetpack-compose';
 import React, { memo } from 'react';
-
-import Item from '../Item';
 import type Props from './types';
 
 
 
 export default memo(({
 	colorRows,
+	renderItem,
 	...pageProps
 
 }: Props) => {
@@ -17,7 +16,7 @@ export default memo(({
 				{colorRows.map((row, index) => (
 					<Row key={index} verticalArrangement="spaceEvenly" >
 						{row.map((color, indexColor) => (
-							<Item color={color} size={55} {...pageProps}/>
+							renderItem?.({ color, size: 55, ...pageProps })
 						))}
 					</Row>
 				))}
