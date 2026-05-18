@@ -1,17 +1,20 @@
 import type { ColorsType } from '@/libs/components/Gradient'
 import type itemProps from '../Item/types'
 
-type Props = {
+export type BaseProps = {
     /**
         Title of the date picker.
         @default 'default'
     */
-    selectedColor?: ColorsType
+        selectedColor?: ColorsType
     
     /**
-		Function to be called when the user selects a color.
-	*/
-	onSelectColor?: (color: ColorsType) => void
+        Function to be called when the user selects a color.
+    */
+    onSelectColor?: (color: ColorsType) => void
+}
+
+type Props = BaseProps & {
 
     /**
         Function to render the item.
