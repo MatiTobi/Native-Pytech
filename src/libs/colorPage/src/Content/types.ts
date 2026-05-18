@@ -1,5 +1,5 @@
 import type { ColorsType } from '@/libs/components/Gradient'
-import PropsPage, { renderGradientProps } from '../Page/types'
+import PropsPage from '../Page/types'
 
 
 type Props = PropsPage & {
@@ -9,9 +9,6 @@ type Props = PropsPage & {
     */
     colorRows: ColorsType[][]
 }
-
-export type DecoratorProps = renderGradientProps & PropsPage
-
 
 export default Props
 
