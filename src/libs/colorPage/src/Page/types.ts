@@ -6,7 +6,7 @@ export type BaseProps = {
         Title of the date picker.
         @default 'default'
     */
-        selectedColor?: ColorsType
+    selectedColor?: ColorsType
     
     /**
         Function to be called when the user selects a color.

@@ -1,6 +1,6 @@
 import type { ColorsType } from '../../../../libs/components/Gradient';
-import PropsPage from '../Page/types';
-type Props = PropsPage & {
+import { BaseProps } from '../Page/types';
+type Props = BaseProps & {
     /**
         Color to display.
     */
