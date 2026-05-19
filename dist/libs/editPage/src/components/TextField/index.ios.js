@@ -9,7 +9,6 @@ export default memo(({ itemKey, defaultValue, placeholder, keyboardType, autocap
     const ref = useRef(null);
     // Key
     const keyRef = useRef(itemKey);
-    console.log('keyRef', keyRef.current);
     useEffect(() => {
         keyRef.current = registerItem(itemKey, ref);
     }, []);
