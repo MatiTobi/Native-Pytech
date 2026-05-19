@@ -16,6 +16,16 @@ type Props = {
     */
     onSelectionChange?: (selection: string) => void | Promise<void>;
     /**
+        Placeholder for the search bar.
+        @default 'Buscar'
+    */
+    placeholderSearchBar?: string;
+    /**
+        Function to be called when the user press the cancel button on the header.
+        @default () => router.back()
+    */
+    onPressHeaderCancel?: () => void;
+    /**
         Adjusts the row insets on ios.
         Is is useful when uses items with gradients.
         @platform ios
