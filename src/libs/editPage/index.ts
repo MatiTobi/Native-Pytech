@@ -1,15 +1,15 @@
-import Page from './src/components/Page';
+import Wrapper from './src/components/Wrapper';
 import Item from './src/components/Item';
 import ItemDate from './src/components/ItemDate';
 
 
-type EditPageComponent = typeof Page & {
+type Component = typeof Wrapper & {
     Item: typeof Item
     ItemDate: typeof ItemDate
 }
 
-const EditPage = Page as EditPageComponent
-EditPage.Item = Item
-EditPage.ItemDate = ItemDate
+const Screen = Wrapper as Component
+Screen.Item = Item
+Screen.ItemDate = ItemDate
 
-export default EditPage
+export default Screen

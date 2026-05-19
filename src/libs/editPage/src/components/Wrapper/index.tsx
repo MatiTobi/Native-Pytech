@@ -1,4 +1,3 @@
-import { Host, List, Section } from '@expo/ui/swift-ui';
 import { useObservable, useValue } from '@legendapp/state/react'
 import { Stack, useRouter } from 'expo-router';
 import React, { memo, useCallback, useMemo, useRef } from 'react';
@@ -7,6 +6,7 @@ import Hooks from '@/libs/constants/hooks';
 import { Provider, TextFieldsRefsType } from '../../context/page';
 import { Provider as ItemProvider } from '../../context/item';
 import Props, { Store, Value, Values } from './types';
+import Screen from '../Screen';
 
 
 
@@ -78,23 +78,19 @@ function Component<T>({
 				</Stack.Toolbar.Button>
 			</Stack.Toolbar>
 
-			<Host style={{ flex: 1 }}>
-				<List>
-					<Section>
-						<Provider value={value}>
-							{data.map((item, index) => {
-								const nextIndex = index + 1
-								const value = { index, nextIndex: nextIndex < data.length ? nextIndex : undefined }
-								return (
-									<ItemProvider key={index} value={value}>
-										{renderItem?.(item)}
-									</ItemProvider>
-								)
-							})}
-						</Provider>
-					</Section>
-				</List>
-			</Host>
+			<Screen>
+				<Provider value={value}>
+					{data.map((item, index) => {
+						const nextIndex = index + 1
+						const value = { index, nextIndex: nextIndex < data.length ? nextIndex : undefined }
+						return (
+							<ItemProvider key={index} value={value}>
+								{renderItem?.(item)}
+							</ItemProvider>
+						)
+					})}
+				</Provider>
+			</Screen>
 		</>
 	);
 }

@@ -1,9 +1,9 @@
 import type { Observable } from '@legendapp/state';
 import { TextFieldRef } from '@expo/ui/swift-ui';
-import type { RefObject } from 'react';
+import { RefObject } from 'react';
 
 import Utils from '@/libs/constants/utils';
-import type { Store } from '../components/Page/types';
+import type { Store } from '../components/Wrapper/types';
 
 
 
