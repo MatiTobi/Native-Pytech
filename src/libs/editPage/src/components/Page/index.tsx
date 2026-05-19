@@ -6,7 +6,7 @@ import React, { memo, useCallback, useMemo, useRef } from 'react';
 import Hooks from '@/libs/constants/hooks';
 import { Provider, TextFieldsRefsType } from '../../context/page';
 import { Provider as ItemProvider } from '../../context/item';
-import Props, { Store, Values } from './types';
+import Props, { Store, Value, Values } from './types';
 
 
 
@@ -17,10 +17,10 @@ function Component<T>({
 
 }: Props<T>){
 
-	// ------------------- Variables -------------------
 	const router = useRouter()
 	const saveEnabledRef = useRef<boolean>(false)
 
+	// Store
 	const values = (data ?? []).reduce<Values>((acc, item, index) => {
 		acc[index] = {
 			value: undefined,
@@ -32,27 +32,23 @@ function Component<T>({
 
 	const store = useObservable<Store>({
 		values: values,
-		saveEnabled: (() => {
-			const values = store.values.get()
-			const listValues = Object.values(values)
+		saveEnabled: () => {
+			const listValues: Value[] = Object.values(store.values.get())
 
 			const hasChanged = listValues.some(value => value.hasChanged)
 			const allValid = listValues.every(value => value.isValid)
 
 			return hasChanged && allValid
-		}) as unknown as boolean,
+		},
     })
 
 	const saveEnabled = useValue(() => store.saveEnabled.get())
-
-	Hooks.useEffectWithoutFirstRender(() => {
-		saveEnabledRef.current = saveEnabled
-	}, [saveEnabled])
+	Hooks.useEffectWithoutFirstRender(() => saveEnabledRef.current = saveEnabled, [saveEnabled])
 
 	const textFieldsRefs = useRef<TextFieldsRefsType>({})
 
 
-	// ------------------- Functions -------------------
+	// onPress
 	const onPressSave = useCallback(async () => {
 		// Obtengo los valores del store
 		const values = store.values.peek() as Values
@@ -65,14 +61,7 @@ function Component<T>({
 	}, [onSave, store.values])
 
 
-	// ------------------- Provider -------------------
-	const value = useMemo(() => ({
-		store,
-		saveEnabledRef,
-		onPressSave,
-		isUniqueItem: (data?.length ?? 0) === 1,
-		textFieldsRefs
-	}), [])
+	const value = useMemo(() => ({store, saveEnabledRef, onPressSave, isUniqueItem: (data?.length ?? 0) === 1, textFieldsRefs}), [])
 
 
 	return (

@@ -1,4 +1,3 @@
-import { type SpacerProps } from "@expo/ui/swift-ui"
 import type TextFieldProps from '../TextField/types';
 
 
@@ -14,7 +13,7 @@ type Props = TextFieldProps & {
         Minimum length of the spacer between the title and the text field.
         If the title is not provided, will not be displayed.
     */
-    minLengthSpacer?: SpacerProps['minLength']
+    minLengthSpacer?: number
 }
 
 export default Props
