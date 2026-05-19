@@ -11,7 +11,6 @@ export default memo(({
     onChangeSearchText,
     onSelectionChange,
     placeholderSearchBar='Buscar',
-    onPressHeaderCancel=() => router.back(),
 	...props
 
 }: Props) => {
@@ -24,7 +23,7 @@ export default memo(({
     return (
         <>
             <Stack.Toolbar placement="right">
-				<Stack.Toolbar.Button onPress={onPressHeaderCancel}>
+				<Stack.Toolbar.Button onPress={() => router.back()}>
 					<Stack.Toolbar.Icon sf="xmark" />
 				</Stack.Toolbar.Button>
 			</Stack.Toolbar>
