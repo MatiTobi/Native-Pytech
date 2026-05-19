@@ -7,13 +7,16 @@ export default memo(({ itemKey, defaultValue, placeholder, keyboardType, autocap
     const { store, registerItem, onSubmit: _onSubmit } = usePage();
     const isUniqueItem = useValue(() => store.isUniqueItem.get());
     const ref = useRef(null);
-    const key = registerItem(itemKey, ref);
-    console.log(placeholder, 'key', key);
-    useEffect(() => store.values[key].value.set(defaultValue), [defaultValue]);
+    // Key
+    const keyRef = useRef(itemKey);
+    console.log('keyRef', keyRef.current);
+    useEffect(() => {
+        keyRef.current = registerItem(itemKey, ref);
+    }, []);
     // onChange
     const onValueChange = useCallback((value) => {
         const _value = value.trim() === '' ? null : value.trim();
-        store.values[key].set({
+        store.values[keyRef.current].set({
             value: _value,
             hasChanged: _value !== defaultValue,
             isValid: isValid?.(_value) ?? true,
@@ -24,7 +27,7 @@ export default memo(({ itemKey, defaultValue, placeholder, keyboardType, autocap
         ...(isUniqueItem ? [submitLabel('done')] : []),
         ...(keyboardType ? [keyboardTypeModifier(keyboardType)] : []),
         ...(!autocapitalization ? [textInputAutocapitalization('never')] : []),
-        onSubmit(() => _onSubmit(key)),
+        onSubmit(() => _onSubmit(keyRef.current)),
     ], [keyboardType, autocapitalization, isUniqueItem]);
     const props = { autoFocus: isUniqueItem, modifiers, placeholder, defaultValue, onValueChange };
     if (secureTextEntry)

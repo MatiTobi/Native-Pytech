@@ -1,16 +1,20 @@
 import { Section, DatePicker } from '@expo/ui/swift-ui';
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { environment } from '@expo/ui/swift-ui/modifiers';
 import { usePage } from '../../context/page';
 export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)), maxDate = new Date(), }) => {
     const { store, registerItem } = usePage();
-    const key = registerItem(itemKey);
     const [selection, setSelection] = useState(defaultValue);
+    // Key
+    const keyRef = useRef(itemKey);
+    useEffect(() => {
+        keyRef.current = registerItem(itemKey);
+    }, []);
     // Hooks
     useEffect(() => setSelection(defaultValue), [defaultValue]);
     const onValueChange = useCallback((value) => {
         setSelection(value);
-        store.values[key].set({
+        store.values[keyRef.current].set({
             value: value,
             hasChanged: value.getTime() !== defaultValue?.getTime(),
             isValid: true,
