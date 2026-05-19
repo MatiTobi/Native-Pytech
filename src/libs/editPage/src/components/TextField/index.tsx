@@ -69,7 +69,7 @@ export default memo(({
 		placeholder,
 		defaultValue,
 		onValueChange,
-	}), [modifiers, placeholder, defaultValue]) as TextFieldProps
+	}), [isUniqueItem, modifiers, placeholder, defaultValue]) as TextFieldProps
 
 	
 	if (secureTextEntry) return <SecureField {...props} ref={ref}/>
