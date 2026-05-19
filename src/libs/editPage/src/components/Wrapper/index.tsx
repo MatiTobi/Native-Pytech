@@ -36,7 +36,7 @@ export default memo(({ children, onSave }: Props) => {
 	const onPressSave = useCallback(async () => {
 		// Obtengo los valores del store
 		const values = store.values.peek()
-		const valuesToSave = Object.fromEntries(Object.entries(values).map(([key, value]) => [key, value.value ?? null]))
+		const valuesToSave = Object.values(values).map(value => value.value ?? null)
 
 		// Llamo a la función onSave
 		const result = await onSave?.(valuesToSave)
