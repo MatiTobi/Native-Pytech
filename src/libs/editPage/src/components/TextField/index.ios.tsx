@@ -1,14 +1,15 @@
 import React, { useMemo, memo, useRef, useCallback, useEffect } from "react";
+import { useValue } from "@legendapp/state/react"
 import { SecureField, TextField, TextFieldRef } from "@expo/ui/swift-ui"
 import { keyboardType as keyboardTypeModifier, submitLabel, textInputAutocapitalization, onSubmit } from '@expo/ui/swift-ui/modifiers';
 
 import type Props from './types';
 import { usePage } from '../../context/page';
-import { useItem } from '../../context/item';
 
 
 
 export default memo(({
+	itemKey,
 	defaultValue,
 	placeholder,
 	keyboardType,
@@ -18,58 +19,37 @@ export default memo(({
 
 }: Props) => {
 
-	const { store, isUniqueItem, saveEnabledRef, onPressSave, textFieldsRefs } = usePage()
-	const { index, nextIndex } = useItem()
+	const { store, registerItem, onSubmit: _onSubmit } = usePage()
+	const isUniqueItem = useValue(() => store.isUniqueItem.get())
 
 	const ref = useRef<TextFieldRef>(null)
-	textFieldsRefs.current[index] = ref
+	const key = registerItem(itemKey, ref)
+	console.log(placeholder, 'key', key)
 
-	useEffect(() => store.values[index].value.set(defaultValue), [defaultValue])
+	useEffect(() => store.values[key].value.set(defaultValue), [defaultValue])
 
 
 	// onChange
 	const onValueChange = useCallback((value: string) => {
 		const _value = value.trim() === '' ? null : value.trim()
 		
-		store.values[index].set({
+		store.values[key].set({
 			value: _value,
 			hasChanged: _value !== defaultValue,
 			isValid: isValid?.(_value) ?? true,
 		})
 	}, [])
 
-	const _onSubmit = useCallback(() => {
-		// Guarda los cambios
-		if (isUniqueItem){
-			const saveEnabled = saveEnabledRef.current
-			if (!saveEnabled) return
-			onPressSave()
-			return
-		}
-
-		// Va al siguiente campo
-		if (!nextIndex) return
-		textFieldsRefs.current[nextIndex].current?.focus()
-	}, [])
-
-
 	// Props
     const modifiers = useMemo(() => [
 		...(isUniqueItem ? [submitLabel('done')] : []),
 		...(keyboardType ? [keyboardTypeModifier(keyboardType)] : []),
 		...(!autocapitalization ? [textInputAutocapitalization('never')] : []),
-		onSubmit(_onSubmit),
+		onSubmit(() => _onSubmit(key)),
 	], [keyboardType, autocapitalization, isUniqueItem])
 
-	const props = {
-		autoFocus: isUniqueItem,
-		modifiers,
-		placeholder,
-		defaultValue,
-		onValueChange,
-	}
+	const props = { autoFocus: isUniqueItem, modifiers, placeholder, defaultValue, onValueChange }
 
-	
 	if (secureTextEntry) return <SecureField {...props} ref={ref}/>
 	return <TextField {...props} ref={ref}/>
 })

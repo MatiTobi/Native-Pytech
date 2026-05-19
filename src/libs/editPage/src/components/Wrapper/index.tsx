@@ -1,37 +1,21 @@
 import { useObservable, useValue } from '@legendapp/state/react'
-import { Stack, useRouter } from 'expo-router';
-import React, { memo, useCallback, useMemo, useRef } from 'react';
+import { Stack, router } from 'expo-router';
+import React, { memo, RefObject, useCallback, useMemo, useRef } from 'react';
 
-import Hooks from '@/libs/constants/hooks';
 import { Provider, TextFieldsRefsType } from '../../context/page';
-import { Provider as ItemProvider } from '../../context/item';
-import Props, { Store, Value, Values } from './types';
+import Props, { Store, Value } from './types';
 import Screen from '../Screen';
 
 
 
-function Component<T>({
-	data=[],
-	renderItem,
-	onSave,
+export default memo(({ children, onSave }: Props) => {
 
-}: Props<T>){
-
-	const router = useRouter()
-	const saveEnabledRef = useRef<boolean>(false)
+	const textFieldsRefs = useRef<TextFieldsRefsType>({})
+	const indexRef = useRef(0)
 
 	// Store
-	const values = (data ?? []).reduce<Values>((acc, item, index) => {
-		acc[index] = {
-			value: undefined,
-			hasChanged: false,
-			isValid: true,
-		}
-		return acc
-	}, {})
-
 	const store = useObservable<Store>({
-		values: values,
+		values: {},
 		saveEnabled: () => {
 			const listValues: Value[] = Object.values(store.values.get())
 
@@ -40,19 +24,19 @@ function Component<T>({
 
 			return hasChanged && allValid
 		},
+		isUniqueItem: () => {
+			const listValues: Value[] = Object.values(store.values.get())
+			return listValues.length === 1
+		},
     })
 
 	const saveEnabled = useValue(() => store.saveEnabled.get())
-	Hooks.useEffectWithoutFirstRender(() => saveEnabledRef.current = saveEnabled, [saveEnabled])
-
-	const textFieldsRefs = useRef<TextFieldsRefsType>({})
-
 
 	// onPress
 	const onPressSave = useCallback(async () => {
 		// Obtengo los valores del store
-		const values = store.values.peek() as Values
-		const valuesToSave = Object.values(values).map(value => value.value ?? null)
+		const values = store.values.peek()
+		const valuesToSave = Object.fromEntries(Object.entries(values).map(([key, value]) => [key, value.value ?? null]))
 
 		// Llamo a la función onSave
 		const result = await onSave?.(valuesToSave)
@@ -60,8 +44,37 @@ function Component<T>({
 		router.back()
 	}, [onSave, store.values])
 
+	// Register
+	const registerItem = (itemKey?: string, ref?: RefObject<any>) => {
+		const key = itemKey ?? indexRef.current
+		indexRef.current++
+		ref && (textFieldsRefs.current[key] = ref)
+		return key
+	}
 
-	const value = useMemo(() => ({store, saveEnabledRef, onPressSave, isUniqueItem: (data?.length ?? 0) === 1, textFieldsRefs}), [])
+	const next = (itemKey: string | number) => {
+		const keys = Object.keys(textFieldsRefs.current)
+		const index = keys.findIndex(key => key > itemKey)
+		if (index === -1) return
+		const nextKey = keys[index + 1]
+		if (!nextKey) return
+		textFieldsRefs.current[nextKey].current?.focus()
+	}
+
+	const onSubmit = async (itemKey: string | number) => {
+		console.log('onSubmit', 'itemKey', itemKey)
+		// Guarda los cambios
+		if (store.isUniqueItem.peek()){
+			if (!saveEnabled) return
+			await onPressSave()
+			return
+		}
+
+		// Va al siguiente campo
+		next(itemKey)
+	}
+
+	const value = useMemo(() => ({ store, onSubmit, registerItem }), [])
 
 
 	return (
@@ -80,19 +93,9 @@ function Component<T>({
 
 			<Screen>
 				<Provider value={value}>
-					{data.map((item, index) => {
-						const nextIndex = index + 1
-						const value = { index, nextIndex: nextIndex < data.length ? nextIndex : undefined }
-						return (
-							<ItemProvider key={index} value={value}>
-								{renderItem?.(item)}
-							</ItemProvider>
-						)
-					})}
+					{children}
 				</Provider>
 			</Screen>
 		</>
 	);
-}
-
-export default memo(Component) as typeof Component
+})

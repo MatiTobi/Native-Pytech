@@ -1,18 +1,13 @@
 import type { Observable } from '@legendapp/state';
-import { TextFieldRef } from '@expo/ui/swift-ui';
-import type { RefObject } from 'react';
-import type { Store } from '../components/Page/types';
-export type TextFieldsRefsType = Record<number, RefObject<TextFieldRef | null>>;
+import { RefObject } from 'react';
+import type { Store } from '../components/Wrapper/types';
+export type TextFieldsRefsType = Record<number | string, RefObject<any>>;
 export declare const Provider: import("react").Provider<{
     store: Observable<Store>;
-    saveEnabledRef: RefObject<boolean>;
-    onPressSave: () => Promise<void>;
-    isUniqueItem: boolean;
-    textFieldsRefs: RefObject<TextFieldsRefsType>;
+    registerItem: (itemKey?: string, ref?: RefObject<any>) => string | number;
+    onSubmit: (itemKey: string | number) => Promise<void>;
 }>, usePage: () => {
     store: Observable<Store>;
-    saveEnabledRef: RefObject<boolean>;
-    onPressSave: () => Promise<void>;
-    isUniqueItem: boolean;
-    textFieldsRefs: RefObject<TextFieldsRefsType>;
+    registerItem: (itemKey?: string, ref?: RefObject<any>) => string | number;
+    onSubmit: (itemKey: string | number) => Promise<void>;
 };

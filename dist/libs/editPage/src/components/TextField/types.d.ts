@@ -1,5 +1,8 @@
-import { keyboardType } from "@expo/ui/swift-ui/modifiers";
 type Props = {
+    /**
+        identification key of the text field.
+    */
+    itemKey?: string;
     /**
         Default value of the text field.
     */
@@ -11,7 +14,7 @@ type Props = {
     /**
         Keyboard type. Uses the keyboardType modifier.
     */
-    keyboardType?: Parameters<typeof keyboardType>[0];
+    keyboardType?: "default" | "email-address" | "numeric" | "phone-pad" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "decimal-pad" | "twitter" | "web-search" | "ascii-capable-number-pad";
     /**
         If true, the text field will be autocapitalized. Uses the textInputAutocapitalization modifier.
         @default true

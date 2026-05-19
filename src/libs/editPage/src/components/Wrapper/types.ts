@@ -1,33 +1,30 @@
-type Props<T> = {
-	/**
-        The data items to be rendered inside the list.
-        @default []
-    */
-	data?: T[]
+
+type Props = {
 
 	/**
-        The function to render the item.
-    */
-	renderItem?: (item: T) => React.ReactNode
+		Children to be rendered inside the wrapper.
+	*/
+	children: React.ReactNode
 
 	/**
 		Function to be called when the user saves the changes.
 		If the function returns false, the user will not be redirected to the previous screen.
 	*/
-	onSave?: (values: (string | null | Date)[]) => boolean | Promise<boolean>
+	onSave?: (items: Record<string, string | null | Date>) => boolean | void | Promise<boolean | void>
 }
 
 
 export type Value = {
-	value: string | null | Date | undefined
+	value?: string | null | Date
 	hasChanged: boolean
 	isValid: boolean
 }
-export type Values = Record<number, Value>
+export type Values = Record<string, Value>
 
 export type Store = {
 	values: Values
 	saveEnabled: boolean
+	isUniqueItem: boolean
 }
 
 export default Props

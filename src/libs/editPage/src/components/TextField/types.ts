@@ -4,6 +4,11 @@ import { keyboardType } from "@expo/ui/swift-ui/modifiers"
 type Props = {
 
     /**
+        identification key of the text field.
+    */
+    itemKey?: string
+
+    /**
         Default value of the text field.
     */
     defaultValue?: string;

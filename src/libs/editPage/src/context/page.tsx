@@ -7,12 +7,10 @@ import type { Store } from '../components/Wrapper/types';
 
 
 
-export type TextFieldsRefsType = Record<number, RefObject<TextFieldRef|null>>
+export type TextFieldsRefsType = Record<number|string, RefObject<any>>
 
 export const [Provider, usePage] = Utils.createCtx<{
 	store: Observable<Store>
-	saveEnabledRef: RefObject<boolean>
-	onPressSave: () => Promise<void>
-	isUniqueItem: boolean
-	textFieldsRefs: RefObject<TextFieldsRefsType>
+	registerItem: (itemKey?: string, ref?: RefObject<any>) => string | number
+	onSubmit: (itemKey: string | number) => Promise<void>
 }>()

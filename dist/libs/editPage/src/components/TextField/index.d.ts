@@ -1,4 +1,4 @@
-import React from "react";
-import type Props from './types';
-declare const _default: React.MemoExoticComponent<({ defaultValue, placeholder, keyboardType, autocapitalization, secureTextEntry, isValid, }: Props) => React.JSX.Element>;
+declare const _default: ({ ...props }: {
+    [x: string]: any;
+}) => any;
 export default _default;
