@@ -1,4 +1,4 @@
-import { Stack, useRouter } from "expo-router"
+import { Stack, router } from "expo-router"
 import React, { memo } from "react"
 
 import type Props from './types'
@@ -10,11 +10,11 @@ export default memo(({
     children,
     onChangeSearchText,
     onSelectionChange,
+    placeholderSearchBar='Buscar',
+    onPressHeaderCancel=() => router.back(),
 	...props
 
 }: Props) => {
-
-    const router = useRouter()
 
     const _onSelectionChange = async (selection: string) => {
         await onSelectionChange?.(selection)
@@ -24,13 +24,13 @@ export default memo(({
     return (
         <>
             <Stack.Toolbar placement="right">
-				<Stack.Toolbar.Button onPress={() => router.back()}>
+				<Stack.Toolbar.Button onPress={onPressHeaderCancel}>
 					<Stack.Toolbar.Icon sf="xmark" />
 				</Stack.Toolbar.Button>
 			</Stack.Toolbar>
 
             <Stack.SearchBar
-                placeholder="Buscar usuario"
+                placeholder={placeholderSearchBar}
                 onChangeText={(e) => onChangeSearchText(e.nativeEvent.text)}
             />
 
