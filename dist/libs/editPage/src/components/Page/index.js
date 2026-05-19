@@ -6,9 +6,9 @@ import Hooks from '../../../../../libs/constants/hooks';
 import { Provider } from '../../context/page';
 import { Provider as ItemProvider } from '../../context/item';
 function Component({ data = [], renderItem, onSave, }) {
-    // ------------------- Variables -------------------
     const router = useRouter();
     const saveEnabledRef = useRef(false);
+    // Store
     const values = (data ?? []).reduce((acc, item, index) => {
         acc[index] = {
             value: undefined,
@@ -19,20 +19,17 @@ function Component({ data = [], renderItem, onSave, }) {
     }, {});
     const store = useObservable({
         values: values,
-        saveEnabled: (() => {
-            const values = store.values.get();
-            const listValues = Object.values(values);
+        saveEnabled: () => {
+            const listValues = Object.values(store.values.get());
             const hasChanged = listValues.some(value => value.hasChanged);
             const allValid = listValues.every(value => value.isValid);
             return hasChanged && allValid;
-        }),
+        },
     });
     const saveEnabled = useValue(() => store.saveEnabled.get());
-    Hooks.useEffectWithoutFirstRender(() => {
-        saveEnabledRef.current = saveEnabled;
-    }, [saveEnabled]);
+    Hooks.useEffectWithoutFirstRender(() => saveEnabledRef.current = saveEnabled, [saveEnabled]);
     const textFieldsRefs = useRef({});
-    // ------------------- Functions -------------------
+    // onPress
     const onPressSave = useCallback(async () => {
         // Obtengo los valores del store
         const values = store.values.peek();
@@ -43,14 +40,7 @@ function Component({ data = [], renderItem, onSave, }) {
             return;
         router.back();
     }, [onSave, store.values]);
-    // ------------------- Provider -------------------
-    const value = useMemo(() => ({
-        store,
-        saveEnabledRef,
-        onPressSave,
-        isUniqueItem: (data?.length ?? 0) === 1,
-        textFieldsRefs
-    }), []);
+    const value = useMemo(() => ({ store, saveEnabledRef, onPressSave, isUniqueItem: (data?.length ?? 0) === 1, textFieldsRefs }), []);
     return (<>
 			<Stack.Toolbar placement="left">
 				<Stack.Toolbar.Button onPress={() => router.back()}>

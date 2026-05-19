@@ -18,7 +18,6 @@ export default memo(({
 
 }: Props) => {
 
-	// ------------------- Variables -------------------
 	const { store, isUniqueItem, saveEnabledRef, onPressSave, textFieldsRefs } = usePage()
 	const { index, nextIndex } = useItem()
 
@@ -30,7 +29,7 @@ export default memo(({
 	}, [defaultValue])
 
 
-	// -------------------- Functions --------------------
+	// onChange
 	const onValueChange = useCallback((value: string) => {
 		const _value = value.trim() === '' ? null : value.trim()
 		
@@ -56,7 +55,7 @@ export default memo(({
 	}, [])
 
 
-	// -------------------- Props --------------------
+	// Props
     const modifiers = useMemo(() => [
 		...(isUniqueItem ? [submitLabel('done')] : []),
 		...(keyboardType ? [keyboardTypeModifier(keyboardType)] : []),

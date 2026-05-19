@@ -1,5 +1,4 @@
-import type { DatePickerProps } from '@expo/ui/swift-ui';
-type Props = Omit<DatePickerProps, 'title' | 'selection' | 'range' | 'onDateChange'> & {
+type Props = {
     /**
         Title of the date picker.
     */

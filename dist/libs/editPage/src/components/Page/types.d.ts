@@ -14,11 +14,12 @@ type Props<T> = {
     */
     onSave?: (values: (string | null | Date)[]) => boolean | Promise<boolean>;
 };
-export type Values = Record<number, {
+export type Value = {
     value: string | null | Date | undefined;
     hasChanged: boolean;
     isValid: boolean;
-}>;
+};
+export type Values = Record<number, Value>;
 export type Store = {
     values: Values;
     saveEnabled: boolean;

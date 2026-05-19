@@ -1,20 +1,14 @@
 import { Section, DatePicker } from '@expo/ui/swift-ui';
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { environment } from '@expo/ui/swift-ui/modifiers';
 import { usePage } from '../../context/page';
 import { useItem } from '../../context/item';
-export default memo(({ label, defaultValue, minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)), maxDate = new Date(), modifiers, ...restProps }) => {
-    // ------------------- Variables -------------------
+export default memo(({ label, defaultValue, minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)), maxDate = new Date() }) => {
     const { store } = usePage();
     const { index } = useItem();
     const [selection, setSelection] = useState(defaultValue);
-    const _modifiers = useMemo(() => [
-        ...(modifiers ?? []),
-        environment('locale', 'es_ES'),
-    ], [modifiers]);
-    // ------------------- Hooks -------------------
+    // Hooks
     useEffect(() => setSelection(defaultValue), [defaultValue]);
-    // -------------------- Functions --------------------
     const onValueChange = useCallback((value) => {
         setSelection(value);
         store.values[index].set({
@@ -24,9 +18,9 @@ export default memo(({ label, defaultValue, minDate = new Date(new Date().setFul
         });
     }, []);
     return (<Section>
-			<DatePicker title={label} selection={selection} onDateChange={onValueChange} modifiers={_modifiers} range={{
+			<DatePicker title={label} selection={selection} onDateChange={onValueChange} modifiers={[environment('locale', 'es_ES')]} range={{
             start: minDate,
             end: maxDate,
-        }} {...restProps}/>
+        }}/>
 		</Section>);
 });
