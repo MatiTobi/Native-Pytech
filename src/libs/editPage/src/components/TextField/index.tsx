@@ -63,13 +63,13 @@ export default memo(({
 		onSubmit(_onSubmit),
 	], [keyboardType, autocapitalization, isUniqueItem])
 
-	const props = useMemo(() => ({
+	const props = {
 		autoFocus: isUniqueItem,
 		modifiers,
 		placeholder,
 		defaultValue,
 		onValueChange,
-	}), [isUniqueItem, modifiers, placeholder, defaultValue]) as TextFieldProps
+	}
 
 	
 	if (secureTextEntry) return <SecureField {...props} ref={ref}/>
