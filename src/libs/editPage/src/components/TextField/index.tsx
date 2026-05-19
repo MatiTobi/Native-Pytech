@@ -1,1 +1,2 @@
-export default ({...props}) => null
+import type Props from './types';
+export default ({...props}: Props) => null
