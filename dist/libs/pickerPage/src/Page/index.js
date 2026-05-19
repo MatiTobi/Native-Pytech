@@ -1,14 +1,14 @@
 import { Stack, router } from "expo-router";
 import React, { memo } from "react";
 import Content from '../Content';
-export default memo(({ children, onChangeSearchText, onSelectionChange, placeholderSearchBar = 'Buscar', onPressHeaderCancel = () => router.back(), ...props }) => {
+export default memo(({ children, onChangeSearchText, onSelectionChange, placeholderSearchBar = 'Buscar', ...props }) => {
     const _onSelectionChange = async (selection) => {
         await onSelectionChange?.(selection);
         router.back();
     };
     return (<>
             <Stack.Toolbar placement="right">
-				<Stack.Toolbar.Button onPress={onPressHeaderCancel}>
+				<Stack.Toolbar.Button onPress={() => router.back()}>
 					<Stack.Toolbar.Icon sf="xmark"/>
 				</Stack.Toolbar.Button>
 			</Stack.Toolbar>
