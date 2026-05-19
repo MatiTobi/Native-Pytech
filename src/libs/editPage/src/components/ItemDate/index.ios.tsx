@@ -1,5 +1,5 @@
 import { Section, DatePicker } from '@expo/ui/swift-ui';
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { environment } from '@expo/ui/swift-ui/modifiers';
 
 import type Props from './types';
@@ -17,17 +17,20 @@ export default memo(({
 }: Props) => {
 
 	const { store, registerItem } = usePage()
-	const key = registerItem(itemKey)
-
 	const [selection, setSelection] = useState<Date | undefined>(defaultValue)
 
+	// Key
+	const keyRef = useRef<string | number>(itemKey)
+	useEffect(() => {
+		keyRef.current = registerItem(itemKey)
+	}, [])
 
 	// Hooks
 	useEffect(() => setSelection(defaultValue), [defaultValue])
 
 	const onValueChange = useCallback((value: Date) => {		
 		setSelection(value)
-		store.values[key].set({
+		store.values[keyRef.current].set({
 			value: value,
 			hasChanged: value.getTime() !== defaultValue?.getTime(),
 			isValid: true,
