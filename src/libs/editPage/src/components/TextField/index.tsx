@@ -24,9 +24,7 @@ export default memo(({
 	const ref = useRef<TextFieldRef>(null)
 	textFieldsRefs.current[index] = ref
 
-	useEffect(() => {
-		store.values[index].value.set(defaultValue)
-	}, [defaultValue])
+	useEffect(() => store.values[index].value.set(defaultValue), [defaultValue])
 
 
 	// onChange
