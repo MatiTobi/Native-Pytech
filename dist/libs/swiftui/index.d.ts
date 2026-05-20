@@ -1,4 +1,5 @@
 export { default as NavigationLink } from './src/components/NavigationLink';
+export { default as Host } from './src/components/Host';
 export { default as Icon } from './src/components/Icon';
 export { default as IconSection } from './src/components/IconSection';
 export { default as List } from './src/components/List';
