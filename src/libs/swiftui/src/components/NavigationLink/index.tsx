@@ -1,5 +1,5 @@
 import { Button, HStack, Label } from '@expo/ui/swift-ui';
-import { listRowInsets as listRowInsetsModifier } from '@expo/ui/swift-ui/modifiers';
+import { listRowInsets as listRowInsetsModifier, foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import React, { memo, useMemo } from 'react';
 
 import type Props from './types';
@@ -23,9 +23,10 @@ export default memo(({
 
 	return (
         <HStack modifiers={modifiers}>
-            <Button onPress={onPress}>
-                {children ?? <Label title={label} systemImage={systemImage} icon={icon} />}
+            <Button onPress={onPress} modifiers={[foregroundStyle({type: 'hierarchical', style: 'primary'})]}>
+                {children ?? (!systemImage && <Label title={label} icon={icon} />)}
             </Button>
+            {systemImage && <Label title={label} systemImage={systemImage} />}
             <Trailing text={trailingText} textProps={trailingTextProps} />
         </HStack>
 	);
