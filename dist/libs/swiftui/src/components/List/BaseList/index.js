@@ -1,5 +1,5 @@
 import { List } from '@expo/ui/swift-ui';
-import { padding, refreshable } from '@expo/ui/swift-ui/modifiers';
+import { listStyle as listStyleModifier, padding, refreshable } from '@expo/ui/swift-ui/modifiers';
 import React, { memo, useMemo } from 'react';
 /**
     Wrapper de List que aplica un padding superior negativo por defecto.
@@ -7,9 +7,10 @@ import React, { memo, useMemo } from 'react';
     Este componente extiende "List" de @expo/ui/swift-ui y agrega automáticamente:
     - padding({ top: -15 })
 */
-export default memo(({ children, modifiers, disablePaddingTop, onRefresh, ...listProps }) => {
+export default memo(({ children, modifiers, disablePaddingTop, listStyle, onRefresh, ...listProps }) => {
     const _modifiers = useMemo(() => [
         ...(modifiers ?? []),
+        ...(listStyle ? [listStyleModifier(listStyle)] : []),
         ...(disablePaddingTop ? [] : [padding({ top: -15 })]),
         ...(onRefresh ? [refreshable(onRefresh)] : []),
     ], [modifiers, disablePaddingTop, onRefresh]);

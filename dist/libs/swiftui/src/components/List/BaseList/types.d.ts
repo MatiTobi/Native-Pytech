@@ -5,6 +5,10 @@ type Props = ListProps & {
     */
     disablePaddingTop?: boolean;
     /**
+        The style of the list.
+    */
+    listStyle?: 'plain' | 'inset' | 'grouped';
+    /**
         The function to handle the refresh event.
     */
     onRefresh?: () => Promise<void>;
