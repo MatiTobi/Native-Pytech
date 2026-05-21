@@ -29,12 +29,12 @@ type Props = Pick<ButtonProps, 'children' | 'onPress' | 'systemImage' | 'label'>
     /**
         Text to display on the Trailing Stack.
     */
-    textTrailing?: TrailingProps['text']
+    trailingText?: TrailingProps['text']
 
     /**
         TextProps to apply to the Trailing Stack text.
     */
-    textTrailingProps?: TrailingProps['textProps']
+    trailingTextProps?: TrailingProps['textProps']
 }
 
 export default Props;

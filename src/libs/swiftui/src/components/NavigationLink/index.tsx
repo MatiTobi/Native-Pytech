@@ -14,8 +14,8 @@ export default memo(({
     label,
     systemImage,
     listRowInsets=false,
-    textTrailing,
-    textTrailingProps
+    trailingText,
+    trailingTextProps
 
 }: Props) => {
 
@@ -26,7 +26,7 @@ export default memo(({
             <Button onPress={onPress}>
                 {children ?? <Label title={label} systemImage={systemImage} icon={icon} />}
             </Button>
-            <Trailing text={textTrailing} textProps={textTrailingProps} />
+            <Trailing text={trailingText} textProps={trailingTextProps} />
         </HStack>
 	);
 })
