@@ -8,7 +8,7 @@ export default memo(({ children, onPress, icon, label, systemImage, listRowInset
             <Button onPress={onPress} modifiers={[foregroundStyle({ type: 'hierarchical', style: 'primary' })]}>
                 {children ?? (!systemImage && <Label title={label} icon={icon}/>)}
             </Button>
-            {systemImage && <Label title={label} systemImage={systemImage}/>}
+            {systemImage && <Label title={label} systemImage={systemImage} icon={icon}/>}
             <Trailing text={trailingText} textProps={trailingTextProps}/>
         </HStack>);
 });
