@@ -1,4 +1,5 @@
 import { Spacer, Image, HStack } from '@expo/ui/swift-ui';
+import { foregroundStyle, font } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
 import React, { memo } from 'react';
 import Text from '../Text';
@@ -11,4 +12,7 @@ export default memo(({ text, textProps }) => {
                 </HStack>) : (<ChevronRight />)}
         </>);
 });
-const ChevronRight = memo(() => <Image systemName='chevron.right' size={16} color={Color.ios.opaqueSeparator}/>);
+const ChevronRight = memo(() => <Image systemName='chevron.right' size={16} color={Color.ios.opaqueSeparator} modifiers={[
+        foregroundStyle({ type: 'hierarchical', style: 'tertiary' }),
+        font({ weight: 'semibold' })
+    ]}/>);
