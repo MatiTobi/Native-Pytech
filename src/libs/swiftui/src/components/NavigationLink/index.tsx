@@ -1,6 +1,5 @@
 import { Button, HStack, Label } from '@expo/ui/swift-ui';
-import { foregroundStyle } from '@expo/ui/swift-ui/modifiers';
-import { Color } from 'expo-router';
+import { listRowInsets as listRowInsetsModifier } from '@expo/ui/swift-ui/modifiers';
 import React, { memo, useMemo } from 'react';
 
 import type Props from './types';
@@ -10,44 +9,23 @@ import Trailing from './Trailing';
 
 export default memo(({
     children,
-    systemImage,
+    onPress,
+    icon,
     label,
-    modifiers,
-    maintainButtonStyle = false,
+    systemImage,
+    listRowInsets=false,
     textTrailing,
-    textTrailingProps,
-    hStackProps,
-    ...buttonProps
+    textTrailingProps
 
 }: Props) => {
 
-    // Va a poner una Label cuando no tenga que mantener el estilo del button y haya una imagen.
-    // Si no tiene que mantener el estilo del button y no hay una imagen, solo va a cambiar el foregroundColor.
-    const renderLabel = !maintainButtonStyle && systemImage !== undefined
-
-    const _modifiers = useMemo(() => [
-        ...(modifiers ?? []),
-        ...(!maintainButtonStyle && !renderLabel ? [foregroundStyle(Color.ios.label)] : []),
-    ], [modifiers, maintainButtonStyle, renderLabel])
-
-    const buttonSystemImage = !renderLabel ? systemImage : undefined
-    const buttonLabel = !renderLabel ? label : undefined
+    const modifiers = useMemo(() => listRowInsets ? [listRowInsetsModifier({top: 20, bottom: 20, leading: 25, trailing: 20})] : [], [listRowInsets])
 
 	return (
-        <HStack {...hStackProps}>
-            <Button
-                modifiers={_modifiers}
-                systemImage={buttonSystemImage}
-                label={buttonLabel}
-                {...buttonProps}
-            >
-                {children}
+        <HStack modifiers={modifiers}>
+            <Button onPress={onPress}>
+                {children ?? <Label title={label} systemImage={systemImage} icon={icon} />}
             </Button>
-            {
-                !children && renderLabel && (
-                    <Label title={label} systemImage={systemImage} />
-                )
-            }
             <Trailing text={textTrailing} textProps={textTrailingProps} />
         </HStack>
 	);

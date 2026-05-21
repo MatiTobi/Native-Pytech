@@ -1,4 +1,4 @@
-import { ButtonProps, HStackProps, TextProps } from "@expo/ui/swift-ui"
+import { ButtonProps, LabelProps, TextProps } from "@expo/ui/swift-ui"
 
 
 
@@ -14,24 +14,27 @@ export type TrailingProps = {
 }
 
 
-type Props = ButtonProps & {
+type Props = Pick<ButtonProps, 'children' | 'onPress' | 'systemImage' | 'label'> & {
+    /**
+        Whether to apply the listRowInsets modifier to the HStack.
+        @default false
+    */
+    listRowInsets?: boolean
+
+    /**
+        Icon to display on the Label.
+    */
+    icon?: LabelProps['icon']
+
     /**
         Text to display on the Trailing Stack.
     */
     textTrailing?: TrailingProps['text']
+
     /**
         TextProps to apply to the Trailing Stack text.
     */
     textTrailingProps?: TrailingProps['textProps']
-    /**
-        false: Renders a Label if systemImage is provided, otherwise put a foregroundStyle(Color.ios.label) modifier.
-        @default false
-    */
-    maintainButtonStyle?: boolean
-    /**
-        HStackProps to apply to the HStack.
-    */
-    hStackProps?: Omit<HStackProps, 'children'>
 }
 
 export default Props;
