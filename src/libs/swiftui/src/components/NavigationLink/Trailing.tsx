@@ -30,7 +30,14 @@ export default memo(({
 })
 
 
-const ChevronRight = memo(() => <Image systemName='chevron.right' size={16} color={Color.ios.opaqueSeparator} modifiers={[
-    foregroundStyle({type: 'hierarchical', style: 'tertiary'}),
-    font({weight: 'semibold'})]}
-/>)
+const ChevronRight = memo(() => (
+    <Image
+        systemName='chevron.right'
+        size={16}
+        color={Color.ios.opaqueSeparator}
+        /*modifiers={[
+            foregroundStyle({type: 'hierarchical', style: 'tertiary'}),
+            font({weight: 'semibold'})
+        ]}*/
+    />
+))
