@@ -2,6 +2,7 @@ import React, { memo, useMemo, useState, useRef } from "react"
 import { Stack, useRouter } from "expo-router";
 import { useColorScheme, useWindowDimensions, View, StyleSheet } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 
 import Utils from "@/libs/constants/utils"
 import LoginSvg from '../../assets/images/login_letras.svg';
@@ -66,13 +67,15 @@ export default memo(({
 
     return (
         <SafeAreaProvider>
-            <Provider value={value}>
-                <Stack screenOptions={{ headerShown: false }}>
-                    {listStackNames?.map((name) => (
-                        <Stack.Screen key={name} name={name} />
-                    ))}
-                </Stack>
-            </Provider>
+            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                <Provider value={value}>
+                    <Stack screenOptions={{ headerShown: false }}>
+                        {listStackNames?.map((name) => (
+                            <Stack.Screen key={name} name={name} />
+                        ))}
+                    </Stack>
+                </Provider>
+            </ThemeProvider>
         </SafeAreaProvider>
     )
 })
