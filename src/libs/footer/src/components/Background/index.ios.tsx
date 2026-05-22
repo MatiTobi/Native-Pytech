@@ -14,7 +14,7 @@ export default memo(({backgroundColorPage}: {backgroundColorPage: string}) => {
 
     return (
             <MeshGradientView
-                style={[StyleSheet.absoluteFillObject]}
+                style={[StyleSheet.absoluteFill]}
                 columns={2}
                 rows={5}
                 colors={[

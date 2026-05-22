@@ -30,7 +30,7 @@ export default memo(({
 
 	const onValueChange = useCallback((value: Date) => {		
 		setSelection(value)
-		store.values[keyRef.current].set({
+		store.values[keyRef.current ?? 0].set({
 			value: value,
 			hasChanged: value.getTime() !== defaultValue?.getTime(),
 			isValid: true,

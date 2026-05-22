@@ -1,5 +1,5 @@
 import { ColorSchemeType } from "@/libs/constants/colors"
-import { Router } from "expo-router"
+import { ImperativeRouter } from "expo-router"
 
 
 
@@ -26,7 +26,7 @@ type Props = {
         Función para ejecutar cuando se realice el cambio de estado de loading a false.
         Se utiliza para redirigir a la página de inicio.
     */
-    onLoadingRealsed?: ({router, hasSession}: {router: Router, hasSession: boolean}) => void
+    onLoadingRealsed?: ({router, hasSession}: {router: ImperativeRouter, hasSession: boolean}) => void
 }
 
 export default Props

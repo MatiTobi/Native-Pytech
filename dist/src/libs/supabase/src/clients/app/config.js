@@ -1,9 +1,10 @@
-import { expoEnv } from '@/libs/constants/consts';
+import { expoEnv } from '../../../../../libs/constants/consts';
 import * as utils from '../../utils';
 import { Platform } from 'react-native';
 import 'react-native-url-polyfill/auto';
 import { Buffer } from 'buffer';
-global.Buffer = global.Buffer ?? Buffer;
+const globalScope = globalThis;
+globalScope.Buffer = globalScope.Buffer ?? Buffer;
 // AsyncStorage
 const isWeb = Platform.OS === 'web';
 const asyncStorage = !isWeb

@@ -1,14 +1,13 @@
 import { expoEnv } from '@/libs/constants/consts'
 import * as utils from '../../utils'
-import { createClient } from '@supabase/supabase-js'
 import { Platform } from 'react-native'
 import type AsyncStorageType from '@react-native-async-storage/async-storage'
 
 import 'react-native-url-polyfill/auto'
 import { Buffer } from 'buffer'
-global.Buffer = global.Buffer ?? Buffer
 
-
+const globalScope = globalThis as typeof globalThis & { Buffer?: typeof Buffer }
+globalScope.Buffer = globalScope.Buffer ?? Buffer
 
 // AsyncStorage
 const isWeb = Platform.OS === 'web'

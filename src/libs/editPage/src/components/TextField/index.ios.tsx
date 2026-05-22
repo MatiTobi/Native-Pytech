@@ -25,7 +25,7 @@ export default memo(({
 	const ref = useRef<TextFieldRef>(null)
 
 	// Key
-	const keyRef = useRef<string | number>(itemKey)
+	const keyRef = useRef<string | number>(itemKey ?? 0)
 	useEffect(() => {
 		keyRef.current = registerItem(itemKey, ref)
 	}, [])

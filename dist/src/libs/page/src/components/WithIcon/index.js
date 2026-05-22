@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { useApp } from "@/libs/providers/App";
+import { useApp } from "../../../../../libs/providers/App";
 import colors from '../../constants';
 import PageWrapper from '../PageWrapper';
 import Subtitle from '../Subtitle';

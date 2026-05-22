@@ -24,7 +24,7 @@ export default memo(({
 	return (
         <HStack modifiers={modifiers}>
             <Button onPress={onPress} modifiers={[foregroundStyle({type: 'hierarchical', style: 'primary'})]}>
-                {children ?? (!systemImage && <Label title={label} icon={icon} />)}
+                {children ?? (!systemImage ? <Label title={label} icon={icon} /> : undefined)}
             </Button>
             {systemImage && <Label title={label} systemImage={systemImage} icon={icon} />}
             <Trailing text={trailingText} textProps={trailingTextProps} />

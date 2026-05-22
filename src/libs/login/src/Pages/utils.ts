@@ -1,4 +1,4 @@
-import { Router } from 'expo-router'
+import { ImperativeRouter } from 'expo-router'
 import supabase from "@/libs/supabase"
 import { PerfilColorType } from '../constants'
 
@@ -11,7 +11,7 @@ export type LoginData = {
     mail: string
 }
 
-export const handleSubmitLogIn = async ({username, router}: {username: string, router: Router}) => {
+export const handleSubmitLogIn = async ({username, router}: {username: string, router: ImperativeRouter}) => {
 
     const identifier = username.trim()
 

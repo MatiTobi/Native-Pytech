@@ -10,8 +10,8 @@ import { Provider } from '../../../../context/ListEditable'
 export default memo(({
     children,
     editMode,
-    moveEnabled,
-    deleteEnabled,
+    moveEnabled=false,
+    deleteEnabled=false,
     modifiers,
     ...listProps
 

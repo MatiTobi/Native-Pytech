@@ -1,6 +1,6 @@
 import { Pressable, View, Text, StyleSheet, StyleProp, TextStyle } from 'react-native'
 import { memo } from 'react'
-import { Router, useRouter } from 'expo-router'
+import { ImperativeRouter, useRouter } from 'expo-router'
 
 
 
@@ -12,7 +12,7 @@ export default memo(({
 
 } : {
     text?: string,
-    onPress: ({ router }: { router: Router }) => void
+    onPress: ({ router }: { router: ImperativeRouter }) => void
     renderItems?: ({pressed}: {pressed: boolean}) => React.ReactNode,
     style?: StyleProp<TextStyle>,
 

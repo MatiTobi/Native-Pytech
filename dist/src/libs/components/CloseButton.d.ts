@@ -1,8 +1,8 @@
 import React from 'react';
-import { Router, UnknownOutputParams } from 'expo-router';
+import { UnknownOutputParams, ImperativeRouter } from 'expo-router';
 declare const _default: React.MemoExoticComponent<({ onclick }: {
     onclick: ({ router, localSearchParams }: {
-        router: Router;
+        router: ImperativeRouter;
         localSearchParams: UnknownOutputParams;
     }) => void;
 }) => React.JSX.Element>;

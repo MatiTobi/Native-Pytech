@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { useLocalSearchParams, router, UnknownOutputParams, useRouter } from 'expo-router'
+import { useLocalSearchParams, router, UnknownOutputParams, useRouter, ImperativeRouter } from 'expo-router'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -8,7 +8,7 @@ import Colors from '@/libs/constants/colors'
 
 
 
-export default memo(({ onclick }: { onclick: ({router, localSearchParams}: {router: Router, localSearchParams: UnknownOutputParams}) => void }) => {
+export default memo(({ onclick }: { onclick: ({router, localSearchParams}: {router: ImperativeRouter, localSearchParams: UnknownOutputParams}) => void }) => {
 
     const { colorScheme } = useApp()
     const localSearchParams = useLocalSearchParams()

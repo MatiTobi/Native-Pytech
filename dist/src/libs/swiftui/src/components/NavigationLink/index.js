@@ -6,7 +6,7 @@ export default memo(({ children, onPress, icon, label, systemImage, listRowInset
     const modifiers = useMemo(() => listRowInsets ? [listRowInsetsModifier({ top: 20, bottom: 20, leading: 25, trailing: 20 })] : [], [listRowInsets]);
     return (<HStack modifiers={modifiers}>
             <Button onPress={onPress} modifiers={[foregroundStyle({ type: 'hierarchical', style: 'primary' })]}>
-                {children ?? (!systemImage && <Label title={label} icon={icon}/>)}
+                {children ?? (!systemImage ? <Label title={label} icon={icon}/> : undefined)}
             </Button>
             {systemImage && <Label title={label} systemImage={systemImage} icon={icon}/>}
             <Trailing text={trailingText} textProps={trailingTextProps}/>

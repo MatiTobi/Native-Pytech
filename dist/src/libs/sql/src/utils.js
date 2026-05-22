@@ -6,20 +6,22 @@ export const reset = async ({ currentVersion }) => {
     try {
         await SQLite.deleteDatabaseAsync('app.db');
     }
-    catch (e) {
-        if (e.message.includes('currently open')) {
+    catch (error) {
+        if (error instanceof Error && error.message.includes('currently open')) {
             dbRef.current = await SQLite.openDatabaseAsync('app.db');
             await dbRef.current.closeAsync();
             dbRef.current.closeSync();
             await SQLite.deleteDatabaseAsync('app.db');
         }
         else
-            console.error('Error eliminando base de datos:', e);
+            console.error('Error eliminando base de datos:', error);
     }
     if (currentVersion)
         await AsyncStorage.setItem('DB_VERSION', String(currentVersion));
 };
 export const _hasTables = async () => {
+    if (!dbRef.current)
+        return false;
     try {
         const listTables = await dbRef.current.getAllAsync("SELECT name FROM sqlite_master WHERE type='table'");
         return listTables.length > 0;
@@ -50,6 +52,8 @@ export const _executeSQL = async ({ query }) => {
     const splitStr = query.includes('END;') ? 'END;' : ';';
     const statements = query.split(splitStr).map(s => s.trim()).filter(Boolean);
     for (const statement of statements) {
+        if (!dbRef.current)
+            return;
         const query = `${statement}\n${splitStr}`;
         await dbRef.current.execAsync(query);
     }

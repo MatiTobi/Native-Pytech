@@ -7,8 +7,8 @@ const { SUPABASE_USERNAME_LOGIN, SUPABASE_PASSWORD_LOGIN } = expoEnv
 
 
 export const logIn = async ({
-    email = SUPABASE_USERNAME_LOGIN,
-    password = SUPABASE_PASSWORD_LOGIN
+    email = SUPABASE_USERNAME_LOGIN as string,
+    password = SUPABASE_PASSWORD_LOGIN as string
 }: {
     email?: string,
     password?: string

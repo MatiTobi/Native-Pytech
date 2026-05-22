@@ -9,8 +9,8 @@ import ButtonView from '../View';
 export default memo(({ children, backgroundColorPage }) => {
     const insets = useSafeAreaInsets();
     return (<View style={styles.footer}>
-            <MaskedView style={[StyleSheet.absoluteFillObject]} maskElement={<LinearGradient colors={['transparent', 'transparent', 'rgba(0, 0, 0, 0.8)', 'black', 'black']} locations={[0, 0.05, 0.2, 0.5, 1]} style={StyleSheet.absoluteFillObject}/>}>
-                <BlurView intensity={6} tint='dark' style={StyleSheet.absoluteFillObject}/>
+            <MaskedView style={[StyleSheet.absoluteFill]} maskElement={<LinearGradient colors={['transparent', 'transparent', 'rgba(0, 0, 0, 0.8)', 'black', 'black']} locations={[0, 0.05, 0.2, 0.5, 1]} style={StyleSheet.absoluteFill}/>}>
+                <BlurView intensity={6} tint='dark' style={StyleSheet.absoluteFill}/>
             </MaskedView>
 
             {backgroundColorPage && <Background backgroundColorPage={backgroundColorPage}/>}

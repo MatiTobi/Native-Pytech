@@ -1,9 +1,9 @@
 import { StyleProp, TextStyle } from 'react-native';
-import { Router } from 'expo-router';
+import { ImperativeRouter } from 'expo-router';
 declare const _default: import("react").MemoExoticComponent<({ text, onPress, renderItems, style }: {
     text?: string;
     onPress: ({ router }: {
-        router: Router;
+        router: ImperativeRouter;
     }) => void;
     renderItems?: ({ pressed }: {
         pressed: boolean;

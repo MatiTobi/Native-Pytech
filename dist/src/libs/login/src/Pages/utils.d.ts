@@ -1,4 +1,4 @@
-import { Router } from 'expo-router';
+import { ImperativeRouter } from 'expo-router';
 import { PerfilColorType } from '../constants';
 export type LoginData = {
     first_name: string;
@@ -8,7 +8,7 @@ export type LoginData = {
 };
 export declare const handleSubmitLogIn: ({ username, router }: {
     username: string;
-    router: Router;
+    router: ImperativeRouter;
 }) => Promise<{
     succeded: boolean;
     message: string;

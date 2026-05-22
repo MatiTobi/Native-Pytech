@@ -15,7 +15,7 @@ export default memo(({backgroundColorPage}: {backgroundColorPage: string}) => {
 
     return (
             <MaskedView
-                style={[StyleSheet.absoluteFillObject]}
+                style={[StyleSheet.absoluteFill]}
                 maskElement={
                     <LinearGradient
                         colors={[
@@ -27,11 +27,11 @@ export default memo(({backgroundColorPage}: {backgroundColorPage: string}) => {
                         ]}
                         start={{ x: 0.5, y: 0 }}   // arriba-centro
                         end={{ x: 0.5, y: 1 }}     // abajo-centro
-                        style={[StyleSheet.absoluteFillObject]}
+                        style={[StyleSheet.absoluteFill]}
                     />
                 }
             >
-                <View style={[StyleSheet.absoluteFillObject, {backgroundColor: backgroundColorPage}]}></View>
+                <View style={[StyleSheet.absoluteFill, {backgroundColor: backgroundColorPage}]}></View>
             </MaskedView>
     )
 })

@@ -2,7 +2,7 @@ import React, { memo, useMemo } from 'react'
 import { frame, font, foregroundStyle, background, clipShape } from '@expo/ui/swift-ui/modifiers'
 import { Text, Image } from '@expo/ui/swift-ui'
 
-import colors, { sizes } from '../../constants'
+import colors, { sizes, letterCountType } from '../../constants'
 import type Props from './types'
 
 
@@ -25,7 +25,7 @@ export default memo(({
                 1: sizeDiameter * 0.53,
                 2: sizeDiameter * 0.48,
                 3: sizeDiameter * 0.43
-            }
+            }   
         }
     }, [type])
 
@@ -44,7 +44,7 @@ export default memo(({
         return (
             <Text
                 modifiers={[
-                    font({ weight: 'semibold', size: typeSizes.fontSize[cantLetras] }),
+                    font({ weight: 'semibold', size: typeSizes.fontSize[cantLetras as letterCountType] }),
                     ...modifiers
                 ]}
             >

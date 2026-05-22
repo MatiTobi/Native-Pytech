@@ -14,7 +14,7 @@ export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date
     useEffect(() => setSelection(defaultValue), [defaultValue]);
     const onValueChange = useCallback((value) => {
         setSelection(value);
-        store.values[keyRef.current].set({
+        store.values[keyRef.current ?? 0].set({
             value: value,
             hasChanged: value.getTime() !== defaultValue?.getTime(),
             isValid: true,

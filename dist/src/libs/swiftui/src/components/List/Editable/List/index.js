@@ -2,7 +2,7 @@ import { listStyle, environment, moveDisabled, deleteDisabled } from "@expo/ui/s
 import React, { memo, useMemo } from "react";
 import BaseList from "../../BaseList";
 import { Provider } from '../../../../context/ListEditable';
-export default memo(({ children, editMode, moveEnabled, deleteEnabled, modifiers, ...listProps }) => {
+export default memo(({ children, editMode, moveEnabled = false, deleteEnabled = false, modifiers, ...listProps }) => {
     const _modifiers = useMemo(() => [
         ...(modifiers ?? []),
         listStyle('inset'),

@@ -1,5 +1,5 @@
-import { ColorSchemeType } from "@/libs/constants/colors";
-import { Router } from "expo-router";
+import { ColorSchemeType } from "../../../libs/constants/colors";
+import { ImperativeRouter } from "expo-router";
 type Props = {
     /**
      Lista de nombres de los Stacks que se deben renderizar.
@@ -28,7 +28,7 @@ type Props = {
         Se utiliza para redirigir a la página de inicio.
     */
     onLoadingRealsed?: ({ router, hasSession }: {
-        router: Router;
+        router: ImperativeRouter;
         hasSession: boolean;
     }) => void;
 };
