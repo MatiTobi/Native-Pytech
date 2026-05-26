@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { memo, useCallback, useMemo } from 'react'
-import { Pressable, StyleSheet, View, StyleProp, ViewStyle } from 'react-native'
+import { Pressable as PressableRN, StyleSheet, View, StyleProp, ViewStyle } from 'react-native'
 
 import colors, { type ColorSchemeType } from '../../constants'
 
@@ -68,9 +68,9 @@ export default memo(({
     const childrenOption = onPress === undefined ? <View style={styleView}>{content}</View>
     : (
         backgroundColorPressed ? (
-            <Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
+            <PressableRN onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
                 {content}
-            </Pressable>
+            </PressableRN>
         ) : (
             <PressableView onPress={onPress} colorScheme={colorScheme} styleView={styleView}>
                 {content}
@@ -94,9 +94,9 @@ const PressableView = memo(({ children, onPress, colorScheme, styleView }: { chi
     const backgroundColorPressed = colors.table[colorThemeType][colorScheme].background_pressed
 
     return (
-        <Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
+        <PressableRN onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
             {children}
-        </Pressable>
+        </PressableRN>
     )
 })
 
