@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { memo, useCallback, useMemo } from 'react';
-import { Pressable as PressableRN, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import colors from '../../constants';
 import Table from '../Table';
 import { useTable } from '../../context/table';
@@ -33,9 +33,9 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, style, ba
     </>;
     const styleView = useMemo(() => [styles.Item_View, style], [style]);
     const childrenOption = onPress === undefined ? <View style={styleView}>{content}</View>
-        : (backgroundColorPressed ? (<PressableRN onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
+        : (backgroundColorPressed ? (<Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
                 {content}
-            </PressableRN>) : (<PressableView onPress={onPress} colorScheme={colorScheme} styleView={styleView}>
+            </Pressable>) : (<PressableView onPress={onPress} colorScheme={colorScheme} styleView={styleView}>
                 {content}
             </PressableView>));
     return (LinearGradientProps ?
@@ -47,9 +47,9 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, style, ba
 const PressableView = memo(({ children, onPress, colorScheme, styleView }) => {
     const { colorThemeType } = useTable();
     const backgroundColorPressed = colors.table[colorThemeType][colorScheme].background_pressed;
-    return (<PressableRN onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
+    return (<Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
             {children}
-        </PressableRN>);
+        </Pressable>);
 });
 /*
  const pressableChildren = useCallback(({ pressed }: { pressed: boolean }) => (
