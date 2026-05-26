@@ -8,7 +8,7 @@ type Props = {
         Opciones de la tabla.
         Tiene que ser una lista de Options.
     */
-    children?: React.ReactElement[] | React.ReactElement;
+    children?: React.ReactNode | React.ReactNode[];
     /**
         Texto que aparece arriba de la tabla.
         Si es null, no se muestra.
