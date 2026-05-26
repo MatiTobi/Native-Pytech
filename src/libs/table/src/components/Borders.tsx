@@ -44,7 +44,7 @@ const Component = memo(({ id, borders }: { id: string, borders: any }) => {
     }
     
     return (
-        <View pointerEvents='none' style={[styles.space, styleSpaces]}>
+        <View style={[styles.space, styleSpaces]}>
             {shownTop == null ? 
                 <BorderExtended isTop={true} id={id} color={borders.color} /> :
                 <Border show={borders.shownTop} color={borders.color} />
@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
         left: left,
         right: right,
         bottom: 0,
-        top: -heightPixel
+        top: -heightPixel,
+        pointerEvents: 'none'
     },
     border: {
         height: heightPixel,
