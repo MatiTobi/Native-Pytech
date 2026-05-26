@@ -13,9 +13,15 @@ import ThemeComponent from '@/libs/components/Theme'
 
 type Props = {
     text: string
-    enabled: boolean
+    /**
+        @default true
+    */
+    enabled?: boolean
     fontScale?: string
-    style: StyleProp<TextStyle>
+    /**
+        @default {}
+    */
+    style?: StyleProp<TextStyle>
 }
 
 export default memo(({ ...props } : Props & {colorScheme?: ColorSchemeType} & TextProps) => {
