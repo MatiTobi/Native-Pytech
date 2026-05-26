@@ -28,7 +28,7 @@ const Component = memo(({ id, borders }) => {
         const style = justTop ? { bottom: null } : { top: null }; //Cancela el bottom o el top de styles.space
         return <View style={[styles.space, styles.border, styleSpaces, style, { backgroundColor: borders.color }]}/>;
     }
-    return (<View pointerEvents='none' style={[styles.space, styleSpaces]}>
+    return (<View style={[styles.space, styleSpaces]}>
             {shownTop == null ?
             <BorderExtended isTop={true} id={id} color={borders.color}/> :
             <Border show={borders.shownTop} color={borders.color}/>}
@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
         left: left,
         right: right,
         bottom: 0,
-        top: -heightPixel
+        top: -heightPixel,
+        pointerEvents: 'none'
     },
     border: {
         height: heightPixel,
