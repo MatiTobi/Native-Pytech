@@ -11,7 +11,7 @@ type Props = {
         Opciones de la tabla.
         Tiene que ser una lista de Options.
     */
-    children?: React.ReactElement[];
+    children?: React.ReactElement[] | React.ReactElement;
 
     /**
         Texto que aparece arriba de la tabla.
