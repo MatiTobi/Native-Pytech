@@ -10,13 +10,13 @@ export type Props = OptionProps & {
         Borde de la opción.
         Es un dict con { left: 17, right: 16 } por defecto.
     */
-    borders: {
+    borders?: {
         color: string | null;
         shownTop: boolean | null;
         shownBottom: boolean | null;
         left: number;
         right: number;
-    } | undefined;
+    };
 } & ViewProps;
 export type OptionComponent = React.MemoExoticComponent<React.FC<Props & {
     colorScheme?: ColorSchemeType;

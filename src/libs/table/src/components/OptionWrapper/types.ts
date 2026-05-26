@@ -11,11 +11,14 @@ import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, 
 export type Props = OptionProps & {
 
     id: string,
-    isAnimated: boolean,
 
     /**
-        Borde de la opción.
-        Es un dict con { left: 17, right: 16 } por defecto.
+        @default false
+    */
+    isAnimated?: boolean,
+
+    /**
+        @default '{ left: left, right: right, shownTop: null, shownBottom: null, color: null }'
     */
     borders?: { color: string | null, shownTop: boolean | null, shownBottom: boolean | null, left: number, right: number },
 
