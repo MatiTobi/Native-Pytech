@@ -10,8 +10,7 @@
     "build": "node scripts/build.js",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",
-    "release": "dev git && npm version patch && npm publish && dev git",
-    "postinstall": "node scripts/post_install.js"
+    "release": "dev git && npm version patch && npm publish && dev git"
   },
   "files": [
     "dist",
