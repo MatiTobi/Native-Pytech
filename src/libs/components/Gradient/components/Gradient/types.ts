@@ -1,5 +1,5 @@
 import { sizesType, ColorsType } from '../../constants'
-import IconProps from '../Icon/types'
+import IconProps from '../Icon'
 
 
 export type Props = Omit<IconProps, 'size'> & {

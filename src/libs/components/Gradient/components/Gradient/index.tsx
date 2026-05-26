@@ -4,7 +4,6 @@ import { LinearGradient } from 'expo-linear-gradient'
 
 import colors, { sizes, letterCountType } from '../../constants'
 import type Props from './types'
-import Icon from '../Icon'
 
 
 
@@ -13,7 +12,7 @@ export default memo(({
     color='default',
     type='small',
     sizeDiameter,
-    systemName,
+    icon,
     iconSize,
 
 } : Props) => {
@@ -40,9 +39,7 @@ export default memo(({
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
         >
-            {textComponent ?? (systemName && (
-                <Icon systemName={systemName} size={iconSize ?? typeSizes.diameter/2} />
-            ))}
+            {textComponent ?? icon}
         </LinearGradient>
     )
 })
