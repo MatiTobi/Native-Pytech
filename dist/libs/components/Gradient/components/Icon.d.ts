@@ -7,6 +7,11 @@ type Props = {
     */
     systemName?: SFSymbol;
     /**
+        The icon to display.
+        @web
+    */
+    icon?: React.ReactNode;
+    /**
         The size of the icon.
         @ios
         @default 100
