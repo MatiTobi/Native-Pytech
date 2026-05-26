@@ -6,9 +6,15 @@ import { type ColorSchemeType } from '../../constants';
 */
 type Props = {
     text: string;
-    enabled: boolean;
+    /**
+        @default true
+    */
+    enabled?: boolean;
     fontScale?: string;
-    style: StyleProp<TextStyle>;
+    /**
+        @default {}
+    */
+    style?: StyleProp<TextStyle>;
 };
 declare const _default: React.MemoExoticComponent<({ ...props }: Props & {
     colorScheme?: ColorSchemeType;
