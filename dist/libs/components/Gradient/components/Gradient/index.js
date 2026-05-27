@@ -1,8 +1,10 @@
 import React, { memo, useMemo } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
+import Colors from '../../../../../libs/constants/colors';
 import colors, { sizes } from '../../constants';
-export default memo(({ text, color = 'default', type = 'small', sizeDiameter, icon, iconSize, }) => {
+export default memo(({ text, color = 'default', type = 'small', sizeDiameter, icon, iconSize, ionIconName, }) => {
     const typeSizes = useMemo(() => sizes[type], [type]);
     const textComponent = useMemo(() => {
         const cantLetras = text?.length;
@@ -15,7 +17,7 @@ export default memo(({ text, color = 'default', type = 'small', sizeDiameter, ic
             </Text>);
     }, [text, typeSizes]);
     return (<LinearGradient style={[styles.gradient, { height: typeSizes.diameter, borderRadius: typeSizes.diameter }]} colors={[colors[color].light, colors[color].dark]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }}>
-            {textComponent ?? icon}
+            {textComponent ?? (icon ?? (ionIconName && <Ionicons name={ionIconName} size={24} color={Colors.especiales.azul}/>))}
         </LinearGradient>);
 });
 const styles = StyleSheet.create({
