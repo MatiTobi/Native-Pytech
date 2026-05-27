@@ -1,1 +1,0 @@
-export * from '../../libs/constants/consts';
