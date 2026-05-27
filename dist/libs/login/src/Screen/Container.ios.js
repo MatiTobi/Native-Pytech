@@ -6,7 +6,7 @@ export default memo(({ children }) => {
     const { colorScheme } = useApp();
     const Theme = colors.theme[colorScheme];
     return (<TouchableWithoutFeedback>
-            <ScrollView contentContainerStyle={[styles.pagina, { backgroundColor: Theme.backgroundColor }]} automaticallyAdjustKeyboardInsets={true}>
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={[styles.pagina, { backgroundColor: Theme.backgroundColor }]} automaticallyAdjustKeyboardInsets={true}>
                 {children}
             </ScrollView>
         </TouchableWithoutFeedback>);
