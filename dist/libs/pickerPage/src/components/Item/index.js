@@ -12,5 +12,5 @@ export default memo(({ itemKey, title, ionIconName, icon }) => {
                 {title && (<Table.Option.Components.TextView>
                         <Table.Option.Components.Text text={title}/>
                     </Table.Option.Components.TextView>)}
-            </>} childrenRight={itemKey !== selected ? undefined : (<Ionicons name='checkmark-circle' size={24} color={Colors.especiales.azul}/>)}/>);
+            </>} childrenRight={itemKey !== selected ? undefined : (<Ionicons name='checkmark' size={24} color={Colors.especiales.azul}/>)}/>);
 });
