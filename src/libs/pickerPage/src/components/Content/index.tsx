@@ -18,7 +18,7 @@ export default memo(({
 
 	return (
 		<Provider value={value}>
-			<ScrollView>
+			<ScrollView showsVerticalScrollIndicator={false}>
 				<Table>
 					{children}
 				</Table>

@@ -14,7 +14,7 @@ export default memo(({children}: {children: React.ReactNode}) => {
     return (
         <TouchableWithoutFeedback>
             <KeyboardAvoidingView behavior={'height'} style={{flex: 1}}>
-                <ScrollView 
+                <ScrollView
                     contentContainerStyle={{minHeight: height, flexGrow: 1}}
                     keyboardShouldPersistTaps='handled'
                     showsVerticalScrollIndicator={false}

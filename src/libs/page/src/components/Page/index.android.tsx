@@ -16,7 +16,7 @@ export default memo(({ children, style }: Props) => {
             behavior={'height'}
             keyboardVerticalOffset={bottom + top}
         >
-            <ScrollView contentContainerStyle={[{flexGrow: 1}, style]}>
+            <ScrollView contentContainerStyle={[{flexGrow: 1}, style]} showsVerticalScrollIndicator={false}>
                 {children}
             </ScrollView>
         </KeyboardAvoidingView>

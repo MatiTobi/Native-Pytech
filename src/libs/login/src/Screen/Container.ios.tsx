@@ -13,6 +13,7 @@ export default memo(({children}: {children: React.ReactNode}) => {
     return (
         <TouchableWithoutFeedback>
             <ScrollView
+                showsVerticalScrollIndicator={false}
                 contentContainerStyle={[styles.pagina, {backgroundColor: Theme.backgroundColor}]}
                 automaticallyAdjustKeyboardInsets={true}
             >
