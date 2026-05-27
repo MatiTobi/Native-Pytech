@@ -2,7 +2,6 @@ import React, { memo, useMemo } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Ionicons } from '@expo/vector-icons'
-import Colors from '@/libs/constants/colors'
 
 import colors, { sizes, letterCountType } from '../../constants'
 import type Props from './types'
@@ -42,7 +41,7 @@ export default memo(({
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
         >
-            {textComponent ?? (icon ?? (ionIconName && <Ionicons name={ionIconName} size={24} color={Colors.especiales.azul} />))}
+            {textComponent ?? (icon ?? (ionIconName && <Ionicons name={ionIconName} size={24} color={'white'} />))}
         </LinearGradient>
     )
 })
