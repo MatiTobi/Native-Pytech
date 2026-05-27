@@ -26,8 +26,8 @@ export default memo(({
             onPress={() => onSelectionChange?.(itemKey)}
             colorScheme={colorScheme}
             childrenLeft={<>
-                {icon ?? (ionIconName ? <Ionicons name={ionIconName} size={24} color={Colors.especiales.azul} /> : null)}
-                <Table.Option.Components.Text text={title ?? ''} />
+                {icon ?? (ionIconName && <Ionicons name={ionIconName} size={24} color={Colors.especiales.azul} />)}
+                {title && <Table.Option.Components.Text text={title} />}
             </>}
             childrenRight={
                 itemKey !== selected ? undefined : (
