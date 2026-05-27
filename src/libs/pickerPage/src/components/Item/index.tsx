@@ -35,7 +35,7 @@ export default memo(({
             </>}
             childrenRight={
                 itemKey !== selected ? undefined : (
-                    <Ionicons name='checkmark-circle' size={24} color={Colors.especiales.azul} />
+                    <Ionicons name='checkmark' size={24} color={Colors.especiales.azul} />
                 )
             }
         />
