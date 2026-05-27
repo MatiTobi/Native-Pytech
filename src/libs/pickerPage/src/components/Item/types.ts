@@ -1,5 +1,5 @@
 import type { SFSymbol } from 'sf-symbols-typescript';
-
+import { Ionicons } from '@expo/vector-icons';
 
 type Props = {
     /**
@@ -18,6 +18,11 @@ type Props = {
         @platform ios
     */
     systemImage?: SFSymbol;
+
+    /**
+        The name of the Ionicon to be displayed in the label.
+    */
+    ionIconName?: keyof typeof Ionicons.glyphMap;
 
     /**
         Custom icon view to be displayed in the label.

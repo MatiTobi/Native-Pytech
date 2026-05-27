@@ -1,5 +1,5 @@
-import Page from './src/Page';
-import Item from './src/Item';
+import Page from './src/components/Page';
+import Item from './src/components/Item';
 
 
 type PickerPageComponent = typeof Page & {

@@ -11,14 +11,14 @@ type Props = {
     selected?: string
 
     /**
-        Function to be called when the user changes the search text.
-    */
-    onChangeSearchText: (text: string) => void
-
-    /**
         Function to be called when the user selects a selection.
     */
     onSelectionChange?: (selection: string) => void | Promise<void>
+
+    /**
+        Function to be called when the user changes the search text.
+    */
+    onChangeSearchText?: (text: string) => void
 
     /**
         Placeholder for the search bar.

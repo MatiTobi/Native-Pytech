@@ -30,7 +30,7 @@ export default memo(({
 
             <Stack.SearchBar
                 placeholder={placeholderSearchBar}
-                onChangeText={(e) => onChangeSearchText(e.nativeEvent.text)}
+                onChangeText={(e) => onChangeSearchText?.(e.nativeEvent.text)}
             />
 
 			<Content onSelectionChange={_onSelectionChange} {...props}>

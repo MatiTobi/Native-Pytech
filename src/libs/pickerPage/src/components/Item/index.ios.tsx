@@ -12,11 +12,15 @@ import type Props from "./types"
 */
 export default memo(({
     itemKey,
-    ...props
+    title,
+    systemImage,
+    icon
 
 }: Props) => (
         <Label
-			{...props}
+			title={title}
+			systemImage={systemImage}
+			icon={icon}
 			modifiers={[tag(itemKey)]}
 		/>
     )
