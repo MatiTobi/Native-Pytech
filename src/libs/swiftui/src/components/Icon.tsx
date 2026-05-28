@@ -1,6 +1,6 @@
 import { Label, HStack } from '@expo/ui/swift-ui';
 import { LabelProps } from '@expo/ui/swift-ui';
-import React, { memo } from 'react';
+import  { memo } from 'react';
 
 
 

@@ -1,6 +1,6 @@
 import { Spacer, Image, HStack } from '@expo/ui/swift-ui';
 import { Color } from 'expo-router';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import Text from '../Text';
 export default memo(({ text, textProps }) => {
     return (<>

@@ -1,5 +1,5 @@
 import { VStack, TextProps } from '@expo/ui/swift-ui';
-import React, { memo } from 'react';
+import  { memo } from 'react';
 
 import Text from './Text';
 

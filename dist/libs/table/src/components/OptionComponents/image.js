@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Image } from 'react-native';
 import colors from '../../constants';
 import { useApp } from '../../../../../libs/providers/App';

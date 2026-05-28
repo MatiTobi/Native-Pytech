@@ -1,9 +1,8 @@
-import React from 'react';
 import { ImageSourcePropType } from 'react-native';
 /**
     Pone el tintColor según el tema.
 */
-declare const _default: React.MemoExoticComponent<({ source }: {
+declare const _default: import("react").MemoExoticComponent<({ source }: {
     source: ImageSourcePropType;
-}) => React.JSX.Element>;
+}) => import("react").JSX.Element>;
 export default _default;

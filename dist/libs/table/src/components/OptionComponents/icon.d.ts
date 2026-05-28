@@ -1,10 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
 /**
     Pone el color según el tema.
 */
-declare const _default: React.MemoExoticComponent<({ name, size }: {
+declare const _default: import("react").MemoExoticComponent<({ name, size }: {
     name: keyof typeof Ionicons.glyphMap;
     size: number;
-}) => React.JSX.Element>;
+}) => import("react").JSX.Element>;
 export default _default;

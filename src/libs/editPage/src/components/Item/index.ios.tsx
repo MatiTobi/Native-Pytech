@@ -1,5 +1,5 @@
 import { HStack, Spacer, Text } from '@expo/ui/swift-ui';
-import React, { memo } from 'react';
+import  { memo } from 'react';
 
 import type Props from './types';
 import TextField from '../TextField';

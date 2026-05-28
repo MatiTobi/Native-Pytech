@@ -1,5 +1,5 @@
 import { Stack, router } from "expo-router"
-import React, { memo } from "react"
+import  { memo } from "react"
 
 import type Props from './types'
 import Content from '../Content'

@@ -1,6 +1,6 @@
 import { useObservable, useValue } from '@legendapp/state/react'
 import { Stack, router } from 'expo-router';
-import React, { memo, RefObject, useCallback, useMemo, useRef } from 'react';
+import { memo, RefObject, useCallback, useMemo, useRef } from 'react';
 
 import { Provider, TextFieldsRefsType } from '../../context/page';
 import Props, { Store, Value } from './types';

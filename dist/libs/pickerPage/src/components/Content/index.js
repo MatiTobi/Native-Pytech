@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import Table from "../../../../../libs/table";
 import { Provider } from '../../context/page';

@@ -1,5 +1,4 @@
 import { _icons } from '.';
-import React from 'react';
 import { PixelRatio } from 'react-native';
 import { G } from 'react-native-svg';
 export const Ionicons = ({ name, color, size = 12, y = 0, x = 0 }) => {

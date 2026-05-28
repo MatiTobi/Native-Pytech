@@ -1,4 +1,3 @@
-import React from 'react';
 import { TrailingProps } from './types';
-declare const _default: React.MemoExoticComponent<({ text, textProps }: TrailingProps) => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ text, textProps }: TrailingProps) => import("react").JSX.Element>;
 export default _default;

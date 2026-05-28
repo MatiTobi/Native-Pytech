@@ -1,6 +1,6 @@
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated'
 import { Platform, View, ViewProps } from 'react-native'
-import React, { memo } from 'react'
+import  { memo } from 'react'
 
 import colors, { type ColorSchemeType } from '../constants'
 import { isLowTier } from '@/libs/constants/consts'

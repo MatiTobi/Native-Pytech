@@ -1,5 +1,5 @@
 import { Host, HStack, VStack, Spacer } from '@expo/ui/swift-ui';
-import React, { memo, Fragment } from 'react';
+import { memo, Fragment } from 'react';
 
 import Item from '../Item';
 import type Props from './types';

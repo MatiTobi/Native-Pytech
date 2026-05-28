@@ -1,5 +1,5 @@
 import { useValue } from '@legendapp/state/react';
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { PixelRatio, View, StyleSheet } from 'react-native';
 import colors from '../constants';
 import Hooks from '../../../../libs/constants/hooks';

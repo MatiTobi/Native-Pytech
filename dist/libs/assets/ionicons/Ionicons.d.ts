@@ -1,5 +1,5 @@
 import { Ionicons as IoniconsExpo } from '@expo/vector-icons';
-import React, { ComponentProps } from 'react';
+import { ComponentProps } from 'react';
 import { OpaqueColorValue } from 'react-native';
 type IoniconsExpoProps = ComponentProps<typeof IoniconsExpo>;
 export interface IoniconsProps {
@@ -31,5 +31,5 @@ export interface IoniconsProps {
      */
     y?: number;
 }
-export declare const Ionicons: ({ name, color, size, y, x }: IoniconsProps) => React.JSX.Element;
+export declare const Ionicons: ({ name, color, size, y, x }: IoniconsProps) => import("react").JSX.Element;
 export default Ionicons;

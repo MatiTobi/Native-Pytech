@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import { memo, useState } from 'react';
 import Hooks from '../../../../../libs/constants/hooks';
 import Segmented from '../Segmented';
 import Provider, { useShared } from '../../context/shared';

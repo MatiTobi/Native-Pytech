@@ -1,5 +1,5 @@
 import { Section, DatePicker } from '@expo/ui/swift-ui';
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { environment } from '@expo/ui/swift-ui/modifiers';
 
 import type Props from './types';

@@ -1,4 +1,4 @@
-import React, { memo, useState, useRef, useCallback } from 'react';
+import { memo, useState, useRef, useCallback } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Easing, useSharedValue, withTiming, useDerivedValue } from 'react-native-reanimated';
 import Hooks from '../../../../../libs/constants/hooks';

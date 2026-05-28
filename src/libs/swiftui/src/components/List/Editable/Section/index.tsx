@@ -1,6 +1,6 @@
 import { List, Section } from "@expo/ui/swift-ui"
 import { moveDisabled, tag, deleteDisabled } from "@expo/ui/swift-ui/modifiers"
-import React, { memo, useCallback, useState } from "react"
+import { memo, useCallback, useState } from "react"
 
 import Hooks from '@/libs/constants/hooks'
 import type Props from "./types"

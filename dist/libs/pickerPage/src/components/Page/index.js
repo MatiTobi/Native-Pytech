@@ -1,5 +1,5 @@
 import { Stack, router } from "expo-router";
-import React, { memo } from "react";
+import { memo } from "react";
 import Content from '../Content';
 export default memo(({ children, onChangeSearchText, onSelectionChange, placeholderSearchBar = 'Buscar', ...props }) => {
     const _onSelectionChange = async (selection) => {

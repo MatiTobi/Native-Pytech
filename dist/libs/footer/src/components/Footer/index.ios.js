@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Overlay, VStack } from '@expo/ui/swift-ui';
 export default memo(({ children, backgroundColorPage }) => {
     return (<Overlay.Content>

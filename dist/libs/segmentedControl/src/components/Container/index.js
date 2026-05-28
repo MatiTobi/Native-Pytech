@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { View, StyleSheet } from "react-native";
 import { useApp } from "../../../../../libs/providers/App";
 import colors from "../../colors";

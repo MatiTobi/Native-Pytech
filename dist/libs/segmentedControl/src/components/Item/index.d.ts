@@ -1,4 +1,3 @@
-import React from "react";
 import type Props from "./types";
-declare const _default: React.MemoExoticComponent<({ text, onPress, onLayout, textStyle, }: Props) => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ text, onPress, onLayout, textStyle, }: Props) => import("react").JSX.Element>;
 export default _default;

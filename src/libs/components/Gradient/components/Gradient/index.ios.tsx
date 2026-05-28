@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { frame, font, foregroundStyle, background, clipShape } from '@expo/ui/swift-ui/modifiers'
 import { Text, Image } from '@expo/ui/swift-ui'
 

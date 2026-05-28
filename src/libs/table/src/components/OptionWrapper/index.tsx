@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import Props, { OptionComponent } from './types'
 
 import ThemeComponent from '@/libs/components/Theme'

@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState, useRef } from "react"
+import { memo, useMemo, useState, useRef } from "react"
 import { Stack, useRouter } from "expo-router";
 import { useColorScheme, useWindowDimensions, View, StyleSheet } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context'

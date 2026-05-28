@@ -1,7 +1,7 @@
 import { Spacer, Image, HStack } from '@expo/ui/swift-ui';
 import { foregroundStyle, font } from '@expo/ui/swift-ui/modifiers';
 import { Color } from 'expo-router';
-import React, { memo } from 'react';
+import  { memo } from 'react';
 
 import Text from '../Text';
 import { TrailingProps } from './types';

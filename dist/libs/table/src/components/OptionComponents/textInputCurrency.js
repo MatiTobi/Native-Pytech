@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import TextInputOption from './textInput';
 import Formats from '../../../../../libs/constants/formats';
 /**

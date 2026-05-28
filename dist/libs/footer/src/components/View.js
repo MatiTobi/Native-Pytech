@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import React, { memo } from 'react';
+import { memo } from 'react';
 export default memo(({ children }) => (<View style={styles.view}>
         {children}
     </View>));

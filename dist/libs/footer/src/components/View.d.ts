@@ -1,5 +1,4 @@
-import React from 'react';
-declare const _default: React.MemoExoticComponent<({ children }: {
+declare const _default: import("react").MemoExoticComponent<({ children }: {
     children: React.ReactNode;
-}) => React.JSX.Element>;
+}) => import("react").JSX.Element>;
 export default _default;

@@ -1,7 +1,6 @@
-import React from 'react';
 type Props = {
     children: React.ReactNode;
     backgroundColorPage?: string;
 };
-declare const _default: React.MemoExoticComponent<({ children, backgroundColorPage }: Props) => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ children, backgroundColorPage }: Props) => import("react").JSX.Element>;
 export default _default;

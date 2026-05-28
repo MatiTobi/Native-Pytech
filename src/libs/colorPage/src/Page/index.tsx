@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useCallback } from 'react';
+import { memo, useMemo, useCallback } from 'react';
 import { Stack, useRouter } from 'expo-router';
 import { colors, ColorsType } from '@/libs/components/Gradient';
 

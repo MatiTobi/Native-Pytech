@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleProp, TextProps, TextStyle } from 'react-native';
 import { type ColorSchemeType } from '../../constants';
 /**
@@ -16,7 +15,7 @@ type Props = {
     */
     style?: StyleProp<TextStyle>;
 };
-declare const _default: React.MemoExoticComponent<({ ...props }: Props & {
+declare const _default: import("react").MemoExoticComponent<({ ...props }: Props & {
     colorScheme?: ColorSchemeType;
-} & TextProps) => React.JSX.Element>;
+} & TextProps) => import("react").JSX.Element>;
 export default _default;

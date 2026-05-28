@@ -1,6 +1,5 @@
-import React from 'react';
 /**
     Icono de drag.
 */
-declare const _default: React.MemoExoticComponent<() => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<() => import("react").JSX.Element>;
 export default _default;

@@ -1,6 +1,6 @@
 import { Picker, Text } from '@expo/ui/swift-ui';
 import { pickerStyle, tag } from "@expo/ui/swift-ui/modifiers";
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 export default memo(({ modifiers, data = [], ...pickerProps }) => {
     const _modifiers = useMemo(() => [
         ...(modifiers ?? []),

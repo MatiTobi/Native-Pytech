@@ -1,5 +1,5 @@
 import { GlassView } from "expo-glass-effect";
-import React, { memo } from "react";
+import { memo } from "react";
 import { StyleSheet } from "react-native";
 export default memo(({ children, onLayout, style }) => {
     return (<GlassView glassEffectStyle={'clear'} style={[styles.container, style]} onLayout={onLayout}>

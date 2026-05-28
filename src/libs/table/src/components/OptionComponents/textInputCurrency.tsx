@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import TextInputOption from './textInput'
 import { TextInputProps } from 'react-native'
 import Formats from '@/libs/constants/formats'

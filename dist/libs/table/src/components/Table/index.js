@@ -1,5 +1,5 @@
 import { useObservable } from '@legendapp/state/react';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
 import colors from '../../constants';

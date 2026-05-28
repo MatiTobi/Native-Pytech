@@ -1,6 +1,6 @@
 import { Button, HStack, Label } from '@expo/ui/swift-ui';
 import { listRowInsets as listRowInsetsModifier, foregroundStyle } from '@expo/ui/swift-ui/modifiers';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import type Props from './types';
 import Trailing from './Trailing';

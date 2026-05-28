@@ -1,5 +1,5 @@
 import { type SharedValue, useSharedValue } from "react-native-reanimated"
-import React, { createContext, memo } from "react"
+import  { createContext, memo } from "react"
 
 import { getIndex } from "../utils"
 import { useContext } from "react"

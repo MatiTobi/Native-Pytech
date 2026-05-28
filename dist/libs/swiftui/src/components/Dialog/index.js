@@ -1,5 +1,5 @@
 import { ConfirmationDialog, Button, Text } from '@expo/ui/swift-ui';
-import React, { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback } from 'react';
 export default memo(({ children, buttonTriggerProps, title, message, }) => {
     const [isPresented, setIsPresented] = useState(false);
     const onPress = useCallback(() => {

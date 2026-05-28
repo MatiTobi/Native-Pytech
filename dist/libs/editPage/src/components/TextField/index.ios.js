@@ -1,4 +1,4 @@
-import React, { useMemo, memo, useRef, useCallback, useEffect } from "react";
+import { useMemo, memo, useRef, useCallback, useEffect } from "react";
 import { useValue } from "@legendapp/state/react";
 import { SecureField, TextField } from "@expo/ui/swift-ui";
 import { keyboardType as keyboardTypeModifier, submitLabel, textInputAutocapitalization, onSubmit } from '@expo/ui/swift-ui/modifiers';

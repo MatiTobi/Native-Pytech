@@ -1,6 +1,6 @@
 import { Button, Text } from '@expo/ui/swift-ui';
 import { frame, font, foregroundStyle, buttonStyle, controlSize, disabled } from '@expo/ui/swift-ui/modifiers';
-import React, { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
 
 import { Props } from './types';

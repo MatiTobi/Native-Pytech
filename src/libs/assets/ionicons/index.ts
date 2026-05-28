@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Ionicons as IoniconsExpo } from '@expo/vector-icons'
 import { SvgProps } from 'react-native-svg'
 import Ionicons, { IoniconsProps } from './Ionicons'
 

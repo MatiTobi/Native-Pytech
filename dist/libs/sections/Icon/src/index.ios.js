@@ -1,6 +1,6 @@
 import { Button, VStack } from '@expo/ui/swift-ui';
 import { frame, font, buttonStyle } from '@expo/ui/swift-ui/modifiers';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import Gradient from '../../../../libs/components/Gradient';
 import Text from '../../../../libs/swiftui/src/components/Text';
 import Section from './Section.ios';

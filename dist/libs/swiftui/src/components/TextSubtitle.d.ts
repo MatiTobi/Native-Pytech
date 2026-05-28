@@ -1,5 +1,4 @@
 import { TextProps } from '@expo/ui/swift-ui';
-import React from 'react';
 type Props = {
     /**
         Title to display in the label.
@@ -18,5 +17,5 @@ type Props = {
     */
     subtitleTextProps?: TextProps;
 };
-declare const _default: React.MemoExoticComponent<({ title, subtitle, titleTextProps, subtitleTextProps }: Props) => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ title, subtitle, titleTextProps, subtitleTextProps }: Props) => import("react").JSX.Element>;
 export default _default;

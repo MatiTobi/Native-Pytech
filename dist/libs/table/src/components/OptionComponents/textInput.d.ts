@@ -1,10 +1,9 @@
-import React from 'react';
 import { BlurEvent, FocusEvent, TextInput, TextInputProps } from 'react-native';
 export declare const selectAll: (input: TextInput | any, value: string | null) => void;
 /**
     Pone el color del texto según el tema y agrega unos estilos para que ocupen todo el ancho.
 */
-declare const _default: React.MemoExoticComponent<({ value, numberOfLines, onFocus, onBlur, onChangeText, mask, ...props }: {
+declare const _default: import("react").MemoExoticComponent<({ value, numberOfLines, onFocus, onBlur, onChangeText, mask, ...props }: {
     /**
         Valor inicial del input.
     */
@@ -21,5 +20,5 @@ declare const _default: React.MemoExoticComponent<({ value, numberOfLines, onFoc
         Ejemplo: {(value) => value ? formatPeso(value) : formatPeso(0)}
     */
     mask?: ((value: any) => string) | undefined;
-} & TextInputProps) => React.JSX.Element>;
+} & TextInputProps) => import("react").JSX.Element>;
 export default _default;

@@ -1,6 +1,6 @@
 import { Section, VStack, VStackProps } from '@expo/ui/swift-ui';
 import { containerRelativeFrame, listRowBackground, frame, listRowInsets } from '@expo/ui/swift-ui/modifiers';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { ColorSchemeType } from "../constants";
 import type Props from './types';
 declare const useApp: () => {
@@ -6,5 +5,5 @@ declare const useApp: () => {
     fontScale: number;
 };
 export { useApp };
-declare const _default: React.MemoExoticComponent<({ listStackNames, getBackgroundColor, getSession, renderItemLoading, onLoadingRealsed, }: Props) => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ listStackNames, getBackgroundColor, getSession, renderItemLoading, onLoadingRealsed, }: Props) => import("react").JSX.Element>;
 export default _default;

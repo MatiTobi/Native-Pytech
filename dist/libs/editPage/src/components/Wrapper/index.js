@@ -1,6 +1,6 @@
 import { useObservable, useValue } from '@legendapp/state/react';
 import { Stack, router } from 'expo-router';
-import React, { memo, useCallback, useMemo, useRef } from 'react';
+import { memo, useCallback, useMemo, useRef } from 'react';
 import { Provider } from '../../context/page';
 import Screen from '../Screen';
 export default memo(({ children, onSave }) => {

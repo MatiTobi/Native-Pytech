@@ -1,6 +1,6 @@
 import { Button, RNHostView, VStack, ButtonProps } from '@expo/ui/swift-ui';
 import { frame, font, buttonStyle, foregroundStyle, background, clipShape } from '@expo/ui/swift-ui/modifiers';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import Gradient, { Props as GradientProps } from '@/libs/components/Gradient';
 

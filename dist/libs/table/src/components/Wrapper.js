@@ -1,6 +1,6 @@
 import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
 import { View } from 'react-native';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import colors from '../constants';
 import { isLowTier } from '../../../../libs/constants/consts';
 import { useTable } from '../context/table';

@@ -1,5 +1,5 @@
 import { VStack } from '@expo/ui/swift-ui';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import Text from './Text';
 export default memo(({ title, subtitle, titleTextProps, subtitleTextProps }) => {
     return (<VStack alignment='leading' spacing={2}>

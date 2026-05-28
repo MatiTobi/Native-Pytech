@@ -1,6 +1,6 @@
 import { background, clipShape, buttonStyle, controlSize, frame, glassEffect, padding, foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Text, Button } from '@expo/ui/swift-ui';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { colors } from '../../../../libs/components/Gradient';
 export default memo(({ color, size, selectedColor, onSelectColor, }) => {
     const modifiersButton = useMemo(() => [

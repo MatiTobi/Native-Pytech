@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Pressable } from 'react-native';
 //import { useDrag } from '@/libs/ReorderableList'
 import colors from '../../constants';

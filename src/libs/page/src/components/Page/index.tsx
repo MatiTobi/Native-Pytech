@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import  { memo } from 'react';
 import { Platform, ScrollView } from 'react-native';
 
 import Props from '../PageWrapper/types';

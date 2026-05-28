@@ -1,6 +1,6 @@
 import { batch } from '@legendapp/state';
 import { useSelector } from '@legendapp/state/react';
-import React, { memo, useCallback, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import Reanimated, { Easing as Reasing, SlideOutLeft } from 'react-native-reanimated';
 import Hooks from '../../../../../libs/constants/hooks';

@@ -1,6 +1,6 @@
 import { List } from '@expo/ui/swift-ui';
 import { listStyle as listStyleModifier, padding, refreshable } from '@expo/ui/swift-ui/modifiers';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 /**
     Wrapper de List que aplica un padding superior negativo por defecto.
 

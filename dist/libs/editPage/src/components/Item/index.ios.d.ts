@@ -1,4 +1,3 @@
-import React from 'react';
 import type Props from './types';
-declare const _default: React.MemoExoticComponent<({ label, minLengthSpacer, ...textFieldProps }: Props) => React.JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ label, minLengthSpacer, ...textFieldProps }: Props) => import("react").JSX.Element>;
 export default _default;

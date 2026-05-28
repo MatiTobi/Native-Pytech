@@ -1,5 +1,5 @@
 import { listStyle, environment, moveDisabled, deleteDisabled } from "@expo/ui/swift-ui/modifiers";
-import React, { memo, useMemo } from "react";
+import { memo, useMemo } from "react";
 import BaseList from "../../BaseList";
 import { Provider } from '../../../../context/ListEditable';
 export default memo(({ children, editMode, moveEnabled = false, deleteEnabled = false, modifiers, ...listProps }) => {

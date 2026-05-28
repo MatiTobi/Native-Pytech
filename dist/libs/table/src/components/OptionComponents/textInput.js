@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet, TextInput } from 'react-native';
 import colors from '../../constants';
 import { useApp } from '../../../../../libs/providers/App';
