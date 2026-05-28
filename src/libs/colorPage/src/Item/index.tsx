@@ -1,9 +1,7 @@
 import { memo } from 'react';
-import { colors } from 'native-pytech/components/gradient';
 import { Pressable, StyleSheet } from 'react-native';
 
-import Gradient from 'native-pytech/components/gradient';
-
+import Gradient, { colors } from '@/libs/components/Gradient';
 import type Props from './types';
 
 
