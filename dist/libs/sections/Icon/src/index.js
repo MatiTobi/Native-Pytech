@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     subtitle: {
-        fontSize: 30
+        fontSize: 17
     },
     pressable: {
         backgroundColor: Colors.especiales.azul,
