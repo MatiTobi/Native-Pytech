@@ -1,8 +1,8 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { memo } from 'react';
-import Gradient from "native-pytech/components/gradient";
-import Colors from "native-pytech/constants/colors";
-import { useApp } from "native-pytech/providers/app";
+import Gradient from "../../../../libs/components/Gradient";
+import Colors from "../../../../libs/constants/colors";
+import { useApp } from "../../../../libs/providers/App";
 export default memo(({ title, subtitle, gradientProps, buttonProps }) => {
     const { colorScheme } = useApp();
     const spacing = gradientProps?.type === 'extraLarge' ? 10 : 20;

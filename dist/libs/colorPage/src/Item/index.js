@@ -1,7 +1,6 @@
 import { memo } from 'react';
-import { colors } from 'native-pytech/components/gradient';
 import { Pressable, StyleSheet } from 'react-native';
-import Gradient from 'native-pytech/components/gradient';
+import Gradient, { colors } from '../../../../libs/components/Gradient';
 export default memo(({ color, size, selectedColor, onSelectColor, }) => {
     const isSelected = color === selectedColor;
     return (<Pressable onPress={() => onSelectColor?.(color)} style={[
