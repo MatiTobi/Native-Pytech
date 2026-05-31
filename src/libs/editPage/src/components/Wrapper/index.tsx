@@ -1,10 +1,13 @@
 import { useObservable, useValue } from '@legendapp/state/react'
 import { Stack, router } from 'expo-router';
+import { Pressable, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { memo, RefObject, useCallback, useMemo, useRef } from 'react';
 
 import { Provider, TextFieldsRefsType } from '../../context/page';
 import Props, { Store, Value } from './types';
 import Screen from '../Screen';
+import Header from '../Header';
 
 
 
@@ -31,6 +34,7 @@ export default memo(({ children, onSave }: Props) => {
     })
 
 	const saveEnabled = useValue(() => store.saveEnabled.get())
+	console.log('saveEnabled', saveEnabled)
 
 	// onPress
 	const onPressSave = useCallback(async () => {
@@ -62,10 +66,9 @@ export default memo(({ children, onSave }: Props) => {
 	}
 
 	const onSubmit = async (itemKey: string | number) => {
-		console.log('onSubmit', 'itemKey', itemKey)
 		// Guarda los cambios
 		if (store.isUniqueItem.peek()){
-			if (!saveEnabled) return
+			if (!store.saveEnabled.peek()) return
 			await onPressSave()
 			return
 		}
@@ -79,18 +82,10 @@ export default memo(({ children, onSave }: Props) => {
 
 	return (
 		<>
-			<Stack.Toolbar placement="left">
-				<Stack.Toolbar.Button onPress={() => router.back()}>
-					<Stack.Toolbar.Icon sf="xmark" />
-				</Stack.Toolbar.Button>
-			</Stack.Toolbar>
-
-			<Stack.Toolbar placement="right">
-				<Stack.Toolbar.Button disabled={!saveEnabled} variant="done" onPress={onPressSave}>
-					<Stack.Toolbar.Icon sf="checkmark" />
-				</Stack.Toolbar.Button>
-			</Stack.Toolbar>
-
+			<Header
+				saveEnabled={saveEnabled}
+				onPressSave={onPressSave}
+			/>
 			<Screen>
 				<Provider value={value}>
 					{children}

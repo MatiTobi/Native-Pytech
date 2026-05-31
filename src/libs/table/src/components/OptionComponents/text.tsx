@@ -54,5 +54,6 @@ const Component = memo(({
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,
+        userSelect: 'none'
     }
 })

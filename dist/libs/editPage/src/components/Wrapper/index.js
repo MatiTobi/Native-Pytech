@@ -1,8 +1,9 @@
 import { useObservable, useValue } from '@legendapp/state/react';
-import { Stack, router } from 'expo-router';
+import { router } from 'expo-router';
 import { memo, useCallback, useMemo, useRef } from 'react';
 import { Provider } from '../../context/page';
 import Screen from '../Screen';
+import Header from '../Header';
 export default memo(({ children, onSave }) => {
     const textFieldsRefs = useRef({});
     const indexRef = useRef(0);
@@ -21,6 +22,7 @@ export default memo(({ children, onSave }) => {
         },
     });
     const saveEnabled = useValue(() => store.saveEnabled.get());
+    console.log('saveEnabled', saveEnabled);
     // onPress
     const onPressSave = useCallback(async () => {
         // Obtengo los valores del store
@@ -50,10 +52,9 @@ export default memo(({ children, onSave }) => {
         textFieldsRefs.current[nextKey].current?.focus();
     };
     const onSubmit = async (itemKey) => {
-        console.log('onSubmit', 'itemKey', itemKey);
         // Guarda los cambios
         if (store.isUniqueItem.peek()) {
-            if (!saveEnabled)
+            if (!store.saveEnabled.peek())
                 return;
             await onPressSave();
             return;
@@ -63,18 +64,7 @@ export default memo(({ children, onSave }) => {
     };
     const value = useMemo(() => ({ store, onSubmit, registerItem }), []);
     return (<>
-			<Stack.Toolbar placement="left">
-				<Stack.Toolbar.Button onPress={() => router.back()}>
-					<Stack.Toolbar.Icon sf="xmark"/>
-				</Stack.Toolbar.Button>
-			</Stack.Toolbar>
-
-			<Stack.Toolbar placement="right">
-				<Stack.Toolbar.Button disabled={!saveEnabled} variant="done" onPress={onPressSave}>
-					<Stack.Toolbar.Icon sf="checkmark"/>
-				</Stack.Toolbar.Button>
-			</Stack.Toolbar>
-
+			<Header saveEnabled={saveEnabled} onPressSave={onPressSave}/>
 			<Screen>
 				<Provider value={value}>
 					{children}

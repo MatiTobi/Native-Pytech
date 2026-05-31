@@ -1,5 +1,4 @@
 import type { Observable } from '@legendapp/state';
-import { TextFieldRef } from '@expo/ui/swift-ui';
 import { RefObject } from 'react';
 
 import Utils from '@/libs/constants/utils';

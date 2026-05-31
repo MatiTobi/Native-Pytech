@@ -21,7 +21,7 @@ type Props = {
     /**
         Keyboard type. Uses the keyboardType modifier.
     */
-    keyboardType?: "default" | "email-address" | "numeric" | "phone-pad" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "decimal-pad" | "twitter" | "web-search" | "ascii-capable-number-pad"
+    keyboardType?: "default" | "email-address" | "numeric" | "phone-pad" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "decimal-pad" | "twitter" | "web-search"
 
     /**
         If true, the text field will be autocapitalized. Uses the textInputAutocapitalization modifier.

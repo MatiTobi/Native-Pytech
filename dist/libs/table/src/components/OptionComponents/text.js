@@ -16,5 +16,6 @@ const Component = memo(({ text, enabled = true, style = {}, colorScheme, fontSca
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,
+        userSelect: 'none'
     }
 });

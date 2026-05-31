@@ -1,4 +1,4 @@
 declare const _default: ({ children }: {
     children: React.ReactNode;
-}) => null;
+}) => import("react").JSX.Element;
 export default _default;
