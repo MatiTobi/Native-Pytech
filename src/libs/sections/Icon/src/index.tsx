@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     pressable: {
         backgroundColor: Colors.especiales.azul,
         padding: 10,
-        borderRadius: 10
+        borderRadius: 20
     },
     label: {
         color: 'white',
