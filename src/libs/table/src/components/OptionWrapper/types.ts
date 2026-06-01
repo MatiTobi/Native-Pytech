@@ -8,7 +8,7 @@ import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, 
 
 
 
-export type Props = OptionProps & {
+export type Props = Omit<OptionProps, 'colorScheme'> & {
 
     id: string,
 

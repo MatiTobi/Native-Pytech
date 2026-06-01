@@ -1,6 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { memo, useCallback, useMemo } from 'react'
 import { Pressable, StyleSheet, View, StyleProp, ViewStyle } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
 
 import colors, { type ColorSchemeType } from '../../constants'
 
@@ -52,14 +53,18 @@ export default memo(({
     LinearGradientProps,
     colorScheme,
     hasTextView,
+    hasNavigationArrow=false,
 
 } : Props) => {
 
-    // Component
-
     const content = <>
         {childrenLeft && <AddTextView hasTextView={hasTextView}>{childrenLeft}</AddTextView>}
-        {childrenRight && <View style={styles.der}>{childrenRight}</View>}
+        {childrenRight || hasNavigationArrow ? (
+            <View style={styles.der}>
+                {childrenRight}
+                {hasNavigationArrow && <Ionicons name='chevron-forward' size={24} color={colors.theme[colorScheme].icon} />}
+            </View>
+        ) : null}
         {children}
     </>
 

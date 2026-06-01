@@ -81,7 +81,7 @@ export default memo(({
 
 const styles = StyleSheet.create({
     container: {
-        padding: 10,
+        padding: 7,
         paddingHorizontal: 30,
         borderRadius: 20
     },
