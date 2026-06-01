@@ -3,7 +3,7 @@ import { ViewProps } from "react-native";
 import { type ColorSchemeType } from "../../constants";
 import OptionProps from "../Option/types";
 import { DeleteIcon, DragIcon, Icon, Image, Text, TextInput, TextInputCurrency, TextView } from '../OptionComponents';
-export type Props = OptionProps & {
+export type Props = Omit<OptionProps, 'colorScheme'> & {
     id: string;
     /**
         @default false

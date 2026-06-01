@@ -1,10 +1,10 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import Table from '../../../../../libs/table';
-import { useApp } from '../../../../../libs/providers/App';
-import Formats from '../../../../../libs/constants/formats';
+import Table from '@/libs/table';
+import { useApp } from '@/libs/providers/App';
+import Formats from '@/libs/constants/formats';
 import { usePage } from '../../context/page';
-import Colors from '../../../../../libs/constants/colors';
+import Colors from '@/libs/constants/colors';
 export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)), maxDate = new Date(), }) => {
     const { colorScheme } = useApp();
     const { store, registerItem } = usePage();
@@ -41,7 +41,7 @@ export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date
 });
 const styles = StyleSheet.create({
     container: {
-        padding: 10,
+        padding: 7,
         paddingHorizontal: 30,
         borderRadius: 20
     },

@@ -54,8 +54,13 @@ type Props = {
     */
     hasTextView?: boolean;
     /**
-     * Color del tema de la opción.
+        Color del tema de la opción.
     */
     colorScheme: ColorSchemeType;
+    /**
+        Si es True se muestra una flecha de navegación en el children Right.
+        @default false
+    */
+    hasNavigationArrow?: boolean;
 };
 export default Props;

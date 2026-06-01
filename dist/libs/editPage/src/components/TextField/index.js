@@ -1,9 +1,9 @@
 import { memo, useRef, useCallback, useEffect } from "react";
 import { useValue } from "@legendapp/state/react";
-import { useApp } from '../../../../../libs/providers/App';
-import Table from '../../../../../libs/table';
+import { useApp } from '@/libs/providers/App';
+import Table from '@/libs/table';
 import { usePage } from '../../context/page';
-import Colors from '../../../../../libs/constants/colors';
+import Colors from '@/libs/constants/colors';
 export default memo(({ itemKey, defaultValue, placeholder, keyboardType, autocapitalization = true, secureTextEntry, isValid, }) => {
     const { colorScheme } = useApp();
     const { store, registerItem, onSubmit: _onSubmit } = usePage();

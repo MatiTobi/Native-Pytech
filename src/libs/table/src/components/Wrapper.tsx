@@ -50,7 +50,7 @@ export default memo(({
     hasTextView,
     ...props
 
-}: Props) => {
+}: Props & {colorScheme: ColorSchemeType}) => {
 
     // Restricciones
     if (onDelete && onPress) throw new Error('onDelete y onPress no pueden ser usados juntos')
