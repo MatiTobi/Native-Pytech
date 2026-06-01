@@ -24,6 +24,15 @@ const TextToNumber = (value: string): number => {
 }
 
 
+const textToDate = (value?: string): Date | undefined => {
+	if (!value) return undefined
+	const date = /^\d{4}-\d{2}-\d{2}$/.test(value)
+		? new Date(`${value}T00:00:00-03:00`)
+		: new Date(value)
+	return Number.isNaN(date.getTime()) ? undefined : date
+}
+
+
 function numberToTextCurrency(value: number): string {
     return new Intl.NumberFormat('es-AR', {
 		style: 'currency',
@@ -106,6 +115,7 @@ const dateToTextFormat = (
 const Formats = {
 	numberToText,
 	TextToNumber,
+	textToDate,
 	numberToTextCurrency,
 	capitalizeText,
 	phoneToText,
