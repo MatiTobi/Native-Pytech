@@ -48,6 +48,7 @@ export default memo(({
         LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600),
     colorScheme,
     hasTextView,
+    hasNavigationArrow,
     ...props
 
 }: Props & {colorScheme: ColorSchemeType}) => {
@@ -56,7 +57,7 @@ export default memo(({
     if (onDelete && onPress) throw new Error('onDelete y onPress no pueden ser usados juntos')
 
     let content = (<>
-        <Option colorScheme={colorScheme} hasTextView={hasTextView} childrenLeft={childrenLeft} childrenRight={childrenRight} onPress={onPress} style={style} backgroundColorPressed={backgroundColorPressed} LinearGradientProps={LinearGradientProps}>
+        <Option colorScheme={colorScheme} hasNavigationArrow={hasNavigationArrow} hasTextView={hasTextView} childrenLeft={childrenLeft} childrenRight={childrenRight} onPress={onPress} style={style} backgroundColorPressed={backgroundColorPressed} LinearGradientProps={LinearGradientProps}>
             {children}
         </Option>
         {borders && <Borders id={id}  borders={borders} />}
