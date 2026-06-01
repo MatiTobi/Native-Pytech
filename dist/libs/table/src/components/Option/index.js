@@ -30,7 +30,7 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, style, ba
         {childrenLeft && <AddTextView hasTextView={hasTextView}>{childrenLeft}</AddTextView>}
         {childrenRight || hasNavigationArrow ? (<View style={styles.der}>
                 {childrenRight}
-                {hasNavigationArrow && <Ionicons name='chevron-forward' size={24} color={colors.theme[colorScheme].icon}/>}
+                {hasNavigationArrow && <Ionicons name='chevron-forward' size={20} color={colors.theme[colorScheme].icon}/>}
             </View>) : null}
         {children}
     </>;
