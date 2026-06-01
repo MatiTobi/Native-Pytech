@@ -2,6 +2,7 @@ declare function numberToTextCurrency(value: number): string;
 declare const Formats: {
     numberToText: (value: number) => string;
     TextToNumber: (value: string) => number;
+    textToDate: (value?: string) => Date | undefined;
     numberToTextCurrency: typeof numberToTextCurrency;
     capitalizeText: (string: string) => string;
     phoneToText: (phone: number | string) => string;

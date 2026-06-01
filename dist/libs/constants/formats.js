@@ -16,6 +16,14 @@ const TextToNumber = (value) => {
         return 0;
     return isNegative ? -parsed : parsed;
 };
+const textToDate = (value) => {
+    if (!value)
+        return undefined;
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(value)
+        ? new Date(`${value}T00:00:00-03:00`)
+        : new Date(value);
+    return Number.isNaN(date.getTime()) ? undefined : date;
+};
 function numberToTextCurrency(value) {
     return new Intl.NumberFormat('es-AR', {
         style: 'currency',
@@ -75,6 +83,7 @@ const dateToTextFormat = (date, format = 'YYYY-MM-DD') => {
 const Formats = {
     numberToText,
     TextToNumber,
+    textToDate,
     numberToTextCurrency,
     capitalizeText,
     phoneToText,

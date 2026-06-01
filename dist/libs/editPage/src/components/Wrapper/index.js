@@ -22,7 +22,6 @@ export default memo(({ children, onSave }) => {
         },
     });
     const saveEnabled = useValue(() => store.saveEnabled.get());
-    console.log('saveEnabled', saveEnabled);
     // onPress
     const onPressSave = useCallback(async () => {
         // Obtengo los valores del store
