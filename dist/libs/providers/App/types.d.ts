@@ -1,4 +1,4 @@
-import { ColorSchemeType } from "@/libs/constants/colors";
+import { ColorSchemeType } from "../../../libs/constants/colors";
 import { ImperativeRouter } from "expo-router";
 type Props = {
     /**

@@ -1,4 +1,4 @@
-import type { ColorsType } from '@/libs/components/Gradient';
+import type { ColorsType } from '../../../../libs/components/Gradient';
 type Props = {
     /**
         Title of the date picker.

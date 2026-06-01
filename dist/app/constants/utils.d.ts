@@ -1,1 +1,1 @@
-export { default } from '@/libs/constants/utils';
+export { default } from '../../libs/constants/utils';
