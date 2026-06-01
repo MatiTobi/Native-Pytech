@@ -42,8 +42,15 @@ const Component = memo(({
 } : Props & {colorScheme: ColorSchemeType} & TextProps) => {
 
     const Theme = colors.theme[colorScheme]
-    const textStyle = useMemo(() => [styles.text, { color: enabled ? Theme.text : Theme.text2}, style], [enabled, Theme, style])
-	
+    const textStyle = useMemo(() => [
+        styles.text,
+        {
+            color: enabled ? Theme.text : Theme.text2
+        },
+        style
+    ], [enabled, Theme, style])
+    
+
     return (
 		<Text$ fontScale={fontScale} style={textStyle} {...props}>
             {text}
