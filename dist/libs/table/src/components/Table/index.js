@@ -9,7 +9,7 @@ import { isLowTier } from '../../../../../libs/constants/consts';
 import { BordersProvider, StoreProvider, TableProvider } from '../../context/table';
 import OptionWrapper from '../OptionWrapper';
 import Detail from '../Detail';
-const Table = memo(({ children, title, renderDetail, colorThemeType = 'default', type = 'default', style, contentContainerStyle, allBorders = false, keys, }) => {
+const Table = memo(({ children, title, renderDetail, colorThemeType = 'default', type = 'default', style, contentContainerStyle, allBorders = false, keys, disableLayoutAnimation }) => {
     // ------------- Variables -------------
     const { colorScheme } = useApp();
     const Theme = colors.theme[colorScheme];
@@ -30,7 +30,7 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
         },
         borders: new Map()
     });
-    const layoutAnimation = isLowTier ? LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600);
+    const layoutAnimation = disableLayoutAnimation ? undefined : (isLowTier ? LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600));
     // ------------- useEffect -------------
     Hooks.useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys]);
     const value = useMemo(() => ({ colorThemeType, type, keys, allBorders }), [colorThemeType, type, keys, allBorders]);
