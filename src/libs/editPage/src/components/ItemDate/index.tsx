@@ -33,7 +33,10 @@ export default memo(({
 	}, [])
 
 	// Hooks
-	useEffect(() => setSelection(defaultValue ?? new Date()), [defaultValue])
+	useEffect(() => {
+        setSelection(defaultValue ?? new Date())
+        if (defaultValue === undefined) onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'))
+    }, [defaultValue])
 
 	const onValueChange = useCallback((value_str: string) => {
         const [year, month, day] = value_str.split('-').map(Number)
@@ -46,7 +49,7 @@ export default memo(({
 			isValid: true,
 		})
 	}, [])
-    if (defaultValue === undefined) onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd')) // Set default value on first render
+    
 
     
 	return (
