@@ -26,6 +26,7 @@ const Table = memo(({
     contentContainerStyle,
     allBorders = false,
     keys,
+    disableLayoutAnimation
 
 } : Props) => {
 
@@ -51,7 +52,9 @@ const Table = memo(({
         borders: new Map<string, {top: (show: boolean) => void, bottom: (show: boolean) => void}>()
     })
 
-    const layoutAnimation = isLowTier ? LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600)
+    const layoutAnimation = disableLayoutAnimation ? undefined : (
+        isLowTier ? LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600)
+    )
 
 
     // ------------- useEffect -------------

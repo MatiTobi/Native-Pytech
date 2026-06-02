@@ -59,6 +59,11 @@ type Props = {
         Se muestran todos los bottom y el top del primero
     */
     allBorders?: boolean;
+
+    /**
+        Si le aplica la layoutAnimation.
+    */
+    disableLayoutAnimation?: boolean;
 }
 
 
