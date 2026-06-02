@@ -23,7 +23,7 @@ export default memo(({
     const { colorScheme } = useApp()
 	const { store, registerItem } = usePage()
     
-	const [selection, setSelection] = useState<Date | undefined>(defaultValue)
+	const [selection, setSelection] = useState<Date>(defaultValue ?? new Date())
     const inputRef = useRef<HTMLInputElement>(null)
 
 	// Key
@@ -33,7 +33,7 @@ export default memo(({
 	}, [])
 
 	// Hooks
-	useEffect(() => setSelection(defaultValue), [defaultValue])
+	useEffect(() => setSelection(defaultValue ?? new Date()), [defaultValue])
 
 	const onValueChange = useCallback((value_str: string) => {
         const [year, month, day] = value_str.split('-').map(Number)
@@ -46,6 +46,7 @@ export default memo(({
 			isValid: true,
 		})
 	}, [])
+    if (defaultValue === undefined) onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd')) // Set default value on first render
 
     
 	return (
@@ -59,11 +60,11 @@ export default memo(({
                         onPress={() => inputRef.current?.showPicker()}
                         style={[styles.container, { backgroundColor: Colors.especiales.azul }]}
                     >
-                        <Table.Option.Components.Text text={selection ? Formats.dateToTextFormat(selection, 'dd/MM/yyyy') : ''} style={{color: 'white', userSelect: 'none'}}/>
+                        <Table.Option.Components.Text text={Formats.dateToTextFormat(selection, 'dd/MM/yyyy')} style={{color: 'white', userSelect: 'none'}}/>
                         <input
                             ref={inputRef}
                             type="date"
-                            value={selection ? Formats.dateToTextFormat(selection, 'yyyy-MM-dd') : ''}
+                            value={Formats.dateToTextFormat(selection, 'yyyy-MM-dd')}
                             onChange={(e) => onValueChange(e.target.value)}
                             style={{
                                 all: 'unset',
