@@ -16,7 +16,11 @@ export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date
         keyRef.current = registerItem(itemKey);
     }, []);
     // Hooks
-    useEffect(() => setSelection(defaultValue ?? new Date()), [defaultValue]);
+    useEffect(() => {
+        setSelection(defaultValue ?? new Date());
+        if (defaultValue === undefined)
+            onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'));
+    }, [defaultValue]);
     const onValueChange = useCallback((value_str) => {
         const [year, month, day] = value_str.split('-').map(Number);
         const value = new Date(year, month - 1, day);
@@ -27,8 +31,6 @@ export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date
             isValid: true,
         });
     }, []);
-    if (defaultValue === undefined)
-        onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd')); // Set default value on first render
     return (<Table.Option id={label ?? ''} colorScheme={colorScheme} childrenLeft={<Table.Option.Components.Text text={label ?? 'Seleccione una fecha'}/>} childrenRight={(<>
                     <Pressable onPress={() => inputRef.current?.showPicker()} style={[styles.container, { backgroundColor: Colors.especiales.azul }]}>
                         <Table.Option.Components.Text text={Formats.dateToTextFormat(selection, 'dd/MM/yyyy')} style={{ color: 'white', userSelect: 'none' }}/>
