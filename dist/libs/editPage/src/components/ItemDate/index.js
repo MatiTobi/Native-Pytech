@@ -8,7 +8,7 @@ import Colors from '../../../../../libs/constants/colors';
 export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)), maxDate = new Date(), }) => {
     const { colorScheme } = useApp();
     const { store, registerItem } = usePage();
-    const [selection, setSelection] = useState(defaultValue);
+    const [selection, setSelection] = useState(defaultValue ?? new Date());
     const inputRef = useRef(null);
     // Key
     const keyRef = useRef(itemKey);
@@ -16,7 +16,7 @@ export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date
         keyRef.current = registerItem(itemKey);
     }, []);
     // Hooks
-    useEffect(() => setSelection(defaultValue), [defaultValue]);
+    useEffect(() => setSelection(defaultValue ?? new Date()), [defaultValue]);
     const onValueChange = useCallback((value_str) => {
         const [year, month, day] = value_str.split('-').map(Number);
         const value = new Date(year, month - 1, day);
@@ -27,10 +27,12 @@ export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date
             isValid: true,
         });
     }, []);
+    if (defaultValue === undefined)
+        onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd')); // Set default value on first render
     return (<Table.Option id={label ?? ''} colorScheme={colorScheme} childrenLeft={<Table.Option.Components.Text text={label ?? 'Seleccione una fecha'}/>} childrenRight={(<>
                     <Pressable onPress={() => inputRef.current?.showPicker()} style={[styles.container, { backgroundColor: Colors.especiales.azul }]}>
-                        <Table.Option.Components.Text text={selection ? Formats.dateToTextFormat(selection, 'dd/MM/yyyy') : ''} style={{ color: 'white', userSelect: 'none' }}/>
-                        <input ref={inputRef} type="date" value={selection ? Formats.dateToTextFormat(selection, 'yyyy-MM-dd') : ''} onChange={(e) => onValueChange(e.target.value)} style={{
+                        <Table.Option.Components.Text text={Formats.dateToTextFormat(selection, 'dd/MM/yyyy')} style={{ color: 'white', userSelect: 'none' }}/>
+                        <input ref={inputRef} type="date" value={Formats.dateToTextFormat(selection, 'yyyy-MM-dd')} onChange={(e) => onValueChange(e.target.value)} style={{
                 all: 'unset',
                 visibility: 'hidden',
                 width: 0,
