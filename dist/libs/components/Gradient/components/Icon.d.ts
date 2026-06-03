@@ -19,7 +19,6 @@ type Props = {
     /**
         The size of the icon.
         @platform ios
-        @default 100
     */
     size?: number;
 };

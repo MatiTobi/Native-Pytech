@@ -1,2 +1,3 @@
-export { sizes, colors } from './constants';
+export * from './constants';
+export * from './components/Gradient/types';
 export { default } from './components/Gradient';
