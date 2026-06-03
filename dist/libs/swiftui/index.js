@@ -7,3 +7,4 @@ export { default as Text } from './src/components/Text';
 export { default as Picker } from './src/components/Picker';
 export { default as TextSubtitle } from './src/components/TextSubtitle';
 export { default as Dialog } from './src/components/Dialog';
+export { default as ChevronRight } from './src/components/ChevronRight';
