@@ -11,6 +11,7 @@ import Hooks from '@/libs/constants/hooks'
 
 import colors, { ColorSchemeType } from "../constants"
 import type Props from './types'
+import './styles.css';
 
 
 

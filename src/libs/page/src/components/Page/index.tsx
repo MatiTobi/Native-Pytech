@@ -11,7 +11,6 @@ export default memo(({ children, style }: Props) => {
             style={{ flex: 1}}
             automaticallyAdjustKeyboardInsets={true}
             contentContainerStyle={style}
-            showsVerticalScrollIndicator={false}
         >
             {children}
         </ScrollView>

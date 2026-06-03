@@ -8,6 +8,7 @@ import LoginSvg from '../../assets/images/login_letras.svg';
 import LoginSvgDark from '../../assets/images/login_letras_dark.svg';
 import Hooks from '../../../libs/constants/hooks';
 import colors from "../constants";
+import './styles.css';
 const [Provider, useApp] = Utils.createCtx();
 export { useApp };
 export default memo(({ listStackNames = [], getBackgroundColor, getSession, renderItemLoading = ({ colorScheme }) => (colorScheme === 'dark' ?

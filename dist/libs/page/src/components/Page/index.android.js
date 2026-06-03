@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 export default memo(({ children, style }) => {
     const { bottom, top } = useSafeAreaInsets();
     return (<KeyboardAvoidingView style={{ flex: 1 }} behavior={'height'} keyboardVerticalOffset={bottom + top}>
-            <ScrollView contentContainerStyle={[{ flexGrow: 1 }, style]} showsVerticalScrollIndicator={false}>
+            <ScrollView contentContainerStyle={[{ flexGrow: 1 }, style]}>
                 {children}
             </ScrollView>
         </KeyboardAvoidingView>);

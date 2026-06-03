@@ -8,7 +8,7 @@ export default memo(({ children }) => {
     const Theme = colors.theme[colorScheme];
     return (<TouchableWithoutFeedback>
             <KeyboardAvoidingView behavior={'height'} style={{ flex: 1 }}>
-                <ScrollView contentContainerStyle={{ minHeight: height, flexGrow: 1 }} keyboardShouldPersistTaps='handled' showsVerticalScrollIndicator={false}>
+                <ScrollView contentContainerStyle={{ minHeight: height, flexGrow: 1 }} keyboardShouldPersistTaps='handled'>
                     <View style={[styles.pagina, { backgroundColor: Theme.backgroundColor }]}>
                         {children}
                     </View>

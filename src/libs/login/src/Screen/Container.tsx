@@ -17,7 +17,6 @@ export default memo(({children}: {children: React.ReactNode}) => {
                 <ScrollView
                     contentContainerStyle={{minHeight: height, flexGrow: 1}}
                     keyboardShouldPersistTaps='handled'
-                    showsVerticalScrollIndicator={false}
                 >
                     <View style={[styles.pagina, {backgroundColor: Theme.backgroundColor}]}>
                         {children}

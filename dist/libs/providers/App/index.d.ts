@@ -1,5 +1,6 @@
 import { ColorSchemeType } from "../constants";
 import type Props from './types';
+import './styles.css';
 declare const useApp: () => {
     colorScheme: ColorSchemeType;
     fontScale: number;

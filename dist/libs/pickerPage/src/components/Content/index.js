@@ -5,7 +5,7 @@ import { Provider } from '../../context/page';
 export default memo(({ children, selected, onSelectionChange }) => {
     const value = useMemo(() => ({ selected, onSelectionChange }), [selected]);
     return (<Provider value={value}>
-			<ScrollView showsVerticalScrollIndicator={false}>
+			<ScrollView>
 				<Table>
 					{children}
 				</Table>
