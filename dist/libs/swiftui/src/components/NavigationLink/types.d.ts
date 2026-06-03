@@ -8,6 +8,10 @@ export type TrailingProps = {
         TextProps to apply to the Trailing Stack text.
     */
     textProps?: TextProps;
+    /**
+        Custom React Node to display instead of the default Trailing Stack (text + ChevronRight).
+    */
+    component?: React.ReactNode;
 };
 type Props = Pick<ButtonProps, 'children' | 'onPress' | 'systemImage' | 'label'> & {
     /**
@@ -27,5 +31,9 @@ type Props = Pick<ButtonProps, 'children' | 'onPress' | 'systemImage' | 'label'>
         TextProps to apply to the Trailing Stack text.
     */
     trailingTextProps?: TrailingProps['textProps'];
+    /**
+        Custom React Node to display instead of the default Trailing Stack (text + ChevronRight).
+    */
+    trailingComponent?: TrailingProps['component'];
 };
 export default Props;
