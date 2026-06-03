@@ -20,7 +20,7 @@ export default memo(({ color, size, selectedColor, onSelectColor, renderGradient
         })
     ], []);
     return (<Button onPress={() => onSelectColor?.(color)} modifiers={modifiersButton}>
-			{React.createElement(renderGradientIOS, { color, iconSize: size })}
+			{React.createElement(renderGradientIOS, { color, sizeDiameter: size })}
 		</Button>);
     const modifiers = useMemo(() => [
         frame({ width: size, height: size }),
