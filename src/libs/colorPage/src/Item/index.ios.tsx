@@ -42,24 +42,4 @@ export default memo(({
 			{React.createElement(renderGradientIOS, { color, sizeDiameter: size })}
 		</Button>
 	)
-
-
-	const modifiers = useMemo(() => [
-        frame({ width: size, height: size }),
-		foregroundStyle('transparent'),
-		background(colors[color].middle),
-		clipShape('circle'),
-    ], [size])
-
-
-	return (
-		<Button
-			modifiers={modifiersButton}
-			onPress={() => onSelectColor?.(color)}
-		>
-			<Text modifiers={modifiers}>
-				.
-			</Text>
-		</Button>
-	)
 })
