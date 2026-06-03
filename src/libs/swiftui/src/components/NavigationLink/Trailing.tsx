@@ -9,16 +9,18 @@ import { TrailingProps } from './types';
 
 export default memo(({
     text,
-    textProps
+    textProps,
+    component
 
 }: TrailingProps) => {
 
 	return (
         <>
             <Spacer />
-            {text ? (
+            {(text || component) ? (
                 <HStack spacing={10}>
-                    <Text {...textProps} secondary>{text}</Text>
+                    {text && <Text {...textProps} secondary>{text}</Text>}
+                    {component}
                     <ChevronRight />
                 </HStack>
             ) : (
