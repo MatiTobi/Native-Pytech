@@ -1,6 +1,6 @@
 import { background, clipShape, buttonStyle, controlSize, frame, glassEffect, padding, foregroundStyle } from '@expo/ui/swift-ui/modifiers';
 import { Text, Button } from '@expo/ui/swift-ui';
-import { memo, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { colors } from '@/libs/components/Gradient';
 
 import type Props from './types';
@@ -12,8 +12,11 @@ export default memo(({
 	size,
 	selectedColor,
 	onSelectColor,
+	renderGradientIOS
 
 }: Props) => {
+
+	if (!renderGradientIOS) return null
 
 	const modifiersButton = useMemo(() => [
 		buttonStyle('plain'),
@@ -29,6 +32,17 @@ export default memo(({
 			shape: 'circle'
 		})
     ], [])
+
+
+	return (
+		<Button
+			onPress={() => onSelectColor?.(color)}
+			modifiers={modifiersButton}
+		>
+			{React.createElement(renderGradientIOS, { color, iconSize: size })}
+		</Button>
+	)
+
 
 	const modifiers = useMemo(() => [
         frame({ width: size, height: size }),

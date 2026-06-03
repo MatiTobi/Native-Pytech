@@ -14,8 +14,15 @@ type Props = {
 
     /**
         Function to render the item.
+        @platform android
     */
     renderGradient?: (props: renderGradientProps) => React.ReactNode
+
+    /**
+        Function to render the item.
+        @platform ios
+    */
+    renderGradientIOS?: (props: renderGradientIOSProps) => React.ReactNode
 }
 
 type renderGradientProps = {
@@ -30,5 +37,11 @@ type renderGradientProps = {
     size: number
 }
 
+type renderGradientIOSProps = Omit<renderGradientProps, 'size'> & {
+    /**
+        Size of the item.
+    */
+    iconSize: number
+}
 
 export default Props
