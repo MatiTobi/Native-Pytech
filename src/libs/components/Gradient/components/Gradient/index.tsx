@@ -12,9 +12,7 @@ export default memo(({
     text,
     color='default',
     type='small',
-    sizeDiameter,
     icon,
-    iconSize,
     ionIconName,
 
 } : Props) => {
