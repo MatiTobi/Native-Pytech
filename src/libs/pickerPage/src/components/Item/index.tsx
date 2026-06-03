@@ -1,4 +1,4 @@
-import  { memo } from "react"
+import { memo } from "react"
 import { Ionicons } from '@expo/vector-icons'
 
 import { useApp } from "@/libs/providers/App"

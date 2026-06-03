@@ -1,5 +1,5 @@
 import { GlassView } from "expo-glass-effect"
-import  { memo } from "react"
+import { memo } from "react"
 import { StyleSheet } from "react-native"
 
 import Props from './types'

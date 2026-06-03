@@ -1,4 +1,4 @@
-import  { memo } from 'react';
+import { memo } from 'react';
 
 import WithIcon from '../WithIcon';
 import Page from '../Page';

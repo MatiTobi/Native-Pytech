@@ -1,4 +1,4 @@
-import  { memo } from 'react'
+import { memo } from 'react'
 import { Overlay, VStack } from '@expo/ui/swift-ui';
 
 

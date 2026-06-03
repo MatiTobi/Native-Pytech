@@ -1,5 +1,5 @@
 import { Spacer, HStack } from '@expo/ui/swift-ui';
-import  { memo } from 'react';
+import { memo } from 'react';
 
 import Text from '../Text';
 import ChevronRight from '../ChevronRight';

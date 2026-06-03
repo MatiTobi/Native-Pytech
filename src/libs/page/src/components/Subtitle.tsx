@@ -1,4 +1,4 @@
-import  { memo } from "react"
+import { memo } from "react"
 import { Text } from "react-native"
 
 import colors from "../constants"

@@ -1,4 +1,4 @@
-import  { memo } from "react"
+import { memo } from "react"
 import { Label } from "@expo/ui/swift-ui"
 import { tag } from "@expo/ui/swift-ui/modifiers"
 

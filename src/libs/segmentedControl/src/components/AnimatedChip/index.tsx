@@ -1,4 +1,4 @@
-import  { memo } from 'react';
+import { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated, { interpolate, useAnimatedStyle, useDerivedValue, useAnimatedReaction } from 'react-native-reanimated'
 import { scheduleOnRN } from 'react-native-worklets'

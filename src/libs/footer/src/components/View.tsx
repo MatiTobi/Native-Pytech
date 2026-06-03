@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native'
-import  { memo } from 'react'
+import { memo } from 'react'
 
 
 export default memo(({children}: {children: React.ReactNode}) => (

@@ -1,6 +1,6 @@
 import { Image } from '@expo/ui/swift-ui';
 import { Color } from 'expo-router';
-import  { memo } from 'react';
+import { memo } from 'react';
 
 
 
