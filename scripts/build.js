@@ -6,6 +6,7 @@ try {
 	run('tsc')
 	run('tsc-alias')
 	run('copyfiles -u 2 "src/libs/assets/images/**/*" dist/libs/')
+	run('copyfiles -u 2 "src/libs/**/*.css" dist/libs/')
 } catch (err) {
 	console.error('\n❌ Build failed')
 	process.exit(1)
