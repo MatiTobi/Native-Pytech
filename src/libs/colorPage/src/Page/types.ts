@@ -41,7 +41,7 @@ type renderGradientIOSProps = Omit<renderGradientProps, 'size'> & {
     /**
         Size of the item.
     */
-    iconSize: number
+    sizeDiameter: number
 }
 
 export default Props

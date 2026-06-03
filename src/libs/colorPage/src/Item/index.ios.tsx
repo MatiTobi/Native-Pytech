@@ -39,7 +39,7 @@ export default memo(({
 			onPress={() => onSelectColor?.(color)}
 			modifiers={modifiersButton}
 		>
-			{React.createElement(renderGradientIOS, { color, iconSize: size })}
+			{React.createElement(renderGradientIOS, { color, sizeDiameter: size })}
 		</Button>
 	)
 
