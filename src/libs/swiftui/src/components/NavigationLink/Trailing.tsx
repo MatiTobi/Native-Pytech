@@ -1,9 +1,8 @@
-import { Spacer, Image, HStack } from '@expo/ui/swift-ui';
-import { foregroundStyle, font } from '@expo/ui/swift-ui/modifiers';
-import { Color } from 'expo-router';
+import { Spacer, HStack } from '@expo/ui/swift-ui';
 import  { memo } from 'react';
 
 import Text from '../Text';
+import ChevronRight from '../ChevronRight';
 import { TrailingProps } from './types';
 
 
@@ -28,16 +27,3 @@ export default memo(({
         </>
 	)
 })
-
-
-const ChevronRight = memo(() => (
-    <Image
-        systemName='chevron.right'
-        size={16}
-        color={Color.ios.opaqueSeparator}
-        /*modifiers={[
-            foregroundStyle({type: 'hierarchical', style: 'tertiary'}),
-            font({weight: 'semibold'})
-        ]}*/
-    />
-))
