@@ -1,6 +1,6 @@
 import  { useMemo, memo, useRef, useCallback, useEffect } from "react";
 import { useValue } from "@legendapp/state/react"
-import { SecureField, TextField, TextFieldRef } from "@expo/ui/swift-ui"
+import { SecureField, TextField, TextFieldRef, useNativeState } from "@expo/ui/swift-ui"
 import { keyboardType as keyboardTypeModifier, submitLabel, textInputAutocapitalization, onSubmit } from '@expo/ui/swift-ui/modifiers';
 
 import type Props from './types';
@@ -20,6 +20,7 @@ export default memo(({
 }: Props) => {
 
 	const { store, registerItem, onSubmit: _onSubmit } = usePage()
+	const text = useNativeState(defaultValue ?? '');
 
 	const isUniqueItem = useValue(() => store.isUniqueItem.get())
 	const ref = useRef<TextFieldRef>(null)
@@ -28,7 +29,6 @@ export default memo(({
 	const keyRef = useRef<string | number>(itemKey ?? 0)
 	useEffect(() => {
 		keyRef.current = registerItem(itemKey, ref)
-		onValueChange(defaultValue ?? '')
 	}, [])
 
 	// onChange
@@ -50,8 +50,8 @@ export default memo(({
 		onSubmit(() => _onSubmit(keyRef.current)),
 	], [keyboardType, autocapitalization, isUniqueItem])
 
-	const props = { autoFocus: isUniqueItem, modifiers, placeholder, defaultValue, onValueChange }
+	const props = { ref, text: text, autoFocus: isUniqueItem, modifiers, placeholder, defaultValue, onTextChange: onValueChange }
 
-	if (secureTextEntry) return <SecureField {...props} ref={ref}/>
-	return <TextField {...props} ref={ref}/>
+	if (secureTextEntry) return <SecureField {...props} />
+	return <TextField {...props} />
 })
