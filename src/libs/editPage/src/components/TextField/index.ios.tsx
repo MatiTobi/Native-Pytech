@@ -29,6 +29,7 @@ export default memo(({
 	const keyRef = useRef<string | number>(itemKey ?? 0)
 	useEffect(() => {
 		keyRef.current = registerItem(itemKey, ref)
+		onValueChange(defaultValue ?? '')
 	}, [])
 
 	// onChange
