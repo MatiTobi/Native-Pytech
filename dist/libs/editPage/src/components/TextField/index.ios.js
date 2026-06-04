@@ -19,7 +19,7 @@ export default memo(({ itemKey, defaultValue, placeholder, keyboardType, autocap
         const _value = value.trim() === '' ? null : value.trim();
         store.values[keyRef.current].set({
             value: _value,
-            hasChanged: _value !== defaultValue,
+            hasChanged: _value != defaultValue,
             isValid: isValid?.(_value) ?? true,
         });
     }, []);
