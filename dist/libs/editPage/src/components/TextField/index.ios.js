@@ -12,6 +12,7 @@ export default memo(({ itemKey, defaultValue, placeholder, keyboardType, autocap
     const keyRef = useRef(itemKey ?? 0);
     useEffect(() => {
         keyRef.current = registerItem(itemKey, ref);
+        onValueChange(defaultValue ?? '');
     }, []);
     // onChange
     const onValueChange = useCallback((value) => {

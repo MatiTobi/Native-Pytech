@@ -34,11 +34,11 @@ export default memo(({
 
 	// onChange
 	const onValueChange = useCallback((value: string) => {
-		const _value = value.trim() === '' ? null : value.trim()
+		const _value = value.trim() === '' ? null : value.trim() 
 		
 		store.values[keyRef.current].set({
 			value: _value,
-			hasChanged: _value !== defaultValue,
+			hasChanged: _value != defaultValue,
 			isValid: isValid?.(_value) ?? true,
 		})
 	}, [])
