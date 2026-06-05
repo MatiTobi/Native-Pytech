@@ -32,7 +32,7 @@ const useLayoutEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
 
 
 const useAsyncEffect = (
-    effect: (isMounted: () => boolean) => Promise<void>,
+    effect: (isMounted: () => boolean) => Promise<any>,
     deps: any[]
 ) => {
     useEffect(() => {
@@ -47,7 +47,7 @@ const useAsyncEffect = (
 
 
 const useAsyncFocusEffect = (
-    effect: (isMounted: () => boolean) => Promise<void>
+    effect: (isMounted: () => boolean) => Promise<any>
 ) => {
     useFocusEffect(
         useCallback(() => {
@@ -63,7 +63,7 @@ const useAsyncFocusEffect = (
 
 
 const useAsyncFocusEffectWithoutFirstRender = (
-	effect: (isMounted: () => boolean) => Promise<void>
+	effect: (isMounted: () => boolean) => Promise<any>
 ) => {
 	const isFirstFocus = useRef(true)
   
