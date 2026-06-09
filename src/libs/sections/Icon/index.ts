@@ -1,2 +1,2 @@
 export { default } from './src';
-export * as Types from './types';
+export { default as Props } from './types';
