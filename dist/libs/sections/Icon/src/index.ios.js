@@ -1,8 +1,8 @@
 import { Button, VStack } from '@expo/ui/swift-ui';
 import { frame, font, buttonStyle } from '@expo/ui/swift-ui/modifiers';
 import { memo } from 'react';
-import Gradient from '../../../../libs/components/Gradient';
-import Text from '../../../../libs/swiftui/src/components/Text';
+import Gradient from '@/libs/components/Gradient';
+import Text from '@/libs/swiftui/src/components/Text';
 import Section from './Section.ios';
 export default memo(({ title, subtitle, gradientProps, buttonProps }) => {
     const spacing = gradientProps?.type === 'extraLarge' ? 10 : 20;
