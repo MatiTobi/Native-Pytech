@@ -17,6 +17,7 @@ export default memo(({
 	defaultValue,
 	minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)),
 	maxDate = new Date(),
+    onValueChange,
 
 }: Props) => {
 
@@ -35,10 +36,10 @@ export default memo(({
 	// Hooks
 	useEffect(() => {
         setSelection(defaultValue ?? new Date())
-        if (defaultValue === undefined) onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'))
+        if (defaultValue === undefined) _onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'))
     }, [defaultValue])
 
-	const onValueChange = useCallback((value_str: string) => {
+	const _onValueChange = useCallback((value_str: string) => {
         const [year, month, day] = value_str.split('-').map(Number)
         const value = new Date(year, month - 1, day)
 
@@ -48,6 +49,7 @@ export default memo(({
 			hasChanged: value.getTime() !== defaultValue?.getTime(),
 			isValid: true,
 		})
+        onValueChange?.(value)
 	}, [])
     
     
@@ -67,7 +69,7 @@ export default memo(({
                             ref={inputRef}
                             type="date"
                             value={Formats.dateToTextFormat(selection, 'yyyy-MM-dd')}
-                            onChange={(e) => onValueChange(e.target.value)}
+                            onChange={(e) => _onValueChange(e.target.value)}
                             style={{
                                 all: 'unset',
                                 visibility: 'hidden',

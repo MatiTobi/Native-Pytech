@@ -13,6 +13,7 @@ export default memo(({
 	defaultValue,
 	minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)),
 	maxDate = new Date(),
+	onValueChange,
 
 }: Props) => {
 
@@ -28,13 +29,14 @@ export default memo(({
 	// Hooks
 	useEffect(() => setSelection(defaultValue), [defaultValue])
 
-	const onValueChange = useCallback((value: Date) => {		
+	const _onValueChange = useCallback((value: Date) => {		
 		setSelection(value)
 		store.values[keyRef.current ?? 0].set({
 			value: value,
 			hasChanged: value.getTime() !== defaultValue?.getTime(),
 			isValid: true,
 		})
+		onValueChange?.(value)
 	}, [])
 
 
@@ -43,7 +45,7 @@ export default memo(({
 			<DatePicker
 				title={label}
 				selection={selection}
-				onDateChange={onValueChange}
+				onDateChange={_onValueChange}
 				modifiers={[environment('locale', 'es_ES')]}
 				range={{
 					start: minDate,

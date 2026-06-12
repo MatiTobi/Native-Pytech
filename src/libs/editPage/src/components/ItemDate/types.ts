@@ -27,6 +27,11 @@ type Props = {
         @default today
     */
     maxDate?: Date
+
+    /**
+        Callback function to be called when the value changes.
+    */
+    onValueChange?: (value: Date) => void
 }
 
 export default Props
