@@ -11,7 +11,12 @@ import Header from '../Header';
 
 
 
-export default memo(({ children, onSave }: Props) => {
+export default memo(({
+	children,
+	saveEnabled,
+	onSave
+
+}: Props) => {
 
 	const textFieldsRefs = useRef<TextFieldsRefsType>({})
 	const indexRef = useRef(0)
@@ -33,7 +38,7 @@ export default memo(({ children, onSave }: Props) => {
 		},
     })
 
-	const saveEnabled = useValue(() => store.saveEnabled.get())
+	const _saveEnabled = useValue(() => store.saveEnabled.get())
 
 	// onPress
 	const onPressSave = useCallback(async () => {
@@ -82,7 +87,7 @@ export default memo(({ children, onSave }: Props) => {
 	return (
 		<>
 			<Header
-				saveEnabled={saveEnabled}
+				saveEnabled={_saveEnabled && (saveEnabled ?? true)}
 				onPressSave={onPressSave}
 			/>
 			<Screen>
