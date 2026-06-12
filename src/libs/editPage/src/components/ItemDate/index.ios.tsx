@@ -57,7 +57,7 @@ export default memo(({
 	return (
 		<DatePicker
 			title={label}
-			selection={currentDate}
+			selection={currentDateRanged}
 			onDateChange={_onValueChange}
 			modifiers={[environment('locale', 'es_ES')]}
 			range={{
