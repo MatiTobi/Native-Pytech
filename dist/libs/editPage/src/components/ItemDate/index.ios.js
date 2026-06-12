@@ -35,7 +35,7 @@ export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate
         });
         onValueChange?.(value);
     }, []);
-    return (<DatePicker title={label} selection={currentDate} onDateChange={_onValueChange} modifiers={[environment('locale', 'es_ES')]} range={{
+    return (<DatePicker title={label} selection={currentDateRanged} onDateChange={_onValueChange} modifiers={[environment('locale', 'es_ES')]} range={{
             start: minDate,
             end: maxDate,
         }}/>);

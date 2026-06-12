@@ -10,7 +10,7 @@ type Props = {
     /**
         Selection of the date picker.
     */
-    selection?: Date;
+    selection?: Date | undefined;
     /**
         The value that applies when selection is undefined.
         @default Date()

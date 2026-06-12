@@ -1,6 +1,6 @@
 import Wrapper from './src/components/Wrapper';
 import Item from './src/components/Item';
-import ItemDate from './src/components/ItemDate';
+import ItemDate from './src/components/ItemDate/DatePicker';
 
 
 type Component = typeof Wrapper & {
