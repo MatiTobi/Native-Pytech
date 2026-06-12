@@ -18,13 +18,11 @@ type Props = {
 
     /**
         Minimum date allowed.
-        @default 100 years ago
     */
     minDate?: Date
 
     /**
         Maximum date allowed.
-        @default today
     */
     maxDate?: Date
 

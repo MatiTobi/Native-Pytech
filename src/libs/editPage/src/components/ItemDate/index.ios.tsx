@@ -11,8 +11,8 @@ export default memo(({
 	itemKey,
 	label,
 	defaultValue,
-	minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)),
-	maxDate = new Date(),
+	minDate,
+	maxDate,
 	onValueChange,
 
 }: Props) => {
