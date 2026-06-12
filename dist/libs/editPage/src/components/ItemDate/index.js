@@ -5,7 +5,7 @@ import { useApp } from '../../../../../libs/providers/App';
 import Formats from '../../../../../libs/constants/formats';
 import { usePage } from '../../context/page';
 import Colors from '../../../../../libs/constants/colors';
-export default memo(({ itemKey, label, defaultValue, minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)), maxDate = new Date(), onValueChange, }) => {
+export default memo(({ itemKey, label, defaultValue, minDate, maxDate, onValueChange, }) => {
     const { colorScheme } = useApp();
     const { store, registerItem } = usePage();
     const [selection, setSelection] = useState(defaultValue ?? new Date());
