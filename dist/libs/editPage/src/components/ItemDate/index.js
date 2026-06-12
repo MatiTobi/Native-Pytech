@@ -5,38 +5,38 @@ import { useApp } from '../../../../../libs/providers/App';
 import Formats from '../../../../../libs/constants/formats';
 import { usePage } from '../../context/page';
 import Colors from '../../../../../libs/constants/colors';
-export default memo(({ itemKey, label, defaultValue, minDate, maxDate, onValueChange, }) => {
+export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate, onValueChange, }) => {
     const { colorScheme } = useApp();
     const { store, registerItem } = usePage();
-    const [selection, setSelection] = useState(defaultValue ?? new Date());
+    const [_selection, setSelection] = useState(selection ?? defaultValue ?? new Date());
     const inputRef = useRef(null);
     // Key
     const keyRef = useRef(itemKey);
     useEffect(() => {
         keyRef.current = registerItem(itemKey);
-        _onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'));
+        _onValueChange(Formats.dateToTextFormat(_selection, 'yyyy-MM-dd'));
     }, []);
     // Hooks
     useEffect(() => {
-        setSelection(defaultValue ?? new Date());
-        if (defaultValue === undefined)
-            _onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'));
-    }, [defaultValue]);
+        setSelection(selection ?? defaultValue ?? new Date());
+        if (selection === undefined)
+            _onValueChange(Formats.dateToTextFormat(_selection, 'yyyy-MM-dd'));
+    }, [selection]);
     const _onValueChange = useCallback((value_str) => {
         const [year, month, day] = value_str.split('-').map(Number);
         const value = new Date(year, month - 1, day);
         setSelection(value);
         store.values[keyRef.current ?? 0].set({
             value: value,
-            hasChanged: value.getTime() !== defaultValue?.getTime(),
+            hasChanged: value.getTime() !== selection?.getTime(),
             isValid: true,
         });
         onValueChange?.(value);
     }, []);
     return (<Table.Option id={label ?? ''} colorScheme={colorScheme} childrenLeft={<Table.Option.Components.Text text={label ?? 'Seleccione una fecha'}/>} childrenRight={(<>
                     <Pressable onPress={() => inputRef.current?.showPicker()} style={[styles.container, { backgroundColor: Colors.especiales.azul }]}>
-                        <Table.Option.Components.Text text={Formats.dateToTextFormat(selection, 'dd/MM/yyyy')} style={{ color: 'white', userSelect: 'none' }}/>
-                        <input ref={inputRef} type="date" value={Formats.dateToTextFormat(selection, 'yyyy-MM-dd')} onChange={(e) => _onValueChange(e.target.value)} style={{
+                        <Table.Option.Components.Text text={Formats.dateToTextFormat(_selection, 'dd/MM/yyyy')} style={{ color: 'white', userSelect: 'none' }}/>
+                        <input ref={inputRef} type="date" value={Formats.dateToTextFormat(_selection, 'yyyy-MM-dd')} onChange={(e) => _onValueChange(e.target.value)} style={{
                 all: 'unset',
                 visibility: 'hidden',
                 width: 0,
