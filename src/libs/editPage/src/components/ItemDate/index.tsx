@@ -31,6 +31,7 @@ export default memo(({
 	const keyRef = useRef<string | number>(itemKey)
 	useEffect(() => {
 		keyRef.current = registerItem(itemKey)
+        _onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'))
 	}, [])
 
 	// Hooks

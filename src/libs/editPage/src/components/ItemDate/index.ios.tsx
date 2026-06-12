@@ -24,6 +24,7 @@ export default memo(({
 	const keyRef = useRef<string | number>(itemKey)
 	useEffect(() => {
 		keyRef.current = registerItem(itemKey)
+		_onValueChange(selection ?? new Date())
 	}, [])
 
 	// Hooks
