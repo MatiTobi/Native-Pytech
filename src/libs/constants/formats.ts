@@ -102,13 +102,7 @@ const phoneToText = (phone: number | string) => {
 }
 
 
-const dateToTextFormat = (
-	date: Date,
-	format = 'yyyy-MM-dd'
-) => {
-	const _format = format.replaceAll('Y', 'y').replaceAll('m', 'M').replaceAll('D', 'd')
-	return DateFormatter(date, format)
-}
+const dateToTextFormat = (date: Date, format = 'yyyy-MM-dd') => DateFormatter(date, format)
 
 
 // ------------------- Export -------------------
