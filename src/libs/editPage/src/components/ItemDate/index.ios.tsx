@@ -43,17 +43,15 @@ export default memo(({
 
 
 	return (
-		<Section>
-			<DatePicker
-				title={label}
-				selection={_selection ?? defaultValue}
-				onDateChange={_onValueChange}
-				modifiers={[environment('locale', 'es_ES')]}
-				range={{
-					start: minDate,
-					end: maxDate,
-				}}
-			/>
-		</Section>
+		<DatePicker
+			title={label}
+			selection={_selection ?? defaultValue}
+			onDateChange={_onValueChange}
+			modifiers={[environment('locale', 'es_ES')]}
+			range={{
+				start: minDate,
+				end: maxDate,
+			}}
+		/>
 	)
 })
