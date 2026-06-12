@@ -1,4 +1,4 @@
-import DatePickerProps from './DatePicker/types';
+import DatePickerProps from './Picker/types';
 
 type Props = Omit<DatePickerProps, 'selection'> & {
     /**
@@ -16,6 +16,12 @@ type Props = Omit<DatePickerProps, 'selection'> & {
         Selection of the date picker.
     */
     selection?: Date
+
+    /**
+        Type of the date picker.
+        @default 'date'
+    */
+    type?: 'date' | 'time'
 }
 
 export default Props

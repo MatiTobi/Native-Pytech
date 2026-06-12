@@ -3,8 +3,7 @@ import { memo, useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import type Props from './types';
 import { usePage } from '../../context/page';
 import Hooks from '@/libs/constants/hooks';
-import DatePicker from './Picker/Date';
-import TimePicker from './Picker/Time';
+import DatePicker from './TimePicker';
 
 
 
@@ -15,7 +14,6 @@ export default memo(({
 	defaultValue,
 	minDate,
 	maxDate,
-	type='date',
 	onValueChange,
 
 }: Props) => {
@@ -54,15 +52,14 @@ export default memo(({
 		onValueChange?.(value)
 	}, [])
 
-	const props = {
-		label: label,
-		selection: currentDateRanged,
-		onValueChange: _onValueChange,
-		minDate: minDate,
-		maxDate: maxDate,
-	}
 
 	return (
-		type === 'date' ? <DatePicker {...props} /> : <TimePicker {...props} />
+		<DatePicker
+			label={label}
+			selection={currentDateRanged}
+			onValueChange={_onValueChange}
+			minDate={minDate}
+			maxDate={maxDate}
+		/>
 	)
 })

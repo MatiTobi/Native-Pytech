@@ -23,8 +23,10 @@ export default memo(({
     const inputRef = useRef<HTMLInputElement>(null)
 
 	const _onValueChange = useCallback((value_str: string) => {
-        const [year, month, day] = value_str.split('-').map(Number)
-        const value = new Date(year, month - 1, day)
+        const [hours, minutes] = value_str.split(':').map(Number)
+		if (Number.isNaN(hours) || Number.isNaN(minutes)) return
+        const value = new Date()
+        value.setHours(hours, minutes, 0, 0)
         onValueChange?.(value)
 	}, [])
     
@@ -33,18 +35,18 @@ export default memo(({
         <Table.Option
             id={label ?? ''}
             colorScheme={colorScheme}
-            childrenLeft={<Table.Option.Components.Text text={label ?? 'Seleccione una fecha'} />}
+            childrenLeft={<Table.Option.Components.Text text={label ?? 'Seleccione una hora'} />}
             childrenRight={(
                 <>
                     <Pressable
                         onPress={() => inputRef.current?.showPicker()}
                         style={[styles.container, { backgroundColor: Colors.especiales.azul }]}
                     >
-                        <Table.Option.Components.Text text={Formats.dateToTextFormat(selection, 'dd/MM/yyyy')} style={{color: 'white', userSelect: 'none'}}/>
+                        <Table.Option.Components.Text text={Formats.dateToTextFormat(selection, 'HH:mm')} style={{color: 'white', userSelect: 'none'}}/>
                         <input
                             ref={inputRef}
                             type="date"
-                            value={Formats.dateToTextFormat(selection, 'yyyy-MM-dd')}
+                            value={Formats.dateToTextFormat(selection, 'HH:mm')}
                             onChange={(e) => _onValueChange(e.target.value)}
                             style={{
                                 all: 'unset',

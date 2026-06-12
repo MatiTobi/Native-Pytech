@@ -1,9 +1,8 @@
 import { memo, useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import { usePage } from '../../context/page';
 import Hooks from '../../../../../libs/constants/hooks';
-import DatePicker from './Picker/Date';
-import TimePicker from './Picker/Time';
-export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate, type = 'date', onValueChange, }) => {
+import DatePicker from './TimePicker';
+export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate, onValueChange, }) => {
     const { store, registerItem } = usePage();
     const [_selection, setSelection] = useState(selection);
     const currentDate = useMemo(() => _selection ?? defaultValue ?? new Date(), [_selection, defaultValue]);
@@ -35,12 +34,5 @@ export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate
         });
         onValueChange?.(value);
     }, []);
-    const props = {
-        label: label,
-        selection: currentDateRanged,
-        onValueChange: _onValueChange,
-        minDate: minDate,
-        maxDate: maxDate,
-    };
-    return (type === 'date' ? <DatePicker {...props}/> : <TimePicker {...props}/>);
+    return (<DatePicker label={label} selection={currentDateRanged} onValueChange={_onValueChange} minDate={minDate} maxDate={maxDate}/>);
 });

@@ -1,4 +1,4 @@
-import DatePickerProps from './Picker/types';
+import DatePickerProps from './TimePicker/types';
 type Props = Omit<DatePickerProps, 'selection'> & {
     /**
         identification key of the item.
@@ -13,10 +13,5 @@ type Props = Omit<DatePickerProps, 'selection'> & {
         Selection of the date picker.
     */
     selection?: Date;
-    /**
-        Type of the date picker.
-        @default 'date'
-    */
-    type?: 'date' | 'time';
 };
 export default Props;
