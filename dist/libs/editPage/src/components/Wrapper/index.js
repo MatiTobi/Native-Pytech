@@ -4,7 +4,7 @@ import { memo, useCallback, useMemo, useRef } from 'react';
 import { Provider } from '../../context/page';
 import Screen from '../Screen';
 import Header from '../Header';
-export default memo(({ children, onSave }) => {
+export default memo(({ children, saveEnabled, onSave }) => {
     const textFieldsRefs = useRef({});
     const indexRef = useRef(0);
     // Store
@@ -21,7 +21,7 @@ export default memo(({ children, onSave }) => {
             return listValues.length === 1;
         },
     });
-    const saveEnabled = useValue(() => store.saveEnabled.get());
+    const _saveEnabled = useValue(() => store.saveEnabled.get());
     // onPress
     const onPressSave = useCallback(async () => {
         // Obtengo los valores del store
@@ -63,7 +63,7 @@ export default memo(({ children, onSave }) => {
     };
     const value = useMemo(() => ({ store, onSubmit, registerItem }), []);
     return (<>
-			<Header saveEnabled={saveEnabled} onPressSave={onPressSave}/>
+			<Header saveEnabled={_saveEnabled && (saveEnabled ?? true)} onPressSave={onPressSave}/>
 			<Screen>
 				<Provider value={value}>
 					{children}

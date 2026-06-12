@@ -4,6 +4,11 @@ type Props = {
     */
     children: React.ReactNode;
     /**
+        If true, the save button will be enabled.
+        This must be true and all values have to be valid.
+    */
+    saveEnabled?: boolean;
+    /**
         Function to be called when the user saves the changes.
         If the function returns false, the user will not be redirected to the previous screen.
     */
