@@ -1,4 +1,4 @@
-import { Section, DatePicker } from '@expo/ui/swift-ui';
+import { DatePicker } from '@expo/ui/swift-ui';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { environment } from '@expo/ui/swift-ui/modifiers';
 import { usePage } from '../../context/page';
@@ -22,10 +22,8 @@ export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate
         });
         onValueChange?.(value);
     }, []);
-    return (<Section>
-			<DatePicker title={label} selection={_selection ?? defaultValue} onDateChange={_onValueChange} modifiers={[environment('locale', 'es_ES')]} range={{
+    return (<DatePicker title={label} selection={_selection ?? defaultValue} onDateChange={_onValueChange} modifiers={[environment('locale', 'es_ES')]} range={{
             start: minDate,
             end: maxDate,
-        }}/>
-		</Section>);
+        }}/>);
 });
