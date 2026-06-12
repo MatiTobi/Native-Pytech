@@ -10,6 +10,7 @@ import { usePage } from '../../context/page';
 export default memo(({
 	itemKey,
 	label,
+	selection,
 	defaultValue,
 	minDate,
 	maxDate,
@@ -18,23 +19,23 @@ export default memo(({
 }: Props) => {
 
 	const { store, registerItem } = usePage()
-	const [selection, setSelection] = useState<Date | undefined>(defaultValue)
+	const [_selection, setSelection] = useState<Date | undefined>(selection)
 
 	// Key
 	const keyRef = useRef<string | number>(itemKey)
 	useEffect(() => {
 		keyRef.current = registerItem(itemKey)
-		_onValueChange(selection ?? new Date())
+		_onValueChange(_selection ?? defaultValue ?? new Date())
 	}, [])
 
 	// Hooks
-	useEffect(() => setSelection(defaultValue), [defaultValue])
+	useEffect(() => setSelection(selection), [selection])
 
 	const _onValueChange = useCallback((value: Date) => {		
 		setSelection(value)
 		store.values[keyRef.current ?? 0].set({
 			value: value,
-			hasChanged: value.getTime() !== defaultValue?.getTime(),
+			hasChanged: value.getTime() !== selection?.getTime(),
 			isValid: true,
 		})
 		onValueChange?.(value)
@@ -45,7 +46,7 @@ export default memo(({
 		<Section>
 			<DatePicker
 				title={label}
-				selection={selection}
+				selection={_selection ?? defaultValue}
 				onDateChange={_onValueChange}
 				modifiers={[environment('locale', 'es_ES')]}
 				range={{

@@ -12,7 +12,13 @@ type Props = {
     label?: string
 
     /**
-        Default value of the date picker.
+        Selection of the date picker.
+    */
+    selection?: Date
+
+    /**
+        The value that applies when selection is undefined.
+        @default Date()
     */
     defaultValue?: Date
 
