@@ -20,7 +20,7 @@ export type TrailingProps = {
 }
 
 
-type Props = Pick<ButtonProps, 'children' | 'onPress' | 'systemImage' | 'label'> & {
+type Props = Pick<ButtonProps, 'children' | 'onPress' | 'systemImage' | 'label' | 'modifiers'> & {
     /**
         Whether to apply the listRowInsets modifier to the HStack.
         @default false

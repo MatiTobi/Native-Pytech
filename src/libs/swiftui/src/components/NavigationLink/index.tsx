@@ -16,14 +16,18 @@ export default memo(({
     listRowInsets=false,
     trailingText,
     trailingTextProps,
-    trailingComponent
+    trailingComponent,
+    modifiers
 
 }: Props) => {
 
-    const modifiers = useMemo(() => listRowInsets ? [listRowInsetsModifier({top: 20, bottom: 20, leading: 25, trailing: 20})] : [], [listRowInsets])
+    const _modifiers = useMemo(() => [
+        ...(modifiers ?? []),
+        ...(listRowInsets ? [listRowInsetsModifier({top: 20, bottom: 20, leading: 25, trailing: 20})] : []),
+    ], [modifiers, listRowInsets])
 
 	return (
-        <HStack modifiers={modifiers}>
+        <HStack modifiers={_modifiers}>
             <Button onPress={onPress} modifiers={[foregroundStyle({type: 'hierarchical', style: 'primary'})]}>
                 {children ?? (!systemImage ? <Label title={label} icon={icon} /> : undefined)}
             </Button>
