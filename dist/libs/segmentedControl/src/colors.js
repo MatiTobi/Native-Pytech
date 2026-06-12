@@ -1,4 +1,4 @@
-import colorsLib from "@/libs/constants/colors";
+import colorsLib from "../../../libs/constants/colors";
 export const colors = {
     light: {
         text: colorsLib.light.text,

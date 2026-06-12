@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import { usePage } from '../../context/page';
-import Hooks from '@/libs/constants/hooks';
+import Hooks from '../../../../../libs/constants/hooks';
 import DatePicker from './DatePicker';
 export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate, onValueChange, }) => {
     const { store, registerItem } = usePage();

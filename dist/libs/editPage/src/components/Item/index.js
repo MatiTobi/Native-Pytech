@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import Table from '@/libs/table';
-import { useApp } from '@/libs/providers/App';
+import Table from '../../../../../libs/table';
+import { useApp } from '../../../../../libs/providers/App';
 import TextField from '../TextField';
 export default memo(({ label, minLengthSpacer, placeholder, ...textFieldProps }) => {
     const { colorScheme } = useApp();

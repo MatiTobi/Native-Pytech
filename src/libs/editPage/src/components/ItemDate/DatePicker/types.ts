@@ -9,7 +9,7 @@ type Props = {
     /**
         Selection of the date picker.
     */
-    selection?: Date | undefined
+    selection: Date
 
     /**
         Minimum date allowed.
