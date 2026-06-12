@@ -14,6 +14,7 @@ export default memo(({ itemKey, label, defaultValue, minDate, maxDate, onValueCh
     const keyRef = useRef(itemKey);
     useEffect(() => {
         keyRef.current = registerItem(itemKey);
+        _onValueChange(Formats.dateToTextFormat(selection, 'yyyy-MM-dd'));
     }, []);
     // Hooks
     useEffect(() => {

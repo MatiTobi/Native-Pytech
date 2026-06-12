@@ -9,6 +9,7 @@ export default memo(({ itemKey, label, defaultValue, minDate, maxDate, onValueCh
     const keyRef = useRef(itemKey);
     useEffect(() => {
         keyRef.current = registerItem(itemKey);
+        _onValueChange(selection ?? new Date());
     }, []);
     // Hooks
     useEffect(() => setSelection(defaultValue), [defaultValue]);
