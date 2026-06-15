@@ -60,7 +60,7 @@ export default memo(({
     const content = <>
         {childrenLeft && <AddTextView hasTextView={hasTextView}>{childrenLeft}</AddTextView>}
         {childrenRight || hasNavigationArrow ? (
-            <View style={styles.der}>
+            <View style={[styles.der, !childrenLeft ? { flex: 1, paddingVertical: 16.35 } : {}]}>
                 {childrenRight}
                 {hasNavigationArrow && <Ionicons name='chevron-forward' size={20} color={colors.theme[colorScheme].icon} />}
             </View>
