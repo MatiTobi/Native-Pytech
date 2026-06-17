@@ -46,6 +46,28 @@ const useAsyncEffect = (
 }
 
 
+const useAsyncEffectWithoutFirstRender = (
+    effect: (isMounted: () => boolean) => Promise<any>,
+    deps: any[]
+) => {
+    const isFirstRender = useRef(true)
+
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false
+            return
+        }
+
+        let mounted = true
+        const isMounted = () => mounted
+
+        void effect(isMounted)
+
+        return () => { mounted = false }
+    }, deps)
+}
+
+
 const useAsyncFocusEffect = (
     effect: (isMounted: () => boolean) => Promise<any>
 ) => {
@@ -86,6 +108,7 @@ const Hooks = {
 	useEffectWithoutFirstRender,
 	useLayoutEffectWithoutFirstRender,
 	useAsyncEffect,
+	useAsyncEffectWithoutFirstRender,
 	useAsyncFocusEffect,
 	useAsyncFocusEffectWithoutFirstRender,
 }
