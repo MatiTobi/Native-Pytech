@@ -28,6 +28,19 @@ const useAsyncEffect = (effect, deps) => {
         return () => { mounted = false; };
     }, deps);
 };
+const useAsyncEffectWithoutFirstRender = (effect, deps) => {
+    const isFirstRender = useRef(true);
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+        let mounted = true;
+        const isMounted = () => mounted;
+        void effect(isMounted);
+        return () => { mounted = false; };
+    }, deps);
+};
 const useAsyncFocusEffect = (effect) => {
     useFocusEffect(useCallback(() => {
         let mounted = true;
@@ -53,6 +66,7 @@ const Hooks = {
     useEffectWithoutFirstRender,
     useLayoutEffectWithoutFirstRender,
     useAsyncEffect,
+    useAsyncEffectWithoutFirstRender,
     useAsyncFocusEffect,
     useAsyncFocusEffectWithoutFirstRender,
 };
