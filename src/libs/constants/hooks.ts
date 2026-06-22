@@ -12,7 +12,7 @@ const useEffectWithoutFirstRender = (effect: () => void, deps: any[]) => {
             return
         }
 
-        return effect()
+        return void effect()
     }, deps)
 }
 
