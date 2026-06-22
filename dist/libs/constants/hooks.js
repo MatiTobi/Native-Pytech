@@ -7,7 +7,7 @@ const useEffectWithoutFirstRender = (effect, deps) => {
             isFirstRender.current = false;
             return;
         }
-        return effect();
+        return void effect();
     }, deps);
 };
 const useLayoutEffectWithoutFirstRender = (effect, deps) => {
