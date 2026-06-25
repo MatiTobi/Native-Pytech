@@ -78,5 +78,8 @@
     "./assets/images/*": {
       "default": "./dist/libs/assets/images/*"
     }
+  },
+  "dependencies": {
+    "expo": "~56.0.12"
   }
 }
