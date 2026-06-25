@@ -11,7 +11,7 @@ export default memo(({ onSelectColor, ...restProps }) => {
         router.back();
     }, [onSelectColor]);
     return (<>
-			<Stack.Screen.Title>Color de fondo</Stack.Screen.Title>
+			<Stack.Title>Color de fondo</Stack.Title>
 			<Content colorRows={colorRows} onSelectColor={_onSelectColor} {...restProps}/>
 		</>);
 });

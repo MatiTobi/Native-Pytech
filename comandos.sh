@@ -10,3 +10,6 @@ git push
 # dev reload-native-pytech
 npx expo install native-pytech
 
+npm login
+npm run release
+
