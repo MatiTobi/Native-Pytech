@@ -14,7 +14,7 @@ export default memo(({
 
 }: Props) => {
 	return (
-		<Host style={{ flex: 1 }}>
+		<Host matchContents={{ vertical: true }} style={{ width: '100%' }}>
 			<Column verticalArrangement={{ spacedBy: 2 }}>
 				{colorRows.map((row, index) => (
 					<Row key={index} horizontalArrangement="spaceEvenly" verticalArrangement="center" modifiers={[ fillMaxWidth() ]}>
