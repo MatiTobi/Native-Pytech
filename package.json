@@ -1,10 +1,6 @@
 {
   "name": "native-pytech",
-<<<<<<< HEAD
-  "version": "1.0.195",
-=======
   "version": "1.0.197",
->>>>>>> 5ea19840ac53577edab65b922991ff88ebfd8d72
   "description": "Libreria de React Native Pytech",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
