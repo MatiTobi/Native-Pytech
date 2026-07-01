@@ -28,7 +28,7 @@ export default memo(({
 
 	return (
 		<>
-			<Stack.Screen.Title>Color de fondo</Stack.Screen.Title>
+			<Stack.Title>Color de fondo</Stack.Title>
 			<Content
 				colorRows={colorRows}
 				onSelectColor={_onSelectColor}
