@@ -1,0 +1,17 @@
+import { memo, useMemo, useCallback } from 'react';
+import { Stack, useRouter } from 'expo-router';
+import { colors } from '../../../../libs/components/Gradient';
+import Content from '../Content';
+export default memo(({ onSelectColor, ...restProps }) => {
+    const router = useRouter();
+    const listColors = useMemo(() => Object.keys(colors), []);
+    const colorRows = useMemo(() => Array.from({ length: Math.ceil(listColors.length / 4) }, (_, i) => listColors.slice(i * 4, i * 4 + 4)), [listColors]);
+    const _onSelectColor = useCallback(async (color) => {
+        await onSelectColor?.(color);
+        router.back();
+    }, [onSelectColor]);
+    return (<>
+			<Stack.Title>Color de fondo</Stack.Title>
+			<Content colorRows={colorRows} onSelectColor={_onSelectColor} {...restProps}/>
+		</>);
+});
