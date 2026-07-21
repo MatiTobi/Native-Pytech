@@ -18,7 +18,7 @@ export default memo(({
 } : Props) => {
     
     const typeSizes = useMemo(() => sizes[type], [type])
-    const iconSize = typeSizes.diameter * 0.4
+    const iconSize = typeSizes.diameter * 0.5
 
     const textComponent = useMemo(() => {
 
