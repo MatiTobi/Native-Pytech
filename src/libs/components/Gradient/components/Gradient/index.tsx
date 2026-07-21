@@ -18,6 +18,7 @@ export default memo(({
 } : Props) => {
     
     const typeSizes = useMemo(() => sizes[type], [type])
+    const iconSize = typeSizes.diameter * 0.4
 
     const textComponent = useMemo(() => {
 
@@ -39,7 +40,7 @@ export default memo(({
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
         >
-            {textComponent ?? (icon ?? (ionIconName && <Ionicons name={ionIconName} size={24} color={'white'} />))}
+            {textComponent ?? (icon ?? (ionIconName && <Ionicons name={ionIconName} size={iconSize} color={'white'} />))}
         </LinearGradient>
     )
 })
