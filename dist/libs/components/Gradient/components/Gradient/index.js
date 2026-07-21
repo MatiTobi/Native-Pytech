@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import colors, { sizes } from '../../constants';
 export default memo(({ text, color = 'default', type = 'small', icon, ionIconName, }) => {
     const typeSizes = useMemo(() => sizes[type], [type]);
-    const iconSize = typeSizes.diameter * 0.4;
+    const iconSize = typeSizes.diameter * 0.5;
     const textComponent = useMemo(() => {
         const cantLetras = text?.length;
         if (!text || !cantLetras)
