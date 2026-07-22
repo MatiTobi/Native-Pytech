@@ -33,6 +33,11 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
     const layoutAnimation = disableLayoutAnimation ? undefined : (isLowTier ? LinearTransition.duration(500) : LinearTransition.easing(Easing.bezier(0.2, 0.2, 0, 1)).duration(600));
     // ------------- useEffect -------------
     Hooks.useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys]);
+    const tableAnimations = Platform.OS === 'web' ? {} : {
+        exiting: FadeOut.duration(100),
+        entering: FadeIn.duration(100),
+        layout: layoutAnimation
+    };
     const value = useMemo(() => ({ colorThemeType, type, keys, allBorders }), [colorThemeType, type, keys, allBorders]);
     return (<Animated.View key={title || 'title'} layout={Platform.OS === 'web' ? undefined : LinearTransition.duration(100).easing(Easing.bezier(0.1, 0.1, 0, 1))} style={[
             styles.container,
@@ -44,7 +49,7 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
                     {title}
                 </Animated.Text>}
 
-            <Animated.View exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)} layout={layoutAnimation} style={[
+            <Animated.View {...tableAnimations} style={[
             styles.contentContainer,
             { backgroundColor: colors.table[colorThemeType][colorScheme].background },
             contentContainerStyle,
