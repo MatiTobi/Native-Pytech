@@ -60,6 +60,12 @@ const Table = memo(({
     // ------------- useEffect -------------
     Hooks.useEffectWithoutFirstRender(() => store.deleted.keys.set(keys), [keys])
 
+    const tableAnimations = Platform.OS === 'web' ? {} : {
+        exiting: FadeOut.duration(100),
+        entering: FadeIn.duration(100),
+        layout: layoutAnimation
+    }
+
     const value = useMemo(() => ({colorThemeType, type, keys, allBorders}), [colorThemeType, type, keys, allBorders])
 
 
@@ -85,9 +91,7 @@ const Table = memo(({
             }
 
             <Animated.View
-                exiting={FadeOut.duration(100)}
-                entering={FadeIn.duration(100)}
-                layout={layoutAnimation}
+                {...tableAnimations}
                 style={[
                     styles.contentContainer,
                     { backgroundColor: colors.table[colorThemeType][colorScheme].background },
