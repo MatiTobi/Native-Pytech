@@ -14,10 +14,22 @@ export default memo(({
     type='small',
     icon,
     ionIconName,
+    sizeDiameter
 
 } : Props) => {
     
-    const typeSizes = useMemo(() => sizes[type], [type])
+    const typeSizes = useMemo(() => {
+        if (!sizeDiameter) return sizes[type]
+        return {
+            diameter: sizeDiameter,
+            fontSize: {
+                1: sizeDiameter * 0.53,
+                2: sizeDiameter * 0.48,
+                3: sizeDiameter * 0.43
+            }   
+        }
+    }, [type])
+    
     const iconSize = typeSizes.diameter * 0.5
 
     const textComponent = useMemo(() => {
