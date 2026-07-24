@@ -3,7 +3,7 @@ export declare const selectAll: (input: TextInput | any, value: string | null) =
 /**
     Pone el color del texto según el tema y agrega unos estilos para que ocupen todo el ancho.
 */
-declare const _default: import("react").MemoExoticComponent<({ value, numberOfLines, onFocus, onBlur, onChangeText, mask, ...props }: {
+declare const _default: import("react").MemoExoticComponent<({ value, numberOfLines, onFocus, onBlur, onChangeText, mask, autoFocus, ...props }: {
     /**
         Valor inicial del input.
     */

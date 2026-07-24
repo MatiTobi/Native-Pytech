@@ -13,7 +13,7 @@ export const selectAll = (input, value) => {
 /**
     Pone el color del texto según el tema y agrega unos estilos para que ocupen todo el ancho.
 */
-export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, mask, ...props }) => {
+export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, mask, autoFocus, ...props }) => {
     const { colorScheme } = useApp();
     const Theme = colors.theme[colorScheme];
     const inputRef = useRef(null);
@@ -28,6 +28,12 @@ export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, 
         if (isFocused)
             selectAll(inputRef.current, rawValue);
     }, [isFocused]);
+    // Autofocus en Web tiene que hacer esto, sino no funciona
+    useEffect(() => {
+        if (!autoFocus || Platform.OS !== 'web')
+            return;
+        setTimeout(() => inputRef.current?.focus(), 100);
+    }, [autoFocus]);
     return (<TextInput style={[styles.textInput, { color: Theme.text }]} ref={inputRef} numberOfLines={numberOfLines} multiline={Platform.OS === 'android'} value={displayValue == null ? '' : displayValue} selectTextOnFocus={true} onFocus={(e) => {
             setIsFocused(true);
             onFocus?.(e);
@@ -37,7 +43,7 @@ export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, 
         }} onChangeText={(text) => {
             setRawValue(text === '' ? null : text);
             onChangeText?.(text);
-        }} clearButtonMode='while-editing' {...props}/>);
+        }} clearButtonMode='while-editing' autoFocus={autoFocus} {...props}/>);
 });
 const styles = StyleSheet.create({
     textInput: {
