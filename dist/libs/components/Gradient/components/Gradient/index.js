@@ -3,8 +3,19 @@ import { StyleSheet, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import colors, { sizes } from '../../constants';
-export default memo(({ text, color = 'default', type = 'small', icon, ionIconName, }) => {
-    const typeSizes = useMemo(() => sizes[type], [type]);
+export default memo(({ text, color = 'default', type = 'small', icon, ionIconName, sizeDiameter }) => {
+    const typeSizes = useMemo(() => {
+        if (!sizeDiameter)
+            return sizes[type];
+        return {
+            diameter: sizeDiameter,
+            fontSize: {
+                1: sizeDiameter * 0.53,
+                2: sizeDiameter * 0.48,
+                3: sizeDiameter * 0.43
+            }
+        };
+    }, [type]);
     const iconSize = typeSizes.diameter * 0.5;
     const textComponent = useMemo(() => {
         const cantLetras = text?.length;
