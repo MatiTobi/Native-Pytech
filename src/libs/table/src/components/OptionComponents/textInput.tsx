@@ -26,6 +26,7 @@ export default memo(({
     onBlur,
     onChangeText,
     mask,
+    autoFocus,
     ...props
 
 } : {
@@ -55,7 +56,7 @@ export default memo(({
     const { colorScheme } = useApp()
     const Theme = colors.theme[colorScheme]
 
-    const inputRef = useRef(null);
+    const inputRef = useRef<TextInput | null>(null);
 
     const [isFocused, setIsFocused] = useState(false)
     const [rawValue, setRawValue] = useState(value as any)
@@ -70,6 +71,12 @@ export default memo(({
     useEffect(() => {
         if (isFocused) selectAll(inputRef.current, rawValue)
     }, [isFocused])
+
+    // Autofocus en Web tiene que hacer esto, sino no funciona
+    useEffect(() => {
+        if (!autoFocus || Platform.OS !== 'web') return
+        setTimeout(() => inputRef.current?.focus(), 100)
+    }, [autoFocus]);
 
 
 	return (
@@ -93,6 +100,7 @@ export default memo(({
                 onChangeText?.(text)
             }}
             clearButtonMode='while-editing'
+            autoFocus={autoFocus}
             {...props}
         />
 	)
