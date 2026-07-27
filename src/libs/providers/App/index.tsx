@@ -39,7 +39,6 @@ export default memo(({
     const { fontScale } = useWindowDimensions()
 
     const [isLoading, setIsLoading] = useState(true)
-    console.log('isLoading', isLoading)
 	const hasSessionRef = useRef(false)
 
 
