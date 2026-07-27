@@ -1,5 +1,5 @@
 import { memo, useMemo, useState, useRef } from "react"
-import { Stack, useRouter } from "expo-router";
+import { Stack } from "expo-router";
 import { useColorScheme, useWindowDimensions, View, StyleSheet } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
@@ -20,7 +20,7 @@ export { useApp }
 
 
 export default memo(({
-    listStackNames=[],
+    children,
     getBackgroundColor,
     getSession,
     renderItemLoading=({ colorScheme }) => (colorScheme === 'dark' ?
@@ -37,7 +37,6 @@ export default memo(({
     const Theme = colors[colorScheme]
 
     const { fontScale } = useWindowDimensions()
-    const router = useRouter()
 
     const [isLoading, setIsLoading] = useState(true)
 	const hasSessionRef = useRef(false)
@@ -45,7 +44,7 @@ export default memo(({
 
     // -------------- Effects --------------
     Hooks.useEffectWithoutFirstRender(() => {
-        if (!isLoading) onLoadingRealsed?.({router, hasSession: hasSessionRef.current})
+        if (!isLoading) onLoadingRealsed?.({hasSession: hasSessionRef.current})
     }, [isLoading])
 
     Hooks.useAsyncEffect(async (isMounted) => {
@@ -70,11 +69,7 @@ export default memo(({
         <SafeAreaProvider>
             <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                 <Provider value={value}>
-                    <Stack screenOptions={{ headerShown: false }}>
-                        {listStackNames?.map((name) => (
-                            <Stack.Screen key={name} name={name} />
-                        ))}
-                    </Stack>
+                    {children}
                 </Provider>
             </ThemeProvider>
         </SafeAreaProvider>
