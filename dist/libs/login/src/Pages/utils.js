@@ -1,4 +1,4 @@
-import supabase from "@/libs/supabase";
+import supabase from "../../../../libs/supabase";
 export const handleSubmitLogIn = async ({ username, router }) => {
     const identifier = username.trim();
     const data = await supabase.execFunction({

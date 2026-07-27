@@ -1,1 +1,1 @@
-export { default } from '@/libs/pickerPage';
+export { default } from '../libs/pickerPage';

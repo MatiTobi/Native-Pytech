@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Ionicons } from '@expo/vector-icons';
-import { useApp } from "@/libs/providers/App";
-import Table from "@/libs/table";
-import Colors from "@/libs/constants/colors";
+import { useApp } from "../../../../../libs/providers/App";
+import Table from "../../../../../libs/table";
+import Colors from "../../../../../libs/constants/colors";
 import { usePage } from '../../context/page';
 export default memo(({ itemKey, title, ionIconName, icon }) => {
     const { colorScheme } = useApp();

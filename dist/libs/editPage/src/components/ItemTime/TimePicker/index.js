@@ -1,9 +1,9 @@
 import { memo, useCallback, useRef } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import Table from '@/libs/table';
-import { useApp } from '@/libs/providers/App';
-import Formats from '@/libs/constants/formats';
-import Colors from '@/libs/constants/colors';
+import Table from '../../../../../../libs/table';
+import { useApp } from '../../../../../../libs/providers/App';
+import Formats from '../../../../../../libs/constants/formats';
+import Colors from '../../../../../../libs/constants/colors';
 export default memo(({ label, selection, minDate, maxDate, onValueChange, }) => {
     const { colorScheme } = useApp();
     const inputRef = useRef(null);

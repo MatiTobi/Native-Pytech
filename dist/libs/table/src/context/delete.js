@@ -1,2 +1,2 @@
-import Utils from "@/libs/constants/utils";
+import Utils from "../../../../libs/constants/utils";
 export const [DeleteProvider, useDelete] = Utils.createCtx();

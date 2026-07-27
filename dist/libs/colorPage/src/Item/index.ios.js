@@ -1,7 +1,7 @@
 import { clipShape, buttonStyle, controlSize, glassEffect, padding } from '@expo/ui/swift-ui/modifiers';
 import { Button } from '@expo/ui/swift-ui';
 import React, { memo, useMemo } from 'react';
-import { colors } from '@/libs/components/Gradient';
+import { colors } from '../../../../libs/components/Gradient';
 export default memo(({ color, size, selectedColor, onSelectColor, renderGradientIOS }) => {
     if (!renderGradientIOS)
         return null;

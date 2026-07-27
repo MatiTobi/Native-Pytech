@@ -1,7 +1,6 @@
 import { useRouter } from 'expo-router'
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 
-import supabase from '@/libs/supabase'
 import Screen from '../../Screen'
 
 import { handleSubmitLogIn } from '../utils'

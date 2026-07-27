@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import { usePage } from '../../context/page';
-import Hooks from '@/libs/constants/hooks';
+import Hooks from '../../../../../libs/constants/hooks';
 import DatePicker from './Picker/Date';
 import TimePicker from './Picker/Time';
 export default memo(({ itemKey, label, selection, defaultValue, minDate, maxDate, type = 'date', onValueChange, }) => {
