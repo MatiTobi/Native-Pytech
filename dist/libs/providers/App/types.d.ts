@@ -1,10 +1,6 @@
 import { ColorSchemeType } from "../../../libs/constants/colors";
-import { ImperativeRouter } from "expo-router";
 type Props = {
-    /**
-     Lista de nombres de los Stacks que se deben renderizar.
-     */
-    listStackNames?: string[];
+    children?: React.ReactNode;
     /**
         Función para obtener el color de fondo de las paginas por defecto.
     */
@@ -27,8 +23,7 @@ type Props = {
         Función para ejecutar cuando se realice el cambio de estado de loading a false.
         Se utiliza para redirigir a la página de inicio.
     */
-    onLoadingRealsed?: ({ router, hasSession }: {
-        router: ImperativeRouter;
+    onLoadingRealsed?: ({ hasSession }: {
         hasSession: boolean;
     }) => void;
 };

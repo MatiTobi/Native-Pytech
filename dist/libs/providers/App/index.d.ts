@@ -6,5 +6,5 @@ declare const useApp: () => {
     fontScale: number;
 };
 export { useApp };
-declare const _default: import("react").MemoExoticComponent<({ listStackNames, getBackgroundColor, getSession, renderItemLoading, onLoadingRealsed, }: Props) => import("react").JSX.Element>;
+declare const _default: import("react").MemoExoticComponent<({ children, getBackgroundColor, getSession, renderItemLoading, onLoadingRealsed, }: Props) => import("react").JSX.Element>;
 export default _default;
