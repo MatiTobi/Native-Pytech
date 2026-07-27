@@ -39,6 +39,7 @@ export default memo(({
     const { fontScale } = useWindowDimensions()
 
     const [isLoading, setIsLoading] = useState(true)
+    console.log('isLoading', isLoading)
 	const hasSessionRef = useRef(false)
 
 
@@ -49,7 +50,6 @@ export default memo(({
 
     Hooks.useAsyncEffect(async (isMounted) => {
 		hasSessionRef.current = (await getSession?.()) ?? true
-		if (!isMounted) return
 		setIsLoading(false)
 	}, [])
 
