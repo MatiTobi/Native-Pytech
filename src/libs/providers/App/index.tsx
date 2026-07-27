@@ -44,7 +44,7 @@ export default memo(({
 
     // -------------- Effects --------------
     Hooks.useEffectWithoutFirstRender(() => {
-        if (!isLoading) onLoadingRealsed?.({hasSession: hasSessionRef.current})
+        if (!isLoading) onLoadingRealsed?.({ hasSession: hasSessionRef.current })
     }, [isLoading])
 
     Hooks.useAsyncEffect(async (isMounted) => {
