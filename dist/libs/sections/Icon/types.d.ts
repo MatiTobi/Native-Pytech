@@ -1,4 +1,4 @@
-import { Props as GradientProps } from '../../../libs/components/Gradient';
+import { Props as GradientProps } from '@/libs/components/Gradient';
 type Props = {
     /**
         The title of the icon section.

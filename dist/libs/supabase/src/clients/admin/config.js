@@ -1,4 +1,4 @@
-import { expoEnv } from '../../../../../libs/constants/consts';
+import { expoEnv } from '@/libs/constants/consts';
 import * as utils from '../../utils';
 const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY } = expoEnv;
 if (!SUPABASE_URL)

@@ -1,7 +1,7 @@
 import * as utils from '../../utils';
-export declare const logIn: ({ email, password }?: {
-    email?: string;
-    password?: string;
+export declare const logIn: ({ email, password }: {
+    email: string;
+    password: string;
 }) => Promise<import("@supabase/auth-js").AuthTokenResponsePassword>;
 export declare const logOut: () => Promise<{
     error: import("@supabase/auth-js").AuthError | null;

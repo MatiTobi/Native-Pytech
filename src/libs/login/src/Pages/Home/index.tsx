@@ -21,13 +21,6 @@ export default memo(({
 
     const router = useRouter()
 
-    useEffect(() => {
-        (async () => {
-            const { error } = await supabase.logIn()
-            if (!error) console.log('LogIn exitoso')
-        })()
-    }, [])
-
     return (
         <Screen
             iconPage={iconPage}

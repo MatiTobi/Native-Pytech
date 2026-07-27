@@ -1,4 +1,4 @@
-import { ColorSchemeType } from "../../../libs/constants/colors";
+import { ColorSchemeType } from "@/libs/constants/colors";
 type Props = {
     children?: React.ReactNode;
     /**

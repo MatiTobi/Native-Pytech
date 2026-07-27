@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Pressable } from 'react-native';
 import { useDelete } from '../../context/delete';
-import RemoveCircle from '../../../../../libs/assets/components/RemoveCircle';
+import RemoveCircle from '@/libs/assets/components/RemoveCircle';
 import colors from '../../constants';
 /**
     Icono de eliminar.

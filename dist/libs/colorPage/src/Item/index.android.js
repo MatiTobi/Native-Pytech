@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Shape, Surface, Box } from '@expo/ui/jetpack-compose';
 import { background, clip, Shapes, clickable, paddingAll, alpha, size as sizeModifier } from '@expo/ui/jetpack-compose/modifiers';
-import { colors } from '../../../../libs/components/Gradient';
+import { colors } from '@/libs/components/Gradient';
 export default memo(({ color, size, selectedColor, onSelectColor, renderGradient, }) => {
     if (!renderGradient)
         return null;

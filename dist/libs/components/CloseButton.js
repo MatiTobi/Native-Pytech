@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { useLocalSearchParams, router } from 'expo-router';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useApp } from '../../libs/providers/App';
-import Colors from '../../libs/constants/colors';
+import { useApp } from '@/libs/providers/App';
+import Colors from '@/libs/constants/colors';
 export default memo(({ onclick }) => {
     const { colorScheme } = useApp();
     const localSearchParams = useLocalSearchParams();

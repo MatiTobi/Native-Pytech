@@ -1,7 +1,7 @@
 declare const supabase: {
-    logIn: ({ email, password }?: {
-        email?: string;
-        password?: string;
+    logIn: ({ email, password }: {
+        email: string;
+        password: string;
     }) => Promise<import("@supabase/auth-js").AuthTokenResponsePassword>;
     logOut: () => Promise<{
         error: import("@supabase/auth-js").AuthError | null;
