@@ -1,18 +1,9 @@
 import supabase from './config'
 import * as utils from '../../utils'
-import { expoEnv } from '@/libs/constants/consts'
-
-const { SUPABASE_USERNAME_LOGIN, SUPABASE_PASSWORD_LOGIN } = expoEnv
 
 
 
-export const logIn = async ({
-    email = SUPABASE_USERNAME_LOGIN as string,
-    password = SUPABASE_PASSWORD_LOGIN as string
-}: {
-    email?: string,
-    password?: string
-} = {}) => (
+export const logIn = async ({ email, password }: { email: string, password: string }) => (
     await utils.logIn(supabase, { email, password })
 )
 
