@@ -19,6 +19,7 @@ export default memo(({ children, getBackgroundColor, getSession, renderItemLoadi
     const Theme = colors[colorScheme];
     const { fontScale } = useWindowDimensions();
     const [isLoading, setIsLoading] = useState(true);
+    console.log('isLoading', isLoading);
     const hasSessionRef = useRef(false);
     // -------------- Effects --------------
     Hooks.useEffectWithoutFirstRender(() => {
@@ -27,8 +28,6 @@ export default memo(({ children, getBackgroundColor, getSession, renderItemLoadi
     }, [isLoading]);
     Hooks.useAsyncEffect(async (isMounted) => {
         hasSessionRef.current = (await getSession?.()) ?? true;
-        if (!isMounted)
-            return;
         setIsLoading(false);
     }, []);
     // -------------- Return --------------
