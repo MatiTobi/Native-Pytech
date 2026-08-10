@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
 	text: {
 		color: 'white',
         fontWeight: 'bold',
+        userSelect: 'none',
         letterSpacing: -0.5,
 	}
 })
