@@ -33,6 +33,33 @@ const textToDate = (value?: string): Date | undefined => {
 }
 
 
+const textHourToDate = (value?: string): Date | undefined => {
+	if (!value) return undefined
+
+	const match = value.trim().match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/)
+	if (!match) return undefined
+
+	const hours = Number(match[1])
+	const minutes = Number(match[2])
+	const seconds = Number(match[3] ?? 0)
+
+	if (hours > 23 || minutes > 59 || seconds > 59) return undefined
+
+	const today = new Intl.DateTimeFormat('en-CA', {
+		timeZone: 'America/Argentina/Buenos_Aires',
+	}).format(new Date())
+
+	const time = [
+		String(hours).padStart(2, '0'),
+		String(minutes).padStart(2, '0'),
+		String(seconds).padStart(2, '0'),
+	].join(':')
+
+	const date = new Date(`${today}T${time}-03:00`)
+	return Number.isNaN(date.getTime()) ? undefined : date
+}
+
+
 function numberToTextCurrency(value: number): string {
     return new Intl.NumberFormat('es-AR', {
 		style: 'currency',
@@ -110,6 +137,7 @@ const Formats = {
 	numberToText,
 	TextToNumber,
 	textToDate,
+	textHourToDate,
 	numberToTextCurrency,
 	capitalizeText,
 	phoneToText,
