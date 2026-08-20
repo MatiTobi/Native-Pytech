@@ -17,6 +17,7 @@
   },
   "include": [
     "declarations.d.ts",
+    "expo-types.d.ts",
     "src/**/*"
   ],
   "exclude": [
