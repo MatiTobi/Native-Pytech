@@ -1,4 +1,4 @@
-import Animated, { Easing, FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
+import Animated, { Easing, LinearTransition } from 'react-native-reanimated';
 import { Platform, View } from 'react-native';
 import { memo } from 'react';
 import colors from '../constants';
@@ -43,7 +43,7 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, onDelete,
         </BordersContextWrapper>) : content;
     if (!isAnimated)
         return content;
-    return (<Animated.View layout={Platform.OS === 'web' ? undefined : layoutAnimation} exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}>
+    return (<Animated.View layout={Platform.OS === 'web' ? undefined : layoutAnimation} /*exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}*/>
             {content}
         </Animated.View>);
 });

@@ -83,7 +83,7 @@ export default memo(({
 
     if (!isAnimated) return content
     return (
-        <Animated.View layout={Platform.OS === 'web' ? undefined : layoutAnimation} exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}>
+        <Animated.View layout={Platform.OS === 'web' ? undefined : layoutAnimation} /*exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}*/>
             {content}
         </Animated.View>
     )
