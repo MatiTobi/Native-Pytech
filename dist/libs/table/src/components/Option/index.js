@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { memo, useCallback, useMemo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '../../constants';
 import Table from '../Table';
@@ -36,7 +36,10 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, style, ba
     </>;
     const styleView = useMemo(() => [styles.Item_View, style], [style]);
     const childrenOption = onPress === undefined ? <View style={styleView}>{content}</View>
-        : (backgroundColorPressed ? (<Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
+        : (backgroundColorPressed ? (<Pressable onPress={onPress} style={({ pressed, hovered }) => [
+                styleView,
+                (pressed || (Platform.OS === 'web' && hovered)) && { backgroundColor: backgroundColorPressed }
+            ]}>
                 {content}
             </Pressable>) : (<PressableView onPress={onPress} colorScheme={colorScheme} styleView={styleView}>
                 {content}
@@ -50,7 +53,10 @@ export default memo(({ children, childrenLeft, childrenRight, onPress, style, ba
 const PressableView = memo(({ children, onPress, colorScheme, styleView }) => {
     const { colorThemeType } = useTable();
     const backgroundColorPressed = colors.table[colorThemeType][colorScheme].background_pressed;
-    return (<Pressable onPress={onPress} style={({ pressed }) => !pressed ? styleView : [styleView, { backgroundColor: backgroundColorPressed }]}>
+    return (<Pressable onPress={onPress} style={({ pressed, hovered }) => [
+            styleView,
+            (pressed || (Platform.OS === 'web' && hovered)) && { backgroundColor: backgroundColorPressed }
+        ]}>
             {children}
         </Pressable>);
 });
