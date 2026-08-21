@@ -45,7 +45,7 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
             style
         ]}>
             {title &&
-            <Animated.Text key={title} style={[styles.title, { color: Theme.text2 }]} exiting={FadeOut.duration(100)} entering={FadeIn.duration(100)}>
+            <Animated.Text key={title} style={[styles.title, { color: Theme.text2 }]}>
                     {title}
                 </Animated.Text>}
 
@@ -66,7 +66,7 @@ const Table = memo(({ children, title, renderDetail, colorThemeType = 'default',
 
 
             {renderDetail &&
-            <Animated.View entering={FadeIn.duration(100)} exiting={FadeOut.duration(100)}>
+            <Animated.View /*entering={FadeIn.duration(100)} exiting={FadeOut.duration(100)}*/>
                     {renderDetail()}
                 </Animated.View>}
         </Animated.View>);
