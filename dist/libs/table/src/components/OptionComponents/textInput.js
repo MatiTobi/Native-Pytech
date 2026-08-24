@@ -13,7 +13,7 @@ export const selectAll = (input, value) => {
 /**
     Pone el color del texto según el tema y agrega unos estilos para que ocupen todo el ancho.
 */
-export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, mask, autoFocus, ...props }) => {
+export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, mask, autoFocus, style, ...props }) => {
     const { colorScheme } = useApp();
     const Theme = colors.theme[colorScheme];
     const inputRef = useRef(null);
@@ -34,7 +34,7 @@ export default memo(({ value, numberOfLines = 1, onFocus, onBlur, onChangeText, 
             return;
         setTimeout(() => inputRef.current?.focus(), 100);
     }, [autoFocus]);
-    return (<TextInput style={[styles.textInput, { color: Theme.text }]} ref={inputRef} numberOfLines={numberOfLines} multiline={Platform.OS === 'android'} value={displayValue == null ? '' : displayValue} selectTextOnFocus={true} onFocus={(e) => {
+    return (<TextInput style={[styles.textInput, { color: Theme.text }, style]} ref={inputRef} numberOfLines={numberOfLines} multiline={Platform.OS === 'android'} value={displayValue == null ? '' : displayValue} selectTextOnFocus={true} onFocus={(e) => {
             setIsFocused(true);
             onFocus?.(e);
         }} onBlur={(e) => {
