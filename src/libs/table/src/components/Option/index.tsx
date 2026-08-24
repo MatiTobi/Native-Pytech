@@ -149,7 +149,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 10
+        gap: 10,
+        minHeight: 55.1,
     },
     izq: {
         marginRight: 'auto',
