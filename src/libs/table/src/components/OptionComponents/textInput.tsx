@@ -27,6 +27,7 @@ export default memo(({
     onChangeText,
     mask,
     autoFocus,
+    style,
     ...props
 
 } : {
@@ -81,7 +82,7 @@ export default memo(({
 
 	return (
         <TextInput
-            style={[styles.textInput, {color: Theme.text }]}
+            style={[styles.textInput, {color: Theme.text }, style]}
             ref={inputRef}
             numberOfLines={numberOfLines}
             multiline={Platform.OS === 'android'}
