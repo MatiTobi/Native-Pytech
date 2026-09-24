@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react'
-import { StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -46,24 +46,29 @@ export default memo(({
     } , [text, typeSizes])
 
     return (
-        <LinearGradient
-            style={[styles.gradient, { height: typeSizes.diameter, borderRadius: typeSizes.diameter }]}
-            colors={[colors[color].light, colors[color].dark]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-        >
+        <View style={[styles.view, { height: typeSizes.diameter, borderRadius: typeSizes.diameter }]}>
+            <LinearGradient
+                style={[styles.view, styles.gradient, { height: typeSizes.diameter, borderRadius: typeSizes.diameter }]}
+                colors={[colors[color].light, colors[color].dark]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+            />
             {textComponent ?? (icon ?? (ionIconName && <Ionicons name={ionIconName} size={iconSize} color={'white'} />))}
-        </LinearGradient>
+        </View>
     )
 })
 
 
 
 const styles = StyleSheet.create({
-	gradient: {
-		aspectRatio: 1, // width will automatically match height
+    view: {
+        aspectRatio: 1, // width will automatically match height
 		justifyContent: 'center',
 		alignItems: 'center'
+    },
+	gradient: {
+		position: 'absolute',
+        transform: [{ rotate: '90deg' }],
 	},
 	text: {
 		color: 'white',
