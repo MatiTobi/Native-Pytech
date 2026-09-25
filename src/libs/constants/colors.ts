@@ -194,6 +194,7 @@ const Colors = {
         verde_claro: 'hsl(132, 65%, 64%)',
         celeste: 'hsl(179, 100%, 76%)',
         azul_pressed: 'hsl(197, 100%, 50%)',
+        naranja: 'hsl(28, 72.40%, 56.10%)',
     }
 };
 
