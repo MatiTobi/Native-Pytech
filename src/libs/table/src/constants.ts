@@ -19,7 +19,7 @@ export const colors = {
         rojo: colorsLib.especiales.rojo
     },
     table: {
-        default: {//hsl(240, 2%, 18%)
+        default: {
             light: {
                 background: '#FFFFFF', // secondarySystemGroupedBackground
                 background_pressed: 'hsl(0, 0%, 85%)',
