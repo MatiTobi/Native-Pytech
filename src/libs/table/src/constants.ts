@@ -21,13 +21,13 @@ export const colors = {
     table: {
         default: {//hsl(240, 2%, 18%)
             light: {
-                background: 'hsl(120, 100%, 100%)',
-                background_pressed: 'hsl(240, 5%, 83%)',
+                background: '#FFFFFF', // secondarySystemGroupedBackground
+                background_pressed: 'hsl(0, 0%, 85%)',
                 border: 'hsl(240, 2%, 91%)'
             },
             dark: {
-                background: 'hsl(240, 3%, 10.5%)',
-                background_pressed: 'hsl(240, 2%, 22.5%)',
+                background: '#2C2C2E', // tertiarySystemGroupedBackground
+                background_pressed: 'hsl(240, 2.20%, 22.60%)',
                 border: 'hsl(240, 3%, 22.5%)'
             }
         },
