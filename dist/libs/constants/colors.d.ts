@@ -211,6 +211,7 @@ declare const Colors: {
         verde_claro: string;
         celeste: string;
         azul_pressed: string;
+        naranja: string;
     };
 };
 export type ColorSchemeType = keyof Pick<typeof Colors, "light" | "dark">;
