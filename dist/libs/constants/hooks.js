@@ -42,24 +42,28 @@ const useAsyncEffectWithoutFirstRender = (effect, deps) => {
     }, deps);
 };
 const useAsyncFocusEffect = (effect) => {
+    const effectRef = useRef(effect);
+    useEffect(() => { effectRef.current = effect; }, [effect]);
     useFocusEffect(useCallback(() => {
         let mounted = true;
         const isMounted = () => mounted;
-        void effect(isMounted);
+        void effectRef.current(isMounted);
         return () => { mounted = false; };
-    }, [effect]));
+    }, []));
 };
 const useAsyncFocusEffectWithoutFirstRender = (effect) => {
     const isFirstFocus = useRef(true);
+    const effectRef = useRef(effect);
+    useEffect(() => { effectRef.current = effect; }, [effect]);
     useFocusEffect(useCallback(() => {
         let mounted = true;
         const isMounted = () => mounted;
         if (isFirstFocus.current)
             isFirstFocus.current = false;
         else
-            void effect(isMounted);
+            void effectRef.current(isMounted);
         return () => { mounted = false; };
-    }, [effect]));
+    }, []));
 };
 // ------------------- Export -------------------
 const Hooks = {
