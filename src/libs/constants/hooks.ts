@@ -71,15 +71,19 @@ const useAsyncEffectWithoutFirstRender = (
 const useAsyncFocusEffect = (
     effect: (isMounted: () => boolean) => Promise<any>
 ) => {
+
+    const effectRef = useRef(effect)
+	useEffect(() => { effectRef.current = effect }, [effect])
+
     useFocusEffect(
         useCallback(() => {
             let mounted = true
             const isMounted = () => mounted
 
-            void effect(isMounted)
+            void effectRef.current(isMounted)
 
             return () => { mounted = false }
-        }, [effect])
+        }, [])
     )   
 }
 
@@ -88,6 +92,9 @@ const useAsyncFocusEffectWithoutFirstRender = (
 	effect: (isMounted: () => boolean) => Promise<any>
 ) => {
 	const isFirstFocus = useRef(true)
+
+    const effectRef = useRef(effect)
+	useEffect(() => { effectRef.current = effect }, [effect])
   
 	useFocusEffect(
 		useCallback(() => {
@@ -95,10 +102,10 @@ const useAsyncFocusEffectWithoutFirstRender = (
 			const isMounted = () => mounted
 	
 			if (isFirstFocus.current) isFirstFocus.current = false
-			else void effect(isMounted)
+			else void effectRef.current(isMounted)
 	
 			return () => { mounted = false }
-		}, [effect])
+		}, [])
 	)
 }
 
