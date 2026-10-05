@@ -21,12 +21,12 @@ export const colors = {
         default: {
             light: {
                 background: '#FFFFFF', // secondarySystemGroupedBackground
-                background_pressed: 'hsl(0, 0%, 85%)',
+                background_pressed: 'hsl(0, 0%, 85%)', // secondarySystemGroupedBackground
                 border: 'hsl(240, 2%, 91%)'
             },
             dark: {
-                background: '#1C1C1E', // tertiarySystemGroupedBackground
-                background_pressed: 'hsl(240, 2.20%, 22.60%)',
+                background: '#1C1C1E', // secondarySystemGroupedBackground
+                background_pressed: 'hsl(240, 2.20%, 22.60%)', // tertiarySystemGroupedBackground
                 border: 'hsl(240, 3%, 22.5%)'
             }
         },

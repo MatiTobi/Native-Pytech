@@ -14,7 +14,8 @@ const addProps = (element, additionalStyles = [], extraProps = {}) => {
     });
 };
 const isValidMail = (mail) => {
-    return mail.includes('@') && mail.endsWith('.com');
+    const at = mail.indexOf('@');
+    return at !== -1 && mail.lastIndexOf('.') > at && /\.[a-zA-Z]+$/.test(mail);
 };
 const applyOpacity = (color, opacity) => {
     try {
