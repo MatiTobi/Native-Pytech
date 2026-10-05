@@ -19,7 +19,8 @@ const addProps = (element: React.ReactElement | null, additionalStyles: StylePro
 
 
 const isValidMail = (mail: string): boolean => {
-    return mail.includes('@') && mail.endsWith('.com')
+    const at = mail.indexOf('@')
+    return at !== -1 && mail.lastIndexOf('.') > at && /\.[a-zA-Z]+$/.test(mail)
 }
 
 
