@@ -42,7 +42,7 @@ const Component = memo(({
 } : Props & {colorScheme: ColorSchemeType} & TextProps) => {
 
     const Theme = colors.theme[colorScheme]
-    const textStyle = useMemo(() => [
+    const textStyle = useMemo((): StyleProp<TextStyle> => [
         styles.text,
         {
             color: enabled ? Theme.text : Theme.text2
@@ -61,6 +61,10 @@ const Component = memo(({
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,
-        userSelect: 'none'
-    }
+        userSelect: 'none',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        minWidth: 0,
+    } as TextStyle,
 })
