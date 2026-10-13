@@ -83,6 +83,7 @@ const OnPressView = memo(({ backgroundColorPressed, colorScheme }: { backgroundC
 const styles = StyleSheet.create({
     Item_View: {
         flex: 1,
+        display: 'flex',
         paddingLeft: left,
         paddingRight: right,
         flexDirection: 'row',
@@ -97,13 +98,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 11,
-        //paddingBottom: 2,
+        flexGrow: 0,
+        flexShrink: 0,
+        flexBasis: 'auto',
     },
     der: {
         marginLeft: 'auto',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 11
+        gap: 11,
+        flex: 1,
+        justifyContent: 'flex-end',
     },
     onPressView: {
         position: 'absolute',

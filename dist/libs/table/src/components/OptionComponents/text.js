@@ -22,6 +22,10 @@ const Component = memo(({ text, enabled = true, style = {}, colorScheme, fontSca
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,
-        userSelect: 'none'
-    }
+        userSelect: 'none',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        minWidth: 0,
+    },
 });
