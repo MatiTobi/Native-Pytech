@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 11,
         flexGrow: 0,
-        flexShrink: 1,
+        flexShrink: 0,
         flexBasis: 'auto',
     },
     der: {
