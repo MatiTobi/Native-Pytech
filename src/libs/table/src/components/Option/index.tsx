@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         gap: 11,
 
         flexGrow: 0,
-        flexShrink: 0,
+        flexShrink: 1,
         flexBasis: 'auto',
     },
     der: {
