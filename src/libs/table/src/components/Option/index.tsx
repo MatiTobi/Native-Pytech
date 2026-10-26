@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 11,
-        //flex: 1,
+        flex: 1,
         justifyContent: 'flex-end',
     },
 
