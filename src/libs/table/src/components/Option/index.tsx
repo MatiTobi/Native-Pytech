@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
         gap: 11,
         flex: 1,
         justifyContent: 'flex-end',
+        paddingVertical: 10
     },
 
     onPressView: {
