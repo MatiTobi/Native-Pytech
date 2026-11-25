@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         userSelect: 'none',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
+        //whiteSpace: 'nowrap',
         minWidth: 0,
     },
 });

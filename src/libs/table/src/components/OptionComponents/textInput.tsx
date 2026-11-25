@@ -22,6 +22,7 @@ export default memo(({
 
     value,
     numberOfLines=1,
+    multiline=Platform.OS === 'android',
     onFocus,
     onBlur,
     onChangeText,
@@ -41,6 +42,12 @@ export default memo(({
         Por default es 1.
     */
     numberOfLines?: number,
+
+    /**
+        Por default es false.
+        @default Platform.OS === 'android'
+    */
+   multiline?: boolean,
 
     onFocus?: ((e: FocusEvent) => void) | undefined;
     onBlur?: ((e: BlurEvent) => void) | undefined,
@@ -85,7 +92,7 @@ export default memo(({
             style={[styles.textInput, {color: Theme.text }, style]}
             ref={inputRef}
             numberOfLines={numberOfLines}
-            multiline={Platform.OS === 'android'}
+            multiline={multiline || numberOfLines > 1}
             value={displayValue == null ? '' : displayValue}
             selectTextOnFocus={true}
             onFocus={(e) => {
